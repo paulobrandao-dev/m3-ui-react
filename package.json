@@ -31,10 +31,6 @@
       "import": "./dist/react-material.utils.js",
       "require": "./dist/react-material.utils.cjs"
     },
-    "./dist/react-material.png": {
-      "import": "./dist/react-material.png",
-      "require": "./dist/react-material.png"
-    },
     "./dist/react-material.css": {
       "import": "./dist/react-material.css",
       "require": "./dist/react-material.css"
@@ -56,8 +52,9 @@
     "style:icons": "sass --no-source-map src/styles/icons-outlined.scss:dist/react-material-symbols-outlined.css src/styles/icons-rounded.scss:dist/react-material-symbols-rounded.css src/styles/icons-sharp.scss:dist/react-material-symbols-sharp.css",
     "style:main": "sass --no-source-map src/styles/index.scss dist/react-material.css",
     "style": "npm run style:icons && npm run style:main",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc -b && vite build && npm run style",
+    "build:docs": "tsc -b && vite build -c vite.config.docs.ts",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --coverage.enabled=true --ui",
