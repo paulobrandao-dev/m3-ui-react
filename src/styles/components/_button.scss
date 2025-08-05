@@ -1,6 +1,6 @@
-@use '../mixin';
+@use '../mixin' as *;
 
-.material-button {
+.rm-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -11,84 +11,70 @@
   transition-property: box-shadow;
   transition-duration: var(--ease-emphasized-duration);
   transition-timing-function: var(--ease-emphasized);
-  position: relative;
-  @include mixin.state-layer;
-
-  > * {
-    pointer-events: none;
-  }
-
-  > .icon {
-    width: 24px;
-    height: 24px;
-    font-size: 24px;
-    object-fit: contain;
-  }
+  @include state-layer;
 
   &:hover {
-    @include mixin.state-layer-hover;
+    @include state-layer-hover;
   }
 
   &:focus {
-    @include mixin.state-layer-focus;
+    @include state-layer-focus;
   }
 
-  &:disabled {
+  &__disabled {
     background-color: rgba(22, 22, 22, 0.12);
     color: var(--color-on-surface);
     box-shadow: none;
-    pointer-events: none;
+  }
 
-    > span {
-      opacity: 0.38;
+  &__label {
+    font: var(--text-label-large);
+  }
+
+  &__elevated {
+    box-shadow: var(--elevation-1);
+    background-color: var(--color-surface-container-low);
+    color: var(--color-primary);
+
+    &:hover {
+      box-shadow: var(--elevation-2);
     }
   }
-  &.variant {
-    &-elevated {
+
+  &__filled {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+
+    &:hover {
       box-shadow: var(--elevation-1);
-      background-color: var(--color-surface-container-low);
-      color: var(--color-primary);
-
-      &:hover {
-        box-shadow: var(--elevation-2);
-      }
     }
+  }
 
-    &-filled {
-      background-color: var(--color-primary);
-      color: var(--color-on-primary);
+  &__tonal {
+    background-color: var(--color-secondary-container);
+    color: var(--color-on-secondary-container);
 
-      &:hover {
-        box-shadow: var(--elevation-1);
-      }
+    &:hover {
+      box-shadow: var(--elevation-1);
     }
+  }
 
-    &-tonal {
-      background-color: var(--color-secondary-container);
-      color: var(--color-on-secondary-container);
+  &__outlined {
+    border: 1px solid var(--color-outline);
+    color: var(--color-primary);
 
-      &:hover {
-        box-shadow: var(--elevation-1);
-      }
+    &:disabled {
+      background-color: transparent;
+      border-color: rgba(22, 22, 22, 0.12);
     }
+  }
 
-    &-outlined {
-      border: 1px solid var(--color-outline);
-      color: var(--color-primary);
+  &__text {
+    color: var(--color-primary);
+    padding-inline: var(--spacing-lg);
 
-      &:disabled {
-        background-color: transparent;
-        border-color: rgba(22, 22, 22, 0.12);
-      }
-    }
-
-    &-text {
-      color: var(--color-primary);
-      padding-inline: var(--spacing-lg);
-
-      &:disabled {
-        background-color: transparent;
-      }
+    &:disabled {
+      background-color: transparent;
     }
   }
 }

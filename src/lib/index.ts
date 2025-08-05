@@ -1,18 +1,15 @@
 // hooks
+export * from './hooks/useDialogControl';
 export * from './hooks/useMediaQuery';
 export * from './hooks/usePopoverControl';
-export * from './hooks/useDialogControl';
+export * from './hooks/useScrollBehavior';
 
 // components
-export * from './components/Box';
 export * from './components/Button';
-export * from './components/Appbar';
-export * from './components/Icon';
-export * from './components/Navrail';
-export * from './components/Navlink';
-export * from './components/IconButton';
-export * from './components/Navbar';
-export * from './components/Navdrawer';
-export * from './components/Divider';
+export * from './components/CanonicalLayout';
 export * from './components/Card';
 export * from './components/Dialog';
+export * from './components/Divider';
+export * from './components/IconButton';
+export * from './components/Navlink';
+export * from './components/Toolbar';

@@ -26,35 +26,41 @@
       "import": "./dist/react-material.js",
       "require": "./dist/react-material.cjs"
     },
-    "./utils": {
-      "types": "./dist/utils.d.ts",
-      "import": "./dist/react-material.utils.js",
-      "require": "./dist/react-material.utils.cjs"
+    "./theme": {
+      "types": "./dist/theme.d.ts",
+      "import": "./dist/react-material.theme.js",
+      "require": "./dist/react-material.theme.cjs"
+    },
+    "./icon": {
+      "types": "./dist/icon.d.ts",
+      "import": "./dist/react-material.icon.js",
+      "require": "./dist/react-material.icon.cjs"
     },
     "./dist/react-material.css": {
       "import": "./dist/react-material.css",
       "require": "./dist/react-material.css"
     },
-    "./dist/react-material-symbols-outlined.css": {
-      "import": "./dist/react-material-symbols-outlined.css",
-      "require": "./dist/react-material-symbols-outlined.css"
+    "./dist/react-material.icon-outlined.css": {
+      "import": "./dist/react-material.icon-outlined.css",
+      "require": "./dist/react-material.icon-outlined.css"
     },
-    "./dist/react-material-symbols-rounded.css": {
-      "import": "./dist/react-material-symbols-rounded.css",
-      "require": "./dist/react-material-symbols-rounded.css"
+    "./dist/react-material.icon-rounded.css": {
+      "import": "./dist/react-material.icon-rounded.css",
+      "require": "./dist/react-material.icon-rounded.css"
     },
-    "./dist/react-material-symbols-sharp.css": {
-      "import": "./dist/react-material-symbols-sharp.css",
-      "require": "./dist/react-material-symbols-sharp.css"
+    "./dist/react-material.icon-sharp.css": {
+      "import": "./dist/react-material.icon-sharp.css",
+      "require": "./dist/react-material.icon-sharp.css"
     }
   },
   "scripts": {
-    "style:icons": "sass --no-source-map src/styles/icons-outlined.scss:dist/react-material-symbols-outlined.css src/styles/icons-rounded.scss:dist/react-material-symbols-rounded.css src/styles/icons-sharp.scss:dist/react-material-symbols-sharp.css",
-    "style:main": "sass --no-source-map src/styles/index.scss dist/react-material.css",
-    "style": "npm run style:icons && npm run style:main",
     "dev": "vite --host",
-    "build": "tsc -b && vite build && npm run style",
-    "build:docs": "tsc -b && vite build -c vite.config.docs.ts",
+    "build:docs": "tsc -b && vite build -c configs/vite.config.docs.ts",
+    "build:outlined": "tsc -b && vite build -c configs/vite.config.icon-outlined.ts",
+    "build:rounded": "tsc -b && vite build -c configs/vite.config.icon-rounded.ts",
+    "build:sharp": "tsc -b && vite build -c configs/vite.config.icon-sharp.ts",
+    "build:icons": "npm run build:outlined && npm run build:rounded && npm run build:sharp",
+    "build": "tsc -b && vite build && npm run build:icons",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --coverage.enabled=true --ui",
@@ -72,6 +78,7 @@
   "dependencies": {
     "@material/material-color-utilities": "^0.3.0",
     "clsx": "^2.1.1",
+    "material-symbols": "^0.33.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

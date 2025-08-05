@@ -6,48 +6,61 @@ import {
   ComponentPropsWithoutRef,
   ElementType,
   ReactNode,
+  Ref,
 } from 'react';
-import { Box } from './Box';
 
 export type NavlinkProps<A extends ElementType> = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   'children' | 'aria-current'
 > & {
   label: string;
-  icon: ReactNode;
-  active?: boolean;
+  icon?: ReactNode;
+  isActive?: boolean;
+  isHorizontal?: boolean;
   as?: A;
+  ref?: Ref<HTMLElement & HTMLAnchorElement>;
 };
+
+const CSS_PREFIX = 'material-navlink';
 
 export function Navlink<T extends ElementType>({
   as,
+  ref,
   label,
   icon,
-  active,
+  isActive,
+  isHorizontal,
   className,
   ...props
 }: NavlinkProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof NavlinkProps<T>>) {
   const Surface = as || 'a';
   return (
     <Surface
-      className={clsx('material-navlink', className)}
-      aria-current={active ? 'page' : undefined}
+      ref={ref}
+      className={clsx(
+        CSS_PREFIX,
+        isHorizontal ? `${CSS_PREFIX}__horizontal` : undefined,
+        className,
+      )}
+      aria-current={isActive ? 'page' : undefined}
       {...props}
     >
-      <Box
-        as="span"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        shape="lg"
-        containerColor={active ? 'secondary-container' : undefined}
-        className="indicator"
+      {isHorizontal && icon}
+      {!isHorizontal && icon !== undefined && (
+        <span
+          className={clsx(
+            `${CSS_PREFIX}__indicator`,
+            isActive ? `${CSS_PREFIX}__indicator-active` : undefined,
+          )}
+        >
+          {icon}
+        </span>
+      )}
+      <span
+        className={`${CSS_PREFIX}__label${isHorizontal ? '-horizontal' : ''}`}
       >
-        {icon}
-      </Box>
-      <Box as="span" fontScale="label-medium">
         {label}
-      </Box>
+      </span>
     </Surface>
   );
 }

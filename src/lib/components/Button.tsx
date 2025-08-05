@@ -6,38 +6,45 @@ import {
   ComponentPropsWithoutRef,
   ElementType,
   ReactNode,
+  Ref,
 } from 'react';
-import { Box } from './Box';
 
-export type ButtonProps<T extends ElementType> =
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    as?: T;
-    icon?: ReactNode;
-    variant?: 'text' | 'outlined' | 'tonal' | 'filled' | 'elevated';
-  };
+export type ButtonProps<T extends ElementType> = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'children'
+> & {
+  label: string;
+  as?: T;
+  ref?: Ref<HTMLButtonElement>;
+  icon?: ReactNode;
+  variant?: 'text' | 'outlined' | 'tonal' | 'filled' | 'elevated';
+};
+
+const CSS_PREFIX = 'rm-button';
 
 export function Button<T extends ElementType>({
   as,
+  ref,
   icon,
   variant = 'text',
-  children,
+  label,
   className,
   ...props
 }: ButtonProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>) {
   const Surface = as || 'button';
   return (
     <Surface
-      className={clsx('material-button', `variant-${variant}`, className)}
+      ref={ref}
+      className={clsx(
+        CSS_PREFIX,
+        `${CSS_PREFIX}__${variant}`,
+        { [`${CSS_PREFIX}__disabled`]: props.disabled },
+        className,
+      )}
       {...props}
     >
-      {icon && (
-        <Box as="span" role="presentation" className="icon">
-          {icon}
-        </Box>
-      )}
-      <Box as="span" fontScale="label-large">
-        {children}
-      </Box>
+      {icon}
+      <span className={`${CSS_PREFIX}__label`}>{label}</span>
     </Surface>
   );
 }

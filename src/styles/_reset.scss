@@ -12,10 +12,11 @@ html,
 body {
   width: 100%;
   transition-property: background-color, color;
-  transition-duration: var(--ease-emphasized-duration);
-  transition-timing-function: var(--ease-emphasized);
+  transition-duration: var(--ease-duration);
+  transition-timing-function: var(--ease-standard);
   background-color: var(--color-background);
   color: var(--color-on-background);
+  font: var(--text-body-large);
 }
 
 a {
@@ -31,6 +32,18 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  > * {
+    pointer-events: none;
+  }
+
+  &:disabled {
+    pointer-events: none;
+
+    > span {
+      opacity: 0.38;
+    }
+  }
 }
 
 pre,

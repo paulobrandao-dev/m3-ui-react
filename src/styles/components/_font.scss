@@ -1,0 +1,86 @@
+@use '../mixin' as *;
+
+@mixin font-scale($scale) {
+  &__#{$scale} {
+    &-large {
+      font: var(--text-#{$scale}-large);
+    }
+    &-medium {
+      font: var(--text-#{$scale}-medium);
+    }
+    &-small {
+      font: var(--text-#{$scale}-small);
+    }
+  }
+}
+
+.rm-font {
+  @include font-scale('display');
+  @include font-scale('headline');
+  @include font-scale('title');
+  @include font-scale('body');
+  @include font-scale('label');
+
+  @include spacing-rules('padding');
+  @include spacing-rules('padding-block');
+  @include spacing-rules('padding-block-end');
+  @include spacing-rules('padding-block-start');
+  @include spacing-rules('padding-inline');
+  @include spacing-rules('padding-inline-end');
+  @include spacing-rules('padding-inline-start');
+
+  @include spacing-rules('margin', 1);
+  @include spacing-rules('margin-block', 1);
+  @include spacing-rules('margin-block-end', 1);
+  @include spacing-rules('margin-block-start', 1);
+  @include spacing-rules('margin-inline', 1);
+  @include spacing-rules('margin-inline-end', 1);
+  @include spacing-rules('margin-inline-start', 1);
+
+  @include flexbox-rules;
+
+  &__transform {
+    &-capitalize {
+      text-transform: capitalize;
+    }
+    &-lowercase {
+      text-transform: lowercase;
+    }
+    &-uppercase {
+      text-transform: uppercase;
+    }
+  }
+
+  &__align {
+    &-center {
+      text-align: center;
+    }
+    &-justify {
+      text-align: justify;
+    }
+    &-left {
+      text-align: left;
+    }
+    &-right {
+      text-align: right;
+    }
+  }
+
+  &__color {
+    &-primary {
+      color: var(--color-primary);
+    }
+    &-secondary {
+      color: var(--color-secondary);
+    }
+    &-tertiary {
+      color: var(--color-tertiary);
+    }
+    &-reverse {
+      color: var(--color-on-inverse-surface);
+    }
+    &-error {
+      color: var(--color-error);
+    }
+  }
+}

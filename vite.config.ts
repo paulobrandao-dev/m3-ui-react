@@ -24,12 +24,11 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        index: resolve(__dirname, 'src/lib/index.ts'),
-        utils: resolve(__dirname, 'src/lib/utils/index.ts'),
+        index: resolve(__dirname, 'src', 'lib', 'index.ts'),
+        theme: resolve(__dirname, 'src', 'lib', 'theme', 'index.ts'),
       },
-      name: 'ReactMaterial',
       fileName: (format, entryName) =>
-        `react-material${entryName === 'utils' ? '.utils' : ''}.${format === 'cjs' ? 'cjs' : 'js'}`,
+        `react-material${entryName !== 'index' ? `.${entryName}` : ''}.${format === 'cjs' ? 'cjs' : 'js'}`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
