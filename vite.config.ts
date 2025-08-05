@@ -5,11 +5,13 @@ import { resolve } from 'path';
 import preserveDirectives from 'rollup-preserve-directives';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import loadVersion from 'vite-plugin-package-version';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    loadVersion(),
     preserveDirectives(),
     dts({
       rollupTypes: true,

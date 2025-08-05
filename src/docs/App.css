@@ -20,14 +20,14 @@ main {
   padding-inline: var(--spacing-md);
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 839px) {
   #root {
     display: flex;
     flex-direction: column;
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 840px) {
   #root {
     display: flex;
     flex-direction: row;
@@ -77,6 +77,14 @@ main {
   #article-nav {
     flex-direction: column;
   }
+}
+
+#app_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-sm);
+  padding-block-end: var(--spacing-sm);
 }
 
 pre {

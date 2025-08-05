@@ -9,13 +9,13 @@ import type {
 export type FontProps<E extends React.ElementType> =
   React.HTMLAttributes<HTMLElement> & {
     scale: MaterialTextScales;
-    as?: E;
     textAlign?: 'center' | 'justify' | 'left' | 'right';
     textTransform?: 'capitalize' | 'lowercase' | 'uppercase';
-    ref?: React.Ref<HTMLElement>;
+    textColor?: 'primary' | 'secondary' | 'tertiary' | 'reverse' | 'error';
     spacing?: MaterialSpacingProps;
     flexbox?: MaterialFlexboxProps;
-    textColor?: 'primary' | 'secondary' | 'tertiary' | 'reverse' | 'error';
+    as?: E;
+    ref?: React.Ref<HTMLElement>;
   };
 
 const CSS_PREFIX = 'rm-font';

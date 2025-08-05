@@ -10,6 +10,8 @@ export * from './components/CanonicalLayout';
 export * from './components/Card';
 export * from './components/Dialog';
 export * from './components/Divider';
+export * from './components/Font';
 export * from './components/IconButton';
+export * from './components/ListItem';
 export * from './components/Navlink';
 export * from './components/Toolbar';
