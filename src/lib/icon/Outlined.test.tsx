@@ -9,7 +9,7 @@ describe('Icon component', () => {
     const result = render(
       <>
         <Icon icon="search" size={20} data-testid="icon_20" />
-        <Icon icon="home" weight={300} size={24} data-testid="icon_24" />
+        <Icon icon="home" weight={300} emphasis="low" data-testid="icon_24" />
         <Icon icon="settings" emphasis="high" size={40} data-testid="icon_40" />
         <Icon icon="favorite" isFilled size={48} data-testid="icon_48" />
       </>,
@@ -26,7 +26,7 @@ describe('Icon component', () => {
     );
     expect(icon_24.className).toEqual('rm-icon');
     expect(icon_24.style.fontVariationSettings).toEqual(
-      "'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24",
+      "'FILL' 0, 'wght' 300, 'GRAD' -25, 'opsz' 24",
     );
     expect(icon_40.className).toEqual('rm-icon');
     expect(icon_40.style.fontVariationSettings).toEqual(
