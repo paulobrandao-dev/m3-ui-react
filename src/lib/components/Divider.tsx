@@ -2,23 +2,23 @@
 
 import { clsx } from 'clsx';
 
-export type DividerProps<T extends React.ElementType> =
+export type DividerProps<E extends React.ElementType> =
   React.HTMLAttributes<HTMLHRElement> & {
-    as?: T;
-    vertical?: boolean;
+    as?: E;
+    isVertical?: boolean;
     ref?: React.Ref<HTMLElement & HTMLHRElement>;
   };
 
 const CSS_PREFIX = 'rm-divider';
 
-export function Divider<T extends React.ElementType>({
+export function Divider<E extends React.ElementType>({
   as,
-  vertical,
+  isVertical,
   ref,
   className,
   ...props
-}: DividerProps<T> &
-  Omit<React.ComponentPropsWithoutRef<T>, keyof DividerProps<T>>) {
+}: DividerProps<E> &
+  Omit<React.ComponentPropsWithoutRef<E>, keyof DividerProps<E>>) {
   const Surface = as || 'hr';
 
   return (
@@ -26,7 +26,7 @@ export function Divider<T extends React.ElementType>({
       ref={ref}
       className={clsx(
         CSS_PREFIX,
-        { [`${CSS_PREFIX}__vertical`]: vertical },
+        { [`${CSS_PREFIX}__vertical`]: isVertical },
         className,
       )}
       {...props}
