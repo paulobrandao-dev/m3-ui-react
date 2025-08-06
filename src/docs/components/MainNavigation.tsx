@@ -1,7 +1,7 @@
+import { Navlink } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
-import { Navlink } from '../lib';
-import { Link } from './utils';
+import { Link } from '../utils';
 
 export default function MainNavigation() {
   const [current, setCurrent] = useState<string>(window.location.pathname);

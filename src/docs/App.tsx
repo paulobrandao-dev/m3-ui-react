@@ -7,18 +7,21 @@ import {
   Font,
   IconButton,
   Toolbar,
+  useDialogControl,
   useMediaQuery,
   useScrollBehavior,
 } from '../lib';
 import './App.css';
-import CompleteNavigation from './CompleteNavigation';
-import MainNavigation from './MainNavigation';
+import CompleteNavigation from './components/CompleteNavigation';
+import MainNavigation from './components/MainNavigation';
 import { Router } from './utils';
+import DialogLicense from './components/DialogLicense';
 
 export default function Docs() {
   const media = useMediaQuery();
   const [isScrolled, setScrolledToggle] = useState<boolean>(false);
   const [railIsOpen, openRail] = useState<boolean>(false);
+  const { showDialog } = useDialogControl();
 
   useEffect(() => {
     openRail(media.isGreaterThanLarge);
@@ -70,6 +73,11 @@ export default function Docs() {
           <Divider />
           <div>
             <Button
+              label="License"
+              icon={<Icon icon="balance" />}
+              onClick={() => showDialog('dialog-license')}
+            />
+            <Button
               as="a"
               label="NPM package"
               icon={<Icon icon="sdk" />}
@@ -91,6 +99,7 @@ export default function Docs() {
               target="_blank"
             />
           </div>
+          <DialogLicense />
         </footer>
       </main>
     </>

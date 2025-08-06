@@ -1,7 +1,7 @@
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
-import { Font, Navlink } from '../lib';
-import { Link } from './utils';
+import { Font, Navlink } from '../../lib';
+import { Link } from '../utils';
 
 export default function CompleteNavigation() {
   const [current, setCurrent] = useState<string>(window.location.pathname);

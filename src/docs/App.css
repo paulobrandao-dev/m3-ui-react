@@ -73,18 +73,24 @@ main {
   flex-basis: 50%;
 }
 
-@media screen and (max-width: 599px) {
-  #article-nav {
-    flex-direction: column;
-  }
-}
-
 #app_footer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: var(--spacing-sm);
   padding-block-end: var(--spacing-sm);
+}
+
+@media screen and (max-width: 599px) {
+  #app_footer {
+    align-items: flex-start;
+  }
+
+  #app_footer > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 pre {

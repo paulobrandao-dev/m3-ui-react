@@ -51,7 +51,7 @@ dialog.rm-dialog {
   padding: var(--spacing-xl);
   margin: auto;
   animation: translateDownDialog var(--ease-accelerate-duration)
-    var(--ease-emphasized-accelerated) forwards;
+    var(--ease-accelerate) forwards;
   transition:
     overlay 0.7s ease-out allow-discrete,
     display 0.7s ease-out allow-discrete;
@@ -59,19 +59,19 @@ dialog.rm-dialog {
   &::backdrop {
     background-color: var(--color-scrim);
     animation: hideBackdrop var(--ease-accelerate-duration)
-      var(--ease-emphasized-accelerated) forwards;
+      var(--ease-accelerate) forwards;
     transition:
       overlay 0.7s ease-out allow-discrete,
       display 0.7s ease-out allow-discrete;
   }
 
   &[open] {
-    animation: translateUpDialog var(--ease-emphasized-decelerate-duration)
-      var(--ease-emphasized-decelerated) forwards;
+    animation: translateUpDialog var(--ease-decelerate-duration)
+      var(--ease-decelerate) forwards;
 
     &::backdrop {
-      animation: showBackdrop var(--ease-emphasized-decelerate-duration)
-        var(--ease-emphasized-decelerated) forwards;
+      animation: showBackdrop var(--ease-decelerate-duration)
+        var(--ease-decelerate) forwards;
     }
   }
 
