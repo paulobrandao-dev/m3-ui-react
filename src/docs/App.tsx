@@ -74,18 +74,21 @@ export default function Docs() {
               label="NPM package"
               icon={<Icon icon="sdk" />}
               href="https://www.npmjs.com/package/@paulobrandao/react-material"
+              target="_blank"
             />
             <Button
               as="a"
               label="Repository"
               icon={<Icon icon="code" />}
               href="https://github.com/paulobrandao-dev/react-material"
+              target="_blank"
             />
             <Button
               as="a"
               label="Bug report"
               icon={<Icon icon="bug_report" />}
               href="https://github.com/paulobrandao-dev/react-material/issues"
+              target="_blank"
             />
           </div>
         </footer>

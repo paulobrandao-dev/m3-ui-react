@@ -1,6 +1,7 @@
+import cardMedia from '@/docs/assets/react-material-cover.webp';
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
-import { Card } from '..';
+import { Card, CardContent, CardMedia, Font } from '..';
 
 describe('Card component', () => {
   afterEach(cleanup);
@@ -132,5 +133,42 @@ describe('Card component', () => {
     expect(
       cardButton.classList.contains('rm-card__elevated-state-layer'),
     ).toBeTruthy();
+  });
+
+  it('validate child components', () => {
+    const result = render(
+      <Card>
+        <CardMedia
+          as="img"
+          src={cardMedia}
+          alt="Image example"
+          alignMedia="right-center"
+          fitMedia="cover"
+        />
+        <CardContent
+          data-testid="card-content"
+          spacing={{
+            paddingInline: 'lg',
+            paddingBlockStart: 'md',
+            paddingBlockEnd: 'lg',
+          }}
+        >
+          <Font as="p" scale="body-large">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis
+            vel risus non pharetra. Fusce ultrices eget est et maximus. Sed
+            laoreet, mi a vehicula semper, lacus turpis feugiat erat, euismod
+            feugiat enim purus nec purus. Sed sodales ligula sed nibh tempor
+            interdum. Quisque ac interdum lacus. In euismod sit amet augue ac
+            tincidunt.
+          </Font>
+        </CardContent>
+      </Card>,
+    );
+
+    const image = result.getByRole('img');
+    const text = result.getByTestId('card-content');
+
+    expect(image.classList.contains('rm-card__media')).toBeTruthy();
+    expect(text.classList.contains('rm-card__content')).toBeTruthy();
   });
 });
