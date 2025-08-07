@@ -1,27 +1,21 @@
 import { Icon } from '@/lib/icon/Rounded';
-import { clsx } from 'clsx';
 import { useEffect, useState } from 'react';
 import {
-  Button,
-  Divider,
-  Font,
+  Content,
   IconButton,
   Toolbar,
-  useDialogControl,
   useMediaQuery,
   useScrollBehavior,
 } from '../lib';
 import './App.css';
-import CompleteNavigation from './components/CompleteNavigation';
-import MainNavigation from './components/MainNavigation';
+import DocsNavRail from './components/NavRail';
+import PageFooter from './components/PageFooter';
 import { Router } from './utils';
-import DialogLicense from './components/DialogLicense';
 
 export default function Docs() {
   const media = useMediaQuery();
   const [isScrolled, setScrolledToggle] = useState<boolean>(false);
   const [railIsOpen, openRail] = useState<boolean>(false);
-  const { showDialog } = useDialogControl();
 
   useEffect(() => {
     openRail(media.isGreaterThanLarge);
@@ -40,68 +34,12 @@ export default function Docs() {
           startNode={<IconButton icon={<Icon icon="menu" />} />}
         />
       ) : (
-        <Toolbar
-          dockedAt="left"
-          bgColor="surface"
-          startNode={
-            <div
-              id="toolbar_control"
-              role="toolbar"
-              className={clsx({ opened: railIsOpen })}
-            >
-              <IconButton
-                onClick={() => openRail(current => !current)}
-                icon={<Icon icon={railIsOpen ? 'menu_open' : 'menu'} />}
-              />
-            </div>
-          }
-          centerNode={
-            <nav id="nav_rail" className={clsx({ opened: railIsOpen })}>
-              {railIsOpen ? <CompleteNavigation /> : <MainNavigation />}
-            </nav>
-          }
-          endNode={
-            <>
-              <Font scale="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
-            </>
-          }
-        />
+        <DocsNavRail isOpen={railIsOpen} openRail={openRail} />
       )}
-      <main>
+      <Content as="main" spacing={{ paddingInline: 'md' }}>
         <Router />
-        <footer id="app_footer">
-          <Divider />
-          <div>
-            <Button
-              label="License"
-              icon={<Icon icon="balance" />}
-              onClick={() => showDialog('dialog-license')}
-            />
-            <Button
-              as="a"
-              label="NPM package"
-              icon={<Icon icon="sdk" />}
-              href="https://www.npmjs.com/package/@paulobrandao/react-material"
-              target="_blank"
-            />
-            <Button
-              as="a"
-              label="Repository"
-              icon={<Icon icon="code" />}
-              href="https://github.com/paulobrandao-dev/react-material"
-              target="_blank"
-            />
-            <Button
-              as="a"
-              label="Bug report"
-              icon={<Icon icon="bug_report" />}
-              href="https://github.com/paulobrandao-dev/react-material/issues"
-              target="_blank"
-            />
-          </div>
-          <DialogLicense />
-        </footer>
-      </main>
+        <PageFooter />
+      </Content>
     </>
   );
 }

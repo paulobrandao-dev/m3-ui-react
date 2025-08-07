@@ -1,4 +1,4 @@
-import { Card, Font } from '@/lib';
+import { Card, Content, Font } from '@/lib';
 import { Link } from '../utils';
 
 type PageItem = {
@@ -14,9 +14,15 @@ export default function ArticleNavigation({
   next?: PageItem;
 }>) {
   return (
-    <nav
-      id="article-nav"
-      className={next !== undefined && !prev ? 'align-end' : undefined}
+    <Content
+      as="nav"
+      flexbox={{
+        direction: 'row',
+        alignItems: 'center',
+        justifyContent:
+          next !== undefined && !prev ? 'flex-end' : 'space-between',
+        gap: 'sm',
+      }}
     >
       {prev && (
         <Card
@@ -31,6 +37,7 @@ export default function ArticleNavigation({
           spacing={{ padding: 'lg' }}
           stateLayer
           to={prev.path}
+          style={{ flexBasis: '50%' }}
         >
           <Font scale="label-medium" textColor="secondary">
             Previous page
@@ -53,6 +60,7 @@ export default function ArticleNavigation({
           spacing={{ padding: 'lg' }}
           stateLayer
           to={next.path}
+          style={{ flexBasis: '50%' }}
         >
           <Font scale="label-medium" textColor="secondary">
             Next page
@@ -62,6 +70,6 @@ export default function ArticleNavigation({
           </Font>
         </Card>
       )}
-    </nav>
+    </Content>
   );
 }

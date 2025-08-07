@@ -1,0 +1,46 @@
+@use '../mixin' as *;
+
+.rm-card-media {
+  border-radius: var(--shape-md);
+  width: 100%;
+  height: 100%;
+
+  &__fit {
+    &-contain {
+      object-fit: contain;
+    }
+    &-cover {
+      object-fit: cover;
+    }
+    &-fill {
+      object-fit: fill;
+    }
+    &-none {
+      object-fit: none;
+    }
+  }
+
+  &__align {
+    &-left-center {
+      object-position: left center;
+    }
+    &-left-top {
+      object-position: left top;
+    }
+    &-left-bottom {
+      object-position: left bottom;
+    }
+    &-right-center {
+      object-position: right center;
+    }
+    &-right-top {
+      object-position: right top;
+    }
+    &-right-bottom {
+      object-position: right bottom;
+    }
+    &-center {
+      object-position: 50% 50%;
+    }
+  }
+}

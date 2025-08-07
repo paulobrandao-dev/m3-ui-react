@@ -1,3 +1,5 @@
+'use cliente';
+
 import { clsx } from 'clsx';
 
 export type ToolbarProps<E extends React.ElementType> = Omit<

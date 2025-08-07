@@ -8,6 +8,8 @@ export * from './hooks/useScrollBehavior';
 export * from './components/Button';
 export * from './components/CanonicalLayout';
 export * from './components/Card';
+export * from './components/CardMedia';
+export * from './components/Content';
 export * from './components/Dialog';
 export * from './components/Divider';
 export * from './components/Font';

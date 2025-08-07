@@ -1,4 +1,4 @@
-import { Button, CardContent, Dialog, Font, useDialogControl } from '@/lib';
+import { Button, Content, Dialog, Font, useDialogControl } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 
 export default function DialogLicense() {
@@ -6,7 +6,7 @@ export default function DialogLicense() {
 
   return (
     <Dialog id="dialog-license">
-      <CardContent
+      <Content
         as="section"
         flexbox={{ direction: 'column', alignItems: 'center', gap: 'lg' }}
         spacing={{ paddingBlockEnd: 'xl' }}
@@ -46,13 +46,13 @@ export default function DialogLicense() {
           TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
           PERFORMANCE OF THIS SOFTWARE.
         </Font>
-      </CardContent>
-      <CardContent
+      </Content>
+      <Content
         as="footer"
         flexbox={{ direction: 'row', justifyContent: 'flex-end' }}
       >
         <Button label="Close" onClick={() => closeDialog('dialog-license')} />
-      </CardContent>
+      </Content>
     </Dialog>
   );
 }

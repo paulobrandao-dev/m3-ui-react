@@ -1,3 +1,5 @@
+'use client';
+
 import { clsx } from 'clsx';
 import { flexboxClsx, spacingClsx } from './commons';
 import type {

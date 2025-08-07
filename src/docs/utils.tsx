@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import HomePage from './pages/home/page';
+import NotFoundPage from './pages/not-found/page';
 
 export function Link({
   to,
@@ -28,9 +29,10 @@ export function Router() {
     switch (route) {
       case '/components':
         return <section id="components_root" />;
-
-      default:
+      case '/':
         return <HomePage />;
+      default:
+        return <NotFoundPage />;
     }
   }, [route]);
 

@@ -1,13 +1,12 @@
 import banner from '@/docs/assets/react-material-cover.webp';
-import { Card, CardContent, CardMedia, Font, useMediaQuery } from '@/lib';
+import { Card, CardMedia, Content, Font, useMediaQuery } from '@/lib';
 
 export default function HomeHeader() {
   const media = useMediaQuery();
 
   return (
-    <Card
+    <Content
       as="header"
-      variant="filled"
       flexbox={
         media.isLessThanExpanded
           ? {
@@ -29,14 +28,11 @@ export default function HomeHeader() {
         marginBlockStart: 'md',
       }}
     >
-      <CardContent
+      <Card
         as="hgroup"
-        spacing={{
-          paddingInline: 'lg',
-          paddingBlockEnd: 'lg',
-          paddingBlockStart: media.isLessThanExpanded ? 'md' : 'lg',
-          marginBlock: 'auto',
-        }}
+        variant="filled"
+        flexbox={{ direction: 'column', gap: 'md', justifyContent: 'center' }}
+        spacing={{ padding: 'lg' }}
       >
         <Font as="h1" scale="display-large">
           React Material
@@ -49,7 +45,7 @@ export default function HomeHeader() {
           A powerful and straightforward way to implement the Google Design
           System in your React projects.
         </Font>
-      </CardContent>
+      </Card>
       <CardMedia
         as="img"
         src={banner}
@@ -57,6 +53,6 @@ export default function HomeHeader() {
         alignMedia="right-center"
         fitMedia="cover"
       />
-    </Card>
+    </Content>
   );
 }

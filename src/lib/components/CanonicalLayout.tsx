@@ -1,3 +1,5 @@
+'use client';
+
 import { clsx } from 'clsx';
 import { gapClsx, spacingClsx } from './commons';
 import { MaterialGapProps, MaterialSpacingProps } from './types';

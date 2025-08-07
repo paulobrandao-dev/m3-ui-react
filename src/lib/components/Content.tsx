@@ -8,40 +8,33 @@ import {
   MaterialSpacingProps,
 } from './types';
 
-export type CardProps<E extends React.ElementType> =
+export type ContentProps<E extends React.ElementType> =
   React.HTMLAttributes<HTMLElement> & {
     as?: E;
     ref?: React.Ref<HTMLDivElement>;
-    variant?: 'elevated' | 'filled' | 'outlined';
-    stateLayer?: boolean;
     spacing?: MaterialSpacingProps;
     flexbox?: MaterialFlexboxProps;
     grid?: MaterialGridProps;
   };
 
-const CSS_PREFIX = 'rm-card';
+const CSS_PREFIX = 'rm-content';
 
-export function Card<E extends React.ElementType>({
+export function Content<E extends React.ElementType>({
   as,
   ref,
-  variant = 'elevated',
-  stateLayer,
   spacing,
   flexbox,
   grid,
   className,
   ...props
-}: CardProps<E> & Omit<React.ComponentPropsWithoutRef<E>, keyof CardProps<E>>) {
+}: ContentProps<E> &
+  Omit<React.ComponentPropsWithoutRef<E>, keyof ContentProps<E>>) {
   const Surface = as || 'div';
   return (
     <Surface
       ref={ref}
       className={clsx(
         CSS_PREFIX,
-        `${CSS_PREFIX}__${variant}`,
-        {
-          [`${CSS_PREFIX}__${variant}-state-layer`]: stateLayer,
-        },
         spacing ? spacingClsx(CSS_PREFIX, spacing) : undefined,
         flexbox ? flexboxClsx(CSS_PREFIX, flexbox) : undefined,
         grid ? gridClsx(CSS_PREFIX, grid) : undefined,

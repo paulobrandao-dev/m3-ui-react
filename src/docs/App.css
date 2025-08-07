@@ -15,11 +15,6 @@ body {
   overflow-y: auto;
 }
 
-main {
-  flex: auto;
-  padding-inline: var(--spacing-md);
-}
-
 @media screen and (max-width: 839px) {
   #root {
     display: flex;
@@ -31,65 +26,6 @@ main {
   #root {
     display: flex;
     flex-direction: row;
-  }
-}
-
-#nav_rail {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--spacing-md);
-}
-
-#nav_rail.opened {
-  row-gap: 0;
-  align-items: flex-start;
-}
-
-#toolbar_control {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-#toolbar_control.opened {
-  justify-content: flex-start;
-  padding-inline-start: var(--spacing-lg);
-}
-
-#article-nav {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-sm);
-}
-
-#article-nav.align-end {
-  justify-content: flex-end;
-}
-
-#article-nav > a {
-  flex-basis: 50%;
-}
-
-#app_footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--spacing-sm);
-  padding-block-end: var(--spacing-sm);
-}
-
-@media screen and (max-width: 599px) {
-  #app_footer {
-    align-items: flex-start;
-  }
-
-  #app_footer > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 
