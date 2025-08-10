@@ -15,6 +15,10 @@ export type ContentProps<E extends React.ElementType> =
     spacing?: MaterialSpacingProps;
     flexbox?: MaterialFlexboxProps;
     grid?: MaterialGridProps;
+    scrollable?: {
+      horizontal?: 'auto' | 'hidden' | 'visible' | 'scroll';
+      vertical?: 'auto' | 'hidden' | 'visible' | 'scroll';
+    };
   };
 
 const CSS_PREFIX = 'rm-content';
@@ -25,6 +29,7 @@ export function Content<E extends React.ElementType>({
   spacing,
   flexbox,
   grid,
+  scrollable,
   className,
   ...props
 }: ContentProps<E> &
@@ -35,6 +40,12 @@ export function Content<E extends React.ElementType>({
       ref={ref}
       className={clsx(
         CSS_PREFIX,
+        {
+          [`${CSS_PREFIX}__scrollable-x-${scrollable?.horizontal}`]:
+            scrollable?.horizontal !== undefined,
+          [`${CSS_PREFIX}__scrollable-y-${scrollable?.vertical}`]:
+            scrollable?.vertical !== undefined,
+        },
         spacing ? spacingClsx(CSS_PREFIX, spacing) : undefined,
         flexbox ? flexboxClsx(CSS_PREFIX, flexbox) : undefined,
         grid ? gridClsx(CSS_PREFIX, grid) : undefined,

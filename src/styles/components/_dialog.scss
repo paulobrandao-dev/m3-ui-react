@@ -1,43 +1,3 @@
-@keyframes showBackdrop {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes hideBackdrop {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes translateUpDialog {
-  0% {
-    opacity: 0;
-    transform: translateY(64px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes translateDownDialog {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(64px);
-  }
-}
-
 dialog.rm-dialog {
   border: none;
   background-color: var(--color-surface-container-high);
@@ -50,6 +10,7 @@ dialog.rm-dialog {
   max-height: 80dvh;
   padding: var(--spacing-xl);
   margin: auto;
+  overflow: hidden;
   animation: translateDownDialog var(--ease-accelerate-duration)
     var(--ease-accelerate) forwards;
   transition:
@@ -80,7 +41,7 @@ dialog.rm-dialog {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    max-height: 80dvh;
+    max-height: calc(80dvh - 48px);
     overflow: hidden;
   }
 

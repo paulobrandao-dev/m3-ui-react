@@ -10,6 +10,7 @@ export type ListItemProps<E extends React.ElementType> = Omit<
   supportingText?: string;
   startElement?: React.ReactElement;
   endElement?: React.ReactElement;
+  isSelected?: boolean;
   as?: E;
   ref?: React.Ref<HTMLDivElement>;
 };
@@ -23,6 +24,7 @@ export function ListItem<E extends React.ElementType>({
   headline,
   supportingText,
   endElement,
+  isSelected,
   className,
   ...props
 }: ListItemProps<E> &
@@ -30,7 +32,15 @@ export function ListItem<E extends React.ElementType>({
   const Surface = as || 'div';
 
   return (
-    <Surface ref={ref} className={clsx(CSS_PREFIX, className)} {...props}>
+    <Surface
+      ref={ref}
+      className={clsx(
+        CSS_PREFIX,
+        { [`${CSS_PREFIX}__selected`]: isSelected },
+        className,
+      )}
+      {...props}
+    >
       {startElement}
       <span className={`${CSS_PREFIX}__text`}>
         <span className={`${CSS_PREFIX}__text-headline`}>{headline}</span>

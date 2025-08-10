@@ -1,4 +1,4 @@
-'use cliente';
+'use client';
 
 import { clsx } from 'clsx';
 
@@ -58,21 +58,15 @@ export function Toolbar<E extends React.ElementType>({
       )}
       {...props}
     >
-      {startNode && (
-        <div role="presentation" className={`${CSS_PREFIX}__start`}>
-          {startNode}
-        </div>
-      )}
-      {centerNode && (
-        <div role="presentation" className={`${CSS_PREFIX}__center`}>
-          {centerNode}
-        </div>
-      )}
-      {endNode && (
-        <div role="presentation" className={`${CSS_PREFIX}__end`}>
-          {endNode}
-        </div>
-      )}
+      <div role="presentation" className={`${CSS_PREFIX}__start`}>
+        {startNode}
+      </div>
+      <div role="presentation" className={`${CSS_PREFIX}__center`}>
+        {centerNode}
+      </div>
+      <div role="presentation" className={`${CSS_PREFIX}__end`}>
+        {endNode}
+      </div>
     </Surface>
   );
 }

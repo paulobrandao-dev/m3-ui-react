@@ -9,7 +9,8 @@ export default function DialogLicense() {
       <Content
         as="section"
         flexbox={{ direction: 'column', alignItems: 'center', gap: 'lg' }}
-        spacing={{ paddingBlockEnd: 'xl' }}
+        spacing={{ paddingBlockEnd: 'md' }}
+        scrollable={{ vertical: 'auto' }}
       >
         <Icon icon="balance" />
         <Font scale="headline-small" as="h2">
@@ -50,6 +51,7 @@ export default function DialogLicense() {
       <Content
         as="footer"
         flexbox={{ direction: 'row', justifyContent: 'flex-end' }}
+        spacing={{ paddingBlockStart: 'md' }}
       >
         <Button label="Close" onClick={() => closeDialog('dialog-license')} />
       </Content>

@@ -1,4 +1,4 @@
-import { Link } from '@/docs/utils';
+import { Link } from '@/docs/router';
 import { Card, ListItem, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 

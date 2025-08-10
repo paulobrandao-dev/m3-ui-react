@@ -1,5 +1,5 @@
 import { Card, Content, Font } from '@/lib';
-import { Link } from '../utils';
+import { Link } from '../router';
 
 type PageItem = {
   label: string;

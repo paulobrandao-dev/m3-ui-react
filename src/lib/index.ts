@@ -15,5 +15,6 @@ export * from './components/Divider';
 export * from './components/Font';
 export * from './components/IconButton';
 export * from './components/ListItem';
+export * from './components/Menu';
 export * from './components/Navlink';
 export * from './components/Toolbar';

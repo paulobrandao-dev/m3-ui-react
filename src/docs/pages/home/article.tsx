@@ -1,5 +1,5 @@
 import ArticleNavigation from '@/docs/components/ArticleNavigation';
-import { Link } from '@/docs/utils';
+import { Link } from '@/docs/router';
 import { Font } from '@/lib';
 
 export default function HomeArticle() {

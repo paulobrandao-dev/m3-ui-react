@@ -1,16 +1,10 @@
-import {
-  Button,
-  Content,
-  Divider,
-  useDialogControl,
-  useMediaQuery,
-} from '@/lib';
+import { Button, Content, Divider, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import DialogLicense from './DialogLicense';
+import SelectThemeMenu from './SelectThemeMenu';
 
 export default function PageFooter() {
   const media = useMediaQuery();
-  const { showDialog } = useDialogControl();
 
   return (
     <Content
@@ -30,11 +24,6 @@ export default function PageFooter() {
             : undefined
         }
       >
-        <Button
-          label="License"
-          icon={<Icon icon="balance" />}
-          onClick={() => showDialog('dialog-license')}
-        />
         <Button
           as="a"
           label="NPM package"
@@ -58,6 +47,7 @@ export default function PageFooter() {
         />
       </Content>
       <DialogLicense />
+      <SelectThemeMenu />
     </Content>
   );
 }

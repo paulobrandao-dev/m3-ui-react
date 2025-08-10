@@ -21,6 +21,11 @@
     @include state-layer-focus;
   }
 
+  &__selected {
+    background-color: var(--color-secondary-container);
+    color: var(--color-on-secondary-container);
+  }
+
   &__text {
     flex: auto;
     display: flex;

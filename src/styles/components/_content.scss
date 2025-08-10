@@ -4,6 +4,37 @@
   display: block;
   flex: auto;
 
+  &__scrollable {
+    &-x {
+      &-hidden {
+        overflow-x: hidden;
+      }
+      &-auto {
+        overflow-x: auto;
+      }
+      &-scroll {
+        overflow-x: scroll;
+      }
+      &-visible {
+        overflow-x: visible;
+      }
+    }
+    &-y {
+      &-hidden {
+        overflow-y: hidden;
+      }
+      &-auto {
+        overflow-y: auto;
+      }
+      &-scroll {
+        overflow-y: scroll;
+      }
+      &-visible {
+        overflow-x: visible;
+      }
+    }
+  }
+
   @include flexbox-rules;
 
   @include spacing-rules('padding');

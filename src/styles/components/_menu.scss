@@ -1,0 +1,53 @@
+@use '../mixin' as *;
+
+.rm-menu {
+  list-style: none;
+  width: 100%;
+  max-height: 70%;
+  margin: auto;
+  border: none;
+  background-color: var(--color-surface-container);
+  color: var(--color-on-surface);
+  padding-block: var(--spacing-sm);
+  box-shadow: var(--elevation-2);
+  border-radius: var(--shape-xs);
+  transition:
+    overlay 0.7s ease-out allow-discrete,
+    display 0.7s ease-out allow-discrete;
+
+  @media screen and (max-width: 599px) {
+    margin-block-end: 0;
+    animation: translateDownDropdown var(--ease-accelerate-duration)
+      var(--ease-accelerate) forwards;
+
+    &::backdrop {
+      background-color: #00000077;
+      animation: hideBackdrop var(--ease-accelerate-duration)
+        var(--ease-accelerate) forwards;
+      transition:
+        overlay 0.7s ease-out allow-discrete,
+        display 0.7s ease-out allow-discrete;
+    }
+
+    &:popover-open {
+      animation: translateUpDropdown var(--ease-decelerate-duration)
+        var(--ease-decelerate) forwards;
+
+      &::backdrop {
+        animation: showBackdrop var(--ease-decelerate-duration)
+          var(--ease-decelerate) forwards;
+      }
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    max-width: 288px;
+    animation: scaleCloseDropdown var(--ease-accelerate-duration)
+      var(--ease-accelerate) forwards;
+
+    &:popover-open {
+      animation: scaleOpenDropdown var(--ease-decelerate-duration)
+        var(--ease-decelerate) forwards;
+    }
+  }
+}
