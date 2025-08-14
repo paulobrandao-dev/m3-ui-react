@@ -1,0 +1,22 @@
+.rm-tooltip {
+  border: none;
+  padding-inline: var(--spacing-sm);
+  padding-block: var(--spacing-xs);
+  border-radius: var(--shape-xs);
+  background-color: var(--color-inverse-surface);
+  color: var(--color-on-inverse-surface);
+  font: var(--text-body-small);
+  transform: translateX(-50%) scaleY(0);
+  transition:
+    overlay 0.7s ease-out allow-discrete,
+    display 0.7s ease-out allow-discrete,
+    transform var(--ease-accelerate-duration) var(--ease-accelerate);
+
+  &:popover-open {
+    transform: translateX(-50%) scaleY(1);
+    transition:
+      overlay 0.7s ease-out allow-discrete,
+      display 0.7s ease-out allow-discrete,
+      transform var(--ease-decelerate-duration) var(--ease-decelerate);
+  }
+}

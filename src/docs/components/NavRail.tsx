@@ -3,6 +3,7 @@ import {
   Font,
   IconButton,
   Toolbar,
+  Tooltip,
   useDialogControl,
   useMediaQuery,
   usePopoverControl,
@@ -37,10 +38,13 @@ export default function DocsNavRail() {
           }}
           spacing={{ paddingInlineStart: isOpen ? 'lg' : undefined }}
         >
-          <IconButton
-            onClick={() => openRail(current => !current)}
-            icon={<Icon icon={isOpen ? 'menu_open' : 'menu'} />}
-          />
+          <Tooltip text={isOpen ? 'Close' : 'Open'}>
+            <IconButton
+              onClick={() => openRail(current => !current)}
+              icon={<Icon icon={isOpen ? 'menu_open' : 'menu'} />}
+              aria-label={isOpen ? 'Close rail' : 'Open rail'}
+            />
+          </Tooltip>
         </Content>
       }
       centerNode={
@@ -65,21 +69,25 @@ export default function DocsNavRail() {
               alignItems: 'center',
             }}
           >
-            <IconButton
-              icon={<Icon icon="balance" />}
-              aria-label="License"
-              onClick={() => showDialog('dialog-license')}
-            />
-            <IconButton
-              icon={<Icon icon="palette" />}
-              aria-label="Theme"
-              onClick={e =>
-                showPopover(
-                  'select-theme',
-                  media.isGreaterThanCompact ? e.currentTarget : undefined,
-                )
-              }
-            />
+            <Tooltip text="License">
+              <IconButton
+                icon={<Icon icon="balance" />}
+                aria-label="License"
+                onClick={() => showDialog('dialog-license')}
+              />
+            </Tooltip>
+            <Tooltip text="Color scheme">
+              <IconButton
+                icon={<Icon icon="palette" />}
+                aria-label="Select color scheme"
+                onClick={e =>
+                  showPopover(
+                    'select-theme',
+                    media.isGreaterThanCompact ? e.currentTarget : undefined,
+                  )
+                }
+              />
+            </Tooltip>
           </Content>
           <Font scale="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
         </>

@@ -18,3 +18,4 @@ export * from './components/ListItem';
 export * from './components/Menu';
 export * from './components/Navlink';
 export * from './components/Toolbar';
+export * from './components/Tooltip';
