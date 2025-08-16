@@ -33,7 +33,7 @@ export default function DocsTopbar() {
           />
           <IconButton
             icon={<Icon icon="palette" />}
-            aria-label="Theme"
+            aria-label="Select color scheme"
             onClick={e =>
               showPopover(
                 'select-theme',

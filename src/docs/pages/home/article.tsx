@@ -1,6 +1,6 @@
 import ArticleNavigation from '@/docs/components/ArticleNavigation';
-import { Link } from '@/docs/router';
 import { Font } from '@/lib';
+import { Link } from '../router';
 
 export default function HomeArticle() {
   return (

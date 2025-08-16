@@ -40,7 +40,6 @@ pre {
 
 pre > code {
   display: block;
-  padding-block: var(--spacing-xs);
 }
 
 pre > code::before {
@@ -64,6 +63,28 @@ pre.js > code {
 
 pre.js > code::before {
   content: counter(count);
+  display: inline-block;
+  width: 24px;
+}
+
+pre.js > code.sp-1::before {
+  margin-inline-end: 2ch;
+}
+
+pre.js > code.sp-2::before {
+  margin-inline-end: 4ch;
+}
+
+pre.js > code.sp-3::before {
+  margin-inline-end: 6ch;
+}
+
+pre.js > code.sp-4::before {
+  margin-inline-end: 8ch;
+}
+
+pre.js > code.sp-5::before {
+  margin-inline-end: 10ch;
 }
 
 pre.js > code > i {
@@ -78,4 +99,17 @@ pre.js > code > var {
 
 pre.js > code > samp {
   color: #e5b567;
+}
+
+pre.js > code > em {
+  color: #6c99bb;
+}
+
+pre.js > code > b {
+  color: #b4d273;
+}
+
+pre.js > code > ins {
+  color: #e87d3e;
+  text-decoration: none;
 }

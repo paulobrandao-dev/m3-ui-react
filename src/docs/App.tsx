@@ -3,7 +3,7 @@ import './App.css';
 import DocsNavRail from './components/NavRail';
 import PageFooter from './components/PageFooter';
 import DocsTopbar from './components/Topbar';
-import { Router } from './router';
+import { Router } from './pages/router';
 
 export default function Docs() {
   const media = useMediaQuery();

@@ -15,6 +15,7 @@ export type CardMediaProps<E extends React.ElementType> =
       | 'right-bottom'
       | 'center';
     fitMedia?: 'contain' | 'cover' | 'fill' | 'none';
+    aspectRatio?: '16:9' | '1:1' | '4:3';
   };
 
 const CSS_PREFIX = 'rm-card-media';
@@ -24,6 +25,7 @@ export function CardMedia<E extends React.ElementType>({
   ref,
   alignMedia,
   fitMedia,
+  aspectRatio,
   className,
   ...props
 }: CardMediaProps<E> &
@@ -35,6 +37,11 @@ export function CardMedia<E extends React.ElementType>({
       ref={ref}
       className={clsx(
         CSS_PREFIX,
+        {
+          [`${CSS_PREFIX}__aspect-16x9`]: aspectRatio === '16:9',
+          [`${CSS_PREFIX}__aspect-1x1`]: aspectRatio === '1:1',
+          [`${CSS_PREFIX}__aspect-4x3`]: aspectRatio === '4:3',
+        },
         alignMedia ? `${CSS_PREFIX}__align-${alignMedia}` : undefined,
         fitMedia ? `${CSS_PREFIX}__fit-${fitMedia}` : undefined,
         className,

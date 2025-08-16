@@ -1,6 +1,6 @@
-import { Link } from '@/docs/router';
 import { Card, ListItem, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
+import { Link } from '../router';
 
 export default function HomeSupportingPane() {
   const media = useMediaQuery();

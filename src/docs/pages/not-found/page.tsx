@@ -37,6 +37,7 @@ export default function NotFoundPage() {
           as="img"
           src={notFoundBox}
           alt="isometric illustration of a craft box overturned full of styrofoam over a blue circle carpet in a white room"
+          aspectRatio="16:9"
           alignMedia="center"
           fitMedia="cover"
         />

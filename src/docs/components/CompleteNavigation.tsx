@@ -1,7 +1,7 @@
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
 import { Font, Navlink } from '../../lib';
-import { Link } from '../router';
+import { Link } from '../pages/router';
 
 export default function CompleteNavigation() {
   const [current, setCurrent] = useState<string>(window.location.pathname);
@@ -10,8 +10,10 @@ export default function CompleteNavigation() {
     const updateCurrent = () => setCurrent(window.location.pathname);
     updateCurrent();
     document.addEventListener('routechange', updateCurrent);
+    window.addEventListener('popstate', updateCurrent);
     return () => {
       document.removeEventListener('routechange', updateCurrent);
+      window.removeEventListener('popstate', updateCurrent);
     };
   }, []);
 

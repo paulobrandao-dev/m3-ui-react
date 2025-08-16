@@ -33,9 +33,9 @@ export function applyThemeOnHtmlStyleTag({
         } as React.CSSProperties)
       : ({
           '--font-settings': 'true',
-          '--font-title': font?.title ?? 'sans-serif',
-          '--font-content': font?.content ?? 'sans-serif',
-          '--font-code': font?.code ?? 'monospace',
+          '--font-title': font?.title ? `"${font.title}"` : 'sans-serif',
+          '--font-content': font?.content ? `"${font.content}"` : 'sans-serif',
+          '--font-code': font?.code ? `"${font.code}"` : 'monospace',
         } as React.CSSProperties);
 
   const elevation =
@@ -173,9 +173,9 @@ export function applyThemeColorScheme(
     font:
       fontSettings === 'true'
         ? {
-            title: fontTitle,
-            content: fontContent,
-            code: fontCode,
+            title: fontTitle.replace(/"/g, ''),
+            content: fontContent.replace(/"/g, ''),
+            code: fontCode.replace(/"/g, ''),
           }
         : false,
   });

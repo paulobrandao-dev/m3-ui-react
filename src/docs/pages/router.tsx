@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import HomePage from './pages/home/page';
-import NotFoundPage from './pages/not-found/page';
+import HomePage from './home/page';
+import NotFoundPage from './not-found/page';
+import ThemingPage from './theming/page';
 
 export function Link({
   to,
@@ -27,10 +28,10 @@ export function Router() {
 
   const content = useMemo(() => {
     switch (route) {
-      case '/components':
-        return <section id="components_root" />;
       case '/':
         return <HomePage />;
+      case '/theming':
+        return <ThemingPage />;
       default:
         return <NotFoundPage />;
     }
@@ -55,6 +56,13 @@ export function Router() {
       document.removeEventListener('routechange', routeChangeHandler);
     };
   }, []);
+
+  useEffect(() => {
+    document.querySelector('#root')?.scrollTo({
+      behavior: 'smooth',
+      top: 0,
+    });
+  }, [route]);
 
   return content;
 }

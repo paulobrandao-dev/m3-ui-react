@@ -8,7 +8,7 @@ import './styles/index.scss';
 applyTheme({
   seedColor: '#4285F4',
   colorScheme: theme.current || theme.system,
-  font: { title: '"Roboto"', content: '"Roboto"', code: '"Roboto Mono"' },
+  font: { title: 'Roboto', content: 'Roboto', code: 'Roboto Mono' },
 });
 
 createRoot(document.getElementById('root')!).render(
