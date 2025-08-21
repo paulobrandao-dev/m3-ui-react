@@ -21,6 +21,10 @@
   @include font-scale('body');
   @include font-scale('label');
 
+  &__code {
+    font: var(--text-code);
+  }
+
   @include spacing-rules('padding');
   @include spacing-rules('padding-block');
   @include spacing-rules('padding-block-end');

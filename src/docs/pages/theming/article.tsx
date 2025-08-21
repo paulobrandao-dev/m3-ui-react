@@ -20,8 +20,15 @@ export default function ThemingArticle() {
       >
         Select the utility function based on the type of render, provide your
         brand or interface's primary color as a hexadecimal value, specify the
-        color scheme as <var>light</var> or <var>dark</var>, and assign font
-        face names for titles, content, and codes (optional).
+        color scheme as{' '}
+        <Font as="var" scale="code" textColor="secondary">
+          light
+        </Font>{' '}
+        or{' '}
+        <Font as="var" scale="code" textColor="secondary">
+          dark
+        </Font>
+        , and assign font face names for titles, content, and codes (optional).
       </Font>
       <Font
         scale="body-large"
@@ -50,9 +57,15 @@ export default function ThemingArticle() {
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
-        It is best to define these variables within the <code>RootLayout</code>{' '}
+        It is best to define these variables within the{' '}
+        <Font as="code" scale="code" textColor="secondary">
+          RootLayout
+        </Font>{' '}
         using the HTML element style tag and calling the function{' '}
-        <code>applyThemeOnHtmlStyleTag</code>.
+        <Font as="code" scale="code" textColor="secondary">
+          applyThemeOnHtmlStyleTag
+        </Font>
+        .
       </Font>
       <pre className="js">
         <code>
@@ -79,13 +92,15 @@ export default function ThemingArticle() {
         </code>
         <code className="sp-3">font: &#123;</code>
         <code className="sp-4">
-          title: <samp>'Roboto'</samp>,
+          title: <samp>'"Roboto"'</samp>,
         </code>
         <code className="sp-4">
-          content: <samp>'Roboto'</samp>,
+          content: <samp>'"Roboto"'</samp>,{' '}
+          <i>// Web font name needs double quotes</i>
         </code>
         <code className="sp-4">
-          code: <samp>'Roboto Mono'</samp>,
+          code: <samp>'Courier New'</samp>,{' '}
+          <i>// Web safe font names won't need double quotes</i>
         </code>
         <code className="sp-3">&#125;,</code>
         <code className="sp-2">&#125;)&#125;</code>
@@ -111,8 +126,15 @@ export default function ThemingArticle() {
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
-        Here, call the <code>applyTheme</code> within the{' '}
-        <code>(main|index).tsx</code> file.
+        Here, call the{' '}
+        <Font as="code" scale="code" textColor="secondary">
+          applyTheme
+        </Font>{' '}
+        within the{' '}
+        <Font as="samp" scale="code" textColor="secondary">
+          (main|index).tsx
+        </Font>{' '}
+        file.
       </Font>
       <pre className="js">
         <code>
@@ -133,13 +155,13 @@ export default function ThemingArticle() {
         </code>
         <code className="sp-1">font: &#123;</code>
         <code className="sp-2">
-          title: <samp>'Roboto'</samp>,
+          title: <samp>'"Roboto"'</samp>,
         </code>
         <code className="sp-2">
-          content: <samp>'Roboto'</samp>,
+          content: <samp>'"Roboto"'</samp>,
         </code>
         <code className="sp-2">
-          code: <samp>'Roboto Mono'</samp>,
+          code: <samp>'Courier New'</samp>,
         </code>
         <code className="sp-1">&#125;,</code>
         <code>&#125;);</code>

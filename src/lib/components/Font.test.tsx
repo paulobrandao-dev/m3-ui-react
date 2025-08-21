@@ -186,7 +186,7 @@ describe('Font component', () => {
   it('should apply the flexbox CSS classes according to the "flexbox" prop', () => {
     const result = render(
       <Font
-        scale="body-large"
+        scale="code"
         flexbox={{
           direction: 'column',
           alignItems: 'flex-start',

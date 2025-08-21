@@ -108,9 +108,9 @@ describe('Theme utils', () => {
       });
       expect(result).toHaveProperty('--color-seed', 'blue');
       expect(result).toHaveProperty('--color-scheme', 'dark');
-      expect(result).toHaveProperty('--font-title', '"Times New Roman"');
-      expect(result).toHaveProperty('--font-content', '"Arial"');
-      expect(result).toHaveProperty('--font-code', '"Verdana"');
+      expect(result).toHaveProperty('--font-title', 'Times New Roman');
+      expect(result).toHaveProperty('--font-content', 'Arial');
+      expect(result).toHaveProperty('--font-code', 'Verdana');
     });
   });
 

@@ -34,7 +34,8 @@ export type MaterialTextScales =
   | 'body-small'
   | 'label-large'
   | 'label-medium'
-  | 'label-small';
+  | 'label-small'
+  | 'code';
 
 export type MaterialSpacingProps = {
   padding?: SpacingSizes;
