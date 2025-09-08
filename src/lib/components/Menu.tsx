@@ -8,6 +8,7 @@ export type MenuProps = Omit<
   'children' | 'id' | 'popover'
 > & {
   id: string;
+  disableCloseOnClick?: boolean;
   items: Array<{
     label: string;
     startElement?: React.ReactElement;
@@ -18,9 +19,16 @@ export type MenuProps = Omit<
   ref?: React.Ref<HTMLMenuElement>;
 };
 
-const CSS_PREFIX = 'rm-menu';
+const CSS_PREFIX = 'm3-menu';
 
-export function Menu({ id, items, ref, className, ...props }: MenuProps) {
+export function Menu({
+  id,
+  items,
+  disableCloseOnClick,
+  ref,
+  className,
+  ...props
+}: MenuProps) {
   return (
     <menu
       id={id}
@@ -31,14 +39,15 @@ export function Menu({ id, items, ref, className, ...props }: MenuProps) {
     >
       {items.map((item, index) => (
         <ListItem
-          as="li"
           key={`${id}__${index}`}
           headline={item.label}
           startElement={item.startElement}
           endElement={item.endElement}
           onClick={() => {
             const menu = document.querySelector<HTMLMenuElement>(`menu#${id}`);
-            menu?.hidePopover();
+            if (!disableCloseOnClick) {
+              menu?.hidePopover();
+            }
             item.onClick();
           }}
           isSelected={item.isSelected}

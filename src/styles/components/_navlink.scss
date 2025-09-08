@@ -1,6 +1,6 @@
 @use '../mixin' as *;
 
-.material-navlink {
+a.material-navlink {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-standard);
 
-  &__indicator {
+  > span.link-indicator {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,15 +25,17 @@
     }
   }
 
-  &:hover > &__indicator {
+  &:hover > &.link-indicator,
+  &:hover > &.link-indicator-active {
     @include state-layer-hover;
   }
 
-  &:focus > &__indicator {
+  &:focus > &.link-indicator,
+  &:focus > &.link-indicator-active {
     @include state-layer-focus;
   }
 
-  &__horizontal {
+  &.is-horizontal {
     height: 56px;
     flex-direction: row;
     gap: var(--spacing-md);
@@ -55,7 +57,7 @@
     }
   }
 
-  &__label {
+  > span.link-label {
     font: var(--text-label-medium);
 
     &-horizontal {

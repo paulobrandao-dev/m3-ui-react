@@ -1,60 +1,15 @@
 @use '../mixin' as *;
 
-.rm-canonical-layout {
+%layout {
   display: grid;
   width: 100%;
   max-width: 1199px;
 
-  &__fluid {
+  &.is-fluid {
     max-width: unset;
   }
 
-  &__list-detail {
-    @media screen and (max-width: 839px) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media screen and (min-width: 840px) {
-      grid-template-columns: 45% 55%;
-    }
-  }
-
-  &__supporting-pane {
-    @media screen and (max-width: 1199px) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media screen and (min-width: 1200px) {
-      grid-template-columns: 2fr minmax(180px, 360px);
-    }
-  }
-
-  &__feed {
-    @media screen and (max-width: 599px) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media screen and (min-width: 600px) and (max-width: 839px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media screen and (min-width: 840px) and (max-width: 1199px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (min-width: 1200px) and (max-width: 1599px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (min-width: 1600px) {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  }
-
-  &__gap {
+  &.gap {
     &-none {
       gap: 0;
     }
@@ -75,7 +30,7 @@
     }
   }
 
-  &__row-gap {
+  &.row-gap {
     &-none {
       gap: 0;
     }
@@ -96,7 +51,7 @@
     }
   }
 
-  &__column-gap {
+  &.column-gap {
     &-none {
       gap: 0;
     }
@@ -132,4 +87,57 @@
   @include spacing-rules('margin-inline', 1);
   @include spacing-rules('margin-inline-end', 1);
   @include spacing-rules('margin-inline-start', 1);
+}
+
+.m3-layout {
+  &-list-detail {
+    @extend %layout;
+
+    @media screen and (max-width: 839px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: 840px) {
+      grid-template-columns: 45% 55%;
+    }
+  }
+
+  &-supporting-pane {
+    @extend %layout;
+
+    @media screen and (max-width: 1199px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: 2fr minmax(180px, 360px);
+    }
+  }
+
+  &-feed {
+    @extend %layout;
+
+    @media screen and (max-width: 599px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: 600px) and (max-width: 839px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 840px) and (max-width: 1199px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1599px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1600px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
 }

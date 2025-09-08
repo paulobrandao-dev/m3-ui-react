@@ -10,7 +10,7 @@ describe('Content component', () => {
     const section = result.getByTestId('as-prop');
 
     expect(section.tagName).toEqual('SECTION');
-    expect(section.classList.contains('rm-content')).toBeTruthy();
+    expect(section.classList.contains('m3-content')).toBeTruthy();
   });
 
   it('should apply the spacing CSS classes according to "spacing" prop', () => {
@@ -22,13 +22,9 @@ describe('Content component', () => {
     );
     const content = result.getByTestId('spacing-prop');
 
-    expect(
-      content.classList.contains('rm-content__margin-block-xl'),
-    ).toBeTruthy();
-    expect(
-      content.classList.contains('rm-content__margin-inline-auto'),
-    ).toBeTruthy();
-    expect(content.classList.contains('rm-content__padding-lg')).toBeTruthy();
+    expect(content.classList.contains('margin-block-xl')).toBeTruthy();
+    expect(content.classList.contains('margin-inline-auto')).toBeTruthy();
+    expect(content.classList.contains('padding-lg')).toBeTruthy();
   });
 
   it('should apply the flexbox CSS classes according to "flexbox" prop', () => {
@@ -44,14 +40,12 @@ describe('Content component', () => {
     );
     const content = result.getByTestId('flexbox-prop');
 
+    expect(content.classList.contains('flex-direction-column')).toBeTruthy();
     expect(
-      content.classList.contains('rm-content__flexbox-direction-column'),
+      content.classList.contains('flex-align-items-flex-start'),
     ).toBeTruthy();
     expect(
-      content.classList.contains('rm-content__flexbox-align-items-flex-start'),
-    ).toBeTruthy();
-    expect(
-      content.classList.contains('rm-content__flexbox-justify-content-center'),
+      content.classList.contains('flex-justify-content-center'),
     ).toBeTruthy();
   });
 
@@ -64,12 +58,8 @@ describe('Content component', () => {
     );
     const content = result.getByTestId('grid-prop');
 
-    expect(
-      content.classList.contains('rm-content__grid-columns-4'),
-    ).toBeTruthy();
-    expect(
-      content.classList.contains('rm-content__grid-column-gap-sm'),
-    ).toBeTruthy();
+    expect(content.classList.contains('grid-columns-4')).toBeTruthy();
+    expect(content.classList.contains('grid-column-gap-sm')).toBeTruthy();
   });
 
   it('should apply the overflow CSS classes according to "scrollable" prop', () => {
@@ -81,11 +71,7 @@ describe('Content component', () => {
     );
     const content = result.getByTestId('scrollable-prop');
 
-    expect(
-      content.classList.contains('rm-content__scrollable-x-hidden'),
-    ).toBeTruthy();
-    expect(
-      content.classList.contains('rm-content__scrollable-y-auto'),
-    ).toBeTruthy();
+    expect(content.classList.contains('is-scrollable-x-hidden')).toBeTruthy();
+    expect(content.classList.contains('is-scrollable-y-auto')).toBeTruthy();
   });
 });

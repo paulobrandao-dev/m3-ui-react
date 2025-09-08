@@ -1,4 +1,4 @@
-.rm-divider {
+.m3-divider {
   display: flex;
   border: none;
   background-color: transparent;
@@ -9,7 +9,7 @@
   height: 1px;
   border-top: 1px solid var(--color-outline-variant);
 
-  &__vertical {
+  &.is-vertical {
     width: 1px;
     align-self: stretch;
     min-height: 1.5em;

@@ -8,79 +8,82 @@ import {
   MaterialSpacingProps,
 } from './types';
 
-export function spacingClsx(prefix: string, values: MaterialSpacingProps) {
+export function spacingClsx(values: MaterialSpacingProps) {
   return clsx({
-    [`${prefix}__padding-${values.padding}`]: values.padding !== undefined,
-    [`${prefix}__padding-block-${values.paddingBlock}`]:
-      values.paddingBlock !== undefined,
-    [`${prefix}__padding-block-end-${values.paddingBlockEnd}`]:
+    [`padding-${values.padding}`]: values.padding !== undefined,
+    [`padding-block-${values.paddingBlock}`]: values.paddingBlock !== undefined,
+    [`padding-block-end-${values.paddingBlockEnd}`]:
       values.paddingBlockEnd !== undefined,
-    [`${prefix}__padding-block-start-${values.paddingBlockStart}`]:
+    [`padding-block-start-${values.paddingBlockStart}`]:
       values.paddingBlockStart !== undefined,
-    [`${prefix}__padding-inline-${values.paddingInline}`]:
+    [`padding-inline-${values.paddingInline}`]:
       values.paddingInline !== undefined,
-    [`${prefix}__padding-inline-end-${values.paddingInlineEnd}`]:
+    [`padding-inline-end-${values.paddingInlineEnd}`]:
       values.paddingInlineEnd !== undefined,
-    [`${prefix}__padding-inline-start-${values.paddingInlineStart}`]:
+    [`padding-inline-start-${values.paddingInlineStart}`]:
       values.paddingInlineStart !== undefined,
-    [`${prefix}__margin-${values.margin}`]: values.margin !== undefined,
-    [`${prefix}__margin-block-${values.marginBlock}`]:
-      values.marginBlock !== undefined,
-    [`${prefix}__margin-block-end-${values.marginBlockEnd}`]:
+    [`margin-${values.margin}`]: values.margin !== undefined,
+    [`margin-block-${values.marginBlock}`]: values.marginBlock !== undefined,
+    [`margin-block-end-${values.marginBlockEnd}`]:
       values.marginBlockEnd !== undefined,
-    [`${prefix}__margin-block-start-${values.marginBlockStart}`]:
+    [`margin-block-start-${values.marginBlockStart}`]:
       values.marginBlockStart !== undefined,
-    [`${prefix}__margin-inline-${values.marginInline}`]:
-      values.marginInline !== undefined,
-    [`${prefix}__margin-inline-end-${values.marginInlineEnd}`]:
+    [`margin-inline-${values.marginInline}`]: values.marginInline !== undefined,
+    [`margin-inline-end-${values.marginInlineEnd}`]:
       values.marginInlineEnd !== undefined,
-    [`${prefix}__margin-inline-start-${values.marginInlineStart}`]:
+    [`margin-inline-start-${values.marginInlineStart}`]:
       values.marginInlineStart !== undefined,
   });
 }
 
-export function gapClsx(prefix: string, values: MaterialGapProps) {
+export function gapClsx(values: MaterialGapProps, prefix?: string) {
   return clsx({
-    [`${prefix}gap-${values.gap}`]: values.gap !== undefined,
-    [`${prefix}row-gap-${values.rowGap}`]: values.rowGap !== undefined,
-    [`${prefix}column-gap-${values.columnGap}`]: values.columnGap !== undefined,
+    [`${prefix ? prefix + '-' : ''}gap-${values.gap}`]:
+      values.gap !== undefined,
+    [`${prefix ? prefix + '-' : ''}row-gap-${values.rowGap}`]:
+      values.rowGap !== undefined,
+    [`${prefix ? prefix + '-' : ''}column-gap-${values.columnGap}`]:
+      values.columnGap !== undefined,
   });
 }
 
-export function flexboxClsx(prefix: string, values: MaterialFlexboxProps) {
+export function flexboxClsx(values: MaterialFlexboxProps) {
   return clsx(
-    `${prefix}__flexbox`,
+    'is-flexbox',
     {
-      [`${prefix}__flexbox-direction-${values.direction}`]:
-        values.direction !== undefined,
-      [`${prefix}__flexbox-align-items-${values.alignItems}`]:
+      [`flex-direction-${values.direction}`]: values.direction !== undefined,
+      [`flex-align-items-${values.alignItems}`]:
         values.alignItems !== undefined,
-      [`${prefix}__flexbox-justify-content-${values.justifyContent}`]:
+      [`flex-justify-content-${values.justifyContent}`]:
         values.justifyContent !== undefined,
-      [`${prefix}__flexbox-align-self-${values.alignSelf}`]:
-        values.alignSelf !== undefined,
-      [`${prefix}__flexbox-justify-self-${values.justifySelf}`]:
+      [`flex-align-self-${values.alignSelf}`]: values.alignSelf !== undefined,
+      [`flex-justify-self-${values.justifySelf}`]:
         values.justifySelf !== undefined,
     },
-    gapClsx(`${prefix}__flexbox-`, {
-      gap: values.gap,
-      columnGap: values.columnGap,
-      rowGap: values.rowGap,
-    }),
+    gapClsx(
+      {
+        gap: values.gap,
+        columnGap: values.columnGap,
+        rowGap: values.rowGap,
+      },
+      'flex',
+    ),
   );
 }
 
-export function gridClsx(prefix: string, values: MaterialGridProps) {
+export function gridClsx(values: MaterialGridProps) {
   return clsx(
-    `${prefix}__grid`,
+    `is-grid`,
     {
-      [`${prefix}__grid-columns-${values.columns}`]:
-        values.columns !== undefined,
+      [`grid-columns-${values.columns}`]: values.columns !== undefined,
     },
-    gapClsx(`${prefix}__grid-`, {
-      gap: values.gap,
-      columnGap: values.columnGap,
-      rowGap: values.rowGap,
-    }),
+    gapClsx(
+      {
+        gap: values.gap,
+        columnGap: values.columnGap,
+        rowGap: values.rowGap,
+      },
+      'grid',
+    ),
   );
 }

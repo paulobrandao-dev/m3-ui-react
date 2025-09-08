@@ -37,9 +37,9 @@ describe('Card component', () => {
     const content = result.getByTestId('variant-outlined');
     const footer = result.getByTestId('variant-elevated');
 
-    expect(header.classList.contains('rm-card__filled')).toBeTruthy();
-    expect(content.classList.contains('rm-card__outlined')).toBeTruthy();
-    expect(footer.classList.contains('rm-card__elevated')).toBeTruthy();
+    expect(header.classList.contains('m3-card-filled')).toBeTruthy();
+    expect(content.classList.contains('m3-card-outlined')).toBeTruthy();
+    expect(footer.classList.contains('m3-card-elevated')).toBeTruthy();
   });
 
   it('should render the right element according to the "as" prop', () => {
@@ -66,9 +66,9 @@ describe('Card component', () => {
 
     const card = result.getByTestId('spacing-prop');
 
-    expect(card.classList.contains('rm-card__margin-block-xl')).toBeTruthy();
-    expect(card.classList.contains('rm-card__margin-inline-auto')).toBeTruthy();
-    expect(card.classList.contains('rm-card__padding-lg')).toBeTruthy();
+    expect(card.classList.contains('margin-block-xl')).toBeTruthy();
+    expect(card.classList.contains('margin-inline-auto')).toBeTruthy();
+    expect(card.classList.contains('padding-lg')).toBeTruthy();
   });
 
   it('should apply the CSS classes according to "flexbox" prop', () => {
@@ -88,17 +88,13 @@ describe('Card component', () => {
 
     const card = result.getByTestId('flexbox-prop');
 
-    expect(card.classList.contains('rm-card__flexbox')).toBeTruthy();
+    expect(card.classList.contains('is-flexbox')).toBeTruthy();
+    expect(card.classList.contains('flex-direction-column')).toBeTruthy();
+    expect(card.classList.contains('flex-align-items-flex-start')).toBeTruthy();
     expect(
-      card.classList.contains('rm-card__flexbox-direction-column'),
+      card.classList.contains('flex-justify-content-flex-start'),
     ).toBeTruthy();
-    expect(
-      card.classList.contains('rm-card__flexbox-align-items-flex-start'),
-    ).toBeTruthy();
-    expect(
-      card.classList.contains('rm-card__flexbox-justify-content-flex-start'),
-    ).toBeTruthy();
-    expect(card.classList.contains('rm-card__flexbox-gap-md')).toBeTruthy();
+    expect(card.classList.contains('flex-gap-md')).toBeTruthy();
   });
 
   it('should apply the CSS classes according to "grid" prop', () => {
@@ -113,10 +109,10 @@ describe('Card component', () => {
 
     const card = result.getByTestId('grid-prop');
 
-    expect(card.classList.contains('rm-card__grid')).toBeTruthy();
-    expect(card.classList.contains('rm-card__grid-columns-4')).toBeTruthy();
-    expect(card.classList.contains('rm-card__grid-column-gap-sm')).toBeTruthy();
-    expect(card.classList.contains('rm-card__grid-row-gap-xs')).toBeTruthy();
+    expect(card.classList.contains('is-grid')).toBeTruthy();
+    expect(card.classList.contains('grid-columns-4')).toBeTruthy();
+    expect(card.classList.contains('grid-column-gap-sm')).toBeTruthy();
+    expect(card.classList.contains('grid-row-gap-xs')).toBeTruthy();
   });
 
   it('should apply the CSS class when it has "stateLayer" prop', () => {
@@ -129,8 +125,6 @@ describe('Card component', () => {
     const cardButton = result.getByRole('button', { name: 'Card button' });
 
     expect(cardButton.tagName).toEqual('BUTTON');
-    expect(
-      cardButton.classList.contains('rm-card__elevated-state-layer'),
-    ).toBeTruthy();
+    expect(cardButton.classList.contains('has-state-layer')).toBeTruthy();
   });
 });

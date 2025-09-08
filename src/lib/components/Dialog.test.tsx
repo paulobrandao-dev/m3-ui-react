@@ -50,9 +50,7 @@ describe('Dialog component', () => {
     await waitFor(() => {
       expect(dialog.hasAttribute('open')).toBeTruthy();
     });
-    expect(
-      dialog.classList.contains('rm-dialog__fullscreen-on-compact'),
-    ).toBeTruthy();
+    expect(dialog.classList.contains('is-fullscreen-on-compact')).toBeTruthy();
     await user.click(result.getByRole('button', { name: 'Close' }));
     await waitFor(() => {
       expect(dialog.hasAttribute('open')).toBeFalsy();

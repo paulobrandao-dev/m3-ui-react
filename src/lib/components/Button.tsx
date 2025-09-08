@@ -1,50 +1,38 @@
 'use client';
 
 import { clsx } from 'clsx';
-import {
-  ButtonHTMLAttributes,
-  ComponentPropsWithoutRef,
-  ElementType,
-  ReactNode,
-  Ref,
-} from 'react';
+import { ButtonHTMLAttributes, ReactNode, Ref } from 'react';
 
-export type ButtonProps<T extends ElementType> = Omit<
+export type M3ButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'children'
 > & {
   label: string;
-  as?: T;
   ref?: Ref<HTMLButtonElement>;
   icon?: ReactNode;
   variant?: 'text' | 'outlined' | 'tonal' | 'filled' | 'elevated';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 };
 
-const CSS_PREFIX = 'rm-button';
+const CSS_PREFIX = 'm3-button';
 
-export function Button<T extends ElementType>({
-  as,
+export function Button({
   ref,
   icon,
   variant = 'text',
+  size = 'sm',
   label,
   className,
   ...props
-}: ButtonProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>) {
-  const Surface = as || 'button';
+}: M3ButtonProps) {
   return (
-    <Surface
+    <button
       ref={ref}
-      className={clsx(
-        CSS_PREFIX,
-        `${CSS_PREFIX}__${variant}`,
-        { [`${CSS_PREFIX}__disabled`]: props.disabled },
-        className,
-      )}
+      className={clsx(`${CSS_PREFIX}-${variant}`, `size-${size}`, className)}
       {...props}
     >
       {icon}
-      <span className={`${CSS_PREFIX}__label`}>{label}</span>
-    </Surface>
+      <span className="label">{label}</span>
+    </button>
   );
 }

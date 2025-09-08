@@ -17,9 +17,7 @@ describe('CardMedia component', () => {
     );
     const media = result.getByTestId('align-media-prop');
 
-    expect(
-      media.classList.contains('rm-card-media__align-right-center'),
-    ).toBeTruthy();
+    expect(media.classList.contains('is-align-right-center')).toBeTruthy();
   });
 
   it('should apply the right fit CSS class according to "fitMedia" prop', () => {
@@ -33,6 +31,6 @@ describe('CardMedia component', () => {
     );
     const media = result.getByTestId('fit-media-prop');
 
-    expect(media.classList.contains('rm-card-media__fit-cover')).toBeTruthy();
+    expect(media.classList.contains('is-fit-cover')).toBeTruthy();
   });
 });

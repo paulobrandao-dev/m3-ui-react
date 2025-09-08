@@ -1,14 +1,10 @@
 @use '../mixin' as *;
 
-.rm-button {
+%button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-sm);
-  height: 40px;
-  border-radius: var(--shape-xl);
-  padding-inline: var(--spacing-xl);
-  transition-property: box-shadow;
+  transition-property: box-shadow, border-radius;
   transition-duration: var(--ease-emphasized-duration);
   transition-timing-function: var(--ease-emphasized);
   @include state-layer;
@@ -21,17 +17,89 @@
     @include state-layer-focus;
   }
 
-  &__disabled {
+  &:disabled {
     background-color: rgba(22, 22, 22, 0.12);
     color: var(--color-on-surface);
     box-shadow: none;
   }
 
-  &__label {
-    font: var(--text-label-large);
-  }
+  &.size {
+    &-xs {
+      height: 32px;
+      padding-inline: var(--spacing-md);
+      gap: var(--spacing-xs);
+      border-radius: var(--shape-xl);
 
-  &__elevated {
+      &:active {
+        border-radius: var(--shape-sm);
+      }
+
+      > .label {
+        font: var(--text-label-large);
+      }
+    }
+    &-sm {
+      height: 40px;
+      padding-inline: var(--spacing-lg);
+      gap: var(--spacing-sm);
+      border-radius: var(--shape-xl);
+
+      &:active {
+        border-radius: var(--shape-sm);
+      }
+
+      > .label {
+        font: var(--text-label-large);
+      }
+    }
+    &-md {
+      height: 56px;
+      padding-inline: var(--spacing-xl);
+      gap: var(--spacing-sm);
+      border-radius: var(--shape-xl);
+
+      &:active {
+        border-radius: var(--shape-md);
+      }
+
+      > .label {
+        font: var(--text-title-medium);
+      }
+    }
+    &-lg {
+      height: 96px;
+      padding-inline: 48px;
+      gap: var(--spacing-md);
+      border-radius: 48px;
+
+      &:active {
+        border-radius: var(--shape-lg);
+      }
+
+      > .label {
+        font: var(--text-headline-small);
+      }
+    }
+    &-xl {
+      height: 136px;
+      padding-inline: 64px;
+      gap: var(--spacing-lg);
+      border-radius: 68px;
+
+      &:active {
+        border-radius: var(--shape-lg);
+      }
+
+      > .label {
+        font: var(--text-headline-large);
+      }
+    }
+  }
+}
+
+button.m3-button {
+  &-elevated {
+    @extend %button;
     box-shadow: var(--elevation-1);
     background-color: var(--color-surface-container-low);
     color: var(--color-primary);
@@ -41,7 +109,8 @@
     }
   }
 
-  &__filled {
+  &-filled {
+    @extend %button;
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 
@@ -50,7 +119,8 @@
     }
   }
 
-  &__tonal {
+  &-tonal {
+    @extend %button;
     background-color: var(--color-secondary-container);
     color: var(--color-on-secondary-container);
 
@@ -59,7 +129,8 @@
     }
   }
 
-  &__outlined {
+  &-outlined {
+    @extend %button;
     border: 1px solid var(--color-outline);
     color: var(--color-primary);
 
@@ -69,7 +140,8 @@
     }
   }
 
-  &__text {
+  &-text {
+    @extend %button;
     color: var(--color-primary);
     padding-inline: var(--spacing-lg);
 

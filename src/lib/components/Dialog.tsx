@@ -11,7 +11,7 @@ export type DialogProps = Omit<
   fullscreenOnCompact?: boolean;
 };
 
-const CSS_PREFIX = 'rm-dialog';
+const CSS_PREFIX = 'm3-dialog';
 
 export function Dialog({
   id,
@@ -27,7 +27,7 @@ export function Dialog({
       id={id}
       className={clsx(
         CSS_PREFIX,
-        { [`${CSS_PREFIX}__fullscreen-on-compact`]: fullscreenOnCompact },
+        { 'is-fullscreen-on-compact': fullscreenOnCompact },
         className,
       )}
       {...props}

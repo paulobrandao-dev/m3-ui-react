@@ -76,13 +76,13 @@ export default function DocsNavRail() {
                 onClick={() => showDialog('dialog-license')}
               />
             </Tooltip>
-            <Tooltip text="Color scheme">
+            <Tooltip text="Settings">
               <IconButton
-                icon={<Icon icon="palette" />}
-                aria-label="Select color scheme"
+                icon={<Icon icon="settings" />}
+                aria-label="Settings"
                 onClick={e =>
                   showPopover(
-                    'select-theme',
+                    'settings-menu',
                     media.isGreaterThanCompact ? e.currentTarget : undefined,
                   )
                 }

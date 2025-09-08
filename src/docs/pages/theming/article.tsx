@@ -69,17 +69,17 @@ export default function ThemingArticle() {
       </Font>
       <pre className="js">
         <code>
-          <var>import</var> &#123; applyThemeOnHtmlStyleTag &#125;{' '}
-          <var>from</var> <samp>'@paulobrandao/react-material/theme'</samp>;
+          <kbd>import</kbd> &#123; applyThemeOnHtmlStyleTag &#125;{' '}
+          <kbd>from</kbd> <samp>'m3-ui-react/theme'</samp>;
         </code>
         <code>
           <i>// in the RootLayout component</i>
         </code>
         <code>
-          <var>return</var> (
+          <kbd>return</kbd> (
         </code>
         <code className="sp-1">
-          &lt;<var>html</var>
+          &lt;<kbd>html</kbd>
         </code>
         <code className="sp-2">
           <b>style</b>=&#123;<b>applyThemeOnHtmlStyleTag</b>(&#123;
@@ -106,11 +106,11 @@ export default function ThemingArticle() {
         <code className="sp-2">&#125;)&#125;</code>
         <code className="sp-1">&gt;</code>
         <code className="sp-2">
-          &lt;<var>body</var>&gt;&#123;<ins>children</ins>&#125;&lt;/
-          <var>body</var>&gt;
+          &lt;<kbd>body</kbd>&gt;&#123;<ins>children</ins>&#125;&lt;/
+          <kbd>body</kbd>&gt;
         </code>
         <code className="sp-1">
-          &lt;/<var>html</var>&gt;
+          &lt;/<kbd>html</kbd>&gt;
         </code>
         <code>);</code>
       </pre>
@@ -138,8 +138,8 @@ export default function ThemingArticle() {
       </Font>
       <pre className="js">
         <code>
-          <var>import</var> &#123; applyTheme &#125; <var>from</var>{' '}
-          <samp>'@paulobrandao/react-material/theme'</samp>;
+          <kbd>import</kbd> &#123; applyTheme &#125; <kbd>from</kbd>{' '}
+          <samp>'m3-ui-react/theme'</samp>;
         </code>
         <code>
           <i>// before createRoot</i>

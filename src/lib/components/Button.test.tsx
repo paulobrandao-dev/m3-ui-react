@@ -22,22 +22,11 @@ describe('Button component', () => {
     const outlined = result.getByRole('button', { name: 'Outlined' });
     const tonal = result.getByRole('button', { name: 'Tonal' });
 
-    expect(allDefault.classList.contains('rm-button__text')).toBeTruthy();
-    expect(elevated.classList.contains('rm-button__elevated')).toBeTruthy();
-    expect(filled.classList.contains('rm-button__filled')).toBeTruthy();
-    expect(outlined.classList.contains('rm-button__outlined')).toBeTruthy();
-    expect(tonal.classList.contains('rm-button__tonal')).toBeTruthy();
-  });
-
-  it('should render the right element according to "as" prop', () => {
-    const result = render(
-      <Button label="Link" as="a" variant="text" data-testid="button_text" />,
-    );
-
-    const text = result.getByTestId('button_text');
-
-    expect(text.tagName).toEqual('A');
-    expect(text.classList.contains('rm-button__text')).toBeTruthy();
+    expect(allDefault.classList.contains('m3-button-text')).toBeTruthy();
+    expect(elevated.classList.contains('m3-button-elevated')).toBeTruthy();
+    expect(filled.classList.contains('m3-button-filled')).toBeTruthy();
+    expect(outlined.classList.contains('m3-button-outlined')).toBeTruthy();
+    expect(tonal.classList.contains('m3-button-tonal')).toBeTruthy();
   });
 
   it('should apply the disable CSS class when it has the "disabled" prop', () => {
@@ -45,6 +34,6 @@ describe('Button component', () => {
 
     const button = result.getByRole('button', { name: 'Disabled' });
 
-    expect(button.classList.contains('rm-button__disabled')).toBeTruthy();
+    expect(button.hasAttribute('disabled')).toBeTruthy();
   });
 });

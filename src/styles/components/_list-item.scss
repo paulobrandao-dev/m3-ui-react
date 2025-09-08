@@ -1,6 +1,6 @@
 @use '../mixin' as *;
 
-.rm-list-item {
+li.m3-list-item {
   display: flex;
   align-items: center;
   width: 100%;
@@ -21,12 +21,12 @@
     @include state-layer-focus;
   }
 
-  &__selected {
+  &.is-selected {
     background-color: var(--color-secondary-container);
     color: var(--color-on-secondary-container);
   }
 
-  &__text {
+  > span.item-text {
     flex: auto;
     display: flex;
     flex-direction: column;

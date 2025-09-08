@@ -36,14 +36,10 @@ describe('IconButton component', () => {
     const outlined = result.getByRole('button', { name: 'variant-outlined' });
     const tonal = result.getByRole('button', { name: 'variant-tonal' });
 
-    expect(
-      standard.classList.contains('rm-icon-button__standard'),
-    ).toBeTruthy();
-    expect(filled.classList.contains('rm-icon-button__filled')).toBeTruthy();
-    expect(
-      outlined.classList.contains('rm-icon-button__outlined'),
-    ).toBeTruthy();
-    expect(tonal.classList.contains('rm-icon-button__tonal')).toBeTruthy();
+    expect(standard.classList.contains('m3-icon-button-standard')).toBeTruthy();
+    expect(filled.classList.contains('m3-icon-button-filled')).toBeTruthy();
+    expect(outlined.classList.contains('m3-icon-button-outlined')).toBeTruthy();
+    expect(tonal.classList.contains('m3-icon-button-tonal')).toBeTruthy();
   });
 
   it('should apply the disable CSS class when it has the "disabled" prop', () => {
@@ -57,6 +53,6 @@ describe('IconButton component', () => {
 
     const button = result.getByRole('button', { name: 'disabled-prop' });
 
-    expect(button.classList.contains('rm-icon-button__disabled')).toBeTruthy();
+    expect(button.hasAttribute('disabled')).toBeTruthy();
   });
 });

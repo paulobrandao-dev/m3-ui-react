@@ -17,8 +17,8 @@ export default defineConfig({
         icon: resolve(__dirname, '..', 'src', 'lib', 'icon', 'Rounded.tsx'),
       },
       fileName: (format, entryName) =>
-        `react-material.${entryName}.${format === 'cjs' ? 'cjs' : 'js'}`,
-      cssFileName: 'react-material.icon-rounded',
+        `m3-ui.${entryName}.${format === 'cjs' ? 'cjs' : 'js'}`,
+      cssFileName: 'm3-ui.icon-rounded',
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

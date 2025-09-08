@@ -52,7 +52,7 @@ export function Icon({
   return (
     <span
       ref={ref}
-      className={`rm-icon${className ? ` ${className}` : ''}`}
+      className={`m3-icon${className ? ` ${className}` : ''}`}
       style={{
         ...style,
         fontSize: size,

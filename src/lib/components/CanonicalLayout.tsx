@@ -14,7 +14,7 @@ export type CanonicalLayoutProps<E extends React.ElementType> =
     ref?: React.Ref<HTMLElement>;
   };
 
-const CSS_PREFIX = 'rm-canonical-layout';
+const CSS_PREFIX = 'm3-layout';
 
 export function CanonicalLayout<E extends React.ElementType>({
   as,
@@ -33,11 +33,10 @@ export function CanonicalLayout<E extends React.ElementType>({
     <Surface
       ref={ref}
       className={clsx(
-        CSS_PREFIX,
-        `${CSS_PREFIX}__${variant}`,
-        { [`${CSS_PREFIX}__fluid`]: isFluid },
-        spacing !== undefined ? spacingClsx(CSS_PREFIX, spacing) : undefined,
-        gap !== undefined ? gapClsx(`${CSS_PREFIX}__`, gap) : undefined,
+        `${CSS_PREFIX}-${variant}`,
+        { 'is-fluid': isFluid },
+        spacing !== undefined ? spacingClsx(spacing) : undefined,
+        gap !== undefined ? gapClsx(gap) : undefined,
         className,
       )}
       {...props}

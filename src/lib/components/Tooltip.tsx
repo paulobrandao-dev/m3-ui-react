@@ -80,7 +80,7 @@ export function Tooltip({
         role="tooltip"
         id={tooltipId}
         popover="manual"
-        className={clsx('rm-tooltip', className)}
+        className={clsx('m3-tooltip', className)}
         style={{ ...style }}
         {...props}
       >

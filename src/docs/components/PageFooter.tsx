@@ -1,7 +1,7 @@
 import { Button, Content, Divider, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import DialogLicense from './DialogLicense';
-import SelectThemeMenu from './SelectThemeMenu';
+import SettingsMenu from './SettingsMenu';
 
 export default function PageFooter() {
   const media = useMediaQuery();
@@ -47,7 +47,7 @@ export default function PageFooter() {
         />
       </Content>
       <DialogLicense />
-      <SelectThemeMenu />
+      <SettingsMenu />
     </Content>
   );
 }

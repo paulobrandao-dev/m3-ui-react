@@ -17,8 +17,8 @@ export default function HomeArticle() {
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
-        React Material is an impressive and user-friendly library of components
-        that follows the{' '}
+        M3 UI is an impressive and user-friendly library of components that
+        follows the{' '}
         <a href="https://m3.material.io" target="_blank" rel="nofollow">
           Material 3
         </a>{' '}
@@ -47,8 +47,8 @@ export default function HomeArticle() {
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
-        If you're looking for a powerful and modern library of UI components,
-        React Material is worth checking out.
+        If you're looking for a powerful and modern library of UI components, M3
+        UI is worth checking out.
       </Font>
       <Font
         scale="headline-large"
@@ -82,7 +82,7 @@ export default function HomeArticle() {
         require added dependencies to use that.
       </Font>
       <pre className="sh">
-        <code>npm i @paulobrandao/react-material</code>
+        <code>npm i m3-ui-react</code>
       </pre>
       <Font
         scale="headline-large"
@@ -104,8 +104,7 @@ export default function HomeArticle() {
           <i>// in the RootLayout or (main|index).ts</i>
         </code>
         <code>
-          <var>import</var>{' '}
-          <samp>'@paulobrandao/react-material/dist/react-material.css'</samp>;
+          <kbd>import</kbd> <samp>'m3-ui-react/dist/m3-ui.css'</samp>;
         </code>
       </pre>
       <Font
@@ -121,28 +120,22 @@ export default function HomeArticle() {
           <i>// Outlined</i>
         </code>
         <code>
-          <var>import</var>
-          <samp>
-            '@paulobrandao/react-material/dist/react-material.icon-outlined.css';
-          </samp>
+          <kbd>import</kbd>
+          <samp>'m3-ui-react/dist/m3-ui.icon-outlined.css';</samp>
         </code>
         <code>
           <i>// Rounded</i>
         </code>
         <code>
-          <var>import</var>
-          <samp>
-            '@paulobrandao/react-material/dist/react-material.icon-rounded.css';
-          </samp>
+          <kbd>import</kbd>
+          <samp>'m3-ui-react/dist/m3-ui.icon-rounded.css';</samp>
         </code>
         <code>
           <i>// Sharp</i>
         </code>
         <code>
-          <var>import</var>
-          <samp>
-            '@paulobrandao/react-material/dist/react-material.icon-sharp.css';
-          </samp>
+          <kbd>import</kbd>
+          <samp>'m3-ui-react/dist/m3-ui.icon-sharp.css';</samp>
         </code>
       </pre>
       <Font

@@ -37,28 +37,17 @@ export function Navlink<T extends ElementType>({
   return (
     <Surface
       ref={ref}
-      className={clsx(
-        CSS_PREFIX,
-        isHorizontal ? `${CSS_PREFIX}__horizontal` : undefined,
-        className,
-      )}
+      className={clsx(CSS_PREFIX, { 'is-horizontal': isHorizontal }, className)}
       aria-current={isActive ? 'page' : undefined}
       {...props}
     >
       {isHorizontal && icon}
       {!isHorizontal && icon !== undefined && (
-        <span
-          className={clsx(
-            `${CSS_PREFIX}__indicator`,
-            isActive ? `${CSS_PREFIX}__indicator-active` : undefined,
-          )}
-        >
+        <span className={`link-indicator${isActive ? '-active' : ''}`}>
           {icon}
         </span>
       )}
-      <span
-        className={`${CSS_PREFIX}__label${isHorizontal ? '-horizontal' : ''}`}
-      >
+      <span className={`link-label${isHorizontal ? '-horizontal' : ''}`}>
         {label}
       </span>
     </Surface>

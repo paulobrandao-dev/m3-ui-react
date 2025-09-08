@@ -19,7 +19,7 @@ export type CardProps<E extends React.ElementType> =
     grid?: MaterialGridProps;
   };
 
-const CSS_PREFIX = 'rm-card';
+const CSS_PREFIX = 'm3-card';
 
 export function Card<E extends React.ElementType>({
   as,
@@ -37,14 +37,13 @@ export function Card<E extends React.ElementType>({
     <Surface
       ref={ref}
       className={clsx(
-        CSS_PREFIX,
-        `${CSS_PREFIX}__${variant}`,
+        `${CSS_PREFIX}-${variant}`,
         {
-          [`${CSS_PREFIX}__${variant}-state-layer`]: stateLayer,
+          'has-state-layer': stateLayer,
         },
-        spacing ? spacingClsx(CSS_PREFIX, spacing) : undefined,
-        flexbox ? flexboxClsx(CSS_PREFIX, flexbox) : undefined,
-        grid ? gridClsx(CSS_PREFIX, grid) : undefined,
+        spacing ? spacingClsx(spacing) : undefined,
+        flexbox ? flexboxClsx(flexbox) : undefined,
+        grid ? gridClsx(grid) : undefined,
         className,
       )}
       {...props}

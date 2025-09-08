@@ -9,7 +9,7 @@ describe('Divider component', () => {
     const result = render(<Divider data-testid="default" />);
     const hr = result.getByTestId('default');
 
-    expect(hr.classList.contains('rm-divider')).toBeTruthy();
+    expect(hr.classList.contains('m3-divider')).toBeTruthy();
     expect(hr.tagName).toEqual('HR');
   });
 
@@ -24,6 +24,6 @@ describe('Divider component', () => {
     const result = render(<Divider data-testid="vertical-prop" isVertical />);
     const hr = result.getByTestId('vertical-prop');
 
-    expect(hr.classList.contains('rm-divider__vertical')).toBeTruthy();
+    expect(hr.classList.contains('is-vertical')).toBeTruthy();
   });
 });

@@ -2,8 +2,8 @@
 
 import { clsx } from 'clsx';
 
-export type ListItemProps<E extends React.ElementType> = Omit<
-  React.HTMLAttributes<HTMLElement>,
+export type ListItemProps = Omit<
+  React.LiHTMLAttributes<HTMLLIElement>,
   'children'
 > & {
   headline: string;
@@ -11,14 +11,12 @@ export type ListItemProps<E extends React.ElementType> = Omit<
   startElement?: React.ReactElement;
   endElement?: React.ReactElement;
   isSelected?: boolean;
-  as?: E;
-  ref?: React.Ref<HTMLDivElement>;
+  ref?: React.Ref<HTMLLIElement>;
 };
 
-const CSS_PREFIX = 'rm-list-item';
+const CSS_PREFIX = 'm3-list-item';
 
-export function ListItem<E extends React.ElementType>({
-  as,
+export function ListItem({
   ref,
   startElement,
   headline,
@@ -27,30 +25,21 @@ export function ListItem<E extends React.ElementType>({
   isSelected,
   className,
   ...props
-}: ListItemProps<E> &
-  Omit<React.ComponentPropsWithoutRef<E>, keyof ListItemProps<E>>) {
-  const Surface = as || 'div';
-
+}: ListItemProps) {
   return (
-    <Surface
+    <li
       ref={ref}
-      className={clsx(
-        CSS_PREFIX,
-        { [`${CSS_PREFIX}__selected`]: isSelected },
-        className,
-      )}
+      className={clsx(CSS_PREFIX, { 'is-selected': isSelected }, className)}
       {...props}
     >
       {startElement}
-      <span className={`${CSS_PREFIX}__text`}>
-        <span className={`${CSS_PREFIX}__text-headline`}>{headline}</span>
+      <span className="item-text">
+        <span className="item-text-headline">{headline}</span>
         {supportingText && (
-          <span className={`${CSS_PREFIX}__text-supporting`}>
-            {supportingText}
-          </span>
+          <span className="item-text-supporting">{supportingText}</span>
         )}
       </span>
       {endElement}
-    </Surface>
+    </li>
   );
 }

@@ -1,43 +1,32 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { ElementType } from 'react';
 
-export type IconButtonProps<E extends React.ElementType> = Omit<
+export type IconButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   'children'
 > & {
-  icon: React.ReactNode;
-  as?: E;
+  icon: React.ReactElement;
   variant?: 'standard' | 'outlined' | 'filled' | 'tonal';
   ref?: React.Ref<HTMLButtonElement & HTMLElement>;
 };
 
-const CSS_PREFIX = 'rm-icon-button';
+const CSS_PREFIX = 'm3-icon-button';
 
-export const IconButton = <E extends ElementType>({
+export const IconButton = ({
   icon,
-  as,
   ref,
   variant = 'standard',
   className,
   ...props
-}: IconButtonProps<E> &
-  Omit<React.ComponentPropsWithoutRef<E>, keyof IconButtonProps<E>>) => {
-  const Surface = as || 'button';
-
+}: IconButtonProps) => {
   return (
-    <Surface
+    <button
       ref={ref}
-      className={clsx(
-        CSS_PREFIX,
-        `${CSS_PREFIX}__${variant}`,
-        { [`${CSS_PREFIX}__disabled`]: props.disabled },
-        className,
-      )}
+      className={clsx(`${CSS_PREFIX}-${variant}`, className)}
       {...props}
     >
       {icon}
-    </Surface>
+    </button>
   );
 };

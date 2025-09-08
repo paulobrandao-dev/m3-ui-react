@@ -10,7 +10,7 @@ describe('Font component', () => {
     const text = result.getByText('Sample text');
 
     expect(text.tagName).toEqual('SPAN');
-    expect(text.classList.contains('rm-font__body-large')).toBeTruthy();
+    expect(text.classList.contains('m3-font-body-large')).toBeTruthy();
   });
 
   it('should render the right element according to "as" prop', () => {
@@ -22,7 +22,7 @@ describe('Font component', () => {
     const heading = result.getByRole('heading', { level: 1 });
 
     expect(heading.tagName).toEqual('H1');
-    expect(heading.classList.contains('rm-font__display-large')).toBeTruthy();
+    expect(heading.classList.contains('m3-font-display-large')).toBeTruthy();
   });
 
   it('should apply the text align CSS class according to "textAlign" prop', () => {
@@ -80,10 +80,10 @@ describe('Font component', () => {
     const atLeft = result.getByTestId('align-left');
     const justify = result.getByTestId('align-justify');
 
-    expect(title.classList.contains('rm-font__align-center')).toBeTruthy();
-    expect(date.classList.contains('rm-font__align-right')).toBeTruthy();
-    expect(atLeft.classList.contains('rm-font__align-left')).toBeTruthy();
-    expect(justify.classList.contains('rm-font__align-justify')).toBeTruthy();
+    expect(title.classList.contains('is-align-center')).toBeTruthy();
+    expect(date.classList.contains('is-align-right')).toBeTruthy();
+    expect(atLeft.classList.contains('is-align-left')).toBeTruthy();
+    expect(justify.classList.contains('is-align-justify')).toBeTruthy();
   });
 
   it('should apply the transform CSS class according to "textTransform" prop', () => {
@@ -116,15 +116,11 @@ describe('Font component', () => {
     const capitalize = result.getByTestId('transform-capitalize');
     const uppercase = result.getByTestId('transform-uppercase');
 
+    expect(lowercase.classList.contains('is-transform-lowercase')).toBeTruthy();
     expect(
-      lowercase.classList.contains('rm-font__transform-lowercase'),
+      capitalize.classList.contains('is-transform-capitalize'),
     ).toBeTruthy();
-    expect(
-      capitalize.classList.contains('rm-font__transform-capitalize'),
-    ).toBeTruthy();
-    expect(
-      uppercase.classList.contains('rm-font__transform-uppercase'),
-    ).toBeTruthy();
+    expect(uppercase.classList.contains('is-transform-uppercase')).toBeTruthy();
   });
 
   it('should apply the color CSS class according to the "textColor" prop', () => {
@@ -153,11 +149,11 @@ describe('Font component', () => {
     const h4 = result.getByRole('heading', { level: 4 });
     const h5 = result.getByRole('heading', { level: 5 });
 
-    expect(h1.classList.contains('rm-font__color-primary')).toBeTruthy();
-    expect(h2.classList.contains('rm-font__color-secondary')).toBeTruthy();
-    expect(h3.classList.contains('rm-font__color-tertiary')).toBeTruthy();
-    expect(h4.classList.contains('rm-font__color-reverse')).toBeTruthy();
-    expect(h5.classList.contains('rm-font__color-error')).toBeTruthy();
+    expect(h1.classList.contains('is-color-primary')).toBeTruthy();
+    expect(h2.classList.contains('is-color-secondary')).toBeTruthy();
+    expect(h3.classList.contains('is-color-tertiary')).toBeTruthy();
+    expect(h4.classList.contains('is-color-reverse')).toBeTruthy();
+    expect(h5.classList.contains('is-color-error')).toBeTruthy();
   });
 
   it('should apply the spacing CSS classes according to the "spacing" prop', () => {
@@ -177,10 +173,10 @@ describe('Font component', () => {
     );
     const text = result.getByTestId('spacing-prop');
 
-    expect(text.classList.contains('rm-font__margin-block-xl')).toBeTruthy();
-    expect(text.classList.contains('rm-font__margin-inline-auto')).toBeTruthy();
-    expect(text.classList.contains('rm-font__padding-block-sm')).toBeTruthy();
-    expect(text.classList.contains('rm-font__padding-inline-lg')).toBeTruthy();
+    expect(text.classList.contains('margin-block-xl')).toBeTruthy();
+    expect(text.classList.contains('margin-inline-auto')).toBeTruthy();
+    expect(text.classList.contains('padding-block-sm')).toBeTruthy();
+    expect(text.classList.contains('padding-inline-lg')).toBeTruthy();
   });
 
   it('should apply the flexbox CSS classes according to the "flexbox" prop', () => {
@@ -198,15 +194,9 @@ describe('Font component', () => {
     );
     const text = result.getByText('Sample text');
 
-    expect(text.classList.contains('rm-font__flexbox')).toBeTruthy();
-    expect(
-      text.classList.contains('rm-font__flexbox-direction-column'),
-    ).toBeTruthy();
-    expect(
-      text.classList.contains('rm-font__flexbox-align-items-flex-start'),
-    ).toBeTruthy();
-    expect(
-      text.classList.contains('rm-font__flexbox-justify-content-center'),
-    ).toBeTruthy();
+    expect(text.classList.contains('is-flexbox')).toBeTruthy();
+    expect(text.classList.contains('flex-direction-column')).toBeTruthy();
+    expect(text.classList.contains('flex-align-items-flex-start')).toBeTruthy();
+    expect(text.classList.contains('flex-justify-content-center')).toBeTruthy();
   });
 });

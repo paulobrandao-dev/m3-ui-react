@@ -9,7 +9,7 @@ export type DividerProps<E extends React.ElementType> =
     ref?: React.Ref<HTMLElement & HTMLHRElement>;
   };
 
-const CSS_PREFIX = 'rm-divider';
+const CSS_PREFIX = 'm3-divider';
 
 export function Divider<E extends React.ElementType>({
   as,
@@ -24,11 +24,7 @@ export function Divider<E extends React.ElementType>({
   return (
     <Surface
       ref={ref}
-      className={clsx(
-        CSS_PREFIX,
-        { [`${CSS_PREFIX}__vertical`]: isVertical },
-        className,
-      )}
+      className={clsx(CSS_PREFIX, { 'is-vertical': isVertical }, className)}
       {...props}
     />
   );

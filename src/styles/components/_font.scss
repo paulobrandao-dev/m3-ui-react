@@ -1,30 +1,6 @@
 @use '../mixin' as *;
 
-@mixin font-scale($scale) {
-  &__#{$scale} {
-    &-large {
-      font: var(--text-#{$scale}-large);
-    }
-    &-medium {
-      font: var(--text-#{$scale}-medium);
-    }
-    &-small {
-      font: var(--text-#{$scale}-small);
-    }
-  }
-}
-
-.rm-font {
-  @include font-scale('display');
-  @include font-scale('headline');
-  @include font-scale('title');
-  @include font-scale('body');
-  @include font-scale('label');
-
-  &__code {
-    font: var(--text-code);
-  }
-
+%font {
   @include spacing-rules('padding');
   @include spacing-rules('padding-block');
   @include spacing-rules('padding-block-end');
@@ -43,7 +19,7 @@
 
   @include flexbox-rules;
 
-  &__transform {
+  &.is-transform {
     &-capitalize {
       text-transform: capitalize;
     }
@@ -55,7 +31,7 @@
     }
   }
 
-  &__align {
+  &.is-align {
     &-center {
       text-align: center;
     }
@@ -70,7 +46,7 @@
     }
   }
 
-  &__color {
+  &.is-color {
     &-primary {
       color: var(--color-primary);
     }
@@ -86,5 +62,35 @@
     &-error {
       color: var(--color-error);
     }
+  }
+}
+
+@mixin font-scale($scale) {
+  &-#{$scale} {
+    &-large {
+      font: var(--text-#{$scale}-large);
+      @extend %font;
+    }
+    &-medium {
+      font: var(--text-#{$scale}-medium);
+      @extend %font;
+    }
+    &-small {
+      font: var(--text-#{$scale}-small);
+      @extend %font;
+    }
+  }
+}
+
+.m3-font {
+  @include font-scale('display');
+  @include font-scale('headline');
+  @include font-scale('title');
+  @include font-scale('body');
+  @include font-scale('label');
+
+  &-code {
+    font: var(--text-code);
+    @extend %font;
   }
 }

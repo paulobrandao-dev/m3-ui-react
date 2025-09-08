@@ -30,7 +30,7 @@ export default defineConfig({
         theme: resolve(__dirname, 'src', 'lib', 'theme', 'index.ts'),
       },
       fileName: (format, entryName) =>
-        `react-material${entryName !== 'index' ? `.${entryName}` : ''}.${format === 'cjs' ? 'cjs' : 'js'}`,
+        `m3-ui${entryName !== 'index' ? `.${entryName}` : ''}.${format === 'cjs' ? 'cjs' : 'js'}`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

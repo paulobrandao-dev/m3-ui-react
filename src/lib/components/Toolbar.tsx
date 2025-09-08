@@ -25,7 +25,7 @@ export type ToolbarProps<E extends React.ElementType> = Omit<
   ref?: React.Ref<HTMLDivElement>;
 };
 
-const CSS_PREFIX = 'rm-toolbar';
+const CSS_PREFIX = 'm3-toolbar';
 
 export function Toolbar<E extends React.ElementType>({
   as,

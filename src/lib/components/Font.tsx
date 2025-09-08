@@ -20,7 +20,7 @@ export type FontProps<E extends React.ElementType> =
     ref?: React.Ref<HTMLElement>;
   };
 
-const CSS_PREFIX = 'rm-font';
+const CSS_PREFIX = 'm3-font';
 
 export function Font<E extends React.ElementType>({
   scale,
@@ -40,15 +40,14 @@ export function Font<E extends React.ElementType>({
     <Surface
       ref={ref}
       className={clsx(
-        `${CSS_PREFIX}__${scale}`,
+        `${CSS_PREFIX}-${scale}`,
         {
-          [`${CSS_PREFIX}__align-${textAlign}`]: textAlign !== undefined,
-          [`${CSS_PREFIX}__transform-${textTransform}`]:
-            textTransform !== undefined,
-          [`${CSS_PREFIX}__color-${textColor}`]: textColor !== undefined,
+          [`is-align-${textAlign}`]: textAlign !== undefined,
+          [`is-transform-${textTransform}`]: textTransform !== undefined,
+          [`is-color-${textColor}`]: textColor !== undefined,
         },
-        spacing !== undefined ? spacingClsx(CSS_PREFIX, spacing) : undefined,
-        flexbox !== undefined ? flexboxClsx(CSS_PREFIX, flexbox) : undefined,
+        spacing !== undefined ? spacingClsx(spacing) : undefined,
+        flexbox !== undefined ? flexboxClsx(flexbox) : undefined,
         className,
       )}
       {...props}

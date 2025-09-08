@@ -35,7 +35,7 @@ export default function HomeHeader() {
         spacing={{ padding: 'lg' }}
       >
         <Font as="h1" scale="display-large">
-          React Material
+          M3 UI React
         </Font>
         <Font
           as="p"

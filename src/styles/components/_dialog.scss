@@ -1,4 +1,4 @@
-dialog.rm-dialog {
+dialog.m3-dialog {
   border: none;
   background-color: var(--color-surface-container-high);
   color: var(--color-on-surface-variant);
@@ -45,7 +45,7 @@ dialog.rm-dialog {
     overflow: hidden;
   }
 
-  &__fullscreen-on-compact {
+  &.is-fullscreen-on-compact {
     @media screen and (max-width: 599px) {
       padding: 0;
       min-width: unset;

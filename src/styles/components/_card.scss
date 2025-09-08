@@ -1,64 +1,20 @@
 @use '../mixin' as *;
 
-.rm-card {
+%card {
   border-radius: var(--shape-md);
   transition-property: box-shadow, background-color, border-color;
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-duration);
 
-  &__elevated {
-    background-color: var(--color-surface-container-low);
-    box-shadow: var(--elevation-1);
+  &.has-state-layer {
+    @include state-layer;
 
-    &-state-layer {
-      @include state-layer;
-
-      &:hover {
-        box-shadow: var(--elevation-2);
-
-        @include state-layer-hover;
-      }
-
-      &:focus {
-        @include state-layer-focus;
-      }
+    &:hover {
+      @include state-layer-hover;
     }
-  }
 
-  &__filled {
-    background-color: var(--color-surface-container-highest);
-
-    &-state-layer {
-      @include state-layer;
-
-      &:hover {
-        box-shadow: var(--elevation-1);
-
-        @include state-layer-hover;
-      }
-
-      &:focus {
-        @include state-layer-focus;
-      }
-    }
-  }
-
-  &__outlined {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-outline);
-
-    &-state-layer {
-      @include state-layer;
-
-      &:hover {
-        box-shadow: var(--elevation-1);
-
-        @include state-layer-hover;
-      }
-
-      &:focus {
-        @include state-layer-focus;
-      }
+    &:focus {
+      @include state-layer-focus;
     }
   }
 
@@ -81,4 +37,38 @@
   @include spacing-rules('margin-inline-start', 1);
 
   @include grid-rules;
+}
+
+.m3-card {
+  &-elevated {
+    background-color: var(--color-surface-container-low);
+    box-shadow: var(--elevation-1);
+
+    &.has-state-layer {
+      &:hover {
+        box-shadow: var(--elevation-2);
+      }
+    }
+  }
+
+  &-filled {
+    background-color: var(--color-surface-container-highest);
+
+    &.has-state-layer {
+      &:hover {
+        box-shadow: var(--elevation-1);
+      }
+    }
+  }
+
+  &-outlined {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-outline);
+
+    &.has-state-layer {
+      &:hover {
+        box-shadow: var(--elevation-1);
+      }
+    }
+  }
 }

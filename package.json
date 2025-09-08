@@ -1,12 +1,12 @@
 {
-  "name": "@paulobrandao/react-material",
+  "name": "m3-ui-react",
   "version": "1.0.0",
   "type": "module",
   "license": "ISC",
   "homepage": "https://github.com/paulobrandao-dev/react-material",
   "author": {
     "name": "Paulo Brandão",
-    "url": "https://paulobrandao.dev",
+    "url": "https://github.com/paulobrandao-dev",
     "email": "paulobrandao.dev@outlook.com"
   },
   "repository": {
@@ -17,40 +17,40 @@
     "dist",
     "badges.svg"
   ],
-  "main": "./dist/react-material.cjs",
-  "module": "./dist/react-material.js",
+  "main": "./dist/m3-ui.cjs",
+  "module": "./dist/m3-ui.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/react-material.js",
-      "require": "./dist/react-material.cjs"
+      "import": "./dist/m3-ui.js",
+      "require": "./dist/m3-ui.cjs"
     },
     "./theme": {
       "types": "./dist/theme.d.ts",
-      "import": "./dist/react-material.theme.js",
-      "require": "./dist/react-material.theme.cjs"
+      "import": "./dist/m3-ui.theme.js",
+      "require": "./dist/m3-ui.theme.cjs"
     },
     "./icon": {
       "types": "./dist/icon.d.ts",
-      "import": "./dist/react-material.icon.js",
-      "require": "./dist/react-material.icon.cjs"
+      "import": "./dist/m3-ui.icon.js",
+      "require": "./dist/m3-ui.icon.cjs"
     },
-    "./dist/react-material.css": {
-      "import": "./dist/react-material.css",
-      "require": "./dist/react-material.css"
+    "./dist/m3-ui.css": {
+      "import": "./dist/m3-ui.css",
+      "require": "./dist/m3-ui.css"
     },
-    "./dist/react-material.icon-outlined.css": {
-      "import": "./dist/react-material.icon-outlined.css",
-      "require": "./dist/react-material.icon-outlined.css"
+    "./dist/m3-ui.icon-outlined.css": {
+      "import": "./dist/m3-ui.icon-outlined.css",
+      "require": "./dist/m3-ui.icon-outlined.css"
     },
-    "./dist/react-material.icon-rounded.css": {
-      "import": "./dist/react-material.icon-rounded.css",
-      "require": "./dist/react-material.icon-rounded.css"
+    "./dist/m3-ui.icon-rounded.css": {
+      "import": "./dist/m3-ui.icon-rounded.css",
+      "require": "./dist/m3-ui.icon-rounded.css"
     },
-    "./dist/react-material.icon-sharp.css": {
-      "import": "./dist/react-material.icon-sharp.css",
-      "require": "./dist/react-material.icon-sharp.css"
+    "./dist/m3-ui.icon-sharp.css": {
+      "import": "./dist/m3-ui.icon-sharp.css",
+      "require": "./dist/m3-ui.icon-sharp.css"
     }
   },
   "scripts": {

@@ -21,7 +21,7 @@ export type ContentProps<E extends React.ElementType> =
     };
   };
 
-const CSS_PREFIX = 'rm-content';
+const CSS_PREFIX = 'm3-content';
 
 export function Content<E extends React.ElementType>({
   as,
@@ -41,14 +41,14 @@ export function Content<E extends React.ElementType>({
       className={clsx(
         CSS_PREFIX,
         {
-          [`${CSS_PREFIX}__scrollable-x-${scrollable?.horizontal}`]:
+          [`is-scrollable-x-${scrollable?.horizontal}`]:
             scrollable?.horizontal !== undefined,
-          [`${CSS_PREFIX}__scrollable-y-${scrollable?.vertical}`]:
+          [`is-scrollable-y-${scrollable?.vertical}`]:
             scrollable?.vertical !== undefined,
         },
-        spacing ? spacingClsx(CSS_PREFIX, spacing) : undefined,
-        flexbox ? flexboxClsx(CSS_PREFIX, flexbox) : undefined,
-        grid ? gridClsx(CSS_PREFIX, grid) : undefined,
+        spacing ? spacingClsx(spacing) : undefined,
+        flexbox ? flexboxClsx(flexbox) : undefined,
+        grid ? gridClsx(grid) : undefined,
         className,
       )}
       {...props}

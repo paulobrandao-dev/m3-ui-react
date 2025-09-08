@@ -29,9 +29,21 @@ body {
   }
 }
 
+/*
+Background: rgb(39, 40, 34) #272822
+Comments: rgb(117, 113, 94) #75715E
+White: rgb(248, 248, 242) #F8F8F2
+Yellow: rgb(230, 219, 116) #E6DB74
+Green: rgb(166, 226, 46) #A6E22E
+Orange: rgb(253, 151, 31) #FD971F
+Purple: rgb(174, 129, 255) #AE81FF
+Pink: rgb(249, 38, 114) #F92672
+Blue: rgb(102, 217, 239) #66D9EF
+*/
+
 pre {
-  background-color: #2e2e2e;
-  color: #d6d6d6;
+  background-color: #272822;
+  color: #f8f8f2;
   padding: var(--spacing-sm);
   border-radius: var(--shape-sm);
   overflow-y: hidden;
@@ -89,27 +101,27 @@ pre.js > code.sp-5::before {
 
 pre.js > code > i {
   font-style: normal;
-  color: #797979;
+  color: #75715e;
 }
 
-pre.js > code > var {
+pre.js > code > kbd {
   font-style: normal;
-  color: #b05279;
+  color: #f92672;
 }
 
 pre.js > code > samp {
-  color: #e5b567;
+  color: #e6db74;
 }
 
 pre.js > code > em {
-  color: #6c99bb;
+  color: #66d9ef;
 }
 
 pre.js > code > b {
-  color: #b4d273;
+  color: #a6e22e;
 }
 
 pre.js > code > ins {
-  color: #e87d3e;
+  color: #fd971f;
   text-decoration: none;
 }
