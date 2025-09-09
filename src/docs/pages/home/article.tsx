@@ -120,21 +120,21 @@ export default function HomeArticle() {
           <i>// Outlined</i>
         </code>
         <code>
-          <kbd>import</kbd>
+          <kbd>import</kbd>{' '}
           <samp>'m3-ui-react/dist/m3-ui.icon-outlined.css';</samp>
         </code>
         <code>
           <i>// Rounded</i>
         </code>
         <code>
-          <kbd>import</kbd>
+          <kbd>import</kbd>{' '}
           <samp>'m3-ui-react/dist/m3-ui.icon-rounded.css';</samp>
         </code>
         <code>
           <i>// Sharp</i>
         </code>
         <code>
-          <kbd>import</kbd>
+          <kbd>import</kbd>{' '}
           <samp>'m3-ui-react/dist/m3-ui.icon-sharp.css';</samp>
         </code>
       </pre>

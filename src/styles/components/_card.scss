@@ -17,30 +17,11 @@
       @include state-layer-focus;
     }
   }
-
-  @include flexbox-rules;
-
-  @include spacing-rules('padding');
-  @include spacing-rules('padding-block');
-  @include spacing-rules('padding-block-end');
-  @include spacing-rules('padding-block-start');
-  @include spacing-rules('padding-inline');
-  @include spacing-rules('padding-inline-end');
-  @include spacing-rules('padding-inline-start');
-
-  @include spacing-rules('margin', 1);
-  @include spacing-rules('margin-block', 1);
-  @include spacing-rules('margin-block-end', 1);
-  @include spacing-rules('margin-block-start', 1);
-  @include spacing-rules('margin-inline', 1);
-  @include spacing-rules('margin-inline-end', 1);
-  @include spacing-rules('margin-inline-start', 1);
-
-  @include grid-rules;
 }
 
 .m3-card {
   &-elevated {
+    @extend %card;
     background-color: var(--color-surface-container-low);
     box-shadow: var(--elevation-1);
 
@@ -52,6 +33,7 @@
   }
 
   &-filled {
+    @extend %card;
     background-color: var(--color-surface-container-highest);
 
     &.has-state-layer {
@@ -62,6 +44,7 @@
   }
 
   &-outlined {
+    @extend %card;
     background-color: var(--color-surface);
     border: 1px solid var(--color-outline);
 

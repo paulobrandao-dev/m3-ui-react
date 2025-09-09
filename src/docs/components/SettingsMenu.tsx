@@ -9,6 +9,7 @@ export default function SettingsMenu() {
   return (
     <Menu
       id="settings-menu"
+      disableCloseOnClick
       items={[
         {
           label: 'Dark mode',

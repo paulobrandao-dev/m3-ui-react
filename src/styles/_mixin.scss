@@ -55,34 +55,34 @@
 }
 
 @mixin spacing-rules($property, $auto: 0) {
-  &.#{$property}-none {
+  .#{$property}-none {
     #{$property}: 0;
   }
-  &.#{$property}-xs {
+  .#{$property}-xs {
     #{$property}: var(--spacing-xs);
   }
-  &.#{$property}-sm {
+  .#{$property}-sm {
     #{$property}: var(--spacing-sm);
   }
-  &.#{$property}-md {
+  .#{$property}-md {
     #{$property}: var(--spacing-md);
   }
-  &.#{$property}-lg {
+  .#{$property}-lg {
     #{$property}: var(--spacing-lg);
   }
-  &.#{$property}-xl {
+  .#{$property}-xl {
     #{$property}: var(--spacing-xl);
   }
   @if $auto == 1 {
-    &.#{$property}-auto {
+    .#{$property}-auto {
       #{$property}: auto;
     }
   }
 }
 
 @mixin flexbox-rules {
-  &.is-flexbox {
-    display: flex;
+  .is-flexbox {
+    display: flex !important;
 
     &.flex {
       &-direction {
@@ -254,8 +254,8 @@
 }
 
 @mixin grid-rules {
-  &.is-grid {
-    display: grid;
+  .is-grid {
+    display: grid !important;
 
     &.grid {
       &-columns {

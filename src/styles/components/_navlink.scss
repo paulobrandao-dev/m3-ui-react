@@ -19,19 +19,17 @@ a.material-navlink {
     border-radius: var(--shape-lg);
     @include state-layer;
 
-    &-active {
+    &.is-active {
       background-color: var(--color-secondary-container);
       color: var(--color-on-secondary-container);
     }
   }
 
-  &:hover > &.link-indicator,
-  &:hover > &.link-indicator-active {
+  &:hover > .link-indicator {
     @include state-layer-hover;
   }
 
-  &:focus > &.link-indicator,
-  &:focus > &.link-indicator-active {
+  &:focus > .link-indicator {
     @include state-layer-focus;
   }
 

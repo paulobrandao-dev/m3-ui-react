@@ -43,7 +43,7 @@ export function Navlink<T extends ElementType>({
     >
       {isHorizontal && icon}
       {!isHorizontal && icon !== undefined && (
-        <span className={`link-indicator${isActive ? '-active' : ''}`}>
+        <span className={clsx('link-indicator', { 'is-active': isActive })}>
           {icon}
         </span>
       )}

@@ -31,6 +31,7 @@ export function Menu({
 }: MenuProps) {
   return (
     <menu
+      role="menu"
       id={id}
       popover="auto"
       className={clsx(CSS_PREFIX, className)}

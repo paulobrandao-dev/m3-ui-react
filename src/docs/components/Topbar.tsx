@@ -1,8 +1,7 @@
 import {
+  Appbar,
   IconButton,
-  Toolbar,
   useDialogControl,
-  useMediaQuery,
   usePopoverControl,
   useScrollBehavior,
 } from '@/lib';
@@ -10,7 +9,6 @@ import { Icon } from '@/lib/icon/Rounded';
 import { useState } from 'react';
 
 export default function DocsTopbar() {
-  const media = useMediaQuery();
   const [isScrolled, setScrolledToggle] = useState<boolean>(false);
   const { showDialog } = useDialogControl();
   const { showPopover } = usePopoverControl();
@@ -18,13 +16,12 @@ export default function DocsTopbar() {
   useScrollBehavior('#root', ({ atTop }) => setScrolledToggle(!atTop));
 
   return (
-    <Toolbar
-      as="header"
-      dockedAt="top"
-      bgColor={isScrolled ? 'surface-container' : 'surface'}
-      elevation={isScrolled ? 1 : undefined}
-      startNode={<IconButton icon={<Icon icon="menu" />} />}
-      endNode={
+    <Appbar
+      isScroll={isScrolled}
+      navAction={<IconButton icon={<Icon icon="menu" />} />}
+      variant={!isScrolled ? 'medium' : 'small'}
+      headline="M3 UI React"
+      actions={
         <>
           <IconButton
             icon={<Icon icon="balance" />}
@@ -32,14 +29,9 @@ export default function DocsTopbar() {
             onClick={() => showDialog('dialog-license')}
           />
           <IconButton
-            icon={<Icon icon="palette" />}
-            aria-label="Select color scheme"
-            onClick={e =>
-              showPopover(
-                'select-theme',
-                media.isGreaterThanCompact ? e.currentTarget : undefined,
-              )
-            }
+            icon={<Icon icon="settings" />}
+            aria-label="Settings"
+            onClick={() => showPopover('settings-menu')}
           />
         </>
       }

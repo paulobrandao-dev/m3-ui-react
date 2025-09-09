@@ -5,6 +5,7 @@ export * from './hooks/usePopoverControl';
 export * from './hooks/useScrollBehavior';
 
 // components
+export * from './components/Appbar';
 export * from './components/Button';
 export * from './components/CanonicalLayout';
 export * from './components/Card';
