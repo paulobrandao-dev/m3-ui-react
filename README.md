@@ -1,6 +1,8 @@
-# React Material
+# M3 UI React
 
-React Material is a component library that is built based on the principles of the Material 3 design system.
+![Banner](./src/docs/assets/react-material-cover.webp)
+
+M3 UI is an impressive and user-friendly library of components that follows the Material 3 design system.
 
 ![Coverage](./badges.svg)
 
@@ -11,7 +13,7 @@ React Material is a component library that is built based on the principles of t
 ### First - Install
 
 ```console
-npm i @paulobrandao/react-material
+npm i m3-ui-react
 ```
 
 ### Second - styling
@@ -19,18 +21,18 @@ npm i @paulobrandao/react-material
 Import the required stylesheet into `RootLayout` or your `(main|index).ts`:
 
 ```js
-import '@paulobrandao/react-material/dist/react-material.css';
+import 'm3-ui-react/dist/m3-ui.css';
 ```
 
 To make use of `MaterialSymbol` component, it is necessary to import the icon font stylesheet too, according to the style chosen:
 
 ```js
 // Outlined
-import '@paulobrandao/react-material/dist/react-material-symbols-outlined.css';
+import 'm3-ui-react/dist/m3-ui.icon-outlined.css';
 // Rounded
-import '@paulobrandao/react-material/dist/react-material-symbols-rounded.css';
+import 'm3-ui-react/dist/m3-ui.icon-rounded.css';
 // Sharp
-import '@paulobrandao/react-material/dist/react-material-symbols-sharp.css';
+import 'm3-ui-react/dist/m3-ui.icon-sharp.css';
 ```
 
 ### Third - Theming
@@ -48,7 +50,7 @@ For each necessity, a specific util is applied:
 In this case, the right way is to set these vars on server side, with the `RootLayout`:
 
 ```jsx
-import { applyThemeOnHtmlStyleTag } from '@paulobrandao/react-material/utils';
+import { applyThemeOnHtmlStyleTag } from 'm3-ui-react/utils';
 ...
 
 return (
@@ -73,7 +75,7 @@ return (
 In this case, call the `applyTheme` util into `(main|index).tsx`:
 
 ```jsx
-import { applyTheme } from '@paulobrandao/react-material/utils';
+import { applyTheme } from 'm3-ui-react/utils';
 // before createRoot
 applyTheme({
   seedColor: '#4285F4',
@@ -93,15 +95,17 @@ Setup done! Just start to make use.
 This list is organized according to [Material Docs](https://m3.material.io/components).
 
 - Style
-  - [x] ~~MaterialSymbols~~
+  - [x] ~~CanonicalLayout~~
+  - [x] ~~Font~~
+  - [x] ~~Icon~~
 - Actions
   - [x] ~~Button~~
   - [x] ~~IconButton~~
   - [ ] FloatActionButton (__coming soon__)
   - [ ] _SegmentedButton (planning)_
 - Communication
+  - [x] ~~Tooltip~~
   - [ ] Snackbar (__coming soon__)
-  - [ ] Tooltip (__partially available with IconButton__)
   - [ ] _Badges (planning)_
   - [ ] _Progress (planning)_
   - [ ] _RichTooltip (planning)_
@@ -109,20 +113,20 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
   - [x] ~~Divider~~
   - [x] ~~Card~~
   - [x] ~~Dialog~~
-  - [ ] List (__coming soon__)
+  - [x] ~~ListItem~~
   - [ ] SideSheet (__coming soon__)
   - [ ] BottomSheet (__coming soon__)
   - [ ] _Carousel (planning)_
 - Navigation
   - [x] ~~Appbar~~
-  - [x] ~~Navbar~~
-  - [x] ~~Navdrawer~~
-  - [x] ~~Navrail~~
+  - [ ] Navbar
+  - [ ] Navdrawer
+  - [ ] Navrail
   - [ ] Tabs (__coming soon__)
 - Selection
+  - [x] ~~Menu~~
   - [ ] Checkbox (__coming soon__)
   - [ ] Chip (__coming soon__)
-  - [ ] Menu (__coming soon__)
   - [ ] RadioButton (__coming soon__)
   - [ ] Switch (__coming soon__)
   - [ ] _DatePicker (planning)_
@@ -132,8 +136,6 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
   - [ ] Search (__coming soon__)
   - [ ] SelectField (__coming soon__)
   - [ ] TextField (__coming soon__)
-- Layout
-  - [x] ~~Box~~
 
 ## Utils
 
@@ -148,7 +150,7 @@ These functions will help you to create dynamic color schemes by the content-bas
 This function returns the CSS variables required to customize the library components as `CSSProperties` and need to be applied in the `style` _prop_ of the `<html>` tag.
 
 ```jsx
-import { applyThemeOnHtmlStyleTag } from '@paulobrandao/react-material/utils';
+import { applyThemeOnHtmlStyleTag } from 'm3-ui-react/utils';
 ...
 
 return (
@@ -193,7 +195,7 @@ function applyThemeOnHtmlStyleTag(settings: Settings): CSSProperties
 This function applies the CSS variables required to customize the library components in the document element.
 
 ```jsx
-import { applyTheme } from '@paulobrandao/react-material/utils';
+import { applyTheme } from 'm3-ui-react/utils';
 // before createRoot
 applyTheme({
   seedColor: '#4285F4',
