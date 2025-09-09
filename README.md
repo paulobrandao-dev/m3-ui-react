@@ -6,7 +6,7 @@ M3 UI is an impressive and user-friendly library of components that follows the 
 
 ![Coverage](./badges.svg)
 
-> This isn't the official release yet, just a beta release to validate the development while the documentation is writing.
+> This isn't the official documentation yet, just a help to initiate the development while the documentation is being written.
 
 ## Quick setup
 
