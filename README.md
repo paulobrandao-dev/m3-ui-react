@@ -94,48 +94,61 @@ Setup done! Just start to make use.
 
 This list is organized according to [Material Docs](https://m3.material.io/components).
 
-- Style
-  - [x] ~~CanonicalLayout~~
-  - [x] ~~Font~~
-  - [x] ~~Icon~~
-- Actions
-  - [x] ~~Button~~
-  - [x] ~~IconButton~~
-  - [ ] FloatActionButton (__coming soon__)
-  - [ ] _SegmentedButton (planning)_
-- Communication
-  - [x] ~~Tooltip~~
-  - [ ] Snackbar (__coming soon__)
-  - [ ] _Badges (planning)_
-  - [ ] _Progress (planning)_
-  - [ ] _RichTooltip (planning)_
-- Containment
-  - [x] ~~Divider~~
-  - [x] ~~Card~~
-  - [x] ~~Dialog~~
-  - [x] ~~ListItem~~
-  - [ ] SideSheet (__coming soon__)
-  - [ ] BottomSheet (__coming soon__)
-  - [ ] _Carousel (planning)_
-- Navigation
-  - [x] ~~Appbar~~
-  - [ ] Navbar
-  - [ ] Navdrawer
-  - [ ] Navrail
-  - [ ] Tabs (__coming soon__)
-- Selection
-  - [x] ~~Menu~~
-  - [ ] Checkbox (__coming soon__)
-  - [ ] Chip (__coming soon__)
-  - [ ] RadioButton (__coming soon__)
-  - [ ] Switch (__coming soon__)
-  - [ ] _DatePicker (planning)_
-  - [ ] _Slider (planning)_
-  - [ ] _TimePicker (planning)_
-- Form
-  - [ ] Search (__coming soon__)
-  - [ ] SelectField (__coming soon__)
-  - [ ] TextField (__coming soon__)
+### Buttons
+
+- [x] ~~Button~~
+- [x] ~~IconButton~~
+- [ ] FloatActionButton (__coming soon__)
+- [ ] _SegmentedButton (planning)_
+
+### Date and time pickers
+
+- [ ] _DatePicker (planning)_
+- [ ] _TimePicker (planning)_
+
+### Loading and progress
+
+- [ ] _Progress (planning)_
+
+### Navigation
+
+- [x] ~~NavLink~~
+- [ ] Navbar
+- [ ] Navdrawer
+- [ ] Navrail
+
+### Sheets
+
+- [ ] SideSheet (__coming soon__)
+- [ ] BottomSheet (__coming soon__)
+
+### Others
+
+- [x] ~~Appbar~~
+- [ ] _Badges (planning)_
+- [x] ~~CanonicalLayout~~
+- [x] ~~Card~~
+- [x] ~~CardMedia~~
+- [ ] _Carousel (planning)_
+- [ ] Checkbox (__coming soon__)
+- [ ] Chip (__coming soon__)
+- [x] ~~Content~~
+- [x] ~~Dialog~~
+- [x] ~~Divider~~
+- [x] ~~Font~~
+- [x] ~~Icon~~
+- [x] ~~ListItem~~
+- [x] ~~Menu~~
+- [ ] RadioButton (__coming soon__)
+- [ ] _RichTooltip (planning)_
+- [ ] Search (__coming soon__)
+- [ ] SelectField (__coming soon__)
+- [ ] Snackbar (__coming soon__)
+- [ ] Switch (__coming soon__)
+- [ ] _Slider (planning)_
+- [ ] Tabs (__coming soon__)
+- [ ] TextField (__coming soon__)
+- [x] ~~Tooltip~~
 
 ## Utils
 
