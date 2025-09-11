@@ -31,7 +31,7 @@ export default function PageFooter() {
       >
         <Font
           as="a"
-          scale="label-large"
+          variant="label-large"
           href="https://www.npmjs.com/package/@paulobrandao/react-material"
           target="_blank"
           flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
@@ -43,7 +43,7 @@ export default function PageFooter() {
         </Font>
         <Font
           as="a"
-          scale="label-large"
+          variant="label-large"
           href="https://github.com/paulobrandao-dev/react-material"
           target="_blank"
           flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
@@ -55,7 +55,7 @@ export default function PageFooter() {
         </Font>
         <Font
           as="a"
-          scale="label-large"
+          variant="label-large"
           href="https://github.com/paulobrandao-dev/react-material/issues"
           target="_blank"
           flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}

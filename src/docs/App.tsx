@@ -1,5 +1,6 @@
 import { Content, useMediaQuery } from '../lib';
 import './App.css';
+import DocsNavBar from './components/DocsNavBar';
 import PageFooter from './components/PageFooter';
 import DocsNavRail from './components/Rail';
 import DocsTopbar from './components/Topbar';
@@ -16,6 +17,7 @@ export default function Docs() {
         <Router />
         <PageFooter />
       </Content>
+      {media.isLessThanExpanded && <DocsNavBar />}
     </SettingsProvider>
   );
 }

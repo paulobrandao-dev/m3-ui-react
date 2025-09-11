@@ -39,10 +39,10 @@ export default function ArticleNavigation({
           to={prev.path}
           style={{ flexBasis: '50%' }}
         >
-          <Font scale="label-medium" textColor="secondary">
+          <Font variant="label-medium" textColor="secondary">
             Previous page
           </Font>
-          <Font scale="label-large" textColor="primary">
+          <Font variant="label-large" textColor="primary">
             {prev.label}
           </Font>
         </Card>
@@ -62,10 +62,10 @@ export default function ArticleNavigation({
           to={next.path}
           style={{ flexBasis: '50%' }}
         >
-          <Font scale="label-medium" textColor="secondary">
+          <Font variant="label-medium" textColor="secondary">
             Next page
           </Font>
-          <Font scale="label-large" textColor="primary">
+          <Font variant="label-large" textColor="primary">
             {next.label}
           </Font>
         </Card>

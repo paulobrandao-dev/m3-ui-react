@@ -113,9 +113,9 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 ### Navigation
 
 - [x] ~~NavLink~~
-- [ ] Navbar
-- [ ] Navdrawer
-- [ ] Navrail
+- [x] ~~NavBar~~
+- [ ] NavDrawer
+- [x] ~~NavRail~~
 
 ### Sheets
 

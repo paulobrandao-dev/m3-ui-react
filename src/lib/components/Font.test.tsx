@@ -6,7 +6,7 @@ describe('Font component', () => {
   afterEach(cleanup);
 
   it('should render span element as default', () => {
-    const result = render(<Font scale="body-large">Sample text</Font>);
+    const result = render(<Font variant="body-large">Sample text</Font>);
     const text = result.getByText('Sample text');
 
     expect(text.tagName).toEqual('SPAN');
@@ -15,7 +15,7 @@ describe('Font component', () => {
 
   it('should render the right element according to "as" prop', () => {
     const result = render(
-      <Font as="h1" scale="display-large">
+      <Font as="h1" variant="display-large">
         Sample heading
       </Font>,
     );
@@ -28,12 +28,12 @@ describe('Font component', () => {
   it('should apply the text align CSS class according to "textAlign" prop', () => {
     const result = render(
       <>
-        <Font as="h2" scale="title-large" textAlign="center">
+        <Font as="h2" variant="title-large" textAlign="center">
           Lorem ipsum dolor sit amet
         </Font>
         <Font
           as="p"
-          scale="label-large"
+          variant="label-large"
           textAlign="right"
           data-testid="align-right"
         >
@@ -41,7 +41,7 @@ describe('Font component', () => {
         </Font>
         <Font
           as="p"
-          scale="body-medium"
+          variant="body-medium"
           textAlign="left"
           data-testid="align-left"
         >
@@ -61,7 +61,7 @@ describe('Font component', () => {
         </Font>
         <Font
           as="p"
-          scale="body-small"
+          variant="body-small"
           textAlign="justify"
           data-testid="align-justify"
         >
@@ -90,21 +90,21 @@ describe('Font component', () => {
     const result = render(
       <>
         <Font
-          scale="title-medium"
+          variant="title-medium"
           textTransform="lowercase"
           data-testid="transform-lowercase"
         >
           Sample text A
         </Font>
         <Font
-          scale="title-small"
+          variant="title-small"
           textTransform="capitalize"
           data-testid="transform-capitalize"
         >
           Sample text B
         </Font>
         <Font
-          scale="label-medium"
+          variant="label-medium"
           textTransform="uppercase"
           data-testid="transform-uppercase"
         >
@@ -126,19 +126,19 @@ describe('Font component', () => {
   it('should apply the color CSS class according to the "textColor" prop', () => {
     const result = render(
       <>
-        <Font as="h1" scale="display-medium" textColor="primary">
+        <Font as="h1" variant="display-medium" textColor="primary">
           Sample text A
         </Font>
-        <Font as="h2" scale="display-small" textColor="secondary">
+        <Font as="h2" variant="display-small" textColor="secondary">
           Sample text B
         </Font>
-        <Font as="h3" scale="headline-large" textColor="tertiary">
+        <Font as="h3" variant="headline-large" textColor="tertiary">
           Sample text C
         </Font>
-        <Font as="h4" scale="headline-medium" textColor="reverse">
+        <Font as="h4" variant="headline-medium" textColor="reverse">
           Sample text D
         </Font>
-        <Font as="h5" scale="headline-small" textColor="error">
+        <Font as="h5" variant="headline-small" textColor="error">
           Sample text E
         </Font>
       </>,
@@ -159,7 +159,7 @@ describe('Font component', () => {
   it('should apply the spacing CSS classes according to the "spacing" prop', () => {
     const result = render(
       <Font
-        scale="label-small"
+        variant="label-small"
         data-testid="spacing-prop"
         spacing={{
           marginBlock: 'xl',
@@ -182,7 +182,7 @@ describe('Font component', () => {
   it('should apply the flexbox CSS classes according to the "flexbox" prop', () => {
     const result = render(
       <Font
-        scale="code"
+        variant="code"
         flexbox={{
           direction: 'column',
           alignItems: 'flex-start',

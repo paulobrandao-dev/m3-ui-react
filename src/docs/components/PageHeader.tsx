@@ -1,7 +1,16 @@
-import banner from '@/docs/assets/react-material-cover.webp';
 import { Card, CardMedia, Content, Font, useMediaQuery } from '@/lib';
 
-export default function HomeHeader() {
+export default function PageHeader({
+  title,
+  description,
+  image,
+  imageDescription,
+}: Readonly<{
+  title: string;
+  description?: string;
+  image?: string;
+  imageDescription?: string;
+}>) {
   const media = useMediaQuery();
 
   return (
@@ -34,25 +43,29 @@ export default function HomeHeader() {
         flexbox={{ direction: 'column', gap: 'md', justifyContent: 'center' }}
         spacing={{ padding: 'lg' }}
       >
-        <Font as="h1" scale="display-large">
-          M3 UI React
+        <Font as="h1" variant="display-large">
+          {title}
         </Font>
-        <Font
-          as="p"
-          scale="headline-medium"
-          spacing={{ marginBlockStart: 'md' }}
-        >
-          A powerful and straightforward way to implement the Google Design
-          System in your React projects.
-        </Font>
+        {description && (
+          <Font
+            as="p"
+            variant="headline-medium"
+            spacing={{ marginBlockStart: 'md' }}
+          >
+            {description}
+          </Font>
+        )}
       </Card>
-      <CardMedia
-        as="img"
-        src={banner}
-        alt="React Material logo over an abstract purple background"
-        alignMedia="right-center"
-        fitMedia="cover"
-      />
+      {image && (
+        <CardMedia
+          as="img"
+          src={image}
+          alt={imageDescription ?? `Cover image of the section ${title}`}
+          aspectRatio="16:9"
+          alignMedia="center"
+          fitMedia="cover"
+        />
+      )}
     </Content>
   );
 }

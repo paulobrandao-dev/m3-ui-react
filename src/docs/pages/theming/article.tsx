@@ -6,7 +6,7 @@ export default function ThemingArticle() {
   return (
     <article id="theming_article">
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -14,38 +14,38 @@ export default function ThemingArticle() {
         theme utility tool to simplify the process.
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
         Select the utility function based on the type of render, provide your
         brand or interface's primary color as a hexadecimal value, specify the
         color scheme as{' '}
-        <Font as="var" scale="code" textColor="secondary">
+        <Font as="var" variant="code" textColor="secondary">
           light
         </Font>{' '}
         or{' '}
-        <Font as="var" scale="code" textColor="secondary">
+        <Font as="var" variant="code" textColor="secondary">
           dark
         </Font>
         , and assign font face names for titles, content, and codes (optional).
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
         Once you've done that, the utility will take care of the rest.
       </Font>
       <Font
-        scale="headline-large"
+        variant="headline-large"
         as="h2"
         spacing={{ paddingInline: 'lg', paddingBlockEnd: 'xl' }}
       >
         Server-side render
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -53,16 +53,16 @@ export default function ThemingArticle() {
         familiarity.
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
         It is best to define these variables within the{' '}
-        <Font as="code" scale="code" textColor="secondary">
+        <Font as="code" variant="code" textColor="secondary">
           RootLayout
         </Font>{' '}
         using the HTML element style tag and calling the function{' '}
-        <Font as="code" scale="code" textColor="secondary">
+        <Font as="code" variant="code" textColor="secondary">
           applyThemeOnHtmlStyleTag
         </Font>
         .
@@ -115,23 +115,23 @@ export default function ThemingArticle() {
         <code>);</code>
       </pre>
       <Font
-        scale="headline-large"
+        variant="headline-large"
         as="h2"
         spacing={{ paddingInline: 'lg', paddingBlock: 'xl' }}
       >
         Client-side
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
         Here, call the{' '}
-        <Font as="code" scale="code" textColor="secondary">
+        <Font as="code" variant="code" textColor="secondary">
           applyTheme
         </Font>{' '}
         within the{' '}
-        <Font as="samp" scale="code" textColor="secondary">
+        <Font as="samp" variant="code" textColor="secondary">
           (main|index).tsx
         </Font>{' '}
         file.
@@ -167,7 +167,7 @@ export default function ThemingArticle() {
         <code>&#125;);</code>
       </pre>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlock: 'md' }}
       >

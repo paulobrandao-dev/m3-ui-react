@@ -13,18 +13,18 @@ export default function DialogLicense() {
         scrollable={{ vertical: 'auto' }}
       >
         <Icon icon="balance" />
-        <Font scale="headline-small" as="h2">
+        <Font variant="headline-small" as="h2">
           License
         </Font>
         <Font
-          scale="body-medium"
+          variant="body-medium"
           as="p"
           flexbox={{ direction: 'row', alignSelf: 'stretch' }}
         >
           Copyright 2024 Paulo Brandão
         </Font>
         <Font
-          scale="body-medium"
+          variant="body-medium"
           as="p"
           flexbox={{ direction: 'row', alignSelf: 'stretch' }}
         >
@@ -34,7 +34,7 @@ export default function DialogLicense() {
           copies.
         </Font>
         <Font
-          scale="body-medium"
+          variant="body-medium"
           as="p"
           flexbox={{ direction: 'row', alignSelf: 'stretch' }}
         >

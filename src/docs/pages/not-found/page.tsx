@@ -26,10 +26,10 @@ export default function NotFoundPage() {
           flexbox={{ direction: 'column', gap: 'md', justifyContent: 'center' }}
           spacing={{ padding: 'lg' }}
         >
-          <Font as="h1" scale="display-large" textColor="error">
+          <Font as="h1" variant="display-large" textColor="error">
             404
           </Font>
-          <Font as="p" scale="headline-medium" textAlign="left">
+          <Font as="p" variant="headline-medium" textAlign="left">
             This page cannot be found.
           </Font>
         </Card>

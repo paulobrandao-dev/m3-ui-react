@@ -60,7 +60,7 @@ export function Appbar({
             <hgroup>
               <Font
                 as="h1"
-                scale="title-large"
+                variant="title-large"
                 textAlign={centeredText ? 'center' : 'left'}
               >
                 {headline}
@@ -68,7 +68,7 @@ export function Appbar({
               {subtitle && (
                 <Font
                   as="p"
-                  scale="label-medium"
+                  variant="label-medium"
                   textAlign={centeredText ? 'center' : 'left'}
                 >
                   {subtitle}

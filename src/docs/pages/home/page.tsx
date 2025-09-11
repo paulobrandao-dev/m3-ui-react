@@ -1,15 +1,21 @@
+import banner from '@/docs/assets/react-material-cover.webp';
+import PageHeader from '@/docs/components/PageHeader';
+import { useSettings } from '@/docs/settings/hook';
 import { CanonicalLayout } from '@/lib';
 import HomeArticle from './article';
-import HomeHeader from './header';
 import HomeSupportingPane from './supporting-pane';
-import { useSettings } from '@/docs/settings/hook';
 
 export default function HomePage() {
   const { isFluidContent } = useSettings();
 
   return (
     <>
-      <HomeHeader />
+      <PageHeader
+        title="M3 UI React"
+        description="A powerful and straightforward way to implement the Google Design System in your React projects."
+        image={banner}
+        imageDescription="React Material logo over an abstract purple background"
+      />
       <CanonicalLayout
         variant="supporting-pane"
         spacing={{

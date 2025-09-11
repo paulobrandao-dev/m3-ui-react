@@ -1,6 +1,6 @@
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
-import { Font, Navlink } from '../../lib';
+import { Font, NavLink } from '../../lib';
 import { Link } from '../pages/router';
 
 export default function CompleteNavigation() {
@@ -19,7 +19,7 @@ export default function CompleteNavigation() {
 
   return (
     <>
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/"
@@ -28,7 +28,7 @@ export default function CompleteNavigation() {
         isActive={current === '/'}
         isHorizontal
       />
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/theming"
@@ -38,7 +38,7 @@ export default function CompleteNavigation() {
         isHorizontal
       />
       <Font
-        scale="title-small"
+        variant="title-small"
         spacing={{
           paddingInline: 'lg',
           paddingBlockStart: 'md',
@@ -48,7 +48,7 @@ export default function CompleteNavigation() {
       >
         Components
       </Font>
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/components/button"
@@ -57,7 +57,7 @@ export default function CompleteNavigation() {
         isActive={current === '/components/button'}
         isHorizontal
       />
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/components/font"
@@ -66,7 +66,7 @@ export default function CompleteNavigation() {
         isActive={current === '/components/font'}
         isHorizontal
       />
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/components/icon"
@@ -76,7 +76,7 @@ export default function CompleteNavigation() {
         isHorizontal
       />
       <Font
-        scale="title-small"
+        variant="title-small"
         spacing={{
           paddingInline: 'lg',
           paddingBlockStart: 'md',
@@ -86,7 +86,7 @@ export default function CompleteNavigation() {
       >
         Hooks
       </Font>
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/hooks/use-dialog-control"
@@ -95,7 +95,7 @@ export default function CompleteNavigation() {
         isActive={current === '/hooks/use-dialog-control'}
         isHorizontal
       />
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/hooks/use-media-query"
@@ -104,7 +104,7 @@ export default function CompleteNavigation() {
         isActive={current === '/hooks/use-media-query'}
         isHorizontal
       />
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/hooks/use-popover-control"
@@ -113,7 +113,7 @@ export default function CompleteNavigation() {
         isActive={current === '/hooks/use-popover-control'}
         isHorizontal
       />
-      <Navlink
+      <NavLink
         as={Link}
         variant="navrail"
         to="/hooks/use-scroll-behavior"

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import HomePage from './home/page';
 import NotFoundPage from './not-found/page';
 import ThemingPage from './theming/page';
+import ComponentsPage from './components/page';
 
 export function Link({
   to,
@@ -32,6 +33,8 @@ export function Router() {
         return <HomePage />;
       case '/theming':
         return <ThemingPage />;
+      case '/components':
+        return <ComponentsPage />;
       default:
         return <NotFoundPage />;
     }

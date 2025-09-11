@@ -6,14 +6,14 @@ export default function HomeArticle() {
   return (
     <article id="home_article">
       <Font
-        scale="headline-large"
+        variant="headline-large"
         as="h2"
         spacing={{ paddingInline: 'lg', paddingBlockEnd: 'xl' }}
       >
         Introduction
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -25,7 +25,7 @@ export default function HomeArticle() {
         design system.
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -33,7 +33,7 @@ export default function HomeArticle() {
         web app development process a breeze.
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -43,7 +43,7 @@ export default function HomeArticle() {
         intuitive.
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -51,14 +51,14 @@ export default function HomeArticle() {
         UI is worth checking out.
       </Font>
       <Font
-        scale="headline-large"
+        variant="headline-large"
         as="h2"
         spacing={{ paddingInline: 'lg', paddingBlock: 'xl' }}
       >
         Installation
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -66,7 +66,7 @@ export default function HomeArticle() {
         server-side and client-side rendering.
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -74,7 +74,7 @@ export default function HomeArticle() {
         achieve its goal.
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -85,14 +85,14 @@ export default function HomeArticle() {
         <code>npm i m3-ui-react</code>
       </pre>
       <Font
-        scale="headline-large"
+        variant="headline-large"
         as="h3"
         spacing={{ paddingInline: 'lg', paddingBlock: 'lg' }}
       >
         Setup
       </Font>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
@@ -108,7 +108,7 @@ export default function HomeArticle() {
         </code>
       </pre>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlock: 'md' }}
       >
@@ -139,7 +139,7 @@ export default function HomeArticle() {
         </code>
       </pre>
       <Font
-        scale="body-large"
+        variant="body-large"
         as="p"
         spacing={{ paddingInline: 'lg', marginBlock: 'md' }}
       >

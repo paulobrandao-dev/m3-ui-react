@@ -9,7 +9,7 @@ import {
   Ref,
 } from 'react';
 
-export type NavlinkProps<A extends ElementType> = Omit<
+export type NavLinkProps<A extends ElementType> = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   'children' | 'aria-current'
 > & {
@@ -24,7 +24,7 @@ export type NavlinkProps<A extends ElementType> = Omit<
 
 const CSS_PREFIX = 'm3-navlink';
 
-export function Navlink<T extends ElementType>({
+export function NavLink<T extends ElementType>({
   as,
   variant,
   ref,
@@ -34,7 +34,7 @@ export function Navlink<T extends ElementType>({
   isHorizontal,
   className,
   ...props
-}: NavlinkProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof NavlinkProps<T>>) {
+}: NavLinkProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof NavLinkProps<T>>) {
   const Surface = as || 'a';
   return (
     <Surface

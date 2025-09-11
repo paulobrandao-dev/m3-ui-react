@@ -1,9 +1,12 @@
-import { Navlink } from '@/lib';
+import { NavLink } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
 import { Link } from '../pages/router';
 
-export default function MainNavigation() {
+export default function MainNavigation({
+  isNavBar,
+  isHorizontal,
+}: Readonly<{ isNavBar?: boolean; isHorizontal?: boolean }>) {
   const [current, setCurrent] = useState<string>(window.location.pathname);
 
   useEffect(() => {
@@ -19,33 +22,37 @@ export default function MainNavigation() {
 
   return (
     <>
-      <Navlink
+      <NavLink
         as={Link}
-        variant="navrail"
+        variant={isNavBar ? 'navbar' : 'navrail'}
+        isHorizontal={isHorizontal}
         to="/"
         label="Home"
         icon={<Icon icon="home" />}
         isActive={current === '/'}
       />
-      <Navlink
+      <NavLink
         as={Link}
-        variant="navrail"
+        variant={isNavBar ? 'navbar' : 'navrail'}
+        isHorizontal={isHorizontal}
         to="/theming"
         label="Theming"
         icon={<Icon icon="palette" />}
         isActive={current === '/theming'}
       />
-      <Navlink
+      <NavLink
         as={Link}
-        variant="navrail"
+        variant={isNavBar ? 'navbar' : 'navrail'}
+        isHorizontal={isHorizontal}
         to="/components"
         label="Components"
         icon={<Icon icon="extension" />}
         isActive={current.startsWith('/components')}
       />
-      <Navlink
+      <NavLink
         as={Link}
-        variant="navrail"
+        variant={isNavBar ? 'navbar' : 'navrail'}
+        isHorizontal={isHorizontal}
         to="/hooks"
         label="Hooks"
         icon={<Icon icon="phishing" />}

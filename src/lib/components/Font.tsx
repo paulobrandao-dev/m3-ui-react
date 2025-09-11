@@ -10,7 +10,7 @@ import type {
 
 export type FontProps<E extends React.ElementType> =
   React.HTMLAttributes<HTMLElement> & {
-    scale: MaterialTextScales;
+    variant: MaterialTextScales;
     textAlign?: 'center' | 'justify' | 'left' | 'right';
     textTransform?: 'capitalize' | 'lowercase' | 'uppercase';
     textColor?: 'primary' | 'secondary' | 'tertiary' | 'reverse' | 'error';
@@ -23,7 +23,7 @@ export type FontProps<E extends React.ElementType> =
 const CSS_PREFIX = 'm3-font';
 
 export function Font<E extends React.ElementType>({
-  scale,
+  variant,
   as,
   textAlign,
   textTransform,
@@ -40,7 +40,7 @@ export function Font<E extends React.ElementType>({
     <Surface
       ref={ref}
       className={clsx(
-        `${CSS_PREFIX}-${scale}`,
+        `${CSS_PREFIX}-${variant}`,
         {
           [`is-align-${textAlign}`]: textAlign !== undefined,
           [`is-transform-${textTransform}`]: textTransform !== undefined,

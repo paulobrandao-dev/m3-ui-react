@@ -13,6 +13,7 @@ header.m3-appbar {
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 1;
 
   > .toolbar-row {
     display: flex;

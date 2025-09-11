@@ -71,7 +71,7 @@ export default function DocsNavRail() {
               />
             </Tooltip>
           </Content>
-          <Font scale="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
+          <Font variant="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
         </>
       }
     >
