@@ -21,7 +21,7 @@ export type NavlinkProps<A extends ElementType> = Omit<
   ref?: Ref<HTMLElement & HTMLAnchorElement>;
 };
 
-const CSS_PREFIX = 'material-navlink';
+const CSS_PREFIX = 'm3-navlink';
 
 export function Navlink<T extends ElementType>({
   as,
