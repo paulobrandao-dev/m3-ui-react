@@ -1,4 +1,4 @@
-import { Button, Content, Divider, useMediaQuery } from '@/lib';
+import { Content, Divider, Font, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import DialogLicense from './DialogLicense';
 import SettingsMenu from './SettingsMenu';
@@ -18,33 +18,53 @@ export default function PageFooter() {
     >
       <Divider />
       <Content
+        as="address"
         flexbox={
           media.isCompact
             ? { direction: 'column', alignItems: 'flex-start' }
-            : undefined
+            : {
+                direction: 'row',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+              }
         }
       >
-        <Button
+        <Font
           as="a"
-          label="NPM package"
-          icon={<Icon icon="sdk" />}
+          scale="label-large"
           href="https://www.npmjs.com/package/@paulobrandao/react-material"
           target="_blank"
-        />
-        <Button
+          flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
+          spacing={{ paddingInline: 'lg' }}
+          textColor="primary"
+        >
+          <Icon icon="sdk" />
+          NPM package
+        </Font>
+        <Font
           as="a"
-          label="Repository"
-          icon={<Icon icon="code" />}
+          scale="label-large"
           href="https://github.com/paulobrandao-dev/react-material"
           target="_blank"
-        />
-        <Button
+          flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
+          spacing={{ paddingInline: 'lg' }}
+          textColor="primary"
+        >
+          <Icon icon="code" />
+          Repository
+        </Font>
+        <Font
           as="a"
-          label="Bug report"
-          icon={<Icon icon="bug_report" />}
+          scale="label-large"
           href="https://github.com/paulobrandao-dev/react-material/issues"
           target="_blank"
-        />
+          flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
+          spacing={{ paddingInline: 'lg' }}
+          textColor="primary"
+        >
+          <Icon icon="bug_report" />
+          Bug report
+        </Font>
       </Content>
       <DialogLicense />
       <SettingsMenu />

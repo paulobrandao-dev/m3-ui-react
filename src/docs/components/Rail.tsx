@@ -2,7 +2,7 @@ import {
   Content,
   Font,
   IconButton,
-  Toolbar,
+  NavRail,
   Tooltip,
   useDialogControl,
   useMediaQuery,
@@ -24,19 +24,17 @@ export default function DocsNavRail() {
   }, [media.isGreaterThanLarge]);
 
   return (
-    <Toolbar
-      dockedAt="left"
-      bgColor="surface"
-      startNode={
+    <NavRail
+      isExpanded={isOpen}
+      header={
         <Content
           role="toolbar"
           flexbox={{
-            direction: 'row',
-            alignItems: 'center',
-            justifyContent: isOpen ? 'flex-start' : 'center',
+            direction: 'column',
+            alignItems: isOpen ? 'flex-start' : 'center',
             alignSelf: 'stretch',
           }}
-          spacing={{ paddingInlineStart: isOpen ? 'lg' : undefined }}
+          spacing={{ marginInline: isOpen ? 'lg' : undefined }}
         >
           <Tooltip text={isOpen ? 'Close' : 'Open'}>
             <IconButton
@@ -47,27 +45,11 @@ export default function DocsNavRail() {
           </Tooltip>
         </Content>
       }
-      centerNode={
-        <Content
-          as="nav"
-          flexbox={{
-            direction: 'column',
-            alignItems: isOpen ? 'flex-start' : undefined,
-            rowGap: isOpen ? 'none' : 'md',
-          }}
-        >
-          {isOpen ? <CompleteNavigation /> : <MainNavigation />}
-        </Content>
-      }
-      endNode={
+      footer={
         <>
           <Content
             role="toolbar"
-            flexbox={{
-              direction: isOpen ? 'row' : 'column',
-              gap: 'sm',
-              alignItems: 'center',
-            }}
+            flexbox={{ direction: isOpen ? 'row' : 'column' }}
           >
             <Tooltip text="License">
               <IconButton
@@ -92,6 +74,8 @@ export default function DocsNavRail() {
           <Font scale="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
         </>
       }
-    />
+    >
+      {isOpen ? <CompleteNavigation /> : <MainNavigation />}
+    </NavRail>
   );
 }

@@ -18,5 +18,6 @@ export * from './components/IconButton';
 export * from './components/ListItem';
 export * from './components/Menu';
 export * from './components/Navlink';
+export * from './components/NavRail';
 export * from './components/Toolbar';
 export * from './components/Tooltip';

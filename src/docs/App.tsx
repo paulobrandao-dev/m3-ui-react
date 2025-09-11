@@ -1,7 +1,7 @@
 import { Content, useMediaQuery } from '../lib';
 import './App.css';
-import DocsNavRail from './components/NavRail';
 import PageFooter from './components/PageFooter';
+import DocsNavRail from './components/Rail';
 import DocsTopbar from './components/Topbar';
 import { Router } from './pages/router';
 import { SettingsProvider } from './settings/provider';
