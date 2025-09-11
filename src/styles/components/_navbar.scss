@@ -1,0 +1,19 @@
+nav.m3-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  width: 100%;
+  flex-shrink: 0;
+  background-color: var(--color-surface-container);
+  box-shadow: var(--elevation-2);
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  padding-block: 6px;
+
+  &.is-horizontal {
+    padding-block: var(--spacing-md);
+  }
+}

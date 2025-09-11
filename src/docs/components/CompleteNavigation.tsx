@@ -21,6 +21,7 @@ export default function CompleteNavigation() {
     <>
       <Navlink
         as={Link}
+        variant="navrail"
         to="/"
         label="Home"
         icon={<Icon icon="home" />}
@@ -29,6 +30,7 @@ export default function CompleteNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/theming"
         label="Theming"
         icon={<Icon icon="palette" />}
@@ -48,6 +50,7 @@ export default function CompleteNavigation() {
       </Font>
       <Navlink
         as={Link}
+        variant="navrail"
         to="/components/button"
         label="Button"
         icon={<Icon icon="buttons_alt" />}
@@ -56,6 +59,7 @@ export default function CompleteNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/components/font"
         label="Font"
         icon={<Icon icon="text_format" />}
@@ -64,6 +68,7 @@ export default function CompleteNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/components/icon"
         label="Icon"
         icon={<Icon icon="interests" />}
@@ -83,6 +88,7 @@ export default function CompleteNavigation() {
       </Font>
       <Navlink
         as={Link}
+        variant="navrail"
         to="/hooks/use-dialog-control"
         label="useDialogControl"
         icon={<Icon icon="picture_in_picture_center" />}
@@ -91,6 +97,7 @@ export default function CompleteNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/hooks/use-media-query"
         label="useMediaQuery"
         icon={<Icon icon="responsive_layout" />}
@@ -99,6 +106,7 @@ export default function CompleteNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/hooks/use-popover-control"
         label="usePopoverControl"
         icon={<Icon icon="arrow_drop_down_circle" />}
@@ -107,6 +115,7 @@ export default function CompleteNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/hooks/use-scroll-behavior"
         label="useScrollBehavior"
         icon={<Icon icon="unfold_more" />}

@@ -14,6 +14,7 @@ export type NavlinkProps<A extends ElementType> = Omit<
   'children' | 'aria-current'
 > & {
   label: string;
+  variant: 'navrail' | 'navbar' | 'navdrawer';
   icon?: ReactNode;
   isActive?: boolean;
   isHorizontal?: boolean;
@@ -25,6 +26,7 @@ const CSS_PREFIX = 'm3-navlink';
 
 export function Navlink<T extends ElementType>({
   as,
+  variant,
   ref,
   label,
   icon,
@@ -37,7 +39,16 @@ export function Navlink<T extends ElementType>({
   return (
     <Surface
       ref={ref}
-      className={clsx(CSS_PREFIX, { 'is-horizontal': isHorizontal }, className)}
+      className={clsx(
+        CSS_PREFIX,
+        {
+          'at-navbar': variant === 'navbar',
+          'at-navdrawer': variant === 'navdrawer',
+          'at-navrail': variant === 'navrail',
+          'is-horizontal': isHorizontal,
+        },
+        className,
+      )}
       aria-current={isActive ? 'page' : undefined}
       {...props}
     >

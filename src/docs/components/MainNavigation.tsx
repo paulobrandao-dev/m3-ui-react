@@ -21,6 +21,7 @@ export default function MainNavigation() {
     <>
       <Navlink
         as={Link}
+        variant="navrail"
         to="/"
         label="Home"
         icon={<Icon icon="home" />}
@@ -28,6 +29,7 @@ export default function MainNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/theming"
         label="Theming"
         icon={<Icon icon="palette" />}
@@ -35,6 +37,7 @@ export default function MainNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/components"
         label="Components"
         icon={<Icon icon="extension" />}
@@ -42,6 +45,7 @@ export default function MainNavigation() {
       />
       <Navlink
         as={Link}
+        variant="navrail"
         to="/hooks"
         label="Hooks"
         icon={<Icon icon="phishing" />}

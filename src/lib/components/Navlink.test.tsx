@@ -7,7 +7,7 @@ describe('Navlink component', () => {
 
   it('should renders label', () => {
     const { getByRole, getByText } = render(
-      <Navlink href="/test" label="Home" />,
+      <Navlink href="/test" label="Home" variant="navbar" />,
     );
     const anchor = getByRole('link');
 
@@ -17,7 +17,12 @@ describe('Navlink component', () => {
 
   it('should renders with custom className', () => {
     const { getByRole } = render(
-      <Navlink href="/test" label="Home" className="custom-class" />,
+      <Navlink
+        href="/test"
+        label="Home"
+        variant="navbar"
+        className="custom-class"
+      />,
     );
     const anchor = getByRole('link');
 
@@ -26,7 +31,12 @@ describe('Navlink component', () => {
 
   it('should renders icon when provided (vertical)', () => {
     const { getByTestId } = render(
-      <Navlink href="/test" label="Home" icon={<span data-testid="icon" />} />,
+      <Navlink
+        href="/test"
+        label="Home"
+        variant="navbar"
+        icon={<span data-testid="icon" />}
+      />,
     );
 
     expect(getByTestId('icon')).toBeTruthy();
@@ -34,33 +44,41 @@ describe('Navlink component', () => {
 
   it('should applies aria-current="page" when isActive', () => {
     const { getByRole } = render(
-      <Navlink href="/test" label="Home" isActive />,
+      <Navlink href="/test" label="Home" variant="navbar" isActive />,
     );
     expect(getByRole('link').getAttribute('aria-current')).toEqual('page');
   });
 
   it('should does not apply aria-current when not isActive', () => {
-    const { getByRole } = render(<Navlink href="/test" label="Home" />);
+    const { getByRole } = render(
+      <Navlink href="/test" label="Home" variant="navbar" />,
+    );
     expect(getByRole('link').hasAttribute('aria-current')).toBeFalsy();
   });
 
   it('should applies is-horizontal class when isHorizontal', () => {
     const { getByRole } = render(
-      <Navlink href="/test" label="Home" isHorizontal />,
+      <Navlink href="/test" label="Home" variant="navbar" isHorizontal />,
     );
     expect(getByRole('link').classList.contains('is-horizontal')).toBeTruthy();
   });
 
   it('should renders as a custom element when "as" is provided', () => {
     const { getByText } = render(
-      <Navlink href="/test" label="Home" as="button" />,
+      <Navlink href="/test" label="Home" variant="navbar" as="button" />,
     );
     expect(getByText('Home').closest('button')).toBeTruthy();
   });
 
   it('should applies is-active class to link-indicator when isActive', () => {
     const { getByText } = render(
-      <Navlink href="/test" label="Home" icon={<span />} isActive />,
+      <Navlink
+        href="/test"
+        label="Home"
+        variant="navbar"
+        icon={<span />}
+        isActive
+      />,
     );
     const indicator = getByText('', { selector: '.link-indicator' });
     expect(indicator.classList.contains('is-active')).toBeTruthy();
@@ -68,7 +86,7 @@ describe('Navlink component', () => {
 
   it('should renders horizontal label class when isHorizontal', () => {
     const { getByText } = render(
-      <Navlink href="/test" label="Home" isHorizontal />,
+      <Navlink href="/test" label="Home" variant="navbar" isHorizontal />,
     );
     expect(
       getByText('Home').classList.contains('link-label-horizontal'),
@@ -76,7 +94,33 @@ describe('Navlink component', () => {
   });
 
   it('should renders vertical label class when not isHorizontal', () => {
-    const { getByText } = render(<Navlink href="/test" label="Home" />);
+    const { getByText } = render(
+      <Navlink href="/test" label="Home" variant="navbar" />,
+    );
     expect(getByText('Home').classList.contains('link-label')).toBeTruthy();
+  });
+
+  it('should apply at-navbar class for navbar variant', () => {
+    const { getByRole } = render(
+      <Navlink href="/test" label="Home" variant="navbar" />,
+    );
+    const anchor = getByRole('link');
+    expect(anchor.classList.contains('at-navbar')).toBeTruthy();
+  });
+
+  it('should apply at-navrail class for navrail variant', () => {
+    const { getByRole } = render(
+      <Navlink href="/test" label="Home" variant="navrail" />,
+    );
+    const anchor = getByRole('link');
+    expect(anchor.classList.contains('at-navrail')).toBeTruthy();
+  });
+
+  it('should apply at-navdrawer class for navdrawer variant', () => {
+    const { getByRole } = render(
+      <Navlink href="/test" label="Home" variant="navdrawer" />,
+    );
+    const anchor = getByRole('link');
+    expect(anchor.classList.contains('at-navdrawer')).toBeTruthy();
   });
 });

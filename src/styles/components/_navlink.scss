@@ -34,7 +34,6 @@ a.m3-navlink {
   }
 
   &.is-horizontal {
-    height: 56px;
     flex-direction: row;
     gap: var(--spacing-md);
     border-radius: var(--shape-xl);
@@ -52,6 +51,14 @@ a.m3-navlink {
     &[aria-current='page'] {
       background-color: var(--color-secondary-container);
       color: var(--color-on-secondary-container);
+    }
+
+    &.at-navrail {
+      height: 56px;
+    }
+
+    &.at-navbar {
+      height: 40px;
     }
   }
 
