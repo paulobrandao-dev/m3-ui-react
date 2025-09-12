@@ -18,21 +18,27 @@ export default function DocsTopbar() {
   return (
     <Appbar
       isScroll={isScrolled}
-      navAction={<IconButton icon={<Icon icon="menu" />} />}
+      navAction={
+        <IconButton>
+          <Icon icon="menu" />
+        </IconButton>
+      }
       variant="small"
       headline="M3 UI React"
       actions={
         <>
           <IconButton
-            icon={<Icon icon="balance" />}
             aria-label="License"
             onClick={() => showDialog('dialog-license')}
-          />
+          >
+            <Icon icon="balance" />
+          </IconButton>
           <IconButton
-            icon={<Icon icon="settings" />}
             aria-label="Settings"
             onClick={() => showPopover('settings-menu')}
-          />
+          >
+            <Icon icon="settings" />
+          </IconButton>
         </>
       }
     />

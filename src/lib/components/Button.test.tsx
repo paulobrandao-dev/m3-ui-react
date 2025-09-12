@@ -8,11 +8,11 @@ describe('Button component', () => {
   it('should apply the right CSS class according to the "variant" prop', () => {
     const result = render(
       <>
-        <Button label="Default" />
-        <Button label="Elevated" variant="elevated" />
-        <Button label="Filled" variant="filled" />
-        <Button label="Outlined" variant="outlined" />
-        <Button label="Tonal" variant="tonal" />
+        <Button>Default</Button>
+        <Button variant="elevated">Elevated</Button>
+        <Button variant="filled">Filled</Button>
+        <Button variant="outlined">Outlined</Button>
+        <Button variant="tonal">Tonal</Button>
       </>,
     );
 
@@ -30,7 +30,7 @@ describe('Button component', () => {
   });
 
   it('should apply the disable CSS class when it has the "disabled" prop', () => {
-    const result = render(<Button label="Disabled" disabled />);
+    const result = render(<Button disabled>Disabled</Button>);
 
     const button = result.getByRole('button', { name: 'Disabled' });
 

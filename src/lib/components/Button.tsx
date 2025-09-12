@@ -7,7 +7,7 @@ export type M3ButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'children'
 > & {
-  label: string;
+  children: string;
   ref?: Ref<HTMLButtonElement>;
   icon?: ReactNode;
   variant?: 'text' | 'outlined' | 'tonal' | 'filled' | 'elevated';
@@ -21,7 +21,7 @@ export function Button({
   icon,
   variant = 'text',
   size = 'sm',
-  label,
+  children,
   className,
   ...props
 }: M3ButtonProps) {
@@ -32,7 +32,7 @@ export function Button({
       {...props}
     >
       {icon}
-      <span className="label">{label}</span>
+      <span className="label">{children}</span>
     </button>
   );
 }

@@ -39,9 +39,10 @@ export default function DocsNavRail() {
           <Tooltip text={isOpen ? 'Close' : 'Open'}>
             <IconButton
               onClick={() => openRail(current => !current)}
-              icon={<Icon icon={isOpen ? 'menu_open' : 'menu'} />}
               aria-label={isOpen ? 'Close rail' : 'Open rail'}
-            />
+            >
+              <Icon icon={isOpen ? 'menu_open' : 'menu'} />
+            </IconButton>
           </Tooltip>
         </Content>
       }
@@ -53,14 +54,14 @@ export default function DocsNavRail() {
           >
             <Tooltip text="License">
               <IconButton
-                icon={<Icon icon="balance" />}
                 aria-label="License"
                 onClick={() => showDialog('dialog-license')}
-              />
+              >
+                <Icon icon="balance" />
+              </IconButton>
             </Tooltip>
             <Tooltip text="Settings">
               <IconButton
-                icon={<Icon icon="settings" />}
                 aria-label="Settings"
                 onClick={e =>
                   showPopover(
@@ -68,7 +69,9 @@ export default function DocsNavRail() {
                     media.isGreaterThanCompact ? e.currentTarget : undefined,
                   )
                 }
-              />
+              >
+                <Icon icon="settings" />
+              </IconButton>
             </Tooltip>
           </Content>
           <Font variant="label-small">{import.meta.env.PACKAGE_VERSION}</Font>

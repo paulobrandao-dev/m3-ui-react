@@ -6,7 +6,7 @@ export type IconButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   'children'
 > & {
-  icon: React.ReactElement;
+  children: React.ReactElement;
   variant?: 'standard' | 'outlined' | 'filled' | 'tonal';
   ref?: React.Ref<HTMLButtonElement & HTMLElement>;
 };
@@ -14,7 +14,6 @@ export type IconButtonProps = Omit<
 const CSS_PREFIX = 'm3-icon-button';
 
 export const IconButton = ({
-  icon,
   ref,
   variant = 'standard',
   className,
@@ -25,8 +24,6 @@ export const IconButton = ({
       ref={ref}
       className={clsx(`${CSS_PREFIX}-${variant}`, className)}
       {...props}
-    >
-      {icon}
-    </button>
+    />
   );
 };
