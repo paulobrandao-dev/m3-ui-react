@@ -20,5 +20,4 @@ export * from './components/Menu';
 export * from './components/NavBar';
 export * from './components/NavLink';
 export * from './components/NavRail';
-export * from './components/Toolbar';
 export * from './components/Tooltip';

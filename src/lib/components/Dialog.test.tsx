@@ -1,8 +1,8 @@
 import { cleanup, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it } from 'vitest';
+import { Appbar } from './Appbar';
 import { Dialog } from './Dialog';
-import { Toolbar } from './Toolbar';
 
 describe('Dialog component', () => {
   afterEach(cleanup);
@@ -22,9 +22,9 @@ describe('Dialog component', () => {
           Open dialog
         </button>
         <Dialog id="test-basic" data-testid="test-dialog" fullscreenOnCompact>
-          <Toolbar
-            startNode={<h1>Testing dialog</h1>}
-            endNode={
+          <Appbar
+            headline="Testing dialog"
+            actions={
               <button
                 onClick={() => {
                   document
