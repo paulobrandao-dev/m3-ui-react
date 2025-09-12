@@ -24,7 +24,7 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/"
         label="Home"
-        icon={<Icon icon="home" />}
+        icon={<Icon icon="home" isFilled={current === '/'} />}
         isActive={current === '/'}
         isHorizontal
       />
@@ -33,7 +33,7 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/theming"
         label="Theming"
-        icon={<Icon icon="palette" />}
+        icon={<Icon icon="palette" isFilled={current == '/theming'} />}
         isActive={current == '/theming'}
         isHorizontal
       />
@@ -53,7 +53,12 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/components/button"
         label="Button"
-        icon={<Icon icon="buttons_alt" />}
+        icon={
+          <Icon
+            icon="buttons_alt"
+            isFilled={current === '/components/button'}
+          />
+        }
         isActive={current === '/components/button'}
         isHorizontal
       />
@@ -62,7 +67,9 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/components/font"
         label="Font"
-        icon={<Icon icon="text_format" />}
+        icon={
+          <Icon icon="text_format" isFilled={current === '/components/font'} />
+        }
         isActive={current === '/components/font'}
         isHorizontal
       />
@@ -71,7 +78,9 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/components/icon"
         label="Icon"
-        icon={<Icon icon="interests" />}
+        icon={
+          <Icon icon="interests" isFilled={current === '/components/icon'} />
+        }
         isActive={current === '/components/icon'}
         isHorizontal
       />
@@ -91,7 +100,12 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/hooks/use-dialog-control"
         label="useDialogControl"
-        icon={<Icon icon="picture_in_picture_center" />}
+        icon={
+          <Icon
+            icon="picture_in_picture_center"
+            isFilled={current === '/hooks/use-dialog-control'}
+          />
+        }
         isActive={current === '/hooks/use-dialog-control'}
         isHorizontal
       />
@@ -100,7 +114,12 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/hooks/use-media-query"
         label="useMediaQuery"
-        icon={<Icon icon="responsive_layout" />}
+        icon={
+          <Icon
+            icon="responsive_layout"
+            isFilled={current === '/hooks/use-media-query'}
+          />
+        }
         isActive={current === '/hooks/use-media-query'}
         isHorizontal
       />
@@ -109,7 +128,12 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/hooks/use-popover-control"
         label="usePopoverControl"
-        icon={<Icon icon="arrow_drop_down_circle" />}
+        icon={
+          <Icon
+            icon="arrow_drop_down_circle"
+            isFilled={current === '/hooks/use-popover-control'}
+          />
+        }
         isActive={current === '/hooks/use-popover-control'}
         isHorizontal
       />
@@ -118,7 +142,12 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/hooks/use-scroll-behavior"
         label="useScrollBehavior"
-        icon={<Icon icon="unfold_more" />}
+        icon={
+          <Icon
+            icon="unfold_more"
+            isFilled={current === '/hooks/use-scroll-behavior'}
+          />
+        }
         isActive={current === '/hooks/use-scroll-behavior'}
         isHorizontal
       />

@@ -1,15 +1,17 @@
-import { Card, CardMedia, Content, Font, useMediaQuery } from '@/lib';
+import { Card, Content, Font, useMediaQuery } from '@/lib';
+import bg_error from '../assets/m3-ui-error-pattern.webp';
+import bg from '../assets/m3-ui-pattern.webp';
 
 export default function PageHeader({
   title,
   description,
-  image,
-  imageDescription,
+  element,
+  isErrorHandler,
 }: Readonly<{
   title: string;
   description?: string;
-  image?: string;
-  imageDescription?: string;
+  element?: React.ReactNode;
+  isErrorHandler?: boolean;
 }>) {
   const media = useMediaQuery();
 
@@ -40,10 +42,19 @@ export default function PageHeader({
       <Card
         as="hgroup"
         variant="filled"
-        flexbox={{ direction: 'column', gap: 'md', justifyContent: 'center' }}
+        flexbox={{
+          direction: 'column',
+          gap: 'md',
+          justifyContent: 'center',
+          alignSelf: 'stretch',
+        }}
         spacing={{ padding: 'lg' }}
       >
-        <Font as="h1" variant="display-large">
+        <Font
+          as="h1"
+          variant="display-large"
+          textColor={isErrorHandler ? 'error' : undefined}
+        >
           {title}
         </Font>
         {description && (
@@ -56,16 +67,21 @@ export default function PageHeader({
           </Font>
         )}
       </Card>
-      {image && (
-        <CardMedia
-          as="img"
-          src={image}
-          alt={imageDescription ?? `Cover image of the section ${title}`}
-          aspectRatio="16:9"
-          alignMedia="center"
-          fitMedia="cover"
-        />
-      )}
+      <Card
+        variant="filled"
+        flexbox={{
+          direction: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          alignSelf: 'stretch',
+        }}
+        style={{
+          backgroundImage: `url(${isErrorHandler ? bg_error : bg})`,
+          backgroundSize: 'cover',
+        }}
+      >
+        {element}
+      </Card>
     </Content>
   );
 }

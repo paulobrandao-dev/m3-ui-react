@@ -12,34 +12,7 @@ export default function CardLink({
   description?: string;
   disabled?: boolean;
 }>) {
-  if (disabled) {
-    return (
-      <Card variant="outlined">
-        <Font
-          variant="title-large"
-          as="span"
-          flexbox={{ direction: 'row' }}
-          spacing={{
-            paddingInline: 'lg',
-            paddingBlockStart: 'lg',
-            paddingBlockEnd: 'md',
-          }}
-        >
-          {name} component
-        </Font>
-        {description && (
-          <Font
-            variant="body-large"
-            as="span"
-            flexbox={{ direction: 'row' }}
-            spacing={{ paddingInline: 'lg', paddingBlockEnd: 'lg' }}
-          >
-            {description}
-          </Font>
-        )}
-      </Card>
-    );
-  }
+  if (disabled) return null;
 
   return (
     <Card variant="elevated" as={Link} to={link} stateLayer>

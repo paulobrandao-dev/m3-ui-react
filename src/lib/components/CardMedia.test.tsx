@@ -1,4 +1,4 @@
-import mockSrc from '@/docs/assets/box_not_found.webp';
+import mockSrc from '@/docs/assets/m3-ui-pattern.webp';
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { CardMedia } from './CardMedia';

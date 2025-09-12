@@ -6,7 +6,7 @@ import { applyTheme } from './lib/theme';
 import './styles/index.scss';
 
 applyTheme({
-  seedColor: '#4285F4',
+  seedColor: '#58c4dc',
   colorScheme: settings.theme,
   font: { title: '"Roboto"', content: '"Roboto"', code: '"Roboto Mono"' },
 });

@@ -19,7 +19,7 @@ export default function DocsTopbar() {
     <Appbar
       isScroll={isScrolled}
       navAction={<IconButton icon={<Icon icon="menu" />} />}
-      variant={!isScrolled ? 'medium' : 'small'}
+      variant="small"
       headline="M3 UI React"
       actions={
         <>
