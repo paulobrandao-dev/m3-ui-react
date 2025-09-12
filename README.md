@@ -1,7 +1,5 @@
 # M3 UI React
 
-![Banner](./src/docs/assets/react-material-cover.webp)
-
 M3 UI is an impressive and user-friendly library of components that follows the Material 3 design system.
 
 ![Coverage](./badges.svg)
