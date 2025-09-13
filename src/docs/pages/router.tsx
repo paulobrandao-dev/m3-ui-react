@@ -3,6 +3,7 @@ import HomePage from './home/page';
 import NotFoundPage from './not-found/page';
 import ThemingPage from './theming/page';
 import ComponentsPage from './components/page';
+import { navigate } from '../utils';
 
 export function Link({
   to,
@@ -14,8 +15,7 @@ export function Link({
   const clickHandler = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      window.history.pushState(null, '', to);
-      document.dispatchEvent(new CustomEvent('routechange'));
+      navigate(to);
       if (onClick) onClick(e);
     },
     [onClick, to],

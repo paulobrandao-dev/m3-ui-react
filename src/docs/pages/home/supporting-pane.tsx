@@ -1,6 +1,6 @@
+import { navigate } from '@/docs/utils';
 import { Card, ListItem, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
-import { Link } from '../router';
 
 export default function HomeSupportingPane() {
   const media = useMediaQuery();
@@ -19,22 +19,19 @@ export default function HomeSupportingPane() {
         headline="Theming"
         supportingText="Customize the display of components"
         startElement={<Icon icon="palette" />}
-        as={Link}
-        to="/theming"
+        onClick={() => navigate('/theming')}
       />
       <ListItem
         headline="Components"
         supportingText="Building blocks for creating a user interface"
         startElement={<Icon icon="extension" />}
-        as={Link}
-        to="/components"
+        onClick={() => navigate('/components')}
       />
       <ListItem
         headline="Hooks"
         supportingText="Functions to simplify your logic and improve code readability"
         startElement={<Icon icon="phishing" />}
-        as={Link}
-        to="/hooks"
+        onClick={() => navigate('/hooks')}
       />
     </Card>
   );

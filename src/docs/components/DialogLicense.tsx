@@ -53,7 +53,7 @@ export default function DialogLicense() {
         flexbox={{ direction: 'row', justifyContent: 'flex-end' }}
         spacing={{ paddingBlockStart: 'md' }}
       >
-        <Button label="Close" onClick={() => closeDialog('dialog-license')} />
+        <Button onClick={() => closeDialog('dialog-license')}>Close</Button>
       </Content>
     </Dialog>
   );
