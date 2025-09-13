@@ -94,8 +94,8 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 
 ### Buttons
 
-- [x] ~~Button~~
-- [x] ~~IconButton~~
+- [x] Button
+- [x] IconButton
 - [ ] FloatActionButton (__coming soon__)
 - [ ] _SegmentedButton (planning)_
 
@@ -110,9 +110,9 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 
 ### Navigation
 
-- [x] ~~NavLink~~
-- [x] ~~NavBar~~
-- [x] ~~NavRail~~
+- [x] NavLink
+- [x] NavBar
+- [x] NavRail
 
 ### Sheets
 
@@ -121,31 +121,32 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 
 ### Others
 
-- [x] ~~Appbar~~
+- [x] Appbar
 - [ ] _Badges (planning)_
-- [x] ~~CanonicalLayout~~
-- [x] ~~Card~~
-- [x] ~~CardMedia~~
+- [x] CanonicalLayout
+- [x] Card
+- [x] CardMedia
 - [ ] _Carousel (planning)_
 - [ ] Checkbox (__coming soon__)
 - [ ] Chip (__coming soon__)
-- [x] ~~Content~~
-- [x] ~~Dialog~~
-- [x] ~~Divider~~
-- [x] ~~Font~~
-- [x] ~~Icon~~
-- [x] ~~ListItem~~
-- [x] ~~Menu~~
+- [x] Content
+- [x] Dialog
+- [x] Divider
+- [ ] _FloatToolbar (planning)_
+- [x] Font
+- [x] Icon
+- [x] ListItem
+- [x] Menu
 - [ ] RadioButton (__coming soon__)
 - [ ] _RichTooltip (planning)_
 - [ ] Search (__coming soon__)
 - [ ] SelectField (__coming soon__)
 - [ ] Snackbar (__coming soon__)
-- [x] ~~Switch~~
+- [x] Switch
 - [ ] _Slider (planning)_
 - [ ] Tabs (__coming soon__)
 - [ ] TextField (__coming soon__)
-- [x] ~~Tooltip~~
+- [x] Tooltip
 
 ## Utils
 
