@@ -4,9 +4,7 @@ import {
   IconButton,
   NavRail,
   Tooltip,
-  useDialogControl,
   useMediaQuery,
-  usePopoverControl,
 } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
@@ -15,8 +13,6 @@ import MainNavigation from './MainNavigation';
 
 export default function DocsNavRail() {
   const media = useMediaQuery();
-  const { showDialog } = useDialogControl();
-  const { showPopover } = usePopoverControl();
   const [isOpen, openRail] = useState<boolean>(false);
 
   useEffect(() => {
@@ -47,35 +43,7 @@ export default function DocsNavRail() {
         </Content>
       }
       footer={
-        <>
-          <Content
-            role="toolbar"
-            flexbox={{ direction: isOpen ? 'row' : 'column' }}
-          >
-            <Tooltip text="License">
-              <IconButton
-                aria-label="License"
-                onClick={() => showDialog('dialog-license')}
-              >
-                <Icon icon="balance" />
-              </IconButton>
-            </Tooltip>
-            <Tooltip text="Settings">
-              <IconButton
-                aria-label="Settings"
-                onClick={e =>
-                  showPopover(
-                    'settings-menu',
-                    media.isGreaterThanCompact ? e.currentTarget : undefined,
-                  )
-                }
-              >
-                <Icon icon="settings" />
-              </IconButton>
-            </Tooltip>
-          </Content>
-          <Font variant="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
-        </>
+        <Font variant="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
       }
     >
       {isOpen ? <CompleteNavigation /> : <MainNavigation />}

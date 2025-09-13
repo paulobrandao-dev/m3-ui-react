@@ -1,11 +1,21 @@
-import PageHeader from '@/docs/components/PageHeader';
+import PageHeader from '@/docs/shared/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
 import { CanonicalLayout } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import ThemingArticle from './article';
+import { useEffect } from 'react';
+import { setSubtitle } from '@/docs/utils';
 
 export default function ThemingPage() {
   const { isFluidContent } = useSettings();
+
+  useEffect(() => {
+    setSubtitle('Theming');
+
+    return () => {
+      setSubtitle(undefined);
+    };
+  }, []);
 
   return (
     <>

@@ -32,7 +32,7 @@ export default function PageFooter() {
         <Font
           as="a"
           variant="label-large"
-          href="https://www.npmjs.com/package/@paulobrandao/react-material"
+          href="https://www.npmjs.com/package/m3-ui-react"
           target="_blank"
           flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
           spacing={{ paddingInline: 'lg' }}
@@ -44,7 +44,7 @@ export default function PageFooter() {
         <Font
           as="a"
           variant="label-large"
-          href="https://github.com/paulobrandao-dev/react-material"
+          href="https://github.com/paulobrandao-dev/m3-ui-react"
           target="_blank"
           flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
           spacing={{ paddingInline: 'lg' }}
@@ -56,7 +56,7 @@ export default function PageFooter() {
         <Font
           as="a"
           variant="label-large"
-          href="https://github.com/paulobrandao-dev/react-material/issues"
+          href="https://github.com/paulobrandao-dev/m3-ui-react/issues"
           target="_blank"
           flexbox={{ direction: 'row', gap: 'xs', alignItems: 'center' }}
           spacing={{ paddingInline: 'lg' }}

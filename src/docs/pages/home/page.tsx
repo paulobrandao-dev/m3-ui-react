@@ -1,4 +1,4 @@
-import PageHeader from '@/docs/components/PageHeader';
+import PageHeader from '@/docs/shared/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
 import { CanonicalLayout, CardMedia } from '@/lib';
 import HomeArticle from './article';

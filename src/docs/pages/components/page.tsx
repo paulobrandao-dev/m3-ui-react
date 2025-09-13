@@ -1,11 +1,21 @@
-import PageHeader from '@/docs/components/PageHeader';
+import PageHeader from '@/docs/shared/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
 import SectionButtons from './section-buttons';
 import SectionNavigation from './section-navigation';
 import { Icon } from '@/lib/icon/Rounded';
+import { useEffect } from 'react';
+import { setSubtitle } from '@/docs/utils';
 
 export default function ComponentsPage() {
   const { isFluidContent } = useSettings();
+
+  useEffect(() => {
+    setSubtitle('Components');
+
+    return () => {
+      setSubtitle(undefined);
+    };
+  }, []);
 
   return (
     <>

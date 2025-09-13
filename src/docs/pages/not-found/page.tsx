@@ -1,4 +1,4 @@
-import PageHeader from '@/docs/components/PageHeader';
+import PageHeader from '@/docs/shared/PageHeader';
 import { Icon } from '@/lib/icon/Rounded';
 
 export default function NotFoundPage() {
