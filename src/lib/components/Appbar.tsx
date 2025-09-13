@@ -1,3 +1,5 @@
+'use client';
+
 import { clsx } from 'clsx';
 import { useMemo } from 'react';
 import { Font } from './Font';
@@ -83,7 +85,7 @@ export function Appbar({
         <hgroup className={clsx('toolbar-row', { 'is-fluid': isFluid })}>
           <Font
             as="h1"
-            scale={variant === 'medium' ? 'headline-medium' : 'display-small'}
+            variant={variant === 'medium' ? 'headline-medium' : 'display-small'}
             textAlign={centeredText ? 'center' : 'left'}
           >
             {headline}
@@ -91,7 +93,7 @@ export function Appbar({
           {subtitle && (
             <Font
               as="p"
-              scale={variant === 'medium' ? 'label-large' : 'title-medium'}
+              variant={variant === 'medium' ? 'label-large' : 'title-medium'}
               textAlign={centeredText ? 'center' : 'left'}
             >
               {subtitle}

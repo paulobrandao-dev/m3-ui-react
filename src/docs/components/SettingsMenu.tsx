@@ -4,6 +4,7 @@ import {
   IconButton,
   ListItem,
   Menu,
+  Switch,
   usePopoverControl,
 } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
@@ -39,14 +40,22 @@ export default function SettingsMenu() {
       </Content>
       <ListItem
         headline="Dark mode"
-        startElement={<Icon icon="dark_mode" />}
-        endElement={<Icon icon={`toggle_${isDarkMode ? 'on' : 'off'}`} />}
+        endElement={
+          <Switch
+            checked={isDarkMode}
+            icon={<Icon icon="dark_mode" size={16} isFilled />}
+          />
+        }
         onClick={toggleDarkMode}
       />
       <ListItem
         headline="Fluid content"
-        startElement={<Icon icon="width_full" />}
-        endElement={<Icon icon={`toggle_${isFluidContent ? 'on' : 'off'}`} />}
+        endElement={
+          <Switch
+            checked={isFluidContent}
+            icon={<Icon icon="width_full" size={16} isFilled />}
+          />
+        }
         onClick={toggleFluidContent}
       />
     </Menu>

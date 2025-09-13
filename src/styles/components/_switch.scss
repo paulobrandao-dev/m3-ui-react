@@ -1,0 +1,58 @@
+[role='switch'].m3-switch {
+  display: inline-flex;
+  align-items: center;
+  width: 52px;
+  height: 32px;
+  padding: 0;
+  border-radius: var(--shape-lg);
+  border: 2px solid var(--color-outline);
+  transition-property: background-color, color;
+  transition-duration: va(--ease-duration);
+  transition-timing-function: var(--ease-standard);
+  cursor: pointer;
+  position: relative;
+
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  > .thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--shape-circle);
+    min-width: 16px;
+    max-width: 24px;
+    min-height: 16px;
+    max-height: 24px;
+    padding: var(--spacing-xs);
+    background-color: currentColor;
+    transition-property: width, height, left;
+    transition-duration: var(--ease-duration);
+    transition-timing-function: var(--ease-standard);
+    position: absolute;
+  }
+
+  &[aria-checked='false'] {
+    background-color: var(--color-surface-container-highest);
+
+    > .thumb {
+      background-color: var(--color-outline);
+      left: var(--spacing-xs);
+    }
+  }
+
+  &[aria-checked='true'] {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    > .thumb {
+      background-color: var(--color-on-primary);
+      width: 24px;
+      height: 24px;
+      left: 20px;
+      color: var(--color-on-primary-container);
+    }
+  }
+}

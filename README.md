@@ -112,7 +112,6 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 
 - [x] ~~NavLink~~
 - [x] ~~NavBar~~
-- [ ] NavDrawer
 - [x] ~~NavRail~~
 
 ### Sheets
@@ -142,7 +141,7 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 - [ ] Search (__coming soon__)
 - [ ] SelectField (__coming soon__)
 - [ ] Snackbar (__coming soon__)
-- [ ] Switch (__coming soon__)
+- [x] ~~Switch~~
 - [ ] _Slider (planning)_
 - [ ] Tabs (__coming soon__)
 - [ ] TextField (__coming soon__)
