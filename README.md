@@ -22,7 +22,7 @@ Import the required stylesheet into `RootLayout` or your `(main|index).ts`:
 import 'm3-ui-react/dist/m3-ui.css';
 ```
 
-To make use of `MaterialSymbol` component, it is necessary to import the icon font stylesheet too, according to the style chosen:
+To make use of `Icon` component, it is necessary to import the icon font stylesheet too, according to the style chosen:
 
 ```js
 // Outlined
@@ -39,7 +39,7 @@ For correct use of the components and to customize the interface, it is necessar
 
 You just need to pass the main color of your interface, the color scheme (“light” or “dark”) and the font face names and the util will make the job.
 
-> More info about theme utils in the [Utils](#utils) section of this page.
+> More info about theme utils in the [Theme](#theme) section of this page.
 
 For each necessity, a specific util is applied:
 
@@ -48,7 +48,7 @@ For each necessity, a specific util is applied:
 In this case, the right way is to set these vars on server side, with the `RootLayout`:
 
 ```jsx
-import { applyThemeOnHtmlStyleTag } from 'm3-ui-react/utils';
+import { applyThemeOnHtmlStyleTag } from 'm3-ui-react/theme';
 ...
 
 return (
@@ -73,7 +73,7 @@ return (
 In this case, call the `applyTheme` util into `(main|index).tsx`:
 
 ```jsx
-import { applyTheme } from 'm3-ui-react/utils';
+import { applyTheme } from 'm3-ui-react/theme';
 // before createRoot
 applyTheme({
   seedColor: '#4285F4',
@@ -148,20 +148,18 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 - [ ] TextField (__coming soon__)
 - [x] Tooltip
 
-## Utils
-
-### Theme utils
+## Theme
 
 These functions will help you to create dynamic color schemes by the content-based color of your product/application.
 
-#### `applyThemeOnHtmlStyleTag`
+### `applyThemeOnHtmlStyleTag`
 
 > Solution to server side render
 
 This function returns the CSS variables required to customize the library components as `CSSProperties` and need to be applied in the `style` _prop_ of the `<html>` tag.
 
 ```jsx
-import { applyThemeOnHtmlStyleTag } from 'm3-ui-react/utils';
+import { applyThemeOnHtmlStyleTag } from 'm3-ui-react/theme';
 ...
 
 return (
@@ -181,7 +179,7 @@ return (
 );
 ```
 
-##### `applyThemeOnHtmlStyleTag` types
+#### `applyThemeOnHtmlStyleTag` types
 
 ```ts
 type FontSettings = {
@@ -199,14 +197,14 @@ type Settings = {
 function applyThemeOnHtmlStyleTag(settings: Settings): CSSProperties
 ```
 
-#### `applyTheme`
+### `applyTheme`
 
 > Solution to client side render
 
 This function applies the CSS variables required to customize the library components in the document element.
 
 ```jsx
-import { applyTheme } from 'm3-ui-react/utils';
+import { applyTheme } from 'm3-ui-react/theme';
 // before createRoot
 applyTheme({
   seedColor: '#4285F4',
@@ -219,7 +217,7 @@ applyTheme({
 });
 ```
 
-##### `applyTheme` types
+#### `applyTheme` types
 
 ```ts
 type FontSettings = {
