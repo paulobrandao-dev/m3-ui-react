@@ -14,7 +14,7 @@ export type NavLinkProps<A extends ElementType> = Omit<
   'children' | 'aria-current'
 > & {
   label: string;
-  variant: 'navrail' | 'navbar' | 'navdrawer';
+  variant: 'navrail' | 'navbar';
   icon?: ReactNode;
   isActive?: boolean;
   isHorizontal?: boolean;
@@ -43,7 +43,6 @@ export function NavLink<T extends ElementType>({
         CSS_PREFIX,
         {
           'at-navbar': variant === 'navbar',
-          'at-navdrawer': variant === 'navdrawer',
           'at-navrail': variant === 'navrail',
           'is-horizontal': isHorizontal,
         },

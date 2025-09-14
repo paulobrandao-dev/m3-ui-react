@@ -116,7 +116,7 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 
 ### Sheets
 
-- [ ] SideSheet (__coming soon__)
+- [x] SideSheet
 - [ ] BottomSheet (__coming soon__)
 
 ### Others
@@ -140,7 +140,7 @@ This list is organized according to [Material Docs](https://m3.material.io/compo
 - [ ] RadioButton (__coming soon__)
 - [ ] _RichTooltip (planning)_
 - [ ] Search (__coming soon__)
-- [ ] SelectField (__coming soon__)
+- [ ] _SelectField (planning)_
 - [ ] Snackbar (__coming soon__)
 - [x] Switch
 - [ ] _Slider (planning)_
