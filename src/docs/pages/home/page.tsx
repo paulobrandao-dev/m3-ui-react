@@ -1,6 +1,6 @@
 import PageHeader from '@/docs/shared/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
-import { CanonicalLayout, CardMedia } from '@/lib';
+import { CanonicalLayout, CardMedia, Content } from '@/lib';
 import HomeArticle from './article';
 import HomeSupportingPane from './supporting-pane';
 
@@ -8,7 +8,7 @@ export default function HomePage() {
   const { isFluidContent } = useSettings();
 
   return (
-    <>
+    <Content as="main">
       <PageHeader
         title="M3 UI React"
         description="A powerful and straightforward way to implement the Google Design System in your React projects."
@@ -35,6 +35,6 @@ export default function HomePage() {
         <HomeArticle />
         <HomeSupportingPane />
       </CanonicalLayout>
-    </>
+    </Content>
   );
 }

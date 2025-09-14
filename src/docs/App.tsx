@@ -6,6 +6,7 @@ import DocsNavRail from './shared/Rail';
 import DocsTopbar from './shared/Topbar';
 import { Router } from './pages/router';
 import { SettingsProvider } from './settings/provider';
+import SettingsSidebar from './shared/SettingsSidebar';
 
 export default function Docs() {
   const media = useMediaQuery();
@@ -13,9 +14,18 @@ export default function Docs() {
   return (
     <SettingsProvider>
       {media.isLessThanExpanded ? <DocsTopbar /> : <DocsNavRail />}
-      <Content as="main" spacing={{ paddingInline: 'md' }}>
+      <Content as="div" role="presentation" spacing={{ paddingInline: 'md' }}>
         {media.isGreaterThanMedium && <DocsTopbar />}
-        <Router />
+        <Content
+          as="div"
+          role="presentation"
+          flexbox={{
+            direction: media.isGreaterThanMedium ? 'row' : 'column',
+          }}
+        >
+          <Router />
+          <SettingsSidebar />
+        </Content>
         <PageFooter />
       </Content>
       {media.isLessThanExpanded && <DocsNavBar />}

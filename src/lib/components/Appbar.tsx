@@ -51,10 +51,7 @@ export function Appbar({
       )}
       {...props}
     >
-      <div
-        role="presentation"
-        className={clsx('toolbar-row', { 'is-fluid': isFluid })}
-      >
+      <div role="presentation" className={clsx('row', { 'is-fluid': isFluid })}>
         {navAction}
         <div role="presentation">
           {customContent}
@@ -82,7 +79,7 @@ export function Appbar({
         {actions && <div role="toolbar">{actions}</div>}
       </div>
       {textBelow && headline && (
-        <hgroup className={clsx('toolbar-row', { 'is-fluid': isFluid })}>
+        <hgroup className={clsx('row', { 'is-fluid': isFluid })}>
           <Font
             as="h1"
             variant={variant === 'medium' ? 'headline-medium' : 'display-small'}

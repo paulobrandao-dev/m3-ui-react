@@ -1,13 +1,13 @@
-import PageHeader from '@/docs/shared/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
-import SectionButtons from './section-buttons';
-import SectionNavigation from './section-navigation';
+import PageHeader from '@/docs/shared/PageHeader';
+import { Content } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect } from 'react';
-import { setSubtitle } from '@/docs/utils';
+import SectionButtons from './section-buttons';
+import SectionNavigation from './section-navigation';
 
 export default function ComponentsPage() {
-  const { isFluidContent } = useSettings();
+  const { isFluidContent, setSubtitle } = useSettings();
 
   useEffect(() => {
     setSubtitle('Components');
@@ -15,10 +15,10 @@ export default function ComponentsPage() {
     return () => {
       setSubtitle(undefined);
     };
-  }, []);
+  }, [setSubtitle]);
 
   return (
-    <>
+    <Content as="main">
       <PageHeader
         title="Components"
         description="Interactive components are the fundamental elements for designing a user interface."
@@ -33,6 +33,6 @@ export default function ComponentsPage() {
       />
       <SectionButtons isFluidContent={isFluidContent} />
       <SectionNavigation isFluidContent={isFluidContent} />
-    </>
+    </Content>
   );
 }

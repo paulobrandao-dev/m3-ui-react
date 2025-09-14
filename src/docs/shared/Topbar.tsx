@@ -1,26 +1,20 @@
 import {
   Appbar,
   IconButton,
+  Tooltip,
   useDialogControl,
   useMediaQuery,
-  usePopoverControl,
   useScrollBehavior,
 } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useSettings } from '../settings/hook';
 
 export default function DocsTopbar() {
   const media = useMediaQuery();
   const [isScrolled, setScrolledToggle] = useState<boolean>(false);
   const { showDialog } = useDialogControl();
-  const { showPopover } = usePopoverControl();
-  const [subtitle, setSubtitle] = useState<string>();
-
-  useEffect(() => {
-    document.addEventListener('setsubtitle', e =>
-      setSubtitle(e.detail.subtitle),
-    );
-  }, []);
+  const { subtitle } = useSettings();
 
   useScrollBehavior('#root', ({ atTop }) => setScrolledToggle(!atTop));
 
@@ -33,23 +27,24 @@ export default function DocsTopbar() {
       isFluid
       actions={
         <>
-          <IconButton
-            aria-label="License"
-            onClick={() => showDialog('dialog-license')}
-          >
-            <Icon icon="balance" />
-          </IconButton>
-          <IconButton
-            aria-label="Settings"
-            onClick={e =>
-              showPopover(
-                'settings-menu',
-                media.isGreaterThanMedium ? e.currentTarget : undefined,
-              )
-            }
-          >
-            <Icon icon="settings" />
-          </IconButton>
+          <Tooltip text="License">
+            <IconButton
+              aria-label="License"
+              onClick={() => showDialog('dialog-license')}
+            >
+              <Icon icon="balance" />
+            </IconButton>
+          </Tooltip>
+          <Tooltip text="Settings">
+            <IconButton
+              aria-label="Settings"
+              onClick={() =>
+                document.dispatchEvent(new CustomEvent('togglesettings'))
+              }
+            >
+              <Icon icon="settings" />
+            </IconButton>
+          </Tooltip>
         </>
       }
     />

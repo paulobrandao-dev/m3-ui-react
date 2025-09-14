@@ -1,13 +1,12 @@
-import PageHeader from '@/docs/shared/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
-import { CanonicalLayout } from '@/lib';
+import PageHeader from '@/docs/shared/PageHeader';
+import { CanonicalLayout, Content } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
-import ThemingArticle from './article';
 import { useEffect } from 'react';
-import { setSubtitle } from '@/docs/utils';
+import ThemingArticle from './article';
 
 export default function ThemingPage() {
-  const { isFluidContent } = useSettings();
+  const { isFluidContent, setSubtitle } = useSettings();
 
   useEffect(() => {
     setSubtitle('Theming');
@@ -15,10 +14,10 @@ export default function ThemingPage() {
     return () => {
       setSubtitle(undefined);
     };
-  }, []);
+  }, [setSubtitle]);
 
   return (
-    <>
+    <Content as="main">
       <PageHeader
         title="Theming"
         description="Why should it be difficult? There's no reason for that!"
@@ -42,6 +41,6 @@ export default function ThemingPage() {
       >
         <ThemingArticle />
       </CanonicalLayout>
-    </>
+    </Content>
   );
 }

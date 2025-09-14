@@ -17,12 +17,12 @@ describe('Appbar component', () => {
     const { getByText } = render(
       <Appbar headline="Title" subtitle="Subtitle" />,
     );
-    // Headline and subtitle should be rendered in the first toolbar-row
+    // Headline and subtitle should be rendered in the first row
     expect(getByText('Title').tagName).toBe('H1');
     expect(getByText('Subtitle').tagName).toBe('P');
   });
 
-  it('should renders headline and subtitle below toolbar-row for medium variant', () => {
+  it('should renders headline and subtitle below row for medium variant', () => {
     const { getByText, container } = render(
       <Appbar
         variant="medium"
@@ -30,15 +30,15 @@ describe('Appbar component', () => {
         subtitle="Medium Subtitle"
       />,
     );
-    // Headline and subtitle should be rendered in hgroup after toolbar-row
+    // Headline and subtitle should be rendered in hgroup after row
     const hgroups = container.querySelectorAll('hgroup');
     expect(hgroups.length).toBe(1);
-    expect(hgroups[0].classList.contains('toolbar-row')).toBeTruthy();
+    expect(hgroups[0].classList.contains('row')).toBeTruthy();
     expect(getByText('Medium Title').tagName).toBe('H1');
     expect(getByText('Medium Subtitle').tagName).toBe('P');
   });
 
-  it('should renders headline and subtitle below toolbar-row for large variant', () => {
+  it('should renders headline and subtitle below row for large variant', () => {
     const { getByText, container } = render(
       <Appbar
         variant="large"
@@ -48,7 +48,7 @@ describe('Appbar component', () => {
     );
     const hgroups = container.querySelectorAll('hgroup');
     expect(hgroups.length).toBe(1);
-    expect(hgroups[0].classList.contains('toolbar-row')).toBeTruthy();
+    expect(hgroups[0].classList.contains('row')).toBeTruthy();
     expect(getByText('Large Title').tagName).toBe('H1');
     expect(getByText('Large Subtitle').tagName).toBe('P');
   });
@@ -83,8 +83,8 @@ describe('Appbar component', () => {
     );
     const header = getByRole('banner');
     expect(header).toBeTruthy();
-    // Both toolbar-row and hgroup should have is-fluid
-    expect(header.querySelectorAll('.toolbar-row.is-fluid').length).toBe(2);
+    // Both row and hgroup should have is-fluid
+    expect(header.querySelectorAll('.row.is-fluid').length).toBe(2);
     // Headline and subtitle should have textAlign center
     expect(
       getByText('Centered').classList.contains('is-align-center'),

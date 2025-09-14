@@ -12,6 +12,7 @@ export function SettingsProvider({
   const [isFluidContent, setFluidContentFlag] = useState<boolean>(
     settings.fluidContent,
   );
+  const [subtitle, setSubtitle] = useState<string>();
 
   const toggleDarkMode = useCallback(() => {
     const theme = isDarkMode ? 'light' : 'dark';
@@ -26,7 +27,14 @@ export function SettingsProvider({
 
   return (
     <SettingsContext.Provider
-      value={{ isDarkMode, isFluidContent, toggleDarkMode, toggleFluidContent }}
+      value={{
+        isDarkMode,
+        isFluidContent,
+        subtitle,
+        toggleDarkMode,
+        toggleFluidContent,
+        setSubtitle,
+      }}
     >
       {children}
     </SettingsContext.Provider>
