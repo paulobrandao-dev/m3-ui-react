@@ -12,6 +12,7 @@ export default function SectionNavigation({
         paddingBlock: 'xl',
         marginInline: 'auto',
       }}
+      style={{ maxWidth: !isFluidContent ? 1199 : undefined }}
     >
       <Font as="h2" variant="headline-large">
         Navigation
@@ -21,27 +22,23 @@ export default function SectionNavigation({
         variant="feed"
         gap={{ gap: 'sm' }}
         spacing={{ marginInline: 'auto' }}
-        isFluid={isFluidContent}
       >
         <CardLink
           link="/components/navlink"
           name="NavLink"
+          icon="link"
           description="TO DO"
         />
         <CardLink
           link="/components/nav-bar"
           name="NavBar"
+          icon="bottom_navigation"
           description="TO DO"
-        />
-        <CardLink
-          link="/components/nav-drawer"
-          name="NavDrawer"
-          description="Coming soon"
-          disabled
         />
         <CardLink
           link="/components/nav-rail"
           name="NavRail"
+          icon="dock_to_right"
           description="TO DO"
         />
       </CanonicalLayout>

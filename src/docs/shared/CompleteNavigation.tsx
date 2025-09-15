@@ -24,7 +24,7 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/"
         label="Home"
-        icon={<Icon icon="home" isFilled={current === '/'} />}
+        icon={<Icon symbol="home" isFilled={current === '/'} />}
         isActive={current === '/'}
         isHorizontal
       />
@@ -33,7 +33,7 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/theming"
         label="Theming"
-        icon={<Icon icon="palette" isFilled={current == '/theming'} />}
+        icon={<Icon symbol="palette" isFilled={current == '/theming'} />}
         isActive={current == '/theming'}
         isHorizontal
       />
@@ -55,7 +55,7 @@ export default function CompleteNavigation() {
         label="Button"
         icon={
           <Icon
-            icon="buttons_alt"
+            symbol="buttons_alt"
             isFilled={current === '/components/button'}
           />
         }
@@ -68,7 +68,10 @@ export default function CompleteNavigation() {
         to="/components/font"
         label="Font"
         icon={
-          <Icon icon="text_format" isFilled={current === '/components/font'} />
+          <Icon
+            symbol="text_format"
+            isFilled={current === '/components/font'}
+          />
         }
         isActive={current === '/components/font'}
         isHorizontal
@@ -79,7 +82,7 @@ export default function CompleteNavigation() {
         to="/components/icon"
         label="Icon"
         icon={
-          <Icon icon="interests" isFilled={current === '/components/icon'} />
+          <Icon symbol="interests" isFilled={current === '/components/icon'} />
         }
         isActive={current === '/components/icon'}
         isHorizontal
@@ -102,7 +105,7 @@ export default function CompleteNavigation() {
         label="useDialogControl"
         icon={
           <Icon
-            icon="picture_in_picture_center"
+            symbol="picture_in_picture_center"
             isFilled={current === '/hooks/use-dialog-control'}
           />
         }
@@ -116,7 +119,7 @@ export default function CompleteNavigation() {
         label="useMediaQuery"
         icon={
           <Icon
-            icon="responsive_layout"
+            symbol="responsive_layout"
             isFilled={current === '/hooks/use-media-query'}
           />
         }
@@ -130,7 +133,7 @@ export default function CompleteNavigation() {
         label="usePopoverControl"
         icon={
           <Icon
-            icon="arrow_drop_down_circle"
+            symbol="arrow_drop_down_circle"
             isFilled={current === '/hooks/use-popover-control'}
           />
         }
@@ -144,7 +147,7 @@ export default function CompleteNavigation() {
         label="useScrollBehavior"
         icon={
           <Icon
-            icon="unfold_more"
+            symbol="unfold_more"
             isFilled={current === '/hooks/use-scroll-behavior'}
           />
         }

@@ -18,19 +18,19 @@ export default function HomeSupportingPane() {
       <ListItem
         headline="Theming"
         supportingText="Customize the display of components"
-        startElement={<Icon icon="palette" />}
+        startElement={<Icon symbol="palette" />}
         onClick={() => navigate('/theming')}
       />
       <ListItem
         headline="Components"
         supportingText="Building blocks for creating a user interface"
-        startElement={<Icon icon="extension" />}
+        startElement={<Icon symbol="extension" />}
         onClick={() => navigate('/components')}
       />
       <ListItem
         headline="Hooks"
         supportingText="Functions to simplify your logic and improve code readability"
-        startElement={<Icon icon="phishing" />}
+        startElement={<Icon symbol="phishing" />}
         onClick={() => navigate('/hooks')}
       />
     </Card>

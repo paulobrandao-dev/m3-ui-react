@@ -7,7 +7,7 @@ export type IconProps = Omit<
   React.HTMLAttributes<HTMLSpanElement>,
   'children'
 > & {
-  icon: string;
+  symbol: string;
   weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700;
   size?: number;
   isFilled?: boolean;
@@ -16,7 +16,7 @@ export type IconProps = Omit<
 };
 
 export function Icon({
-  icon,
+  symbol,
   ref,
   weight = 400,
   size = 24,
@@ -60,7 +60,7 @@ export function Icon({
       }}
       {...props}
     >
-      {icon}
+      {symbol}
     </span>
   );
 }

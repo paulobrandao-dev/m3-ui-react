@@ -12,7 +12,7 @@ export default function DialogLicense() {
         spacing={{ paddingBlockEnd: 'md' }}
         scrollable={{ vertical: 'auto' }}
       >
-        <Icon icon="balance" />
+        <Icon symbol="balance" />
         <Font variant="headline-small" as="h2">
           License
         </Font>

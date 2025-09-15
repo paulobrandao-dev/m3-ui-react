@@ -18,7 +18,7 @@ export default function SettingsSidebar() {
       variant={media.isGreaterThanMedium ? 'standard' : 'modal'}
       headline="Settings"
       closeAction={{
-        icon: <Icon icon="right_panel_close" />,
+        icon: <Icon symbol="right_panel_close" />,
         onClose: () => toggle(false),
       }}
       isOpen={isOpen}
@@ -35,7 +35,7 @@ export default function SettingsSidebar() {
         <Font variant="body-medium">Dark mode</Font>
         <Switch
           checked={isDarkMode}
-          icon={<Icon icon="dark_mode" size={16} isFilled />}
+          icon={<Icon symbol="dark_mode" size={16} isFilled />}
           onChange={() => toggleDarkMode()}
         />
       </Content>
@@ -51,7 +51,7 @@ export default function SettingsSidebar() {
         <Font variant="body-medium">Fluid content</Font>
         <Switch
           checked={isFluidContent}
-          icon={<Icon icon="width_full" size={16} isFilled />}
+          icon={<Icon symbol="width_full" size={16} isFilled />}
           onChange={() => toggleFluidContent()}
         />
       </Content>

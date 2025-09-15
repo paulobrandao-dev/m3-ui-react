@@ -28,7 +28,7 @@ export default function MainNavigation({
         isHorizontal={isHorizontal}
         to="/"
         label="Home"
-        icon={<Icon icon="home" isFilled={current === '/'} />}
+        icon={<Icon symbol="home" isFilled={current === '/'} />}
         isActive={current === '/'}
       />
       <NavLink
@@ -37,7 +37,7 @@ export default function MainNavigation({
         isHorizontal={isHorizontal}
         to="/theming"
         label="Theming"
-        icon={<Icon icon="palette" isFilled={current === '/theming'} />}
+        icon={<Icon symbol="palette" isFilled={current === '/theming'} />}
         isActive={current === '/theming'}
       />
       <NavLink
@@ -47,7 +47,10 @@ export default function MainNavigation({
         to="/components"
         label="Components"
         icon={
-          <Icon icon="extension" isFilled={current.startsWith('/components')} />
+          <Icon
+            symbol="extension"
+            isFilled={current.startsWith('/components')}
+          />
         }
         isActive={current.startsWith('/components')}
       />
@@ -57,7 +60,9 @@ export default function MainNavigation({
         isHorizontal={isHorizontal}
         to="/hooks"
         label="Hooks"
-        icon={<Icon icon="phishing" isFilled={current.startsWith('/hooks')} />}
+        icon={
+          <Icon symbol="phishing" isFilled={current.startsWith('/hooks')} />
+        }
         isActive={current.startsWith('/hooks')}
       />
     </>

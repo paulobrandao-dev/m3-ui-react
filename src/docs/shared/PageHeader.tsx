@@ -1,6 +1,4 @@
 import { Card, Content, Font, useMediaQuery } from '@/lib';
-import bg_error from '../assets/m3-ui-error-pattern.webp';
-import bg from '../assets/m3-ui-pattern.webp';
 
 export default function PageHeader({
   title,
@@ -18,23 +16,12 @@ export default function PageHeader({
   return (
     <Content
       as="header"
-      flexbox={
-        media.isLessThanExpanded
-          ? {
-              direction: 'column-reverse',
-              alignItems: 'center',
-              gap: 'sm',
-            }
-          : undefined
-      }
-      grid={
-        media.isGreaterThanMedium
-          ? {
-              columns: 2,
-              gap: 'sm',
-            }
-          : undefined
-      }
+      flexbox={{
+        direction: media.isLessThanExpanded ? 'column-reverse' : 'row',
+        alignItems: media.isLessThanExpanded ? 'center' : 'stretch',
+        justifyContent: 'space-between',
+        gap: 'sm',
+      }}
       spacing={{
         marginBlockStart: 'md',
       }}
@@ -46,9 +33,9 @@ export default function PageHeader({
           direction: 'column',
           gap: 'md',
           justifyContent: 'center',
-          alignSelf: 'stretch',
         }}
         spacing={{ padding: 'lg' }}
+        style={{ flexBasis: media.isGreaterThanCompact ? '100%' : undefined }}
       >
         <Font
           as="h1"
@@ -67,21 +54,7 @@ export default function PageHeader({
           </Font>
         )}
       </Card>
-      <Card
-        variant="filled"
-        flexbox={{
-          direction: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          alignSelf: 'stretch',
-        }}
-        style={{
-          backgroundImage: `url(${isErrorHandler ? bg_error : bg})`,
-          backgroundSize: 'cover',
-        }}
-      >
-        {element}
-      </Card>
+      {element}
     </Content>
   );
 }

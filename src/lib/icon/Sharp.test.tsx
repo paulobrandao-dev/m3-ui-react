@@ -8,10 +8,15 @@ describe('Icon component', () => {
   it('should render and apply the material symbol props correctly', () => {
     const result = render(
       <>
-        <Icon icon="search" size={20} data-testid="icon_20" />
-        <Icon icon="home" weight={300} emphasis="low" data-testid="icon_24" />
-        <Icon icon="settings" emphasis="high" size={40} data-testid="icon_40" />
-        <Icon icon="favorite" isFilled size={48} data-testid="icon_48" />
+        <Icon symbol="search" size={20} data-testid="icon_20" />
+        <Icon symbol="home" weight={300} emphasis="low" data-testid="icon_24" />
+        <Icon
+          symbol="settings"
+          emphasis="high"
+          size={40}
+          data-testid="icon_40"
+        />
+        <Icon symbol="favorite" isFilled size={48} data-testid="icon_48" />
       </>,
     );
 

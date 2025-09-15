@@ -35,7 +35,7 @@ export default function SettingsMenu() {
           aria-label="Close settings menu"
           onClick={() => hidePopover('settings-menu')}
         >
-          <Icon icon="close" />
+          <Icon symbol="close" />
         </IconButton>
       </Content>
       <ListItem
@@ -43,7 +43,7 @@ export default function SettingsMenu() {
         endElement={
           <Switch
             checked={isDarkMode}
-            icon={<Icon icon="dark_mode" size={16} isFilled />}
+            icon={<Icon symbol="dark_mode" size={16} isFilled />}
           />
         }
         onClick={toggleDarkMode}
@@ -53,7 +53,7 @@ export default function SettingsMenu() {
         endElement={
           <Switch
             checked={isFluidContent}
-            icon={<Icon icon="width_full" size={16} isFilled />}
+            icon={<Icon symbol="width_full" size={16} isFilled />}
           />
         }
         onClick={toggleFluidContent}

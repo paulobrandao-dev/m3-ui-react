@@ -29,6 +29,27 @@ body {
   }
 }
 
+.card-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon.color-primary {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+.card-icon.color-secondary {
+  background-color: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+}
+
+.card-icon.color-error {
+  background-color: var(--color-error-container);
+  color: var(--color-on-error-container);
+}
+
 /*
 Background: rgb(39, 40, 34) #272822
 Comments: rgb(117, 113, 94) #75715E

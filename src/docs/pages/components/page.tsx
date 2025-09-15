@@ -1,10 +1,11 @@
 import { useSettings } from '@/docs/settings/hook';
+import CardIcon from '@/docs/shared/CardIcon';
 import PageHeader from '@/docs/shared/PageHeader';
 import { Content } from '@/lib';
-import { Icon } from '@/lib/icon/Rounded';
 import { useEffect } from 'react';
 import SectionButtons from './section-buttons';
 import SectionNavigation from './section-navigation';
+import SectionSheets from './section-sheets';
 
 export default function ComponentsPage() {
   const { isFluidContent, setSubtitle } = useSettings();
@@ -22,17 +23,11 @@ export default function ComponentsPage() {
       <PageHeader
         title="Components"
         description="Interactive components are the fundamental elements for designing a user interface."
-        element={
-          <Icon
-            icon="extension"
-            size={200}
-            style={{ color: 'var(--color-seed)' }}
-            isFilled
-          />
-        }
+        element={<CardIcon color="primary" size={200} icon="extension" />}
       />
       <SectionButtons isFluidContent={isFluidContent} />
       <SectionNavigation isFluidContent={isFluidContent} />
+      <SectionSheets isFluidContent={isFluidContent} />
     </Content>
   );
 }

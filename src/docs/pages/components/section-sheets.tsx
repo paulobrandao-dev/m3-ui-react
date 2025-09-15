@@ -1,7 +1,7 @@
 import { CanonicalLayout, Content, Font } from '@/lib';
 import CardLink from './card-link';
 
-export default function SectionButtons({
+export default function SectionSheets({
   isFluidContent,
 }: Readonly<{ isFluidContent: boolean }>) {
   return (
@@ -15,7 +15,7 @@ export default function SectionButtons({
       style={{ maxWidth: !isFluidContent ? 1199 : undefined }}
     >
       <Font as="h2" variant="headline-large">
-        Buttons
+        Sheets
       </Font>
       <CanonicalLayout
         as="nav"
@@ -24,22 +24,16 @@ export default function SectionButtons({
         spacing={{ marginInline: 'auto' }}
       >
         <CardLink
-          link="/components/button"
-          name="Button"
-          icon="buttons_alt"
-          description="Buttons typically initiate the majority of actions within a UI."
+          link="/components/side-sheet"
+          name="SideSheet"
+          icon="dock_to_left"
+          description="TO DO"
         />
         <CardLink
-          link="/components/icon-button"
-          name="IconButton"
-          icon="add_circle"
-          description="Icon buttons streamline user actions through a single tap."
-        />
-        <CardLink
-          link="/components/fab"
-          name="FAB"
-          icon="add_box"
-          description="Coming soon"
+          link="/components/bottom-sheet"
+          name="BottomSheet"
+          icon="bottom_sheets"
+          description="TO DO"
         />
       </CanonicalLayout>
     </Content>

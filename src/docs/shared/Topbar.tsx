@@ -32,7 +32,7 @@ export default function DocsTopbar() {
               aria-label="License"
               onClick={() => showDialog('dialog-license')}
             >
-              <Icon icon="balance" />
+              <Icon symbol="balance" />
             </IconButton>
           </Tooltip>
           <Tooltip text="Settings">
@@ -42,7 +42,7 @@ export default function DocsTopbar() {
                 document.dispatchEvent(new CustomEvent('togglesettings'))
               }
             >
-              <Icon icon="settings" />
+              <Icon symbol="settings" />
             </IconButton>
           </Tooltip>
         </>

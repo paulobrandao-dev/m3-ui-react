@@ -38,7 +38,7 @@ export default function PageFooter() {
           spacing={{ paddingInline: 'lg' }}
           textColor="primary"
         >
-          <Icon icon="sdk" />
+          <Icon symbol="sdk" />
           NPM package
         </Font>
         <Font
@@ -50,7 +50,7 @@ export default function PageFooter() {
           spacing={{ paddingInline: 'lg' }}
           textColor="primary"
         >
-          <Icon icon="code" />
+          <Icon symbol="code" />
           Repository
         </Font>
         <Font
@@ -62,7 +62,7 @@ export default function PageFooter() {
           spacing={{ paddingInline: 'lg' }}
           textColor="primary"
         >
-          <Icon icon="bug_report" />
+          <Icon symbol="bug_report" />
           Bug report
         </Font>
       </Content>

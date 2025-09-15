@@ -37,7 +37,7 @@ export default function DocsNavRail() {
               onClick={() => openRail(current => !current)}
               aria-label={isOpen ? 'Close rail' : 'Open rail'}
             >
-              <Icon icon={isOpen ? 'menu_open' : 'menu'} />
+              <Icon symbol={isOpen ? 'menu_open' : 'menu'} />
             </IconButton>
           </Tooltip>
         </Content>

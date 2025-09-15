@@ -1,14 +1,17 @@
+import CardIcon from '@/docs/shared/CardIcon';
 import { Card, Font } from '@/lib';
 import { Link } from '../router';
 
 export default function CardLink({
   link,
   name,
+  icon,
   description,
   disabled,
 }: Readonly<{
   link: string;
   name: string;
+  icon?: string;
   description?: string;
   disabled?: boolean;
 }>) {
@@ -16,6 +19,7 @@ export default function CardLink({
 
   return (
     <Card variant="elevated" as={Link} to={link} stateLayer>
+      {icon && <CardIcon color="secondary" size={128} icon={icon} />}
       <Font
         variant="title-large"
         as="span"

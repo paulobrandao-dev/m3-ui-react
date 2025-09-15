@@ -1,11 +1,12 @@
-import PageHeader from '@/docs/shared/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
-import { CanonicalLayout, CardMedia, Content } from '@/lib';
+import PageHeader from '@/docs/shared/PageHeader';
+import { CanonicalLayout, CardMedia, Content, useThemeColors } from '@/lib';
 import HomeArticle from './article';
 import HomeSupportingPane from './supporting-pane';
 
 export default function HomePage() {
   const { isFluidContent } = useSettings();
+  const color = useThemeColors();
 
   return (
     <Content as="main">
@@ -20,6 +21,7 @@ export default function HomePage() {
             aspectRatio="16:9"
             alignMedia="center"
             fitMedia="contain"
+            style={{ backgroundColor: color.primary.container }}
           />
         }
       />
