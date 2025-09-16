@@ -1,14 +1,14 @@
 import CardLink from '@/docs/shared/CardLink';
 import SupportingNav from '@/docs/shared/SupportingNav';
 
-export default function HomeSupportingPane() {
+export default function ThemingSupportingPane() {
   return (
     <SupportingNav>
       <CardLink
-        link="/theming"
-        name="Theming"
-        description="Customize the display of components"
-        icon="format_paint"
+        link="/"
+        name="Installation"
+        description="How to install M3 UI React"
+        icon="deployed_code_update"
       />
       <CardLink
         link="/components"

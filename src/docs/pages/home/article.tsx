@@ -86,7 +86,7 @@ export default function HomeArticle() {
       </pre>
       <Font
         variant="headline-large"
-        as="h3"
+        as="h2"
         spacing={{ paddingInline: 'lg', paddingBlock: 'lg' }}
       >
         Setup

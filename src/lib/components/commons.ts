@@ -59,6 +59,7 @@ export function flexboxClsx(values: MaterialFlexboxProps) {
       [`flex-align-self-${values.alignSelf}`]: values.alignSelf !== undefined,
       [`flex-justify-self-${values.justifySelf}`]:
         values.justifySelf !== undefined,
+      [`flex-wrap-${values.wrap}`]: values.wrap !== undefined,
     },
     gapClsx(
       {

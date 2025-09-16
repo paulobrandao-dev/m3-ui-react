@@ -50,6 +50,31 @@ body {
   color: var(--color-on-error-container);
 }
 
+@media screen and (max-width: 839px) {
+  nav.supporting-nav {
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  nav.supporting-nav > a {
+    width: 90%;
+    flex-shrink: 0;
+    white-space: normal;
+  }
+}
+
+table.component-reference {
+  border-spacing: 0;
+}
+
+table.component-reference > thead > tr > th {
+  border-bottom: 1px solid var(--color-outline);
+}
+
+table.component-reference > tbody > tr:nth-child(odd) > td {
+  background-color: var(--color-surface-container-highest);
+}
+
 /*
 Background: rgb(39, 40, 34) #272822
 Comments: rgb(117, 113, 94) #75715E
@@ -140,6 +165,10 @@ pre.js > code > em {
 
 pre.js > code > b {
   color: #a6e22e;
+}
+
+pre.js > code > u {
+  color: #66d9ef;
 }
 
 pre.js > code > ins {

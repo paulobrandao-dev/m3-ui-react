@@ -6,17 +6,19 @@ export default function CardIcon({
   color,
   icon,
   size,
+  isFilled,
 }: Readonly<{
   color: 'primary' | 'secondary' | 'error';
   icon: string;
   size: number;
+  isFilled?: boolean;
 }>) {
   return (
     <CardMedia
       as={Icon}
       aspectRatio="16:9"
       symbol={icon}
-      isFilled
+      isFilled={isFilled}
       size={size}
       alignMedia="center"
       fitMedia="contain"

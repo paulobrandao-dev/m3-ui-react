@@ -23,7 +23,9 @@ export default function ComponentsPage() {
       <PageHeader
         title="Components"
         description="Interactive components are the fundamental elements for designing a user interface."
-        element={<CardIcon color="primary" size={200} icon="extension" />}
+        element={
+          <CardIcon color="primary" size={200} isFilled icon="extension" />
+        }
       />
       <SectionButtons isFluidContent={isFluidContent} />
       <SectionNavigation isFluidContent={isFluidContent} />

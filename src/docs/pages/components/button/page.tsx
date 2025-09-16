@@ -3,15 +3,14 @@ import CardIcon from '@/docs/shared/CardIcon';
 import PageHeader from '@/docs/shared/PageHeader';
 import { CanonicalLayout, Content } from '@/lib';
 import { useEffect } from 'react';
-import ThemingArticle from './article';
-import ThemingSupportingPane from './supporting-pane';
+import ComponentButtonArtcile from './article';
+import ComponentButtonPanel from './supporting-panel';
 
-export default function ThemingPage() {
+export default function ComponentButtonPage() {
   const { isFluidContent, setSubtitle } = useSettings();
 
   useEffect(() => {
-    setSubtitle('Theming');
-
+    setSubtitle('Components / Button');
     return () => {
       setSubtitle(undefined);
     };
@@ -20,10 +19,10 @@ export default function ThemingPage() {
   return (
     <Content as="main">
       <PageHeader
-        title="Theming"
-        description="Why should it be difficult? There's no reason for that!"
+        title="Button component"
+        description="Buttons typically initiate the majority of actions within a UI."
         element={
-          <CardIcon color="primary" icon="format_paint" isFilled size={200} />
+          <CardIcon color="primary" icon="buttons_alt" isFilled size={200} />
         }
       />
       <CanonicalLayout
@@ -35,8 +34,8 @@ export default function ThemingPage() {
         gap={{ gap: 'xl' }}
         isFluid={isFluidContent}
       >
-        <ThemingArticle />
-        <ThemingSupportingPane />
+        <ComponentButtonArtcile />
+        <ComponentButtonPanel />
       </CanonicalLayout>
     </Content>
   );

@@ -66,6 +66,7 @@ export type MaterialFlexboxProps = MaterialGapProps & {
   justifyContent?: FlexJustifyContent;
   alignSelf?: 'auto' | FlexAlignItems;
   justifySelf?: 'auto' | FlexAlignItems;
+  wrap?: 'active' | 'none' | 'reverse';
 };
 
 export type MaterialGridProps = MaterialGapProps & {

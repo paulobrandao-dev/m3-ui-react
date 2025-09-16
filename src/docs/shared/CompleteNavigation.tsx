@@ -33,7 +33,7 @@ export default function CompleteNavigation() {
         variant="navrail"
         to="/theming"
         label="Theming"
-        icon={<Icon symbol="palette" isFilled={current == '/theming'} />}
+        icon={<Icon symbol="format_paint" isFilled={current == '/theming'} />}
         isActive={current == '/theming'}
         isHorizontal
       />
@@ -48,6 +48,17 @@ export default function CompleteNavigation() {
       >
         Components
       </Font>
+      <NavLink
+        as={Link}
+        variant="navrail"
+        to="/components/appbar"
+        label="Appbar"
+        icon={
+          <Icon symbol="toolbar" isFilled={current === '/components/appbar'} />
+        }
+        isActive={current === '/components/appbar'}
+        isHorizontal
+      />
       <NavLink
         as={Link}
         variant="navrail"

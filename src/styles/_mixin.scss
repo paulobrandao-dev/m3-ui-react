@@ -249,6 +249,18 @@
           column-gap: var(--spacing-xl);
         }
       }
+
+      &-wrap {
+        &-none {
+          flex-wrap: nowrap;
+        }
+        &-active {
+          flex-wrap: wrap;
+        }
+        &-reverse {
+          flex-wrap: wrap-reverse;
+        }
+      }
     }
   }
 }

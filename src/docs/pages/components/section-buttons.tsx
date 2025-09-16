@@ -1,5 +1,5 @@
+import CardLink from '@/docs/shared/CardLink';
 import { CanonicalLayout, Content, Font } from '@/lib';
-import CardLink from './card-link';
 
 export default function SectionButtons({
   isFluidContent,

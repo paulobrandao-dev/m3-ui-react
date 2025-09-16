@@ -37,7 +37,7 @@ export default function MainNavigation({
         isHorizontal={isHorizontal}
         to="/theming"
         label="Theming"
-        icon={<Icon symbol="palette" isFilled={current === '/theming'} />}
+        icon={<Icon symbol="format_paint" isFilled={current === '/theming'} />}
         isActive={current === '/theming'}
       />
       <NavLink

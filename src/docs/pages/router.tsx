@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { navigate } from '../utils';
+import ComponentButtonPage from './components/button/page';
+import ComponentsPage from './components/page';
 import HomePage from './home/page';
 import NotFoundPage from './not-found/page';
 import ThemingPage from './theming/page';
-import ComponentsPage from './components/page';
-import { navigate } from '../utils';
 
 export function Link({
   to,
@@ -35,6 +36,8 @@ export function Router() {
         return <ThemingPage />;
       case '/components':
         return <ComponentsPage />;
+      case '/components/button':
+        return <ComponentButtonPage />;
       default:
         return <NotFoundPage />;
     }
