@@ -5,6 +5,7 @@ import ComponentsPage from './components/page';
 import HomePage from './home/page';
 import NotFoundPage from './not-found/page';
 import ThemingPage from './theming/page';
+import ReleaseNotesPage from './release-notes/page';
 
 export function Link({
   to,
@@ -34,6 +35,8 @@ export function Router() {
         return <HomePage />;
       case '/theming':
         return <ThemingPage />;
+      case '/release-notes':
+        return <ReleaseNotesPage />;
       case '/components':
         return <ComponentsPage />;
       case '/components/button':

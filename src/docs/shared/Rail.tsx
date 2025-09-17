@@ -8,6 +8,7 @@ import {
 } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
+import { Link } from '../pages/router';
 import CompleteNavigation from './CompleteNavigation';
 import MainNavigation from './MainNavigation';
 
@@ -43,7 +44,14 @@ export default function DocsNavRail() {
         </Content>
       }
       footer={
-        <Font variant="label-small">{import.meta.env.PACKAGE_VERSION}</Font>
+        <Font
+          variant="label-small"
+          as={Link}
+          to="/release-notes"
+          textColor="primary"
+        >
+          {import.meta.env.PACKAGE_VERSION}
+        </Font>
       }
     >
       {isOpen ? <CompleteNavigation /> : <MainNavigation />}
