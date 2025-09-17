@@ -22,6 +22,7 @@ export default function SectionButtons({
         variant="feed"
         gap={{ gap: 'sm' }}
         spacing={{ marginInline: 'auto' }}
+        isFluid={isFluidContent}
       >
         <CardLink
           link="/components/button"
