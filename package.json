@@ -66,6 +66,7 @@
     "test:ui": "vitest --coverage.enabled=true --ui",
     "coverage": "vitest run --coverage",
     "make-badges": "coverage-badges --output ./badges.svg",
+    "lint-staged": "lint-staged",
     "prepare": "husky"
   },
   "lint-staged": {
