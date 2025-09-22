@@ -98,6 +98,20 @@ export default function CompleteNavigation() {
         isActive={current === '/components/icon'}
         isHorizontal
       />
+      <NavLink
+        as={Link}
+        variant="navrail"
+        to="/components/icon-button"
+        label="IconButton"
+        icon={
+          <Icon
+            symbol="add_circle"
+            isFilled={current === '/components/icon-button'}
+          />
+        }
+        isActive={current === '/components/icon-button'}
+        isHorizontal
+      />
       <Font
         variant="title-small"
         spacing={{

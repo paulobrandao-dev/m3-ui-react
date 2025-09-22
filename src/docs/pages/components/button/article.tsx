@@ -37,7 +37,11 @@ export default function ComponentButtonArtcile() {
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
-        To use the Button component, import it from the library:
+        To use the{' '}
+        <Font variant="code" as="code" textColor="secondary">
+          Button
+        </Font>{' '}
+        component, import it from the library:
       </Font>
       <pre className="js">
         <code>
@@ -60,8 +64,8 @@ export default function ComponentButtonArtcile() {
         Here are some examples of how to use the{' '}
         <Font variant="code" as="code" textColor="secondary">
           Button
-        </Font>
-        Button component in different scenarios.
+        </Font>{' '}
+        component in different scenarios.
       </Font>
       <Font
         variant="headline-small"
@@ -511,7 +515,8 @@ export default function ComponentButtonArtcile() {
                 as="td"
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
               >
-                <code>text</code> | <code>outlined</code> | <code>tonal</code>
+                <code>text</code> | <code>outlined</code> | <code>tonal</code> |{' '}
+                <code>filled</code> | <code>elevated</code>
               </Font>
               <Font
                 variant="body-medium"
@@ -524,7 +529,9 @@ export default function ComponentButtonArtcile() {
                 variant="body-medium"
                 as="td"
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
-              />
+              >
+                The visual style of the button.
+              </Font>
             </tr>
             <tr>
               <Font
@@ -553,7 +560,9 @@ export default function ComponentButtonArtcile() {
                 variant="body-medium"
                 as="td"
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
-              />
+              >
+                The size of the button.
+              </Font>
             </tr>
             <tr>
               <Font

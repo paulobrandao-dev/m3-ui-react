@@ -6,6 +6,8 @@ export type SettingsContextValue = {
   toggleDarkMode: () => void;
   isFluidContent: boolean;
   toggleFluidContent: () => void;
+  settingsIsOpen: boolean;
+  toggleSettings: () => void;
   subtitle?: string;
   setSubtitle: (value: string | undefined) => void;
 };
@@ -13,6 +15,9 @@ export type SettingsContextValue = {
 export const SettingsContext = createContext<SettingsContextValue>({
   isDarkMode: settings.theme === 'dark',
   isFluidContent: settings.fluidContent,
+  settingsIsOpen: false,
+  toggleSettings: () =>
+    (settings.settingsMenuOpen = !settings.settingsMenuOpen),
   toggleDarkMode: () =>
     (settings.theme = settings.theme === 'dark' ? 'light' : 'dark'),
   toggleFluidContent: () => (settings.fluidContent = !settings.fluidContent),

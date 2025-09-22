@@ -7,6 +7,7 @@ import DocsTopbar from './shared/Topbar';
 import { Router } from './pages/router';
 import { SettingsProvider } from './settings/provider';
 import SettingsSidebar from './shared/SettingsSidebar';
+import DialogLicense from './shared/DialogLicense';
 
 export default function Docs() {
   const media = useMediaQuery();
@@ -27,6 +28,7 @@ export default function Docs() {
           <SettingsSidebar />
         </Content>
         <PageFooter />
+        <DialogLicense />
       </Content>
       {media.isLessThanExpanded && <DocsNavBar />}
     </SettingsProvider>

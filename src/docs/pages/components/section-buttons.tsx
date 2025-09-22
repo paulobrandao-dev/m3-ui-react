@@ -31,16 +31,16 @@ export default function SectionButtons({
           description="Buttons typically initiate the majority of actions within a UI."
         />
         <CardLink
-          link="/components/icon-button"
-          name="IconButton"
-          icon="add_circle"
-          description="Icon buttons streamline user actions through a single tap."
-        />
-        <CardLink
           link="/components/fab"
           name="FAB"
           icon="add_box"
           description="Coming soon"
+        />
+        <CardLink
+          link="/components/icon-button"
+          name="IconButton"
+          icon="add_circle"
+          description="Icon buttons streamline user actions through a single tap."
         />
       </CanonicalLayout>
     </Content>

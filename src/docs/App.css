@@ -13,18 +13,21 @@ body {
 #root {
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+}
+
+#root > [role='presentation'] {
+  height: fit-content;
 }
 
 @media screen and (max-width: 839px) {
   #root {
-    display: flex;
     flex-direction: column;
   }
 }
 
 @media screen and (min-width: 840px) {
   #root {
-    display: flex;
     flex-direction: row;
   }
 }
@@ -169,6 +172,10 @@ pre.js > code > b {
 
 pre.js > code > u {
   color: #66d9ef;
+}
+
+pre.js > code > var {
+  color: #ae81ff;
 }
 
 pre.js > code > ins {

@@ -14,7 +14,7 @@ export default function DocsTopbar() {
   const media = useMediaQuery();
   const [isScrolled, setScrolledToggle] = useState<boolean>(false);
   const { showDialog } = useDialogControl();
-  const { subtitle } = useSettings();
+  const { subtitle, settingsIsOpen, toggleSettings } = useSettings();
 
   useScrollBehavior('#root', ({ atTop }) => setScrolledToggle(!atTop));
 
@@ -37,10 +37,11 @@ export default function DocsTopbar() {
           </Tooltip>
           <Tooltip text="Settings">
             <IconButton
+              variant="outlined"
               aria-label="Settings"
-              onClick={() =>
-                document.dispatchEvent(new CustomEvent('togglesettings'))
-              }
+              isToggleable
+              isActive={settingsIsOpen}
+              onClick={toggleSettings}
             >
               <Icon symbol="settings" />
             </IconButton>

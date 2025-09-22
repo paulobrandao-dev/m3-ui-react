@@ -1,11 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { navigate } from '../utils';
-import ComponentButtonPage from './components/button/page';
-import ComponentsPage from './components/page';
-import HomePage from './home/page';
-import NotFoundPage from './not-found/page';
-import ThemingPage from './theming/page';
-import ReleaseNotesPage from './release-notes/page';
+import routes from './routes';
 
 export function Link({
   to,
@@ -28,23 +23,7 @@ export function Link({
 
 export function Router() {
   const [route, setRoute] = useState<string>(window.location.pathname);
-
-  const content = useMemo(() => {
-    switch (route) {
-      case '/':
-        return <HomePage />;
-      case '/theming':
-        return <ThemingPage />;
-      case '/release-notes':
-        return <ReleaseNotesPage />;
-      case '/components':
-        return <ComponentsPage />;
-      case '/components/button':
-        return <ComponentButtonPage />;
-      default:
-        return <NotFoundPage />;
-    }
-  }, [route]);
+  const content = useMemo(() => routes(route), [route]);
 
   useEffect(() => {
     const applyRoute = () => {

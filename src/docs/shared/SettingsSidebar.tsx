@@ -1,17 +1,17 @@
 import { Content, Font, SideSheet, Switch, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
-import { useEffect, useState } from 'react';
 import { useSettings } from '../settings/hook';
 
 export default function SettingsSidebar() {
   const media = useMediaQuery();
-  const { isDarkMode, isFluidContent, toggleDarkMode, toggleFluidContent } =
-    useSettings();
-  const [isOpen, toggle] = useState<boolean>(false);
-
-  useEffect(() => {
-    document.addEventListener('togglesettings', () => toggle(!isOpen));
-  }, [isOpen]);
+  const {
+    isDarkMode,
+    isFluidContent,
+    settingsIsOpen,
+    toggleDarkMode,
+    toggleFluidContent,
+    toggleSettings,
+  } = useSettings();
 
   return (
     <SideSheet
@@ -19,9 +19,9 @@ export default function SettingsSidebar() {
       headline="Settings"
       closeAction={{
         icon: <Icon symbol="right_panel_close" />,
-        onClose: () => toggle(false),
+        onClose: () => toggleSettings(),
       }}
-      isOpen={isOpen}
+      isOpen={settingsIsOpen}
     >
       <Content
         as="div"

@@ -23,7 +23,8 @@ nav.m3-navrail {
   top: 0;
   left: 0;
   background-color: var(--color-surface);
-  transition-property: background-color, color, box-shadow, width, height;
+  transition-property:
+    background-color, color, box-shadow, max-width, min-width;
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-standard);
 
