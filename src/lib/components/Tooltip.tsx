@@ -12,6 +12,12 @@ import {
 } from 'react';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
+/**
+ * Props for the Tooltip component.
+ *
+ * @property {string} text - The text to be displayed in the tooltip.
+ * @property {React.ReactElement} children - The element that will trigger the tooltip on hover.
+ */
 export type TooltipProps = Omit<
   React.HTMLAttributes<HTMLDivElement>,
   'children'
@@ -20,6 +26,29 @@ export type TooltipProps = Omit<
   children: React.ReactElement;
 };
 
+/**
+ * The `Tooltip` component provides a text label that identifies an element or provides additional information.
+ * It appears when the user hovers over the target element.
+ *
+ * @example
+ * ```tsx
+ * import { Tooltip, IconButton } from 'm3-ui-react';
+ * import { Icon } from 'm3-ui-react/icon';
+ *
+ * export default function MyTooltip() {
+ *   return (
+ *     <Tooltip text="Information">
+ *       <IconButton>
+ *         <Icon symbol="info" />
+ *       </IconButton>
+ *     </Tooltip>
+ *   );
+ * }
+ * ```
+ *
+ * @param {TooltipProps} props - The props for the `Tooltip` component.
+ * @returns {React.ReactElement} The rendered `Tooltip` component.
+ */
 export function Tooltip({
   text,
   children,
