@@ -2,7 +2,7 @@ import { Button, Content, Dialog, Font, useDialogControl } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 
 export default function DialogLicense() {
-  const { closeDialog } = useDialogControl();
+  const { close } = useDialogControl('dialog-license');
 
   return (
     <Dialog id="dialog-license">
@@ -53,7 +53,7 @@ export default function DialogLicense() {
         flexbox={{ direction: 'row', justifyContent: 'flex-end' }}
         spacing={{ paddingBlockStart: 'md' }}
       >
-        <Button onClick={() => closeDialog('dialog-license')}>Close</Button>
+        <Button onClick={close}>Close</Button>
       </Content>
     </Dialog>
   );

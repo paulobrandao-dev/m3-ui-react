@@ -3,6 +3,42 @@
 import { useCallback } from 'react';
 import { useMediaQuery } from './useMediaQuery';
 
+/**
+ * A hook to control an element with the `popover` attribute.
+ * It provides functions to show, hide, and toggle the popover, and automatically positions it relative to an anchor element.
+ *
+ * @returns {{
+ *   showPopover: (popoverId: string, anchorElement?: HTMLElement | null) => void;
+ *   hidePopover: (popoverId: string) => void;
+ *   togglePopover: (popoverId: string, anchorElement?: HTMLElement | null) => void;
+ * }} An object with functions to control a popover.
+ *
+ * @example
+ * ```tsx
+ * import { useRef } from 'react';
+ * import { Menu, ListItem, Button, usePopoverControl } from 'm3-ui-react';
+ *
+ * export default function MyMenu() {
+ *   const buttonRef = useRef<HTMLButtonElement>(null);
+ *   const { togglePopover } = usePopoverControl();
+ *
+ *   return (
+ *     <>
+ *       <Button
+ *         ref={buttonRef}
+ *         onClick={() => togglePopover('my-menu', buttonRef.current)}
+ *       >
+ *         Open Menu
+ *       </Button>
+ *       <Menu id="my-menu">
+ *         <ListItem headline="First item" />
+ *         <ListItem headline="Second item" />
+ *       </Menu>
+ *     </>
+ *   );
+ * }
+ * ```
+ */
 export function usePopoverControl() {
   const media = useMediaQuery();
 

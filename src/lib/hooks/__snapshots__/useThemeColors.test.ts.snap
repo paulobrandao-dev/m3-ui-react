@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`useThemeColors hook > should match snapshot 1`] = `
+{
+  "background": {
+    "color": "var(--color-background)",
+    "onColor": "var(--color-on-background)",
+  },
+  "error": {
+    "color": "var(--color-error)",
+    "container": "var(--color-error-container)",
+    "onColor": "var(--color-on-error)",
+    "onContainer": "var(--color-on-error-container)",
+  },
+  "inversePrimary": "var(--color-inverse-primary)",
+  "inverseSurface": {
+    "color": "var(--color-inverse-surface)",
+    "onColor": "var(--color-on-inverse-surface)",
+  },
+  "outline": "var(--color-outline)",
+  "outlineVariant": "var(--color-outline-variant)",
+  "primary": {
+    "color": "var(--color-primary)",
+    "container": "var(--color-primary-container)",
+    "onColor": "var(--color-on-primary)",
+    "onContainer": "var(--color-on-primary-container)",
+  },
+  "scrim": "var(--color-scrim)",
+  "secondary": {
+    "color": "var(--color-secondary)",
+    "container": "var(--color-secondary-container)",
+    "onColor": "var(--color-on-secondary)",
+    "onContainer": "var(--color-on-secondary-container)",
+  },
+  "surface": {
+    "color": "var(--color-surface)",
+    "onColor": "var(--color-on-surface)",
+  },
+  "surfaceContainer": {
+    "high": "var(--color-surface-container-high)",
+    "highest": "var(--color-surface-container-highest)",
+    "low": "var(--color-surface-container-low)",
+    "lowest": "var(--color-surface-container-lowest)",
+    "medium": "var(--color-surface-container)",
+  },
+  "surfaceVariant": {
+    "color": "var(--color-surface-variant)",
+    "onColor": "var(--color-on-surface-variant)",
+  },
+  "tertiary": {
+    "color": "var(--color-tertiary)",
+    "container": "var(--color-tertiary-container)",
+    "onColor": "var(--color-on-tertiary)",
+    "onContainer": "var(--color-on-tertiary-container)",
+  },
+}
+`;

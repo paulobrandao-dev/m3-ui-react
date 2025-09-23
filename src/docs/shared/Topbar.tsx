@@ -13,7 +13,7 @@ import { useSettings } from '../settings/hook';
 export default function DocsTopbar() {
   const media = useMediaQuery();
   const [isScrolled, setScrolledToggle] = useState<boolean>(false);
-  const { showDialog } = useDialogControl();
+  const { showModal } = useDialogControl('dialog-license');
   const { subtitle, settingsIsOpen, toggleSettings } = useSettings();
 
   useScrollBehavior('#root', ({ atTop }) => setScrolledToggle(!atTop));
@@ -28,10 +28,7 @@ export default function DocsTopbar() {
       actions={
         <>
           <Tooltip text="License">
-            <IconButton
-              aria-label="License"
-              onClick={() => showDialog('dialog-license')}
-            >
+            <IconButton aria-label="License" onClick={showModal}>
               <Icon symbol="balance" />
             </IconButton>
           </Tooltip>

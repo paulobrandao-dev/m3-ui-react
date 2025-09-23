@@ -27,8 +27,7 @@ const CSS_PREFIX = 'm3-menu';
  *
  * @example
  * ```tsx
- * import { Menu, ListItem, Button } from 'm3-ui-react';
- * import { usePopoverControl } from 'm3-ui-react/hooks';
+ * import { Menu, ListItem, Button, usePopoverControl } from 'm3-ui-react';
  *
  * export default function MyMenu() {
  *   const popoverControl = usePopoverControl('my-menu');

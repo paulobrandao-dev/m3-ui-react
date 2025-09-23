@@ -28,8 +28,7 @@ const CSS_PREFIX = 'm3-dialog';
  *
  * @example
  * ```tsx
- * import { Dialog, Button } from 'm3-ui-react';
- * import { useDialogControl } from 'm3-ui-react/hooks';
+ * import { Dialog, Button, useDialogControl } from 'm3-ui-react';
  *
  * export default function MyDialog() {
  *   const dialogControl = useDialogControl('my-dialog');
