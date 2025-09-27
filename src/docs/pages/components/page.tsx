@@ -5,6 +5,7 @@ import { Content } from '@/lib';
 import { useEffect } from 'react';
 import SectionButtons from './section-buttons';
 import SectionNavigation from './section-navigation';
+import SectionOthers from './section-others';
 import SectionSheets from './section-sheets';
 
 export default function ComponentsPage() {
@@ -30,6 +31,7 @@ export default function ComponentsPage() {
       <SectionButtons isFluidContent={isFluidContent} />
       <SectionNavigation isFluidContent={isFluidContent} />
       <SectionSheets isFluidContent={isFluidContent} />
+      <SectionOthers isFluidContent={isFluidContent} />
     </Content>
   );
 }

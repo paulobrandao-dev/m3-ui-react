@@ -15,6 +15,15 @@ header.m3-appbar {
   left: 0;
   z-index: 1;
 
+  hgroup {
+    width: 100%;
+
+    > h1,
+    > p {
+      width: 100%;
+    }
+  }
+
   > .row {
     display: flex;
     align-items: center;
@@ -63,11 +72,6 @@ header.m3-appbar {
       padding-inline: var(--spacing-lg);
       padding-block-start: var(--spacing-sm);
       padding-block-end: var(--spacing-md);
-
-      > h1,
-      > p {
-        width: 100%;
-      }
     }
   }
 

@@ -1,3 +1,5 @@
+@use '../mixin' as *;
+
 %toolbar-div {
   display: flex;
   flex-direction: column;
@@ -27,6 +29,10 @@ nav.m3-navrail {
     background-color, color, box-shadow, max-width, min-width;
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-standard);
+
+  @media screen and (min-width: 1200px) {
+    @include tiny-scroll;
+  }
 
   > header {
     @extend %toolbar-div;

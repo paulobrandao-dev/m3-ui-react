@@ -30,12 +30,6 @@ export default function SectionSheets({
           icon="dock_to_left"
           description="TO DO"
         />
-        <CardLink
-          link="/components/bottom-sheet"
-          name="BottomSheet"
-          icon="bottom_sheets"
-          description="TO DO"
-        />
       </CanonicalLayout>
     </Content>
   );

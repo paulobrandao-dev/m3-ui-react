@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { navigate } from '../utils';
 import routes from './routes';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export function Link({
   to,
   onClick,
@@ -12,7 +14,7 @@ export function Link({
   const clickHandler = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate(to);
+      navigate(`${BASE_URL}${to}`);
       if (onClick) onClick(e);
     },
     [onClick, to],

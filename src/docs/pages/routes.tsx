@@ -1,3 +1,4 @@
+import ComponentAppbarPage from './components/appbar/page';
 import ComponentButtonPage from './components/button/page';
 import ComponentIconButtonPage from './components/icon-button/page';
 import ComponentsPage from './components/page';
@@ -7,18 +8,22 @@ import ReleaseNotesPage from './release-notes/page';
 import ThemingPage from './theming/page';
 
 export default function routes(path: string) {
+  const baseURL = import.meta.env.BASE_URL;
+
   switch (path) {
-    case '/':
+    case `${baseURL}`:
       return <HomePage />;
-    case '/theming':
+    case `${baseURL}/theming`:
       return <ThemingPage />;
-    case '/release-notes':
+    case `${baseURL}/release-notes`:
       return <ReleaseNotesPage />;
-    case '/components':
+    case `${baseURL}/components`:
       return <ComponentsPage />;
-    case '/components/button':
+    case `${baseURL}/components/appbar`:
+      return <ComponentAppbarPage />;
+    case `${baseURL}/components/button`:
       return <ComponentButtonPage />;
-    case '/components/icon-button':
+    case `${baseURL}/components/icon-button`:
       return <ComponentIconButtonPage />;
     default:
       return <NotFoundPage />;

@@ -9,6 +9,7 @@ import loadVersion from 'vite-plugin-package-version';
 export default defineConfig({
   plugins: [react(), loadVersion()],
   build: { outDir: 'build' },
+  base: '/m3-ui-react',
   resolve: {
     alias: {
       '@': resolve(__dirname, '..', 'src'),

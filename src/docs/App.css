@@ -79,6 +79,7 @@ table.component-reference > tbody > tr:nth-child(odd) > td {
 }
 
 /*
+Monokai colors
 Background: rgb(39, 40, 34) #272822
 Comments: rgb(117, 113, 94) #75715E
 White: rgb(248, 248, 242) #F8F8F2
@@ -94,7 +95,6 @@ pre {
   background-color: #272822;
   color: #f8f8f2;
   padding: var(--spacing-sm);
-  border-radius: var(--shape-sm);
   overflow-y: hidden;
   overflow-x: auto;
 }
@@ -146,6 +146,10 @@ pre.js > code.sp-4::before {
 
 pre.js > code.sp-5::before {
   margin-inline-end: 10ch;
+}
+
+pre.js > code.sp-6::before {
+  margin-inline-end: 12ch;
 }
 
 pre.js > code > i {

@@ -13,7 +13,7 @@ import { clsx } from 'clsx';
  */
 export type SwitchProps = Omit<
   React.HTMLAttributes<HTMLDivElement>,
-  'children'
+  'children' | 'onChange'
 > & {
   checked?: boolean;
   onChange?: (checked: boolean) => void;

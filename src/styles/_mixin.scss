@@ -371,3 +371,31 @@
     }
   }
 }
+
+@mixin tiny-scroll {
+  &::-webkit-scrollbar {
+    max-width: 6px;
+    max-height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-surface-container);
+    border: 1px solid var(--color-background);
+    border-radius: var(--shape-sm);
+    margin: var(--spacing-sm);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-on-surface);
+    border-radius: var(--shape-sm);
+
+    &:hover {
+      background: var(--color-secondary-container);
+    }
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: var(--color-surface);
+    border-radius: 50%;
+  }
+}

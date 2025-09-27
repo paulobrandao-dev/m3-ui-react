@@ -7,16 +7,9 @@ export default function ComponentButtonPanel() {
       <CardLink
         link="/components/appbar"
         name="Appbar"
-        description="TO DO"
+        description="App bars are positioned at the top of the screen, helping users navigate products."
         color="secondary"
         icon="toolbar"
-      />
-      <CardLink
-        link="/components/fab"
-        name="FAB"
-        description="Coming soon"
-        color="secondary"
-        icon="add_box"
       />
       <CardLink
         link="/components/icon-button"
