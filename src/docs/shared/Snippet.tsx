@@ -157,6 +157,16 @@ export function Snippet({ code, lang, title, children }: Props) {
         }
         style={{ zIndex: 'initial' }}
       />
+      <pre className={lang}>
+        {lines.map((line, idx) => (
+          <code
+            key={`${idx}_${line}`}
+            dangerouslySetInnerHTML={{
+              __html: lang === 'js' ? handleJSXLine(line) : line,
+            }}
+          />
+        ))}
+      </pre>
       <Content
         flexbox={{
           direction: 'column',
@@ -170,16 +180,6 @@ export function Snippet({ code, lang, title, children }: Props) {
       >
         {children}
       </Content>
-      <pre className={lang}>
-        {lines.map((line, idx) => (
-          <code
-            key={`${idx}_${line}`}
-            dangerouslySetInnerHTML={{
-              __html: lang === 'js' ? handleJSXLine(line) : line,
-            }}
-          />
-        ))}
-      </pre>
     </Card>
   );
 }

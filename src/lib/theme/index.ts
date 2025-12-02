@@ -103,6 +103,7 @@ export function applyThemeOnHtmlStyleTag({
         } as React.CSSProperties);
 
   const scrimColor = `rgb(${redFromArgb(theme.palettes.neutralVariant.tone(10))} ${greenFromArgb(theme.palettes.neutralVariant.tone(10))} ${blueFromArgb(theme.palettes.neutralVariant.tone(10))} / 50%)`;
+  const outlineDisabledColor = `rgb(${redFromArgb(scheme.outline)} ${greenFromArgb(scheme.outline)} ${blueFromArgb(scheme.outline)} / 12%)`;
 
   return {
     ...fonts,
@@ -136,6 +137,7 @@ export function applyThemeOnHtmlStyleTag({
     '--color-on-inverse-surface': hexFromArgb(scheme.inverseOnSurface),
     '--color-inverse-primary': hexFromArgb(scheme.inversePrimary),
     '--color-outline': hexFromArgb(scheme.outline),
+    '--color-outline-disabled': outlineDisabledColor,
     '--color-outline-variant': hexFromArgb(scheme.outlineVariant),
     ...surfaceContainer,
   } as React.CSSProperties;

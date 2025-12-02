@@ -1,0 +1,55 @@
+@use '../mixin' as *;
+
+button.m3-chip {
+  display: inline-flex;
+  align-items: center;
+  min-width: 88px;
+  height: 32px;
+  border-radius: var(--shape-sm);
+  padding-inline: var(--spacing-sm);
+  transition: background-color var(--ease-duration) var(--ease-standard);
+  @include state-layer;
+
+  &:hover {
+    @include state-layer-hover;
+  }
+
+  &:focus {
+    @include state-layer-focus;
+  }
+
+  &:disabled {
+    > [class~='m3-font'] {
+      opacity: 0.38;
+    }
+  }
+
+  > [class|='m3-font'] {
+    flex: auto;
+  }
+
+  &[aria-pressed='true'] {
+    border-width: 0;
+    background-color: var(--color-secondary-container);
+    color: var(--color-on-secodary-container);
+  }
+
+  &:not(.is-elevated) {
+    border: 1px solid var(--color-outline-variant);
+    color: var(--color-on-surface);
+
+    &:disabled {
+      border-color: var(--color-outline-disabled);
+    }
+  }
+
+  &.is-elevated {
+    background-color: var(--color-surface-container-low);
+    box-shadow: var(--elevation-1);
+
+    &:disabled {
+      background-color: var(--color-outline-disabled);
+      box-shadow: none;
+    }
+  }
+}

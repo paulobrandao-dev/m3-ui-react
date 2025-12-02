@@ -1,0 +1,163 @@
+@use '../mixin' as *;
+
+fieldset.m3-input {
+  @include text-field;
+
+  &-outlined {
+    > [role='presentation'] {
+      > input {
+        border: none;
+        background-color: transparent;
+        font: var(--text-body-large);
+        color: var(--color-on-surface);
+        caret-color: var(--color-primary);
+        position: relative;
+        z-index: 0;
+      }
+    }
+  }
+
+  &-filled {
+    > [role='presentation'] {
+      > input {
+        border: none;
+        background-color: transparent;
+        font: var(--text-body-large);
+        color: var(--color-on-surface);
+        caret-color: var(--color-primary);
+        position: relative;
+        z-index: 0;
+      }
+    }
+  }
+}
+
+fieldset.m3-select {
+  @include text-field;
+
+  &-outlined {
+    cursor: default;
+
+    > [role='presentation'] {
+      overflow: auto hidden;
+
+      > div {
+        text-wrap: nowrap;
+
+        > button.m3-chip {
+          padding-inline-start: var(--spacing-xs);
+
+          &:not(:last-of-type) {
+            margin-inline-end: var(--spacing-sm);
+          }
+        }
+      }
+
+      > input {
+        border: none;
+        background-color: transparent;
+        font: var(--text-body-large);
+        color: var(--color-on-surface);
+        caret-color: var(--color-primary);
+        position: relative;
+        z-index: 0;
+      }
+    }
+
+    > svg.dropdown-icon {
+      fill: var(--color-on-surface);
+    }
+
+    > menu.m3-menu {
+      > li.m3-list-item {
+        div.m3-checkbox {
+          width: 24px;
+          height: 24px;
+
+          &::before {
+            content: none;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      > [role='presentation'] {
+        &::-webkit-scrollbar {
+          width: 1px;
+          height: 1px;
+          background-color: transparent;
+        }
+      }
+
+      > menu.m3-menu {
+        max-width: unset;
+        max-height: 380px;
+      }
+    }
+  }
+
+  &-filled {
+    cursor: default;
+
+    > [role='presentation'] {
+      overflow: auto;
+
+      > div {
+        text-wrap: nowrap;
+
+        > button.m3-chip {
+          padding-inline-start: var(--spacing-xs);
+          height: 24px;
+
+          &:not(:last-of-type) {
+            margin-inline-end: var(--spacing-sm);
+          }
+        }
+      }
+
+      > input {
+        border: none;
+        background-color: transparent;
+        font: var(--text-body-large);
+        color: var(--color-on-surface);
+        caret-color: var(--color-primary);
+        position: relative;
+        z-index: 0;
+        pointer-events: none;
+      }
+    }
+
+    > svg.dropdown-icon {
+      fill: var(--color-on-surface);
+    }
+
+    > menu.m3-menu {
+      > li.m3-list-item {
+        div.m3-checkbox {
+          width: 24px;
+          height: 24px;
+
+          &::before {
+            content: none;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      > [role='presentation'] {
+        &::-webkit-scrollbar {
+          width: 1px;
+          height: 1px;
+          background-color: transparent;
+        }
+      }
+
+      > menu.m3-menu {
+        max-width: unset;
+        max-height: 380px;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
-import { Link } from '@/docs/pages/router';
+import { Link } from '@/docs/router';
 import { Card, Font } from '@/lib';
 import CardIcon from './CardIcon';
+import { BASE_PATH } from '../constants';
 
 export default function CardLink({
   link,
@@ -21,7 +22,7 @@ export default function CardLink({
   if (disabled) return null;
 
   return (
-    <Card variant="elevated" as={Link} to={link} stateLayer>
+    <Card variant="elevated" as={Link} to={`${BASE_PATH}${link}`} stateLayer>
       {icon && (
         <CardIcon
           color="secondary"

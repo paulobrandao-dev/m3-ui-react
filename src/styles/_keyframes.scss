@@ -82,6 +82,15 @@
   }
 }
 
+@keyframes scaleOpen {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes scaleOpenDropdown {
   0% {
     transform: scaleY(0);

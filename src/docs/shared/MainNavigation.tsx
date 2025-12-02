@@ -1,7 +1,8 @@
 import { NavLink } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
-import { Link } from '../pages/router';
+import { BASE_PATH } from '../constants';
+import { Link } from '../router';
 
 export default function MainNavigation({
   isNavBar,
@@ -26,44 +27,52 @@ export default function MainNavigation({
         as={Link}
         variant={isNavBar ? 'navbar' : 'navrail'}
         isHorizontal={isHorizontal}
-        to="/"
+        to={`${BASE_PATH}/`}
         label="Home"
-        icon={<Icon symbol="home" isFilled={current === '/'} />}
-        isActive={current === '/'}
+        icon={<Icon symbol="home" isFilled={current === BASE_PATH} />}
+        isActive={current === BASE_PATH}
       />
       <NavLink
         as={Link}
         variant={isNavBar ? 'navbar' : 'navrail'}
         isHorizontal={isHorizontal}
-        to="/theming"
+        to={`${BASE_PATH}/theming`}
         label="Theming"
-        icon={<Icon symbol="format_paint" isFilled={current === '/theming'} />}
-        isActive={current === '/theming'}
+        icon={
+          <Icon
+            symbol="format_paint"
+            isFilled={current === `${BASE_PATH}/theming`}
+          />
+        }
+        isActive={current === `${BASE_PATH}/theming`}
       />
       <NavLink
         as={Link}
         variant={isNavBar ? 'navbar' : 'navrail'}
         isHorizontal={isHorizontal}
-        to="/components"
+        to={`${BASE_PATH}/components`}
         label="Components"
         icon={
           <Icon
             symbol="extension"
-            isFilled={current.startsWith('/components')}
+            isFilled={current.startsWith(`${BASE_PATH}/components`)}
           />
         }
-        isActive={current.startsWith('/components')}
+        isActive={current.startsWith(`${BASE_PATH}/components`)}
       />
       <NavLink
         as={Link}
         variant={isNavBar ? 'navbar' : 'navrail'}
         isHorizontal={isHorizontal}
-        to="/hooks"
+        to={`${BASE_PATH}/hooks`}
         label="Hooks"
         icon={
-          <Icon symbol="phishing" isFilled={current.startsWith('/hooks')} />
+          <Icon
+            symbol="phishing"
+            isFilled={current.startsWith(`${BASE_PATH}/hooks`)}
+          />
         }
-        isActive={current.startsWith('/hooks')}
+        isActive={current.startsWith(`${BASE_PATH}/hooks`)}
       />
     </>
   );

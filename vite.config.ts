@@ -18,7 +18,6 @@ export default defineConfig({
       tsconfigPath: resolve(__dirname, 'tsconfig.app.json'),
     }),
   ],
-  base: '/m3-ui-react',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),

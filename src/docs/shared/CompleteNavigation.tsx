@@ -1,7 +1,8 @@
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
 import { Font, NavLink } from '../../lib';
-import { Link } from '../pages/router';
+import { BASE_PATH } from '../constants';
+import { Link } from '../router';
 
 export default function CompleteNavigation() {
   const [current, setCurrent] = useState<string>(window.location.pathname);
@@ -22,19 +23,24 @@ export default function CompleteNavigation() {
       <NavLink
         as={Link}
         variant="navrail"
-        to="/"
+        to={`${BASE_PATH}/`}
         label="Home"
-        icon={<Icon symbol="home" isFilled={current === '/'} />}
-        isActive={current === '/'}
+        icon={<Icon symbol="home" isFilled={current === `${BASE_PATH}/`} />}
+        isActive={current === `${BASE_PATH}/`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/theming"
+        to={`${BASE_PATH}/theming`}
         label="Theming"
-        icon={<Icon symbol="format_paint" isFilled={current == '/theming'} />}
-        isActive={current == '/theming'}
+        icon={
+          <Icon
+            symbol="format_paint"
+            isFilled={current == `${BASE_PATH}/theming`}
+          />
+        }
+        isActive={current == `${BASE_PATH}/theming`}
         isHorizontal
       />
       <Font
@@ -51,65 +57,71 @@ export default function CompleteNavigation() {
       <NavLink
         as={Link}
         variant="navrail"
-        to="/components/appbar"
+        to={`${BASE_PATH}/components/appbar`}
         label="Appbar"
         icon={
-          <Icon symbol="toolbar" isFilled={current === '/components/appbar'} />
+          <Icon
+            symbol="toolbar"
+            isFilled={current === `${BASE_PATH}/components/appbar`}
+          />
         }
-        isActive={current === '/components/appbar'}
+        isActive={current === `${BASE_PATH}/components/appbar`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/components/button"
+        to={`${BASE_PATH}/components/button`}
         label="Button"
         icon={
           <Icon
             symbol="buttons_alt"
-            isFilled={current === '/components/button'}
+            isFilled={current === `${BASE_PATH}/components/button`}
           />
         }
-        isActive={current === '/components/button'}
+        isActive={current === `${BASE_PATH}/components/button`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/components/font"
+        to={`${BASE_PATH}/components/font`}
         label="Font"
         icon={
           <Icon
             symbol="text_format"
-            isFilled={current === '/components/font'}
+            isFilled={current === `${BASE_PATH}/components/font`}
           />
         }
-        isActive={current === '/components/font'}
+        isActive={current === `${BASE_PATH}/components/font`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/components/icon"
+        to={`${BASE_PATH}/components/icon`}
         label="Icon"
         icon={
-          <Icon symbol="interests" isFilled={current === '/components/icon'} />
+          <Icon
+            symbol="interests"
+            isFilled={current === `${BASE_PATH}/components/icon`}
+          />
         }
-        isActive={current === '/components/icon'}
+        isActive={current === `${BASE_PATH}/components/icon`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/components/icon-button"
+        to={`${BASE_PATH}/components/icon-button`}
         label="IconButton"
         icon={
           <Icon
             symbol="add_circle"
-            isFilled={current === '/components/icon-button'}
+            isFilled={current === `${BASE_PATH}/components/icon-button`}
           />
         }
-        isActive={current === '/components/icon-button'}
+        isActive={current === `${BASE_PATH}/components/icon-button`}
         isHorizontal
       />
       <Font
@@ -126,57 +138,57 @@ export default function CompleteNavigation() {
       <NavLink
         as={Link}
         variant="navrail"
-        to="/hooks/use-dialog-control"
+        to={`${BASE_PATH}/hooks/use-dialog-control`}
         label="useDialogControl"
         icon={
           <Icon
             symbol="picture_in_picture_center"
-            isFilled={current === '/hooks/use-dialog-control'}
+            isFilled={current === `${BASE_PATH}/hooks/use-dialog-control`}
           />
         }
-        isActive={current === '/hooks/use-dialog-control'}
+        isActive={current === `${BASE_PATH}/hooks/use-dialog-control`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/hooks/use-media-query"
+        to={`${BASE_PATH}/hooks/use-media-query`}
         label="useMediaQuery"
         icon={
           <Icon
             symbol="responsive_layout"
-            isFilled={current === '/hooks/use-media-query'}
+            isFilled={current === `${BASE_PATH}/hooks/use-media-query`}
           />
         }
-        isActive={current === '/hooks/use-media-query'}
+        isActive={current === `${BASE_PATH}/hooks/use-media-query`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/hooks/use-popover-control"
+        to={`${BASE_PATH}/hooks/use-popover-control`}
         label="usePopoverControl"
         icon={
           <Icon
             symbol="arrow_drop_down_circle"
-            isFilled={current === '/hooks/use-popover-control'}
+            isFilled={current === `${BASE_PATH}/hooks/use-popover-control`}
           />
         }
-        isActive={current === '/hooks/use-popover-control'}
+        isActive={current === `${BASE_PATH}/hooks/use-popover-control`}
         isHorizontal
       />
       <NavLink
         as={Link}
         variant="navrail"
-        to="/hooks/use-scroll-behavior"
+        to={`${BASE_PATH}/hooks/use-scroll-behavior`}
         label="useScrollBehavior"
         icon={
           <Icon
             symbol="unfold_more"
-            isFilled={current === '/hooks/use-scroll-behavior'}
+            isFilled={current === `${BASE_PATH}/hooks/use-scroll-behavior`}
           />
         }
-        isActive={current === '/hooks/use-scroll-behavior'}
+        isActive={current === `${BASE_PATH}/hooks/use-scroll-behavior`}
         isHorizontal
       />
     </>

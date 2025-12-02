@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
   transition-property: box-shadow, border-radius;
-  transition-duration: var(--ease-emphasized-duration);
-  transition-timing-function: var(--ease-emphasized);
+  transition-duration: var(--ease-duration);
+  transition-timing-function: var(--ease-standard);
   @include state-layer;
 
   &:hover {

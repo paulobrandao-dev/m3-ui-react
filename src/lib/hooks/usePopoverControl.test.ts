@@ -59,34 +59,34 @@ describe('usePopoverControl hook', () => {
   });
 
   it('should handle popover elements display by Popover API', () => {
-    const { result } = renderHook(() => usePopoverControl());
-    result.current.showPopover('test');
+    const { result } = renderHook(() => usePopoverControl('test'));
+    result.current.showPopover();
     expect(spyShow).toBeCalled();
-    result.current.hidePopover('test');
+    result.current.hidePopover();
     expect(spyHide).toBeCalled();
-    result.current.togglePopover('test');
+    result.current.togglePopover();
     expect(spyToggle).toBeCalled();
   });
 
   it('should do nothing if popover element does not exist', () => {
-    const { result } = renderHook(() => usePopoverControl());
-    result.current.showPopover('non-existent');
+    const { result } = renderHook(() => usePopoverControl('non-existent'));
+    result.current.showPopover();
     expect(spyShow).not.toBeCalled();
-    result.current.hidePopover('non-existent-2');
+    result.current.hidePopover();
     expect(spyHide).not.toBeCalled();
-    result.current.togglePopover('non-existent-3');
+    result.current.togglePopover();
     expect(spyToggle).not.toBeCalled();
   });
 
   it('should set popover position based on a top-left anchor', () => {
-    const { result } = renderHook(() => usePopoverControl());
+    const { result } = renderHook(() => usePopoverControl('test-position'));
     const anchor = getAnchorElement({
       top: 100,
       bottom: 200,
       left: 300,
       right: 400,
     });
-    result.current.showPopover('test-position', anchor);
+    result.current.showPopover(anchor);
     const popover = spyGetElementById.mock.results[0].value;
     expect(popover?.style.cssText).toContain('margin-block-start: 200px');
     expect(popover?.style.cssText).toContain('margin-inline-start: 400px');
@@ -94,14 +94,14 @@ describe('usePopoverControl hook', () => {
   });
 
   it('should set popover position based on a bottom-right anchor', () => {
-    const { result } = renderHook(() => usePopoverControl());
+    const { result } = renderHook(() => usePopoverControl('test-position'));
     const anchor = getAnchorElement({
       top: 900,
       bottom: 1000,
       left: 1300,
       right: 1400,
     });
-    result.current.togglePopover('test-position', anchor);
+    result.current.togglePopover(anchor);
     const popover = spyGetElementById.mock.results[0].value;
     expect(popover?.style.cssText).toContain('margin-block-end: 180px');
     expect(popover?.style.cssText).toContain('margin-inline-end: 620px');

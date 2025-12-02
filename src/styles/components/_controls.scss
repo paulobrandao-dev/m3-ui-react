@@ -1,0 +1,54 @@
+@use '../mixin' as *;
+
+%control {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: color;
+  transition-duration: var(--ease-duration);
+  transition-timing-function: var(--ease-standard);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--shape-xl);
+  color: var(--color-on-surface-variant);
+  @include state-layer;
+
+  &:hover {
+    @include state-layer-hover;
+  }
+
+  &:focus {
+    @include state-layer-focus;
+  }
+
+  &.is-checked {
+    color: var(--color-primary);
+  }
+
+  &.is-disabled {
+    color: var(--color-on-surface);
+    opacity: 0.38;
+  }
+
+  > input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  > svg {
+    pointer-events: none;
+  }
+}
+
+div.m3-checkbox {
+  @extend %control;
+}
+
+div.m3-radio-button {
+  @extend %control;
+}

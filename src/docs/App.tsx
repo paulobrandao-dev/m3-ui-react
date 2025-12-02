@@ -4,7 +4,7 @@ import DocsNavBar from './shared/DocsNavBar';
 import PageFooter from './shared/PageFooter';
 import DocsNavRail from './shared/Rail';
 import DocsTopbar from './shared/Topbar';
-import { Router } from './pages/router';
+import { Router } from './router';
 import { SettingsProvider } from './settings/provider';
 import SettingsSidebar from './shared/SettingsSidebar';
 import DialogLicense from './shared/DialogLicense';

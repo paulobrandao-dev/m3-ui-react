@@ -83,7 +83,7 @@ export function SideSheet({
   const uuid = useId();
   const idRef = useMemo(() => id ?? uuid, [id, uuid]);
   const [stickyStyles, setStickyStyles] = useState<React.CSSProperties>({});
-  const { hidePopover, showPopover } = usePopoverControl();
+  const { hidePopover, showPopover } = usePopoverControl(idRef);
 
   const getStickyStyles = useCallback(() => {
     if (variant !== 'standard' || !isOpen) {
@@ -103,8 +103,8 @@ export function SideSheet({
 
   useEffect(() => {
     if (variant === 'modal') {
-      if (isOpen) showPopover(idRef);
-      else hidePopover(idRef);
+      if (isOpen) showPopover();
+      else hidePopover();
     }
   }, [idRef, isOpen, variant, showPopover, hidePopover]);
 

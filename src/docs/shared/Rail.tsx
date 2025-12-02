@@ -8,7 +8,7 @@ import {
 } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
-import { Link } from '../pages/router';
+import { Link } from '../router';
 import CompleteNavigation from './CompleteNavigation';
 import MainNavigation from './MainNavigation';
 

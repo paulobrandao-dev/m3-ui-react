@@ -1,5 +1,6 @@
 import { Card, Content, Font } from '@/lib';
-import { Link } from '../pages/router';
+import { Link } from '../router';
+import { BASE_PATH } from '../constants';
 
 type PageItem = {
   label: string;
@@ -36,7 +37,7 @@ export default function ArticleNavigation({
           }}
           spacing={{ padding: 'lg' }}
           stateLayer
-          to={prev.path}
+          to={`${BASE_PATH}${prev.path}`}
           style={{ flexBasis: '50%' }}
         >
           <Font variant="label-medium" textColor="secondary">
@@ -59,7 +60,7 @@ export default function ArticleNavigation({
           }}
           spacing={{ padding: 'lg' }}
           stateLayer
-          to={next.path}
+          to={`${BASE_PATH}${next.path}`}
           style={{ flexBasis: '50%' }}
         >
           <Font variant="label-medium" textColor="secondary">

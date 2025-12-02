@@ -1,39 +1,22 @@
 import { Snippet } from '@/docs/shared/Snippet';
-import { Appbar, Content, Font, IconButton, Switch } from '@/lib';
+import {
+  Appbar,
+  Content,
+  Font,
+  IconButton,
+  Input,
+  Select,
+  Switch,
+} from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
-import { Reducer, useMemo, useReducer } from 'react';
-
-type VariantValue = 'small' | 'medium' | 'large';
-type NavActionValue = 'arrow_back' | 'menu';
-type ActionsValues = 'search' | 'notifications' | 'account_circle';
-type PropsState = {
-  variant?: VariantValue;
-  navAction?: NavActionValue;
-  actions?: Array<ActionsValues>;
-  customContent?: boolean;
-  headline?: string;
-  subtitle?: string;
-  centeredText?: boolean;
-  isScroll?: boolean;
-  isFluid?: boolean;
-};
-
-const reducer: Reducer<
-  PropsState,
-  Partial<PropsState & { changeAction: ActionsValues }>
-> = (state, change) => {
-  if (!change.changeAction) {
-    return { ...state, ...change };
-  }
-  const current = [...(state.actions || [])];
-  if (current?.includes(change.changeAction)) {
-    return {
-      ...state,
-      actions: current.filter(entry => entry !== change.changeAction),
-    };
-  }
-  return { ...state, actions: [...(state.actions || []), change.changeAction] };
-};
+import { useMemo, useReducer } from 'react';
+import {
+  ActionsValues,
+  initialState,
+  NavActionValue,
+  reducer,
+  VariantValue,
+} from './reducer';
 
 export default function ComponentAppbarArtcile() {
   const [
@@ -48,18 +31,8 @@ export default function ComponentAppbarArtcile() {
       subtitle,
       variant,
     },
-    setState,
-  ] = useReducer(reducer, {
-    actions: ['account_circle'],
-    centeredText: false,
-    customContent: false,
-    headline: 'Headline',
-    isFluid: false,
-    isScroll: false,
-    navAction: 'arrow_back',
-    subtitle: 'Subtitle',
-    variant: 'small',
-  });
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const actionsCodeString = useMemo(() => {
     return actions
@@ -274,16 +247,20 @@ export default function ComponentAppbarArtcile() {
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
                 textAlign="center"
               >
-                <select
+                <Select
                   name="variant"
-                  onChange={e =>
-                    setState({ variant: e.currentTarget.value as VariantValue })
+                  label="Variant"
+                  onChange={value =>
+                    dispatch({ variant: value as VariantValue })
                   }
-                >
-                  <option value="small">small</option>
-                  <option value="medium">medium</option>
-                  <option value="large">large</option>
-                </select>
+                  value={variant}
+                  options={[
+                    { label: 'small', value: 'small' },
+                    { label: 'medium', value: 'medium' },
+                    { label: 'large', value: 'large' },
+                  ]}
+                  fullWidth
+                />
               </Font>
             </tr>
             <tr>
@@ -318,23 +295,26 @@ export default function ComponentAppbarArtcile() {
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
                 textAlign="center"
               >
-                <select
+                <Select
                   name="navAction"
-                  value={navAction}
-                  onChange={e => {
-                    if (e.currentTarget.value === 'None') {
-                      setState({ navAction: undefined });
+                  label="Navigation action"
+                  value={navAction ?? 'none'}
+                  onChange={value => {
+                    if (value === 'none') {
+                      dispatch({ navAction: undefined });
                     } else {
-                      setState({
-                        navAction: e.currentTarget.value as NavActionValue,
+                      dispatch({
+                        navAction: value as NavActionValue,
                       });
                     }
                   }}
-                >
-                  <option>None</option>
-                  <option value="arrow_back">Back button</option>
-                  <option value="menu">Menu button</option>
-                </select>
+                  options={[
+                    { label: 'None', value: 'none' },
+                    { label: 'Back button', value: 'arrow_back' },
+                    { label: 'Menu button', value: 'menu' },
+                  ]}
+                  fullWidth
+                />
               </Font>
             </tr>
             <tr>
@@ -364,11 +344,13 @@ export default function ComponentAppbarArtcile() {
                 variant="body-medium"
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
               >
-                <input
+                <Input
                   type="text"
+                  label="Headline"
                   name="headline"
                   value={headline}
-                  onChange={e => setState({ headline: e.target.value })}
+                  onChange={e => dispatch({ headline: e.target.value })}
+                  fullWidth
                 />
               </Font>
             </tr>
@@ -399,11 +381,13 @@ export default function ComponentAppbarArtcile() {
                 variant="body-medium"
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
               >
-                <input
+                <Input
                   type="text"
+                  label="Subtitle"
                   name="subtitle"
                   value={subtitle}
-                  onChange={e => setState({ subtitle: e.target.value })}
+                  onChange={e => dispatch({ subtitle: e.target.value })}
+                  fullWidth
                 />
               </Font>
             </tr>
@@ -441,7 +425,7 @@ export default function ComponentAppbarArtcile() {
               >
                 <Switch
                   checked={centeredText}
-                  onChange={centeredText => setState({ centeredText })}
+                  onChange={centeredText => dispatch({ centeredText })}
                 />
               </Font>
             </tr>
@@ -474,22 +458,25 @@ export default function ComponentAppbarArtcile() {
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
                 textAlign="center"
               >
-                <select
+                <Select
                   name="customContent"
-                  value={customContent ? 'active' : undefined}
-                  onChange={e => {
-                    if (e.currentTarget.value === 'None') {
-                      setState({ customContent: undefined });
+                  label="Custom content"
+                  value={customContent ? 'active' : 'none'}
+                  onChange={value => {
+                    if (value === 'none') {
+                      dispatch({ customContent: undefined });
                     } else {
-                      setState({
-                        customContent: e.currentTarget.value === 'active',
+                      dispatch({
+                        customContent: value === 'active',
                       });
                     }
                   }}
-                >
-                  <option>None</option>
-                  <option value="active">Logo</option>
-                </select>
+                  options={[
+                    { label: 'None', value: 'none' },
+                    { label: 'Logo', value: 'active' },
+                  ]}
+                  fullWidth
+                />
               </Font>
             </tr>
             <tr>
@@ -520,25 +507,23 @@ export default function ComponentAppbarArtcile() {
                 spacing={{ paddingInline: 'lg', paddingBlock: 'sm' }}
                 textAlign="center"
               >
-                <select
+                <Select
                   name="actions"
+                  label="Actions"
                   multiple
                   value={actions}
-                  onChange={e => {
-                    if (e.target.value === 'None') {
-                      setState({ actions: [] });
-                    } else {
-                      setState({
-                        changeAction: e.target.value as ActionsValues,
-                      });
-                    }
+                  onChange={value => {
+                    dispatch({
+                      actions: value as ActionsValues[],
+                    });
                   }}
-                >
-                  <option>None</option>
-                  <option value="search">Search</option>
-                  <option value="notifications">Notifications</option>
-                  <option value="account_circle">Account</option>
-                </select>
+                  options={[
+                    { label: 'Search', value: 'search' },
+                    { label: 'Notifications', value: 'notifications' },
+                    { label: 'Account', value: 'account_circle' },
+                  ]}
+                  fullWidth
+                />
               </Font>
             </tr>
             <tr>
@@ -576,7 +561,7 @@ export default function ComponentAppbarArtcile() {
               >
                 <Switch
                   checked={isScroll}
-                  onChange={isScroll => setState({ isScroll })}
+                  onChange={isScroll => dispatch({ isScroll })}
                 />
               </Font>
             </tr>
@@ -615,7 +600,7 @@ export default function ComponentAppbarArtcile() {
               >
                 <Switch
                   checked={isFluid}
-                  onChange={isFluid => setState({ isFluid })}
+                  onChange={isFluid => dispatch({ isFluid })}
                 />
               </Font>
             </tr>
