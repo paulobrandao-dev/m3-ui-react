@@ -58,7 +58,54 @@ export type SelectProps = React.FieldsetHTMLAttributes<HTMLFieldSetElement> & {
 };
 
 const CSS_PREFIX = 'm3-select';
-
+/**
+ * A rich select / combobox component supporting single and multiple selection.
+ *
+ * The component renders as a semantic `fieldset` with `role="combobox"` and toggles a
+ * `Menu` used as a `listbox`. For `multiple` mode selected values are shown as `Chip`s.
+ *
+ * Accessibility notes:
+ * - The outer element uses `role="combobox"`, `aria-controls` and `aria-expanded` to
+ *   coordinate with the internal `Menu` (`role="listbox"`).
+ * - In `multiple` mode the `Menu` will set `aria-multiselectable="true"` and each
+ *   option uses `role="option"` with `aria-selected`.
+ *
+ * Class name / styling conventions:
+ * - `CSS_PREFIX` is `m3-select` and the runtime classes include `m3-select-outlined` or
+ *   `m3-select-filled`. Modifiers added: `is-active`, `has-label`, `has-error`, `has-full-width`.
+ *
+ * Examples:
+ * @example
+ * ```tsx
+ * // Basic single select
+ * <Select
+ *   label="Choose an item"
+ *   options={[{label: 'One', value: 1}, {label: 'Two', value: 2}]}
+ *   onChange={value => console.log(value)}
+ * />
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Multiple select with chips
+ * <Select
+ *   multiple
+ *   label="Tags"
+ *   options={[{label: 'Red', value: 'red'}, {label: 'Blue', value: 'blue'}]}
+ *   onChange={values => console.log(values)}
+ * />
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Controlled select
+ * const [value, setValue] = useState<number | undefined>(2);
+ * <Select value={value} onChange={v => setValue(v as number)} options={[{label: 'One', value:1},{label:'Two', value:2}]} />
+ * ```
+ *
+ * @param {SelectProps} props - Props for the `Select` component.
+ * @returns {JSX.Element} The rendered combobox and its `Menu` listbox.
+ */
 export function Select({
   variant = 'outlined',
   label,
@@ -81,54 +128,6 @@ export function Select({
   onChange,
   ...props
 }: SelectProps) {
-  /**
-   * A rich select / combobox component supporting single and multiple selection.
-   *
-   * The component renders as a semantic `fieldset` with `role="combobox"` and toggles a
-   * `Menu` used as a `listbox`. For `multiple` mode selected values are shown as `Chip`s.
-   *
-   * Accessibility notes:
-   * - The outer element uses `role="combobox"`, `aria-controls` and `aria-expanded` to
-   *   coordinate with the internal `Menu` (`role="listbox"`).
-   * - In `multiple` mode the `Menu` will set `aria-multiselectable="true"` and each
-   *   option uses `role="option"` with `aria-selected`.
-   *
-   * Class name / styling conventions:
-   * - `CSS_PREFIX` is `m3-select` and the runtime classes include `m3-select-outlined` or
-   *   `m3-select-filled`. Modifiers added: `is-active`, `has-label`, `has-error`, `has-full-width`.
-   *
-   * Examples:
-   * @example
-   * ```tsx
-   * // Basic single select
-   * <Select
-   *   label="Choose an item"
-   *   options={[{label: 'One', value: 1}, {label: 'Two', value: 2}]}
-   *   onChange={value => console.log(value)}
-   * />
-   * ```
-   *
-   * @example
-   * ```tsx
-   * // Multiple select with chips
-   * <Select
-   *   multiple
-   *   label="Tags"
-   *   options={[{label: 'Red', value: 'red'}, {label: 'Blue', value: 'blue'}]}
-   *   onChange={values => console.log(values)}
-   * />
-   * ```
-   *
-   * @example
-   * ```tsx
-   * // Controlled select
-   * const [value, setValue] = useState<number | undefined>(2);
-   * <Select value={value} onChange={v => setValue(v as number)} options={[{label: 'One', value:1},{label:'Two', value:2}]} />
-   * ```
-   *
-   * @param {SelectProps} props - Props for the `Select` component.
-   * @returns {JSX.Element} The rendered combobox and its `Menu` listbox.
-   */
   const dynamicId = useId();
   const media = useMediaQuery();
   const [selectedValue, setSelectedValue] = useState<Array<string | number>>();
@@ -227,11 +226,9 @@ export function Select({
   }, [multiple, selectedValue]);
 
   useEffect(() => {
-    if (Array.isArray(value) || value === undefined) {
-      setSelectedValue(value);
-    } else {
-      setSelectedValue([value]);
-    }
+    setSelectedValue(
+      Array.isArray(value) || value === undefined ? value : [value],
+    );
   }, [value]);
 
   return (
@@ -290,11 +287,13 @@ export function Select({
               ?.filter(option => selectedValue?.includes(option.value))
               .map(entry => (
                 <Chip
+                  key={entry.value}
                   label={entry.label}
                   onClick={e => {
                     e.stopPropagation();
                     handleSelect(entry.value);
                   }}
+                  role="listitem"
                   endNode={
                     removeChipIcon ?? (
                       <svg
@@ -314,7 +313,7 @@ export function Select({
         ) : (
           <input
             readOnly
-            value={
+            defaultValue={
               options
                 ?.filter(option => selectedValue?.includes(option.value))
                 .map(entry => entry.label)[0]

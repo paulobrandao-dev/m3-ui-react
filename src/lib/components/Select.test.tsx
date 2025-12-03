@@ -1,9 +1,12 @@
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Select } from './Select';
 
 describe('Select component', () => {
   afterEach(cleanup);
+
+  const user = userEvent.setup({ pointerEventsCheck: 0 });
 
   it('renders outlined variant with legend and required marker', () => {
     const { container, getByText } = render(
@@ -71,20 +74,29 @@ describe('Select component', () => {
     expect(input.value).toBe('Two');
   });
 
-  it('renders chips for multiple selected values', () => {
+  it('renders chips for multiple selected values', async () => {
+    const onChange = vi.fn();
     const options = [
       { label: 'Red', value: 'red' },
       { label: 'Blue', value: 'blue' },
     ];
-    const { container } = render(
-      <Select options={options} multiple value={['red', 'blue']} />,
+    const { getAllByRole } = render(
+      <Select
+        options={options}
+        onChange={onChange}
+        multiple
+        value={['red', 'blue']}
+      />,
     );
 
-    const chips = container.querySelectorAll('.m3-chip');
-    expect(chips.length).toBeGreaterThanOrEqual(2);
-    const texts = Array.from(chips).map(n => n.textContent?.trim());
+    expect(getAllByRole('listitem').length).toBeGreaterThanOrEqual(2);
+    const texts = getAllByRole('listitem').map(n => n.textContent?.trim());
     expect(texts).toContain('Red');
     expect(texts).toContain('Blue');
+    await user.click(getAllByRole('listitem')[0]);
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith(['blue']);
+    });
   });
 
   it('forwards custom dropdownIcon when provided', () => {
@@ -108,34 +120,44 @@ describe('Select component', () => {
     expect(fieldset?.getAttribute('disabled')).not.toBeNull();
   });
 
-  it('calls onChange when option clicked (single)', () => {
+  it('calls onChange when option clicked (single)', async () => {
     const onChange = vi.fn();
     const options = [
       { label: 'A', value: 'a' },
       { label: 'B', value: 'b' },
     ];
-    const { getByText } = render(
+    const { getByText, getByRole } = render(
       <Select options={options} onChange={onChange} />,
     );
 
-    const optionB = getByText('B');
-    fireEvent.click(optionB);
-    expect(onChange).toHaveBeenCalledWith('b');
+    await user.click(getByRole('combobox'));
+    await waitFor(() => {
+      expect(getByText('B')).toBeTruthy();
+    });
+    await user.click(getByText('B'));
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith('b');
+    });
   });
 
-  it('calls onChange with array when multiple selection', () => {
+  it('calls onChange with array when multiple selection', async () => {
     const onChange = vi.fn();
     const options = [
       { label: 'X', value: 'x' },
       { label: 'Y', value: 'y' },
     ];
-    const { getByText } = render(
+    const { getByText, getByRole } = render(
       <Select options={options} onChange={onChange} multiple />,
     );
 
-    const optionX = getByText('X');
-    fireEvent.click(optionX);
-    expect(onChange).toHaveBeenCalled();
+    await user.click(getByRole('combobox'));
+    await waitFor(() => {
+      expect(getByText('X')).toBeTruthy();
+    });
+    await user.click(getByText('X'));
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalled();
+    });
     const calledWith = onChange.mock.calls[0][0];
     expect(Array.isArray(calledWith)).toBeTruthy();
     expect(calledWith).toContain('x');
