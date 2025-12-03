@@ -13,7 +13,7 @@ export default function SupportingNav({
         gap: 'sm',
         alignSelf: media.isLessThanMedium ? 'center' : 'flex-start',
       }}
-      spacing={{ paddingBlock: 'sm' }}
+      spacing={{ padding: 'sm' }}
       scrollable={{
         vertical: 'hidden',
         horizontal: media.isLessThanExpanded ? 'auto' : 'hidden',
