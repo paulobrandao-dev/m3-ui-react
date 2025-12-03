@@ -9,8 +9,8 @@ import { MaterialGapProps, MaterialSpacingProps } from './types';
  *
  * @template E - The HTML element type to render.
  * @property {('list-detail' | 'supporting-pane' | 'feed')} variant - The layout variant to apply.
- * @property {MaterialSpacingProps} [spacing] - The spacing properties for the layout.
- * @property {MaterialGapProps} [gap] - The gap properties for the layout.
+ * @property {MaterialSpacingProps} [spacing] - An object to control the padding of the layout container.
+ * @property {MaterialGapProps} [gap] - An object to control the gap between the layout's direct children.
  * @property {boolean} [isFluid] - If `true`, the layout will span the full width of its container.
  * @property {E} [as] - The HTML element to render the layout as. Defaults to `section`.
  * @property {React.Ref<HTMLElement>} [ref] - A ref to the underlying HTML element.

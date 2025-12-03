@@ -63,7 +63,7 @@ export default function ComponentButtonArtcile() {
         as="p"
         spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
       >
-        To use the{' '}
+        The{' '}
         <Font variant="code" as="code" textColor="secondary">
           Button
         </Font>{' '}
