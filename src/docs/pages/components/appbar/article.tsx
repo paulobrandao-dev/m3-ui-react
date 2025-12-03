@@ -21,9 +21,10 @@ export default function ComponentAppbarArtcile() {
         <Font variant="code" as="code" textColor="secondary">
           Appbar
         </Font>{' '}
-        component provides a consistent header for your application, featuring
-        navigation, titles, and actions. It can be configured with different
-        variants to suit various screen sizes and contexts.
+        component is a versatile and crucial element for providing consistent
+        navigation and context at the top of an application screen. It is
+        designed based on Material Design 3 guidelines and supports various
+        configurations to adapt to different layouts and screen sizes.
       </Font>
       <Font
         variant="headline-large"
@@ -45,7 +46,7 @@ export default function ComponentAppbarArtcile() {
       </Font>
       <pre className="js">
         <code>
-          <kbd>import</kbd> <samp>Appbar</samp> <kbd>from</kbd>{' '}
+          <kbd>import</kbd> &#123; <samp>Appbar</samp> &#125; <kbd>from</kbd>{' '}
           <samp>'m3-ui-react'</samp>;
         </code>
       </pre>
@@ -372,7 +373,7 @@ export default function ComponentAppbarArtcile() {
           marginBlockStart: 'md',
         }}
       >
-        Usage
+        Usage Examples
       </Font>
       <Font
         variant="headline-small"
