@@ -4,16 +4,19 @@ import PageHeader from '@/docs/shared/PageHeader';
 import { CanonicalLayout, Content } from '@/lib';
 import { useEffect } from 'react';
 import ComponentAppbarArtcile from './article';
+import ComponentAppbarPanel from './supporting-panel';
 
 export default function ComponentAppbarPage() {
-  const { isFluidContent, setSubtitle } = useSettings();
+  const { isFluidContent, setSubtitle, setNavAction } = useSettings();
 
   useEffect(() => {
     setSubtitle('Components / Appbar');
+    setNavAction('/components');
     return () => {
       setSubtitle(undefined);
+      setNavAction(null);
     };
-  }, [setSubtitle]);
+  }, [setSubtitle, setNavAction]);
 
   return (
     <Content as="main">
@@ -34,6 +37,7 @@ export default function ComponentAppbarPage() {
         isFluid={isFluidContent}
       >
         <ComponentAppbarArtcile />
+        <ComponentAppbarPanel />
       </CanonicalLayout>
     </Content>
   );

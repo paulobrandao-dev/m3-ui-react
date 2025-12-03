@@ -16,6 +16,7 @@ export function SettingsProvider({
   const [settingsIsOpen, toggleSettingsMenu] = useState<boolean>(
     settings.settingsMenuOpen,
   );
+  const [navAction, setNavAction] = useState<string | null>(null);
 
   const toggleDarkMode = useCallback(() => {
     const theme = isDarkMode ? 'light' : 'dark';
@@ -41,10 +42,12 @@ export function SettingsProvider({
         isFluidContent,
         subtitle,
         settingsIsOpen,
+        navAction,
         toggleDarkMode,
         toggleFluidContent,
         setSubtitle,
         toggleSettings,
+        setNavAction,
       }}
     >
       {children}

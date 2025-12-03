@@ -85,6 +85,34 @@ export default function CompleteNavigation() {
       <NavLink
         as={Link}
         variant="navrail"
+        to={`${BASE_PATH}/components/canonical-layout`}
+        label="CanonicalLayout"
+        icon={
+          <Icon
+            symbol="auto_awesome_mosaic"
+            isFilled={current === `${BASE_PATH}/components/canonical-layout`}
+          />
+        }
+        isActive={current === `${BASE_PATH}/components/canonical-layout`}
+        isHorizontal
+      />
+      <NavLink
+        as={Link}
+        variant="navrail"
+        to={`${BASE_PATH}/components/card`}
+        label="Card"
+        icon={
+          <Icon
+            symbol="cards"
+            isFilled={current === `${BASE_PATH}/components/card`}
+          />
+        }
+        isActive={current === `${BASE_PATH}/components/card`}
+        isHorizontal
+      />
+      <NavLink
+        as={Link}
+        variant="navrail"
         to={`${BASE_PATH}/components/font`}
         label="Font"
         icon={

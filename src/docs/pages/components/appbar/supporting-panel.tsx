@@ -1,15 +1,15 @@
 import CardLink from '@/docs/shared/CardLink';
 import SupportingNav from '@/docs/shared/SupportingNav';
 
-export default function ComponentButtonPanel() {
+export default function ComponentAppbarPanel() {
   return (
     <SupportingNav>
       <CardLink
-        link="/components/appbar"
-        name="Appbar"
-        description="App bars are positioned at the top of the screen, helping users navigate products."
+        link="/components/button"
+        name="Button"
+        description="Buttons typically initiate the majority of actions within a UI."
         color="secondary"
-        icon="toolbar"
+        icon="buttons_alt"
       />
       <CardLink
         link="/components/canonical-layout"

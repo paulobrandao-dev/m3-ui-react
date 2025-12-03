@@ -45,6 +45,18 @@ export default function ComponentsPage() {
           description="Buttons typically initiate the majority of actions within a UI."
         />
         <CardLink
+          link="/components/canonical-layout"
+          name="CanonicalLayout"
+          description="Canonical layouts are standard designs that create typical screen arrangements for different window sizes."
+          icon="auto_awesome_mosaic"
+        />
+        <CardLink
+          link="/components/card"
+          name="Card"
+          description="Cards present information and options related to a specific subject."
+          icon="cards"
+        />
+        <CardLink
           link="/components/icon-button"
           name="IconButton"
           icon="add_circle"

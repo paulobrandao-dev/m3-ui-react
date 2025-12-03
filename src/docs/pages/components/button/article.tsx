@@ -294,6 +294,7 @@ export default function ComponentButtonArtcile() {
                 <Input
                   name="icon"
                   label="Icon"
+                  fullWidth
                   value={icon}
                   onChange={e => dispatch({ icon: e.target.value })}
                 />

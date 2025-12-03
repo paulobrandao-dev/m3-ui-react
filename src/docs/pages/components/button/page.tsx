@@ -7,14 +7,16 @@ import ComponentButtonArtcile from './article';
 import ComponentButtonPanel from './supporting-panel';
 
 export default function ComponentButtonPage() {
-  const { isFluidContent, setSubtitle } = useSettings();
+  const { isFluidContent, setSubtitle, setNavAction } = useSettings();
 
   useEffect(() => {
     setSubtitle('Components / Button');
+    setNavAction('/components');
     return () => {
       setSubtitle(undefined);
+      setNavAction(null);
     };
-  }, [setSubtitle]);
+  }, [setNavAction, setSubtitle]);
 
   return (
     <Content as="main">
