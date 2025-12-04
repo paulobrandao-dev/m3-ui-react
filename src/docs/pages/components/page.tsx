@@ -57,6 +57,12 @@ export default function ComponentsPage() {
           icon="cards"
         />
         <CardLink
+          link="/components/card-media"
+          name="CardMedia"
+          description="CardMedia is used to display media, such as images or videos, within a card."
+          icon="panorama"
+        />
+        <CardLink
           link="/components/icon-button"
           name="IconButton"
           icon="add_circle"

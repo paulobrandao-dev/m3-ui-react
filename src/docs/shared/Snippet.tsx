@@ -1,4 +1,11 @@
-import { Appbar, Button, Card, Content, useThemeColors } from '@/lib';
+import {
+  Button,
+  Card,
+  Content,
+  IconButton,
+  useMediaQuery,
+  useThemeColors,
+} from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useCallback, useMemo, useState } from 'react';
 import { useClipboard } from './useClipboard';
@@ -6,12 +13,12 @@ import { useClipboard } from './useClipboard';
 interface Props {
   code: string;
   lang: 'js' | 'sh';
-  children: React.ReactNode;
-  title?: string;
+  children?: React.ReactNode;
 }
 
-export function Snippet({ code, lang, title, children }: Props) {
+export function Snippet({ code, lang, children }: Props) {
   const color = useThemeColors();
+  const media = useMediaQuery();
   const clipboard = useClipboard();
   const [copied, setCopied] = useState<boolean>(false);
 
@@ -137,26 +144,39 @@ export function Snippet({ code, lang, title, children }: Props) {
       as="div"
       variant="elevated"
       flexbox={{ direction: 'column' }}
-      style={{ overflow: 'hidden' }}
+      className="snippet"
     >
-      <Appbar
-        headline={title}
-        actions={
-          <Button
-            onClick={handleCopy}
-            icon={
-              copied ? (
-                <Icon symbol="check" style={{ color: color.primary.color }} />
-              ) : (
-                <Icon symbol="content_copy" />
-              )
-            }
-          >
-            Copy snippet
-          </Button>
-        }
-        style={{ zIndex: 'initial' }}
-      />
+      {media.isCompact ? (
+        <IconButton variant="filled" size="xs" onClick={handleCopy}>
+          {copied ? (
+            <Icon
+              symbol="check"
+              size={20}
+              style={{ color: color.primary.color }}
+            />
+          ) : (
+            <Icon symbol="content_copy" size={20} />
+          )}
+        </IconButton>
+      ) : (
+        <Button
+          onClick={handleCopy}
+          size="xs"
+          icon={
+            copied ? (
+              <Icon
+                symbol="check"
+                size={20}
+                style={{ color: color.primary.color }}
+              />
+            ) : (
+              <Icon symbol="content_copy" size={20} />
+            )
+          }
+        >
+          Copy snippet
+        </Button>
+      )}
       <pre className={lang}>
         {lines.map((line, idx) => (
           <code
@@ -167,19 +187,21 @@ export function Snippet({ code, lang, title, children }: Props) {
           />
         ))}
       </pre>
-      <Content
-        flexbox={{
-          direction: 'column',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          gap: 'lg',
-          wrap: 'active',
-        }}
-        spacing={{ padding: 'lg' }}
-        style={{ backgroundColor: color.surfaceContainer.lowest }}
-      >
-        {children}
-      </Content>
+      {children && (
+        <Content
+          flexbox={{
+            direction: 'column',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            gap: 'lg',
+            wrap: 'active',
+          }}
+          spacing={{ padding: 'lg' }}
+          style={{ backgroundColor: color.surfaceContainer.lowest }}
+        >
+          {children}
+        </Content>
+      )}
     </Card>
   );
 }

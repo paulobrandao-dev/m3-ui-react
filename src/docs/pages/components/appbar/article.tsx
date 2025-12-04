@@ -44,12 +44,7 @@ export default function ComponentAppbarArtcile() {
         </Font>{' '}
         component, import it from the library:
       </Font>
-      <pre className="js">
-        <code>
-          <kbd>import</kbd> &#123; <samp>Appbar</samp> &#125; <kbd>from</kbd>{' '}
-          <samp>'m3-ui-react'</samp>;
-        </code>
-      </pre>
+      <Snippet lang="js" code="import { Appbar } from 'm3-ui-react';" />
       <Font
         variant="headline-large"
         as="h2"

@@ -16,6 +16,12 @@ export default function ComponentCanonicalLayoutPanel() {
         description="Cards present information and options related to a specific subject."
         icon="cards"
       />
+      <CardLink
+        link="/components/card-media"
+        name="CardMedia"
+        description="CardMedia is used to display media, such as images or videos, within a card."
+        icon="panorama"
+      />
     </SupportingNav>
   );
 }

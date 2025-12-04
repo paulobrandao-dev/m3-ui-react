@@ -39,7 +39,7 @@ export default function PageHeader({
       >
         <Font
           as="h1"
-          variant="display-large"
+          variant={media.isCompact ? 'headline-large' : 'display-large'}
           textColor={isErrorHandler ? 'error' : undefined}
         >
           {title}
@@ -47,7 +47,7 @@ export default function PageHeader({
         {description && (
           <Font
             as="p"
-            variant="headline-medium"
+            variant={media.isCompact ? 'title-large' : 'headline-medium'}
             spacing={{ marginBlockStart: 'md' }}
           >
             {description}

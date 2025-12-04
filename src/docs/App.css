@@ -206,3 +206,15 @@ pre.js > code > ins {
   color: #fd971f;
   text-decoration: none;
 }
+
+.snippet {
+  position: relative;
+  overflow: hidden;
+}
+
+.snippet > button {
+  position: absolute !important;
+  align-self: baseline;
+  top: 0;
+  right: 0;
+}
