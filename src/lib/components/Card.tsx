@@ -13,7 +13,6 @@ import {
  *
  * @template E - The HTML element type to render.
  * @property {E} [as] - The HTML element to render the card as. Defaults to `div`.
- * @property {React.Ref<HTMLDivElement>} [ref] - A ref to the underlying HTML element.
  * @property {('elevated' | 'filled' | 'outlined')} [variant='elevated'] - The variant of the card.
  * @property {boolean} [stateLayer] - If `true`, a state layer will be applied to the card on hover and press.
  * @property {MaterialSpacingProps} [spacing] - The spacing properties for the card.
@@ -23,7 +22,6 @@ import {
 export type CardProps<E extends React.ElementType> =
   React.HTMLAttributes<HTMLElement> & {
     as?: E;
-    ref?: React.Ref<HTMLDivElement>;
     variant?: 'elevated' | 'filled' | 'outlined';
     stateLayer?: boolean;
     spacing?: MaterialSpacingProps;

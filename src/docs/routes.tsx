@@ -2,6 +2,7 @@ import { BASE_PATH } from './constants';
 import ComponentAppbarPage from './pages/components/appbar/page';
 import ComponentButtonPage from './pages/components/button/page';
 import ComponentCanonicalLayoutPage from './pages/components/canonical-layout/page';
+import ComponentCardPage from './pages/components/card/page';
 import ComponentIconButtonPage from './pages/components/icon-button/page';
 import ComponentsPage from './pages/components/page';
 import HomePage from './pages/home/page';
@@ -25,6 +26,8 @@ export default function routes(path: string) {
       return <ComponentButtonPage />;
     case `${BASE_PATH}/components/canonical-layout`:
       return <ComponentCanonicalLayoutPage />;
+    case `${BASE_PATH}/components/card`:
+      return <ComponentCardPage />;
     case `${BASE_PATH}/components/icon-button`:
       return <ComponentIconButtonPage />;
     default:

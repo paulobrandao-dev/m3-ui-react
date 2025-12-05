@@ -13,7 +13,6 @@ import { MaterialGapProps, MaterialSpacingProps } from './types';
  * @property {MaterialGapProps} [gap] - An object to control the gap between the layout's direct children.
  * @property {boolean} [isFluid] - If `true`, the layout will span the full width of its container.
  * @property {E} [as] - The HTML element to render the layout as. Defaults to `section`.
- * @property {React.Ref<HTMLElement>} [ref] - A ref to the underlying HTML element.
  */
 export type CanonicalLayoutProps<E extends React.ElementType> =
   React.HTMLAttributes<HTMLElement> & {
@@ -22,7 +21,6 @@ export type CanonicalLayoutProps<E extends React.ElementType> =
     gap?: MaterialGapProps;
     isFluid?: boolean;
     as?: E;
-    ref?: React.Ref<HTMLElement>;
   };
 
 const CSS_PREFIX = 'm3-layout';
