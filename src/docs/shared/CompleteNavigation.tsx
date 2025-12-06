@@ -219,6 +219,20 @@ export default function CompleteNavigation() {
         isActive={current === `${BASE_PATH}/hooks/use-scroll-behavior`}
         isHorizontal
       />
+      <NavLink
+        as={Link}
+        variant="navrail"
+        to={`${BASE_PATH}/hooks/use-theme-colors`}
+        label="useThemeColors"
+        icon={
+          <Icon
+            symbol="colors"
+            isFilled={current === `${BASE_PATH}/hooks/use-theme-colors`}
+          />
+        }
+        isActive={current === `${BASE_PATH}/hooks/use-theme-colors`}
+        isHorizontal
+      />
     </>
   );
 }
