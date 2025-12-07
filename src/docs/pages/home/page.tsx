@@ -16,7 +16,7 @@ export default function HomePage() {
         element={
           <CardMedia
             as="img"
-            src="/m3-ui-react.png"
+            src="m3-ui-react.png"
             alt="M3 UI React Logo"
             aspectRatio="16:9"
             alignMedia="center"
