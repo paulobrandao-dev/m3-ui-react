@@ -3,7 +3,12 @@
 .m3-card-media {
   border-radius: var(--shape-md);
   width: 100%;
-  height: 100%;
+  transition:
+    aspect-ratio var(--ease-duration) var(--ease-standard),
+    object-fit var(--ease-duration) var(--ease-standard),
+    object-position var(--ease-duration) var(--ease-standard),
+    background-color var(--ease-duration) var(--ease-standard),
+    color var(--ease-duration) var(--ease-standard);
 
   &.has-aspect {
     &-16x9 {

@@ -13,10 +13,10 @@ vi.spyOn(document, 'getElementById').mockImplementation(elementId => {
 
 describe('useDialogControl hook', () => {
   it('should handle dialog display by modal methods', () => {
-    const { result } = renderHook(() => useDialogControl());
-    result.current.showDialog('test');
+    const { result } = renderHook(() => useDialogControl('test'));
+    result.current.showModal();
     expect(spyShow).toBeCalled();
-    result.current.closeDialog('test');
+    result.current.close();
     expect(spyClose).toBeCalled();
   });
 });

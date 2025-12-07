@@ -1,7 +1,7 @@
+import { applyThemeColorScheme } from '@/lib/theme';
 import { useCallback, useState } from 'react';
 import { SettingsContext } from './context';
 import settings from './model';
-import { applyThemeColorScheme } from '@/lib/theme';
 
 export function SettingsProvider({
   children,
@@ -12,6 +12,11 @@ export function SettingsProvider({
   const [isFluidContent, setFluidContentFlag] = useState<boolean>(
     settings.fluidContent,
   );
+  const [subtitle, setSubtitle] = useState<string>();
+  const [settingsIsOpen, toggleSettingsMenu] = useState<boolean>(
+    settings.settingsMenuOpen,
+  );
+  const [navAction, setNavAction] = useState<string | null>(null);
 
   const toggleDarkMode = useCallback(() => {
     const theme = isDarkMode ? 'light' : 'dark';
@@ -24,9 +29,26 @@ export function SettingsProvider({
     setFluidContentFlag(!isFluidContent);
   }, [isFluidContent]);
 
+  const toggleSettings = useCallback(() => {
+    const value = !settingsIsOpen;
+    settings.settingsMenuOpen = value;
+    toggleSettingsMenu(value);
+  }, [settingsIsOpen]);
+
   return (
     <SettingsContext.Provider
-      value={{ isDarkMode, isFluidContent, toggleDarkMode, toggleFluidContent }}
+      value={{
+        isDarkMode,
+        isFluidContent,
+        subtitle,
+        settingsIsOpen,
+        navAction,
+        toggleDarkMode,
+        toggleFluidContent,
+        setSubtitle,
+        toggleSettings,
+        setNavAction,
+      }}
     >
       {children}
     </SettingsContext.Provider>

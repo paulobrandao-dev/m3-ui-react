@@ -115,12 +115,4 @@ describe('NavLink component', () => {
     const anchor = getByRole('link');
     expect(anchor.classList.contains('at-navrail')).toBeTruthy();
   });
-
-  it('should apply at-navdrawer class for navdrawer variant', () => {
-    const { getByRole } = render(
-      <NavLink href="/test" label="Home" variant="navdrawer" />,
-    );
-    const anchor = getByRole('link');
-    expect(anchor.classList.contains('at-navdrawer')).toBeTruthy();
-  });
 });

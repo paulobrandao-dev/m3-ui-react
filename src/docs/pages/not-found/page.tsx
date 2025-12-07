@@ -1,22 +1,16 @@
-import PageHeader from '@/docs/components/PageHeader';
-import { Icon } from '@/lib/icon/Rounded';
+import CardIcon from '@/docs/shared/CardIcon';
+import PageHeader from '@/docs/shared/PageHeader';
+import { Content } from '@/lib';
 
 export default function NotFoundPage() {
   return (
-    <>
+    <Content as="main">
       <PageHeader
         title="404"
         description="This page cannot be found."
         isErrorHandler
-        element={
-          <Icon
-            icon="error"
-            size={200}
-            isFilled
-            style={{ color: 'var(--color-on-error-container)' }}
-          />
-        }
+        element={<CardIcon color="error" icon="error" size={200} />}
       />
-    </>
+    </Content>
   );
 }

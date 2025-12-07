@@ -50,4 +50,8 @@ menu.m3-menu {
         var(--ease-decelerate) forwards;
     }
   }
+
+  @media screen and (min-width: 1200px) {
+    @include tiny-scroll;
+  }
 }

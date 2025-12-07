@@ -4,9 +4,9 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--shape-xl);
+  transition-property: background-color, color, border-radius;
+  transition-duration: var(--ease-duration);
+  transition-timing-function: var(--ease-standard);
   @include state-layer;
 
   &:hover {
@@ -15,6 +15,115 @@
 
   &:focus {
     @include state-layer-focus;
+  }
+
+  &.size {
+    &-xs {
+      height: 32px;
+      border-radius: 16px;
+      padding-inline: 6px;
+
+      &.is-narrow {
+        padding-inline: 4px;
+      }
+
+      &.is-wide {
+        padding-inline: 10px;
+      }
+
+      &:active {
+        border-radius: var(--shape-sm);
+      }
+
+      &[aria-pressed='true'] {
+        border-radius: var(--shape-md);
+      }
+    }
+    &-sm {
+      height: 40px;
+      border-radius: 20px;
+      padding-inline: 8px;
+
+      &.is-narrow {
+        padding-inline: 4px;
+      }
+
+      &.is-wide {
+        padding-inline: 14px;
+      }
+
+      &:active {
+        border-radius: var(--shape-sm);
+      }
+
+      &[aria-pressed='true'] {
+        border-radius: var(--shape-md);
+      }
+    }
+    &-md {
+      height: 56px;
+      border-radius: 28px;
+      padding-inline: 16px;
+
+      &.is-narrow {
+        padding-inline: 12px;
+      }
+
+      &.is-wide {
+        padding-inline: 24px;
+      }
+
+      &:active {
+        border-radius: var(--shape-md);
+      }
+
+      &[aria-pressed='true'] {
+        border-radius: var(--shape-lg);
+      }
+    }
+    &-lg {
+      height: 96px;
+      border-radius: 48px;
+      padding-inline: 32px;
+
+      &.is-narrow {
+        padding-inline: 16px;
+      }
+
+      &.is-wide {
+        padding-inline: 48px;
+      }
+
+      &:active {
+        border-radius: var(--shape-lg);
+      }
+
+      &[aria-pressed='true'] {
+        border-radius: var(--shape-xl);
+      }
+    }
+    &-xl {
+      width: 136px;
+      height: 136px;
+      border-radius: 68px;
+      padding-inline: 48px;
+
+      &.is-narrow {
+        padding-inline: 32px;
+      }
+
+      &.is-wide {
+        padding-inline: 72px;
+      }
+
+      &:active {
+        border-radius: var(--shape-lg);
+      }
+
+      &[aria-pressed='true'] {
+        border-radius: var(--shape-xl);
+      }
+    }
   }
 
   &:disabled {

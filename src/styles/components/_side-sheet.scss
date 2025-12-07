@@ -1,0 +1,75 @@
+aside.m3-side-sheet {
+  overflow: hidden;
+
+  > .toolbar {
+    padding-inline-start: var(--spacing-lg);
+    padding-inline-end: var(--spacing-sm);
+  }
+
+  &.is-standard {
+    height: 100%;
+    flex-shrink: 0;
+    min-width: 0;
+    max-width: 0;
+    transition:
+      max-width var(--ease-accelerate-duration) var(--ease-accelerate),
+      min-width var(--ease-accelerate-duration) var(--ease-accelerate),
+      background-color var(--ease-duration) var(--ease-standard),
+      color var(--ease-duration) var(--ease-standard);
+    background-color: var(--color-surface);
+    position: sticky;
+
+    &.is-open {
+      min-width: 256px;
+      max-width: 400px;
+      transition:
+        max-width var(--ease-decelerate-duration) var(--ease-decelerate),
+        min-width var(--ease-decelerate-duration) var(--ease-decelerate),
+        background-color var(--ease-duration) var(--ease-standard),
+        color var(--ease-duration) var(--ease-standard);
+    }
+  }
+
+  &[popover] {
+    border: none;
+    min-width: 256px;
+    max-width: 400px;
+    height: 100dvh;
+    margin-block: 0;
+    margin-inline: auto 0;
+    border-radius: var(--shape-lg-start);
+    background-color: var(--color-surface-container-low);
+    color: var(--color-on-surface);
+    transform-origin: center right;
+    box-shadow: var(--elevation-1);
+    animation: translateHideSideSheet var(--ease-accelerate-duration)
+      var(--ease-accelerate) forwards;
+    transition:
+      overlay 0.7s ease-out allow-discrete,
+      display 0.7s ease-out allow-discrete,
+      background-color var(--ease-duration) var(--ease-standard);
+
+    > .toolbar {
+      background-color: var(--color-surface-container-low);
+    }
+
+    &::backdrop {
+      background-color: var(--color-scrim);
+      animation: hideBackdrop var(--ease-accelerate-duration)
+        var(--ease-accelerate) forwards;
+      transition:
+        overlay 0.7s ease-out allow-discrete,
+        display 0.7s ease-out allow-discrete;
+    }
+
+    &:popover-open {
+      animation: translateShowSideSheet var(--ease-decelerate-duration)
+        var(--ease-decelerate) forwards;
+
+      &::backdrop {
+        animation: showBackdrop var(--ease-decelerate-duration)
+          var(--ease-decelerate) forwards;
+      }
+    }
+  }
+}

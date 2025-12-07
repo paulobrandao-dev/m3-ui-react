@@ -1,4 +1,4 @@
-npx lint-staged
+npm run lint-staged
 npm run coverage
 npm run make-badges
 git add .

@@ -28,6 +28,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "src",
+    "src/docs/types/events.d.ts"
   ]
 }

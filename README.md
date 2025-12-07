@@ -4,17 +4,17 @@ M3 UI is an impressive and user-friendly library of components that follows the 
 
 ![Coverage](./badges.svg)
 
-> This isn't the official documentation yet, just a help to initiate the development while the documentation is being written.
+> This is a preliminary guide to help you get started while the official documentation is being prepared.
 
 ## Quick setup
 
-### First - Install
+### First - Installation
 
 ```console
 npm i m3-ui-react
 ```
 
-### Second - styling
+### Second - Styling
 
 Import the required stylesheet into `RootLayout` or your `(main|index).ts`:
 
@@ -22,7 +22,7 @@ Import the required stylesheet into `RootLayout` or your `(main|index).ts`:
 import 'm3-ui-react/dist/m3-ui.css';
 ```
 
-To make use of `Icon` component, it is necessary to import the icon font stylesheet too, according to the style chosen:
+To use the `Icon` component, you must also import the corresponding icon font stylesheet:
 
 ```js
 // Outlined
@@ -35,13 +35,13 @@ import 'm3-ui-react/dist/m3-ui.icon-sharp.css';
 
 ### Third - Theming
 
-For correct use of the components and to customize the interface, it is necessary to fill some CSS variables. You have some utils to do this task.
+To properly use and customize the components, you need to set some CSS variables. These utilities simplify the process by handling the configuration for you.
 
-You just need to pass the main color of your interface, the color scheme (“light” or “dark”) and the font face names and the util will make the job.
+Simply provide your brand color, desired color scheme ("light" or "dark"), and font preferences, and the utility will apply all necessary styles.
 
 > More info about theme utils in the [Theme](#theme) section of this page.
 
-For each necessity, a specific util is applied:
+Choose the appropriate utility for your use case:
 
 #### With Next.js
 
@@ -86,67 +86,48 @@ applyTheme({
 });
 ```
 
-Setup done! Just start to make use.
+You're all set! Start using the library.
 
 ## Components
 
-This list is organized according to [Material Docs](https://m3.material.io/components).
-
-### Buttons
-
-- [x] Button
-- [x] IconButton
-- [ ] FloatActionButton (__coming soon__)
-- [ ] _SegmentedButton (planning)_
-
-### Date and time pickers
-
-- [ ] _DatePicker (planning)_
-- [ ] _TimePicker (planning)_
-
-### Loading and progress
-
-- [ ] _Progress (planning)_
-
-### Navigation
-
-- [x] NavLink
-- [x] NavBar
-- [x] NavRail
-
-### Sheets
-
-- [ ] SideSheet (__coming soon__)
-- [ ] BottomSheet (__coming soon__)
-
-### Others
-
-- [x] Appbar
-- [ ] _Badges (planning)_
-- [x] CanonicalLayout
-- [x] Card
-- [x] CardMedia
-- [ ] _Carousel (planning)_
-- [ ] Checkbox (__coming soon__)
-- [ ] Chip (__coming soon__)
-- [x] Content
-- [x] Dialog
-- [x] Divider
-- [ ] _FloatToolbar (planning)_
-- [x] Font
-- [x] Icon
-- [x] ListItem
-- [x] Menu
-- [ ] RadioButton (__coming soon__)
-- [ ] _RichTooltip (planning)_
-- [ ] Search (__coming soon__)
-- [ ] SelectField (__coming soon__)
-- [ ] Snackbar (__coming soon__)
-- [x] Switch
-- [ ] _Slider (planning)_
-- [ ] Tabs (__coming soon__)
-- [ ] TextField (__coming soon__)
-- [x] Tooltip
+- ✅ Appbar
+- 📋 _Badges (planning)_
+- ⏳ BottomSheet (__coming soon__)
+- ✅ Button
+- ✅ CanonicalLayout
+- ✅ Card
+- ✅ CardMedia
+- 📋 _Carousel (planning)_
+- ✅ Checkbox
+- ✅ Chip
+- ✅ Content
+- 📋 _DatePicker (planning)_
+- ✅ Dialog
+- ✅ Divider
+- 📋 _FloatToolbar (planning)_
+- ⏳ FloatActionButton (__coming soon__)
+- ✅ Font
+- ✅ Icon
+- ✅ IconButton
+- ✅ Input
+- ✅ ListItem
+- ✅ Menu
+- ✅ NavBar
+- ✅ NavLink
+- ✅ NavRail
+- 📋 _Progress (planning)_
+- ⏳ RadioButton (__coming soon__)
+- 📋 _RichTooltip (planning)_
+- ⏳ Search (__coming soon__)
+- 📋 _SegmentedButton (planning)_
+- ✅ Select
+- ✅ SideSheet
+- ⏳ Snackbar (__coming soon__)
+- ✅ Switch
+- 📋 _Slider (planning)_
+- ⏳ Tabs (__coming soon__)
+- 📋 _TimePicker (planning)_
+- ✅ Tooltip
 
 ## Theme
 
@@ -190,7 +171,7 @@ type FontSettings = {
 
 type Settings = {
   seedColor: string; // content-based color of your product/application
-  colorScheme: 'dark' | 'light;
+  colorScheme: 'dark' | 'light';
   font: FontSettings | false;
 }
 
@@ -228,7 +209,7 @@ type FontSettings = {
 
 type Settings = {
   seedColor: string; // content-based color of your product/application
-  colorScheme: 'dark' | 'light;
+  colorScheme: 'dark' | 'light';
   font: FontSettings | false;
 }
 

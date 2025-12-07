@@ -38,6 +38,28 @@
   }
 }
 
+@keyframes translateShowSideSheet {
+  0% {
+    opacity: 0;
+    transform: translateX(256px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes translateHideSideSheet {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(256px);
+  }
+}
+
 @keyframes translateUpDropdown {
   0% {
     opacity: 0;
@@ -57,6 +79,15 @@
   100% {
     opacity: 0;
     transform: translateY(64px);
+  }
+}
+
+@keyframes scaleOpen {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 

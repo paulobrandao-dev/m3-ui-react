@@ -1,14 +1,15 @@
-import PageHeader from '@/docs/components/PageHeader';
 import { useSettings } from '@/docs/settings/hook';
-import { CanonicalLayout, CardMedia } from '@/lib';
+import PageHeader from '@/docs/shared/PageHeader';
+import { CanonicalLayout, CardMedia, Content, useThemeColors } from '@/lib';
 import HomeArticle from './article';
 import HomeSupportingPane from './supporting-pane';
 
 export default function HomePage() {
   const { isFluidContent } = useSettings();
+  const color = useThemeColors();
 
   return (
-    <>
+    <Content as="main">
       <PageHeader
         title="M3 UI React"
         description="A powerful and straightforward way to implement the Google Design System in your React projects."
@@ -20,6 +21,7 @@ export default function HomePage() {
             aspectRatio="16:9"
             alignMedia="center"
             fitMedia="contain"
+            style={{ backgroundColor: color.primary.container }}
           />
         }
       />
@@ -35,6 +37,6 @@ export default function HomePage() {
         <HomeArticle />
         <HomeSupportingPane />
       </CanonicalLayout>
-    </>
+    </Content>
   );
 }

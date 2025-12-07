@@ -3,7 +3,43 @@
 import { useCallback } from 'react';
 import { useMediaQuery } from './useMediaQuery';
 
-export function usePopoverControl() {
+/**
+ * A hook to control an element with the `popover` attribute.
+ * It provides functions to show, hide, and toggle the popover, and automatically positions it relative to an anchor element.
+ *
+ * @returns {{
+ *   showPopover: (anchorElement?: HTMLElement | null) => void;
+ *   hidePopover: () => void;
+ *   togglePopover: (anchorElement?: HTMLElement | null) => void;
+ * }} An object with functions to control a popover.
+ *
+ * @example
+ * ```tsx
+ * import { useRef } from 'react';
+ * import { Menu, ListItem, Button, usePopoverControl } from 'm3-ui-react';
+ *
+ * export default function MyMenu() {
+ *   const buttonRef = useRef<HTMLButtonElement>(null);
+ *   const { togglePopover } = usePopoverControl('my-menu');
+ *
+ *   return (
+ *     <>
+ *       <Button
+ *         ref={buttonRef}
+ *         onClick={() => togglePopover(buttonRef.current)}
+ *       >
+ *         Open Menu
+ *       </Button>
+ *       <Menu id="my-menu">
+ *         <ListItem headline="First item" />
+ *         <ListItem headline="Second item" />
+ *       </Menu>
+ *     </>
+ *   );
+ * }
+ * ```
+ */
+export function usePopoverControl(popoverId: string) {
   const media = useMediaQuery();
 
   const getPositions = useCallback(
@@ -28,38 +64,34 @@ export function usePopoverControl() {
   );
 
   const showPopover = useCallback(
-    (popoverId: string, anchorElement?: HTMLElement) => {
+    (anchorElement?: HTMLElement) => {
       const popover = document.getElementById(popoverId);
       if (!popover || !popover.hasAttribute('popover')) return;
       if (anchorElement) {
         popover.style.cssText = getPositions(anchorElement);
-      } else {
-        popover.removeAttribute('style');
       }
       popover.showPopover();
     },
-    [getPositions],
+    [getPositions, popoverId],
   );
 
-  const hidePopover = useCallback((popoverId: string) => {
+  const hidePopover = useCallback(() => {
     const popover = document.getElementById(popoverId);
     if (popover && popover.hasAttribute('popover')) {
       popover.hidePopover();
     }
-  }, []);
+  }, [popoverId]);
 
   const togglePopover = useCallback(
-    (popoverId: string, anchorElement?: HTMLElement) => {
+    (anchorElement?: HTMLElement) => {
       const popover = document.getElementById(popoverId);
       if (!popover || !popover.hasAttribute('popover')) return;
       if (anchorElement) {
         popover.style.cssText = getPositions(anchorElement);
-      } else {
-        popover.removeAttribute('style');
       }
       popover.togglePopover(true);
     },
-    [getPositions],
+    [getPositions, popoverId],
   );
 
   return { showPopover, hidePopover, togglePopover };

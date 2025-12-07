@@ -1,6 +1,6 @@
-import ArticleNavigation from '@/docs/components/ArticleNavigation';
+import ArticleNavigation from '@/docs/shared/ArticleNavigation';
 import { Font } from '@/lib';
-import { Link } from '../router';
+import { Link } from '../../router';
 
 export default function ThemingArticle() {
   return (

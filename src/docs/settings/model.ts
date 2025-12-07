@@ -1,11 +1,13 @@
 export type SettingsScheme = {
   theme: 'light' | 'dark';
   fuildContent: boolean;
+  settingsMenuOpen: boolean;
 };
 
 export const INITIAL_VALUE: SettingsScheme = {
   fuildContent: false,
   theme: 'light',
+  settingsMenuOpen: false,
 };
 
 const STORAGE_NAME = 'm3-ui-react_settings';
@@ -44,6 +46,16 @@ class SettingsModel {
 
   get fluidContent() {
     return this.data.fuildContent;
+  }
+
+  set settingsMenuOpen(value: boolean) {
+    const _data = this.data;
+    _data.settingsMenuOpen = value;
+    this.data = _data;
+  }
+
+  get settingMenuOpen() {
+    return this.data.settingsMenuOpen;
   }
 }
 

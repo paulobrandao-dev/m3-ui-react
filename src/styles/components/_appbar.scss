@@ -15,7 +15,16 @@ header.m3-appbar {
   left: 0;
   z-index: 1;
 
-  > .toolbar-row {
+  hgroup {
+    width: 100%;
+
+    > h1,
+    > p {
+      width: 100%;
+    }
+  }
+
+  > .row {
     display: flex;
     align-items: center;
     width: 100%;
@@ -43,7 +52,7 @@ header.m3-appbar {
   &.is-small {
     max-height: 64px;
 
-    > div.toolbar-row {
+    > div.row {
       padding-inline: var(--spacing-sm);
       padding-block: var(--spacing-xs);
       gap: var(--spacing-sm);
@@ -52,22 +61,17 @@ header.m3-appbar {
 
   &.is-medium,
   &.is-large {
-    > div.toolbar-row {
+    > div.row {
       justify-content: space-between;
       padding: var(--spacing-sm);
       gap: var(--spacing-sm);
     }
 
-    > hgroup.toolbar-row {
+    > hgroup.row {
       flex-direction: column;
       padding-inline: var(--spacing-lg);
       padding-block-start: var(--spacing-sm);
       padding-block-end: var(--spacing-md);
-
-      > h1,
-      > p {
-        width: 100%;
-      }
     }
   }
 

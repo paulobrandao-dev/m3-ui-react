@@ -1,8 +1,9 @@
-import { describe, expect, it, test, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   applyTheme,
   applyThemeOnHtmlStyleTag,
   toggleThemeColorScheme,
+  applyThemeColorScheme,
 } from './';
 
 vi.mock('@material/material-color-utilities', () => {
@@ -78,7 +79,7 @@ describe('Theme utils', () => {
       expect(result).toHaveProperty('--font-code', 'monospace');
     });
 
-    test('should disable font variables settings', () => {
+    it('should disable font variables settings', () => {
       const result = applyThemeOnHtmlStyleTag({
         colorScheme: 'light',
         seedColor: 'green',
@@ -96,7 +97,7 @@ describe('Theme utils', () => {
       expect(result).not.toHaveProperty('--font-code');
     });
 
-    test('should apply the fonts settings', () => {
+    it('should apply the fonts settings', () => {
       const result = applyThemeOnHtmlStyleTag({
         colorScheme: 'dark',
         seedColor: 'blue',
@@ -114,7 +115,7 @@ describe('Theme utils', () => {
     });
   });
 
-  test('applyTheme', () => {
+  it('applyTheme', () => {
     applyTheme({ colorScheme: 'light', seedColor: 'white', font: false });
     expect(
       getComputedStyle(document.documentElement).getPropertyValue(
@@ -128,7 +129,7 @@ describe('Theme utils', () => {
     ).toEqual('white');
   });
 
-  test('toggleThemeColorScheme', () => {
+  it('toggleThemeColorScheme', () => {
     applyTheme({ colorScheme: 'light', seedColor: 'blue', font: false });
     expect(
       getComputedStyle(document.documentElement).getPropertyValue(
@@ -160,5 +161,37 @@ describe('Theme utils', () => {
       ),
     ).toEqual('light');
     expect(current).toEqual('light');
+  });
+
+  it('applyThemeColorScheme', () => {
+    applyTheme({
+      seedColor: 'purple',
+      colorScheme: 'light',
+      font: {
+        title: 'Comic Sans MS',
+        content: 'Papyrus',
+        code: 'Courier New',
+      },
+    });
+
+    const onChange = vi.fn();
+    applyThemeColorScheme('dark', onChange);
+
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--color-scheme',
+      ),
+    ).toEqual('dark');
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--color-seed',
+      ),
+    ).toEqual('purple');
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--font-title',
+      ),
+    ).toEqual('Comic Sans MS');
+    expect(onChange).toHaveBeenCalled();
   });
 });

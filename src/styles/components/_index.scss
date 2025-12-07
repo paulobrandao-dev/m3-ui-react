@@ -3,7 +3,9 @@
 @use 'canonical-layout';
 @use 'card-media';
 @use 'card';
+@use 'chip';
 @use 'content';
+@use 'controls';
 @use 'dialog';
 @use 'divider';
 @use 'font';
@@ -13,5 +15,7 @@
 @use 'navbar';
 @use 'navlink';
 @use 'navrail';
+@use 'side-sheet';
 @use 'switch';
+@use 'text-field';
 @use 'tooltip';
