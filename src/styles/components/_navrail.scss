@@ -19,8 +19,7 @@ nav.m3-navrail {
   max-width: 96px;
   height: 100%;
   flex-shrink: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   position: sticky;
   top: 0;
   left: 0;
@@ -30,10 +29,6 @@ nav.m3-navrail {
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-standard);
 
-  @media screen and (min-width: 1200px) {
-    @include tiny-scroll;
-  }
-
   > header {
     @extend %toolbar-div;
   }
@@ -41,6 +36,11 @@ nav.m3-navrail {
   > [role='presentation'] {
     @extend %toolbar-div;
     flex: auto;
+    overflow: hidden auto;
+
+    @media screen and (min-width: 1200px) {
+      @include tiny-scroll;
+    }
   }
 
   > footer {

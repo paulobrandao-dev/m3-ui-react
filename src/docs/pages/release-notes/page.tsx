@@ -4,6 +4,7 @@ import PageHeader from '@/docs/shared/PageHeader';
 import { CanonicalLayout, Content, ListItem } from '@/lib';
 import { useEffect, useState } from 'react';
 import Major1Minor1Patch0 from './v-1-1-0';
+import Major1Minor1Patch1 from './v-1-1-1';
 import Major1Minor0Patch3 from './v1-0-3';
 
 export default function ReleaseNotesPage() {
@@ -38,6 +39,12 @@ export default function ReleaseNotesPage() {
       >
         <Content as="menu">
           <ListItem
+            headline="1.1.1"
+            supportingText="🔧 Fixes"
+            onClick={() => setCurrent('1.1.1')}
+            isSelected={current === '1.1.1'}
+          />
+          <ListItem
             headline="1.1.0"
             supportingText="🧐 Documentation is necessary."
             onClick={() => setCurrent('1.1.0')}
@@ -51,6 +58,7 @@ export default function ReleaseNotesPage() {
           />
         </Content>
         <Content>
+          <Major1Minor1Patch1 isActive={current === '1.1.1'} />
           <Major1Minor1Patch0 isActive={current === '1.1.0'} />
           <Major1Minor0Patch3 isActive={current === '1.0.3'} />
         </Content>

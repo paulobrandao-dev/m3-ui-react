@@ -39,9 +39,19 @@ export default function DocsTopbar() {
       }
       actions={
         <>
+          {media.isLessThanExpanded && (
+            <Tooltip text="Release notes">
+              <IconButton
+                aria-label="Release notes"
+                onClick={() => navigate(`${BASE_PATH}/release-notes`)}
+              >
+                <Icon symbol="release_alert" />
+              </IconButton>
+            </Tooltip>
+          )}
           <Tooltip text="License">
             <IconButton aria-label="License" onClick={showModal}>
-              <Icon symbol="balance" />
+              <Icon symbol="license" />
             </IconButton>
           </Tooltip>
           <Tooltip text="Settings">
