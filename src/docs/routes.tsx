@@ -7,6 +7,7 @@ import ComponentIconButtonPage from './pages/components/icon-button/page';
 import ComponentsPage from './pages/components/page';
 import HomePage from './pages/home/page';
 import HooksPage from './pages/hooks/page';
+import HookDialogControlPage from './pages/hooks/use-dialog-control/page';
 import NotFoundPage from './pages/not-found/page';
 import ReleaseNotesPage from './pages/release-notes/page';
 import ThemingPage from './pages/theming/page';
@@ -33,6 +34,8 @@ export default function routes(path: string) {
       return <ComponentIconButtonPage />;
     case `${BASE_PATH}/hooks`:
       return <HooksPage />;
+    case `${BASE_PATH}/hooks/use-dialog-control`:
+      return <HookDialogControlPage />;
     default:
       return <NotFoundPage />;
   }

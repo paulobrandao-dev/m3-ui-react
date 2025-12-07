@@ -572,7 +572,11 @@ export default function ComponentAppbarArtcile() {
       <Font
         variant="body-large"
         as="ul"
-        spacing={{ paddingInline: 'lg', marginBlockEnd: 'md' }}
+        spacing={{
+          paddingInline: 'xl',
+          marginInline: 'xl',
+          marginBlockEnd: 'md',
+        }}
       >
         <li>
           The component renders a semantic{' '}

@@ -36,7 +36,7 @@ export default function HooksPage() {
           link="/hooks/use-dialog-control"
           name="useDialogControl"
           icon="picture_in_picture_center"
-          description="A hook to control a native `dialog` element."
+          description="A hook to control a native dialog element."
         />
         <CardLink
           link="/hooks/use-media-query"
