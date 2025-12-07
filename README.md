@@ -90,44 +90,44 @@ You're all set! Start using the library.
 
 ## Components
 
-- [x] Appbar
-- [ ] _Badges (planning)_
-- [ ] BottomSheet (__coming soon__)
-- [x] Button
-- [x] CanonicalLayout
-- [x] Card
-- [x] CardMedia
-- [ ] _Carousel (planning)_
-- [x] Checkbox
-- [x] Chip
-- [x] Content
-- [ ] _DatePicker (planning)_
-- [x] Dialog
-- [x] Divider
-- [ ] _FloatToolbar (planning)_
-- [ ] FloatActionButton (__coming soon__)
-- [x] Font
-- [x] Icon
-- [x] IconButton
-- [x] Input
-- [x] ListItem
-- [x] Menu
-- [x] NavBar
-- [x] NavLink
-- [x] NavRail
-- [ ] _Progress (planning)_
-- [ ] RadioButton (__coming soon__)
-- [ ] _RichTooltip (planning)_
-- [ ] Search (__coming soon__)
-- [ ] _SegmentedButton (planning)_
-- [x] Select
-- [x] SideSheet
-- [ ] Snackbar (__coming soon__)
-- [x] Switch
-- [ ] _Slider (planning)_
-- [ ] Tabs (__coming soon__)
-- [ ] _TimePicker (planning)_
-- [x] Tooltip
+- ✅ Appbar
+- 📋 _Badges (planning)_
+- ⏳ BottomSheet (__coming soon__)
+- ✅ Button
+- ✅ CanonicalLayout
+- ✅ Card
+- ✅ CardMedia
+- 📋 _Carousel (planning)_
+- ✅ Checkbox
+- ✅ Chip
+- ✅ Content
+- 📋 _DatePicker (planning)_
+- ✅ Dialog
+- ✅ Divider
+- 📋 _FloatToolbar (planning)_
+- ⏳ FloatActionButton (__coming soon__)
+- ✅ Font
+- ✅ Icon
+- ✅ IconButton
+- ✅ Input
+- ✅ ListItem
+- ✅ Menu
+- ✅ NavBar
+- ✅ NavLink
+- ✅ NavRail
+- 📋 _Progress (planning)_
+- ⏳ RadioButton (__coming soon__)
+- 📋 _RichTooltip (planning)_
+- ⏳ Search (__coming soon__)
+- 📋 _SegmentedButton (planning)_
+- ✅ Select
+- ✅ SideSheet
+- ⏳ Snackbar (__coming soon__)
+- ✅ Switch
+- 📋 _Slider (planning)_
+- ⏳ Tabs (__coming soon__)
+- 📋 _TimePicker (planning)_
+- ✅ Tooltip
 
 ## Theme
 
