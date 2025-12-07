@@ -1,11 +1,4 @@
-import {
-  Button,
-  Card,
-  Content,
-  IconButton,
-  useMediaQuery,
-  useThemeColors,
-} from '@/lib';
+import { Card, Content, IconButton, useThemeColors } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useCallback, useMemo, useState } from 'react';
 import { useClipboard } from './useClipboard';
@@ -18,7 +11,6 @@ interface Props {
 
 export function Snippet({ code, lang, children }: Props) {
   const color = useThemeColors();
-  const media = useMediaQuery();
   const clipboard = useClipboard();
   const [copied, setCopied] = useState<boolean>(false);
 
@@ -146,37 +138,22 @@ export function Snippet({ code, lang, children }: Props) {
       flexbox={{ direction: 'column' }}
       className="snippet"
     >
-      {media.isCompact ? (
-        <IconButton variant="filled" size="xs" onClick={handleCopy}>
-          {copied ? (
-            <Icon
-              symbol="check"
-              size={20}
-              style={{ color: color.primary.color }}
-            />
-          ) : (
-            <Icon symbol="content_copy" size={20} />
-          )}
-        </IconButton>
-      ) : (
-        <Button
-          onClick={handleCopy}
-          size="xs"
-          icon={
-            copied ? (
-              <Icon
-                symbol="check"
-                size={20}
-                style={{ color: color.primary.color }}
-              />
-            ) : (
-              <Icon symbol="content_copy" size={20} />
-            )
-          }
-        >
-          Copy snippet
-        </Button>
-      )}
+      <IconButton
+        variant="filled"
+        aria-label="Copy"
+        size="xs"
+        onClick={handleCopy}
+      >
+        {copied ? (
+          <Icon
+            symbol="check"
+            size={20}
+            style={{ color: color.primary.color }}
+          />
+        ) : (
+          <Icon symbol="content_copy" size={20} />
+        )}
+      </IconButton>
       <pre className={lang}>
         {lines.map((line, idx) => (
           <code
