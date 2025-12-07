@@ -341,7 +341,7 @@ export default function HookDialogControlArtcile() {
         code={`
 import { Button, Content, Font, useDialogControl } from 'm3-ui-react';
 
-export default function DialogExample() {
+function DialogExample() {
   // The string 'my-dialog' must match the id prop of the Dialog component.
   const { showModal, close } = useDialogControl('my-dialog');
 
