@@ -61,36 +61,42 @@ export default function ComponentsPage() {
           name="CardMedia"
           description="CardMedia is used to display media, such as images or videos, within a card."
           icon="panorama"
+          disabled
         />
         <CardLink
           link="/components/icon-button"
           name="IconButton"
           icon="add_circle"
           description="Icon buttons streamline user actions through a single tap."
+          disabled
         />
         <CardLink
           link="/components/nav-link"
           name="NavLink"
           icon="link"
           description="TO DO"
+          disabled
         />
         <CardLink
           link="/components/nav-bar"
           name="NavBar"
           icon="bottom_navigation"
           description="TO DO"
+          disabled
         />
         <CardLink
           link="/components/nav-rail"
           name="NavRail"
           icon="dock_to_right"
           description="TO DO"
+          disabled
         />
         <CardLink
           link="/components/side-sheet"
           name="SideSheet"
           icon="dock_to_left"
           description="TO DO"
+          disabled
         />
       </CanonicalLayout>
     </Content>

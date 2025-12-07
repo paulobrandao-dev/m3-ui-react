@@ -6,32 +6,31 @@ import {
   ComponentPropsWithoutRef,
   ElementType,
   ReactNode,
-  Ref,
 } from 'react';
 
 /**
  * Props for the NavLink component.
  *
  * @template A - The HTML element type to render.
+ * @property {A} [as] - The HTML element to render the link as. Defaults to `a`.
  * @property {string} label - The text label for the navigation link.
  * @property {('navrail' | 'navbar')} variant - The context in which the link is used, either in a `NavRail` or `NavBar`.
  * @property {ReactNode} [icon] - An icon to be displayed with the link.
  * @property {boolean} [isActive] - If `true`, the link will be styled as the current page.
  * @property {boolean} [isHorizontal] - If `true`, the link will be displayed in a horizontal layout.
- * @property {A} [as] - The HTML element to render the link as. Defaults to `a`.
- * @property {Ref<HTMLElement & HTMLAnchorElement>} [ref] - A ref to the underlying HTML element.
+ * @property {boolean} [isDisabled] - If `true`. the link will be displayed but without pointer events.
  */
 export type NavLinkProps<A extends ElementType> = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   'children' | 'aria-current'
 > & {
+  as?: A;
   label: string;
   variant: 'navrail' | 'navbar';
   icon?: ReactNode;
   isActive?: boolean;
   isHorizontal?: boolean;
-  as?: A;
-  ref?: Ref<HTMLElement & HTMLAnchorElement>;
+  isDisabled?: boolean;
 };
 
 const CSS_PREFIX = 'm3-navlink';
@@ -70,6 +69,7 @@ export function NavLink<T extends ElementType>({
   icon,
   isActive,
   isHorizontal,
+  isDisabled,
   className,
   ...props
 }: NavLinkProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof NavLinkProps<T>>) {
@@ -83,6 +83,7 @@ export function NavLink<T extends ElementType>({
           'at-navbar': variant === 'navbar',
           'at-navrail': variant === 'navrail',
           'is-horizontal': isHorizontal,
+          'is-disabled': isDisabled,
         },
         className,
       )}

@@ -5,6 +5,12 @@ export default function ComponentCanonicalLayoutPanel() {
   return (
     <SupportingNav>
       <CardLink
+        link="/components/appbar"
+        name="Appbar"
+        description="App bars are positioned at the top of the screen, helping users navigate products."
+        icon="toolbar"
+      />
+      <CardLink
         link="/components/button"
         name="Button"
         icon="buttons_alt"
@@ -15,12 +21,6 @@ export default function ComponentCanonicalLayoutPanel() {
         name="Card"
         description="Cards present information and options related to a specific subject."
         icon="cards"
-      />
-      <CardLink
-        link="/components/card-media"
-        name="CardMedia"
-        description="CardMedia is used to display media, such as images or videos, within a card."
-        icon="panorama"
       />
     </SupportingNav>
   );

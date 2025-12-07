@@ -43,24 +43,28 @@ export default function HooksPage() {
           name="useMediaQuery"
           icon="responsive_layout"
           description="A hook that provides a set of media queries to create responsive layouts."
+          disabled
         />
         <CardLink
           link="/hooks/use-popover-control"
           name="usePopoverControl"
           icon="arrow_drop_down_circle"
           description="A hook to control an element with the `popover` attribute."
+          disabled
         />
         <CardLink
           link="/hooks/use-scroll-behavior"
           name="useScrollBehavior"
           icon="unfold_more"
           description="A hook that tracks the scroll behavior of an element and provides flags for scroll direction and position."
+          disabled
         />
         <CardLink
           link="/hooks/use-theme-colors"
           name="useThemeColors"
           icon="colors"
           description="A comprehensive set of theme colors based on Material Design 3."
+          disabled
         />
       </CanonicalLayout>
     </Content>
