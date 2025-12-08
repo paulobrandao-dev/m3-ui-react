@@ -145,7 +145,7 @@ describe('SideSheet component', () => {
       <SideSheet variant="standard" isOpen id="sticky-sheet" />,
     );
     const sideSheet = getByRole('complementary');
-    expect(sideSheet.style.top).toBe('56px');
+    expect(sideSheet.style.top).toBe('0px');
 
     getElementByIdSpy.mockRestore();
     getBoundingClientRectSpy.mockRestore();

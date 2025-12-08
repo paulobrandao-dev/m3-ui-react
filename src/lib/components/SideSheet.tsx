@@ -92,8 +92,10 @@ export function SideSheet({
     }
     const self = document.getElementById(idRef);
     if (!self) return;
+    const top = self.offsetTop;
     setStickyStyles({
-      top: self.getBoundingClientRect().y,
+      top,
+      height: `calc(100dvh - ${top}px)`,
     });
   }, [idRef, variant, isOpen]);
 
@@ -147,6 +149,7 @@ export function SideSheet({
       <Content
         scrollable={{ horizontal: 'hidden', vertical: 'auto' }}
         spacing={{ paddingInline: 'xl' }}
+        role="presentation"
       >
         {children}
       </Content>

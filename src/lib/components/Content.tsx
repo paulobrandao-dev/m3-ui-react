@@ -13,7 +13,6 @@ import {
  *
  * @template E - The HTML element type to render.
  * @property {E} [as] - The HTML element to render the content as. Defaults to `div`.
- * @property {React.Ref<HTMLDivElement>} [ref] - A ref to the underlying HTML element.
  * @property {MaterialSpacingProps} [spacing] - The spacing properties for the content.
  * @property {MaterialFlexboxProps} [flexbox] - The flexbox properties for the content.
  * @property {MaterialGridProps} [grid] - The grid properties for the content.
@@ -22,7 +21,6 @@ import {
 export type ContentProps<E extends React.ElementType> =
   React.HTMLAttributes<HTMLElement> & {
     as?: E;
-    ref?: React.Ref<HTMLDivElement>;
     spacing?: MaterialSpacingProps;
     flexbox?: MaterialFlexboxProps;
     grid?: MaterialGridProps;
