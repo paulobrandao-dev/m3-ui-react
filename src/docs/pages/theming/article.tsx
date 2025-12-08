@@ -1,6 +1,7 @@
 import ArticleNavigation from '@/docs/shared/ArticleNavigation';
 import { Font } from '@/lib';
 import { Link } from '../../router';
+import { Snippet } from '@/docs/shared/Snippet';
 
 export default function ThemingArticle() {
   return (
@@ -67,53 +68,28 @@ export default function ThemingArticle() {
         </Font>
         .
       </Font>
-      <pre className="js">
-        <code>
-          <kbd>import</kbd> &#123; applyThemeOnHtmlStyleTag &#125;{' '}
-          <kbd>from</kbd> <samp>'m3-ui-react/theme'</samp>;
-        </code>
-        <code>
-          <i>// in the RootLayout component</i>
-        </code>
-        <code>
-          <kbd>return</kbd> (
-        </code>
-        <code className="sp-1">
-          &lt;<kbd>html</kbd>
-        </code>
-        <code className="sp-2">
-          <b>style</b>=&#123;<b>applyThemeOnHtmlStyleTag</b>(&#123;
-        </code>
-        <code className="sp-3">
-          seedColor: <samp>'#4285F4'</samp>,
-        </code>
-        <code className="sp-3">
-          colorScheme: <samp>'dark'</samp>,
-        </code>
-        <code className="sp-3">font: &#123;</code>
-        <code className="sp-4">
-          title: <samp>'"Roboto"'</samp>,
-        </code>
-        <code className="sp-4">
-          content: <samp>'"Roboto"'</samp>,{' '}
-          <i>// Web font name needs double quotes</i>
-        </code>
-        <code className="sp-4">
-          code: <samp>'Courier New'</samp>,{' '}
-          <i>// Web safe font names won't need double quotes</i>
-        </code>
-        <code className="sp-3">&#125;,</code>
-        <code className="sp-2">&#125;)&#125;</code>
-        <code className="sp-1">&gt;</code>
-        <code className="sp-2">
-          &lt;<kbd>body</kbd>&gt;&#123;<ins>children</ins>&#125;&lt;/
-          <kbd>body</kbd>&gt;
-        </code>
-        <code className="sp-1">
-          &lt;/<kbd>html</kbd>&gt;
-        </code>
-        <code>);</code>
-      </pre>
+      <Snippet
+        lang="js"
+        code={`
+import { applyThemeOnHtmlStyleTag } from 'm3-ui-react/theme';
+// in the RootLayout component
+return (
+  <html
+    style={applyThemeOnHtmlStyleTag({
+      seedColor: '#4285F4',
+      colorScheme: 'dark',
+      font: {
+        title: '"Roboto"',
+        content: '"Roboto"', // Web font name needs double quotes
+        code: 'Courier New', // Web safe font names won't need double quotes
+      },
+    })}
+  >
+    <body>{children}</body>
+  </html>
+);
+        `}
+      />
       <Font
         variant="headline-large"
         as="h2"
@@ -136,36 +112,22 @@ export default function ThemingArticle() {
         </Font>{' '}
         file.
       </Font>
-      <pre className="js">
-        <code>
-          <kbd>import</kbd> &#123; applyTheme &#125; <kbd>from</kbd>{' '}
-          <samp>'m3-ui-react/theme'</samp>;
-        </code>
-        <code>
-          <i>// before createRoot</i>
-        </code>
-        <code>
-          <b>applyTheme</b>(&#123;
-        </code>
-        <code className="sp-1">
-          seedColor: <samp>'#4285F4'</samp>,
-        </code>
-        <code className="sp-1">
-          colorScheme: <samp>'light'</samp>,
-        </code>
-        <code className="sp-1">font: &#123;</code>
-        <code className="sp-2">
-          title: <samp>'"Roboto"'</samp>,
-        </code>
-        <code className="sp-2">
-          content: <samp>'"Roboto"'</samp>,
-        </code>
-        <code className="sp-2">
-          code: <samp>'Courier New'</samp>,
-        </code>
-        <code className="sp-1">&#125;,</code>
-        <code>&#125;);</code>
-      </pre>
+      <Snippet
+        lang="js"
+        code={`
+import { applyTheme } from 'm3-ui-react/theme';
+// before createRoot
+applyTheme({
+  seedColor: '#4285F4',
+  colorScheme: 'light',
+  font: {
+    title: '"Roboto"',
+    content: '"Roboto"',
+    code: 'Courier New',
+  },
+});
+        `}
+      />
       <Font
         variant="body-large"
         as="p"
