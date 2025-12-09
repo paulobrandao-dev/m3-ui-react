@@ -1,14 +1,6 @@
-import {
-  Content,
-  Font,
-  IconButton,
-  NavRail,
-  Tooltip,
-  useMediaQuery,
-} from '@/lib';
+import { Content, IconButton, NavRail, Tooltip, useMediaQuery } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useEffect, useState } from 'react';
-import { Link } from '../router';
 import CompleteNavigation from './CompleteNavigation';
 import MainNavigation from './MainNavigation';
 
@@ -42,16 +34,6 @@ export default function DocsNavRail() {
             </IconButton>
           </Tooltip>
         </Content>
-      }
-      footer={
-        <Font
-          variant="label-small"
-          as={Link}
-          to="/release-notes"
-          textColor="primary"
-        >
-          {import.meta.env.PACKAGE_VERSION}
-        </Font>
       }
     >
       {isOpen ? <CompleteNavigation /> : <MainNavigation />}

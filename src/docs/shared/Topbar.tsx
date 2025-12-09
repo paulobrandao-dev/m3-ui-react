@@ -8,9 +8,9 @@ import {
 } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useState } from 'react';
+import { BASE_PATH } from '../constants';
 import { useSettings } from '../settings/hook';
 import { navigate } from '../utils';
-import { BASE_PATH } from '../constants';
 
 export default function DocsTopbar() {
   const media = useMediaQuery();
@@ -39,16 +39,6 @@ export default function DocsTopbar() {
       }
       actions={
         <>
-          {media.isLessThanExpanded && (
-            <Tooltip text="Release notes">
-              <IconButton
-                aria-label="Release notes"
-                onClick={() => navigate(`${BASE_PATH}/release-notes`)}
-              >
-                <Icon symbol="release_alert" />
-              </IconButton>
-            </Tooltip>
-          )}
           <Tooltip text="License">
             <IconButton aria-label="License" onClick={showModal}>
               <Icon symbol="license" />
@@ -56,7 +46,6 @@ export default function DocsTopbar() {
           </Tooltip>
           <Tooltip text="Settings">
             <IconButton
-              variant="outlined"
               aria-label="Settings"
               isToggleable
               isActive={settingsIsOpen}

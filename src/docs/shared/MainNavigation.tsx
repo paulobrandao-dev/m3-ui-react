@@ -74,6 +74,20 @@ export default function MainNavigation({
         }
         isActive={current.startsWith(`${BASE_PATH}/hooks`)}
       />
+      <NavLink
+        as={Link}
+        variant={isNavBar ? 'navbar' : 'navrail'}
+        isHorizontal={isHorizontal}
+        to={`${BASE_PATH}/release-notes`}
+        label="Changelog"
+        icon={
+          <Icon
+            symbol="release_alert"
+            isFilled={current === `${BASE_PATH}/release-notes`}
+          />
+        }
+        isActive={current === `${BASE_PATH}/release-notes`}
+      />
     </>
   );
 }
