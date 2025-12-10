@@ -62,4 +62,33 @@ describe('NavRail component', () => {
     expect(navRail).toBeTruthy();
     expect(navRail.getAttribute('aria-label')).toEqual('Main navigation');
   });
+
+  it('should use variant="standard" by default and not set popover attribute', () => {
+    const { getByRole } = render(<NavRail />);
+    const rail = getByRole('navigation');
+
+    expect(rail.getAttribute('popover')).toBeNull();
+  });
+
+  it('should set popover="manual" when variant="modal"', () => {
+    const { getByRole } = render(<NavRail variant="modal" />);
+    const rail = getByRole('navigation');
+
+    expect(rail.getAttribute('popover')).toEqual('manual');
+  });
+
+  it('should apply the "is-expanded" class when variant="modal"', () => {
+    const { getByRole } = render(<NavRail variant="modal" />);
+    const rail = getByRole('navigation');
+
+    expect(rail.classList.contains('is-expanded')).toBeTruthy();
+  });
+
+  it('should apply the "is-expanded" class when both isExpanded and variant="standard"', () => {
+    const { getByRole } = render(<NavRail variant="standard" isExpanded />);
+    const rail = getByRole('navigation');
+
+    expect(rail.classList.contains('is-expanded')).toBeTruthy();
+    expect(rail.getAttribute('popover')).toBeNull();
+  });
 });

@@ -60,6 +60,28 @@
   }
 }
 
+@keyframes translateShowRail {
+  0% {
+    opacity: 0;
+    transform: translateX(-256px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes translateHideRail {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-256px);
+  }
+}
+
 @keyframes translateUpDropdown {
   0% {
     opacity: 0;

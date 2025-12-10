@@ -1,9 +1,9 @@
 {
   "name": "m3-ui-react",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "license": "ISC",
-  "homepage": "https://github.com/paulobrandao-dev/m3-ui-react",
+  "homepage": "https://paulobrandao-dev.github.io/m3-ui-react",
   "author": {
     "name": "Paulo Brandão",
     "url": "https://github.com/paulobrandao-dev",
@@ -82,13 +82,13 @@
   "dependencies": {
     "@material/material-color-utilities": "^0.3.0",
     "clsx": "^2.1.1",
-    "material-symbols": "^0.33.0",
+    "material-symbols": "^0.40.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
-    "@happy-dom/global-registrator": "^18.0.1",
+    "@happy-dom/global-registrator": "^20.0.11",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -103,7 +103,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
-    "happy-dom": "^18.0.1",
+    "happy-dom": "^20.0.11",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",

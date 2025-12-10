@@ -33,4 +33,26 @@ describe('CardMedia component', () => {
 
     expect(media.classList.contains('is-fit-cover')).toBeTruthy();
   });
+
+  it('should render a div by default and include base class', () => {
+    const { container } = render(<CardMedia data-testid="default" />);
+    const media = container.firstElementChild;
+
+    expect(media?.tagName).toBe('DIV');
+    expect(media?.classList.contains('m3-card-media')).toBeTruthy();
+  });
+
+  it('should apply aspect ratio CSS class when aspectRatio is set', () => {
+    const result = render(
+      <CardMedia
+        as="img"
+        src={mockSrc}
+        aspectRatio="16:9"
+        data-testid="aspect-ratio"
+      />,
+    );
+    const media = result.getByTestId('aspect-ratio');
+
+    expect(media.classList.contains('has-aspect-16x9')).toBeTruthy();
+  });
 });

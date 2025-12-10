@@ -59,4 +59,85 @@ describe('useMediaQuery hook', () => {
     expect(result.current.isLessThanLarge).toBeTruthy();
     expect(result.current.isLessThanExtraLarge).toBeTruthy();
   });
+
+  it('should display the bool values according to the window 1200x800 (large)', () => {
+    GlobalRegistrator.register({
+      width: 1200,
+      height: 800,
+    });
+
+    const { result } = renderHook(() => useMediaQuery());
+
+    expect(result.current.width).toEqual(1200);
+    expect(result.current.height).toEqual(800);
+    expect(result.current.isPortrait).toBeFalsy();
+    expect(result.current.isLandscape).toBeTruthy();
+    expect(result.current.isCompact).toBeFalsy();
+    expect(result.current.isMedium).toBeFalsy();
+    expect(result.current.isExpanded).toBeFalsy();
+    expect(result.current.isLarge).toBeTruthy();
+    expect(result.current.isExtraLarge).toBeFalsy();
+    expect(result.current.isGreaterThanCompact).toBeTruthy();
+    expect(result.current.isGreaterThanMedium).toBeTruthy();
+    expect(result.current.isGreaterThanExpanded).toBeTruthy();
+    expect(result.current.isGreaterThanLarge).toBeFalsy();
+    expect(result.current.isLessThanMedium).toBeFalsy();
+    expect(result.current.isLessThanExpanded).toBeFalsy();
+    expect(result.current.isLessThanLarge).toBeFalsy();
+    expect(result.current.isLessThanExtraLarge).toBeTruthy();
+  });
+
+  it('should display the bool values according to the window 1400x900 (extra large)', () => {
+    GlobalRegistrator.register({
+      width: 1400,
+      height: 900,
+    });
+
+    const { result } = renderHook(() => useMediaQuery());
+
+    expect(result.current.width).toEqual(1400);
+    expect(result.current.height).toEqual(900);
+    expect(result.current.isPortrait).toBeFalsy();
+    expect(result.current.isLandscape).toBeTruthy();
+    expect(result.current.isCompact).toBeFalsy();
+    expect(result.current.isMedium).toBeFalsy();
+    expect(result.current.isExpanded).toBeFalsy();
+    expect(result.current.isLarge).toBeFalsy();
+    expect(result.current.isExtraLarge).toBeTruthy();
+    expect(result.current.isGreaterThanCompact).toBeTruthy();
+    expect(result.current.isGreaterThanMedium).toBeTruthy();
+    expect(result.current.isGreaterThanExpanded).toBeTruthy();
+    expect(result.current.isGreaterThanLarge).toBeTruthy();
+    expect(result.current.isLessThanMedium).toBeFalsy();
+    expect(result.current.isLessThanExpanded).toBeFalsy();
+    expect(result.current.isLessThanLarge).toBeFalsy();
+    expect(result.current.isLessThanExtraLarge).toBeFalsy();
+  });
+
+  it('should display the bool values according to the window 720x1280 (medium portrait)', () => {
+    GlobalRegistrator.register({
+      width: 720,
+      height: 1280,
+    });
+
+    const { result } = renderHook(() => useMediaQuery());
+
+    expect(result.current.width).toEqual(720);
+    expect(result.current.height).toEqual(1280);
+    expect(result.current.isPortrait).toBeTruthy();
+    expect(result.current.isLandscape).toBeFalsy();
+    expect(result.current.isCompact).toBeFalsy();
+    expect(result.current.isMedium).toBeTruthy();
+    expect(result.current.isExpanded).toBeFalsy();
+    expect(result.current.isLarge).toBeFalsy();
+    expect(result.current.isExtraLarge).toBeFalsy();
+    expect(result.current.isGreaterThanCompact).toBeTruthy();
+    expect(result.current.isGreaterThanMedium).toBeFalsy();
+    expect(result.current.isGreaterThanExpanded).toBeFalsy();
+    expect(result.current.isGreaterThanLarge).toBeFalsy();
+    expect(result.current.isLessThanMedium).toBeFalsy();
+    expect(result.current.isLessThanExpanded).toBeTruthy();
+    expect(result.current.isLessThanLarge).toBeTruthy();
+    expect(result.current.isLessThanExtraLarge).toBeTruthy();
+  });
 });

@@ -8,9 +8,9 @@ import {
 } from '@/lib';
 import { Icon } from '@/lib/icon/Rounded';
 import { useState } from 'react';
+import { BASE_PATH, RAIL_ID } from '../constants';
 import { useSettings } from '../settings/hook';
 import { navigate } from '../utils';
-import { BASE_PATH } from '../constants';
 
 export default function DocsTopbar() {
   const media = useMediaQuery();
@@ -35,18 +35,29 @@ export default function DocsTopbar() {
           >
             <Icon symbol="arrow_back" />
           </IconButton>
-        ) : undefined
+        ) : (
+          <>
+            {media.isLessThanExpanded && (
+              <IconButton
+                aria-label="Open menu"
+                popoverTarget={RAIL_ID}
+                popoverTargetAction="show"
+              >
+                <Icon symbol="menu" />
+              </IconButton>
+            )}
+          </>
+        )
       }
       actions={
         <>
           <Tooltip text="License">
             <IconButton aria-label="License" onClick={showModal}>
-              <Icon symbol="balance" />
+              <Icon symbol="license" />
             </IconButton>
           </Tooltip>
           <Tooltip text="Settings">
             <IconButton
-              variant="outlined"
               aria-label="Settings"
               isToggleable
               isActive={settingsIsOpen}

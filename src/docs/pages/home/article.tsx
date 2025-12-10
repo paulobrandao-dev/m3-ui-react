@@ -1,6 +1,7 @@
 import ArticleNavigation from '@/docs/shared/ArticleNavigation';
 import { Font } from '@/lib';
 import { Link } from '../../router';
+import { Snippet } from '@/docs/shared/Snippet';
 
 export default function HomeArticle() {
   return (
@@ -81,9 +82,7 @@ export default function HomeArticle() {
         First, you need to get the library and only the library. You don't
         require added dependencies to use that.
       </Font>
-      <pre className="sh">
-        <code>npm i m3-ui-react</code>
-      </pre>
+      <Snippet lang="sh" code="npm i m3-ui-react" />
       <Font
         variant="headline-large"
         as="h2"
@@ -99,14 +98,13 @@ export default function HomeArticle() {
         When diving into the library, it's crucial to start by importing the
         main stylesheet file, as CSS is the cornerstone of everything.
       </Font>
-      <pre className="js">
-        <code>
-          <i>// in the RootLayout or (main|index).ts</i>
-        </code>
-        <code>
-          <kbd>import</kbd> <samp>'m3-ui-react/dist/m3-ui.css'</samp>;
-        </code>
-      </pre>
+      <Snippet
+        lang="js"
+        code={`
+// in the RootLayout or (main|index).ts
+import 'm3-ui-react/dist/m3-ui.css';
+        `}
+      />
       <Font
         variant="body-large"
         as="p"
@@ -115,29 +113,17 @@ export default function HomeArticle() {
         To make use of the <code>&lt;Icon /&gt;</code> component, import the
         icon font stylesheet that matches your chosen style.
       </Font>
-      <pre className="js">
-        <code>
-          <i>// Outlined</i>
-        </code>
-        <code>
-          <kbd>import</kbd>{' '}
-          <samp>'m3-ui-react/dist/m3-ui.icon-outlined.css';</samp>
-        </code>
-        <code>
-          <i>// Rounded</i>
-        </code>
-        <code>
-          <kbd>import</kbd>{' '}
-          <samp>'m3-ui-react/dist/m3-ui.icon-rounded.css';</samp>
-        </code>
-        <code>
-          <i>// Sharp</i>
-        </code>
-        <code>
-          <kbd>import</kbd>{' '}
-          <samp>'m3-ui-react/dist/m3-ui.icon-sharp.css';</samp>
-        </code>
-      </pre>
+      <Snippet
+        lang="js"
+        code={`
+// Outlined
+import 'm3-ui-react/dist/m3-ui.icon-outlined.css';
+// Rounded
+import 'm3-ui-react/dist/m3-ui.icon-rounded.css';
+// Sharp
+import 'm3-ui-react/dist/m3-ui.icon-sharp.css';
+        `}
+      />
       <Font
         variant="body-large"
         as="p"

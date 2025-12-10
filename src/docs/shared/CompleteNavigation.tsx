@@ -37,10 +37,10 @@ export default function CompleteNavigation() {
         icon={
           <Icon
             symbol="format_paint"
-            isFilled={current == `${BASE_PATH}/theming`}
+            isFilled={current === `${BASE_PATH}/theming`}
           />
         }
-        isActive={current == `${BASE_PATH}/theming`}
+        isActive={current === `${BASE_PATH}/theming`}
         isHorizontal
       />
       <Font
@@ -479,6 +479,20 @@ export default function CompleteNavigation() {
         isActive={current === `${BASE_PATH}/hooks/use-theme-colors`}
         isHorizontal
         isDisabled
+      />
+      <NavLink
+        as={Link}
+        variant="navrail"
+        isHorizontal
+        to={`${BASE_PATH}/release-notes`}
+        label="Changelog"
+        icon={
+          <Icon
+            symbol="release_alert"
+            isFilled={current === `${BASE_PATH}/release-notes`}
+          />
+        }
+        isActive={current === `${BASE_PATH}/release-notes`}
       />
     </>
   );

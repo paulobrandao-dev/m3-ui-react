@@ -68,9 +68,9 @@ export function Snippet({ code, lang, children }: Props) {
         result = result.replace(prop[0], `<b>${prop[0].split('=')[0]}</b>=`);
       });
     }
-    if (/("|')(\w+[-.]?\s?)+("|')/g.test(result)) {
+    if (/("|')(\w+[-./]?\s?)+("|')/g.test(result)) {
       const propsValueStr = Array.from(
-        result.matchAll(/("|')(\w+[-.]?\s?)+("|')/g),
+        result.matchAll(/("|')(\w+[-./]?\s?)+("|')/g),
       );
       propsValueStr.forEach(value => {
         result = result.replace(value[0], `<samp>${value[0]}</samp>`);
@@ -107,7 +107,7 @@ export function Snippet({ code, lang, children }: Props) {
         result = result.replace(word[0], `<em>${word[0]}</em>`);
       });
     }
-    if (/\s(if|else|return|import|export|from)\s/g.test(result)) {
+    if (/\s?(if|else|return|import|export|from)\s/g.test(result)) {
       const blockWord = Array.from(
         result.matchAll(/(if|else|return|import|export|from)/g),
       );

@@ -1,12 +1,22 @@
 aside.m3-side-sheet {
   overflow: hidden;
 
+  > [role='presentation'] {
+    height: 100%;
+  }
+
   > .toolbar {
     padding-inline-start: var(--spacing-lg);
     padding-inline-end: var(--spacing-sm);
+
+    + [role='presentation'] {
+      height: calc(100% - 64px);
+    }
   }
 
   &.is-standard {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     flex-shrink: 0;
     min-width: 0;

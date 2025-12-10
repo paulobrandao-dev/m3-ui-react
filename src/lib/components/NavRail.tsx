@@ -5,12 +5,14 @@ import { clsx } from 'clsx';
 /**
  * Props for the NavRail component.
  *
+ * @property {'standard' | 'modal'} [variant='standard'] - The variant of the navigation rail. 'standard' displays a regular rail, 'modal' displays it as a popover.
  * @property {React.ReactNode} [header] - A header element to be displayed at the top of the navigation rail.
  * @property {React.ReactNode} [footer] - A footer element to be displayed at the bottom of the navigation rail.
  * @property {boolean} [isExpanded] - If `true`, the navigation rail will be expanded to show labels next to the icons.
  * @property {React.Ref<HTMLElement>} [ref] - A ref to the underlying `nav` element.
  */
 export type NavRailProps = React.HTMLAttributes<HTMLElement> & {
+  variant?: 'standard' | 'modal';
   header?: React.ReactNode;
   footer?: React.ReactNode;
   isExpanded?: boolean;
@@ -40,6 +42,7 @@ export type NavRailProps = React.HTMLAttributes<HTMLElement> & {
  * @returns {React.ReactElement} The rendered `NavRail` component.
  */
 export function NavRail({
+  variant = 'standard',
   header,
   footer,
   isExpanded,
@@ -50,7 +53,12 @@ export function NavRail({
 }: NavRailProps) {
   return (
     <nav
-      className={clsx('m3-navrail', { 'is-expanded': isExpanded }, className)}
+      className={clsx(
+        'm3-navrail',
+        { 'is-expanded': isExpanded || variant === 'modal' },
+        className,
+      )}
+      popover={variant === 'modal' ? 'manual' : undefined}
       ref={ref}
       {...props}
     >

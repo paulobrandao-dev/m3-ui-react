@@ -19,8 +19,7 @@ nav.m3-navrail {
   max-width: 96px;
   height: 100%;
   flex-shrink: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   position: sticky;
   top: 0;
   left: 0;
@@ -30,8 +29,38 @@ nav.m3-navrail {
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-standard);
 
-  @media screen and (min-width: 1200px) {
-    @include tiny-scroll;
+  &[popover='manual'] {
+    display: none;
+    border: none;
+    background-color: var(--color-surface-container);
+    color: inherit;
+    border-radius: var(--shape-lg-end);
+    transform-origin: center right;
+    animation: translateHideRail var(--ease-accelerate-duration)
+      var(--ease-accelerate) forwards;
+    transition:
+      overlay 0.7s ease-out allow-discrete,
+      display 0.7s ease-out allow-discrete;
+
+    &::backdrop {
+      background-color: var(--color-scrim);
+      animation: hideBackdrop var(--ease-accelerate-duration)
+        var(--ease-accelerate) forwards;
+      transition:
+        overlay 0.7s ease-out allow-discrete,
+        display 0.7s ease-out allow-discrete;
+    }
+
+    &:popover-open {
+      display: flex;
+      animation: translateShowRail var(--ease-decelerate-duration)
+        var(--ease-decelerate) forwards;
+
+      &::backdrop {
+        animation: showBackdrop var(--ease-decelerate-duration)
+          var(--ease-decelerate) forwards;
+      }
+    }
   }
 
   > header {
@@ -41,6 +70,11 @@ nav.m3-navrail {
   > [role='presentation'] {
     @extend %toolbar-div;
     flex: auto;
+    overflow: hidden auto;
+
+    @media screen and (min-width: 1200px) {
+      @include tiny-scroll;
+    }
   }
 
   > footer {

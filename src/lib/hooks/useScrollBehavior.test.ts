@@ -84,4 +84,30 @@ describe('useScrollBehavior hook', () => {
       isDown: true,
     });
   });
+
+  it('should fall back to document.body when element is not found', () => {
+    const addEventListenerSpy = vi.spyOn(document.body, 'addEventListener');
+    const removeEventListenerSpy = vi.spyOn(
+      document.body,
+      'removeEventListener',
+    );
+    vi.spyOn(document, 'querySelector').mockReturnValue(null);
+
+    const onScroll = vi.fn();
+    const { unmount } = renderHook(() =>
+      useScrollBehavior('#non-existent', onScroll),
+    );
+
+    expect(addEventListenerSpy).toHaveBeenCalledWith(
+      'scroll',
+      expect.any(Function),
+    );
+
+    unmount();
+
+    expect(removeEventListenerSpy).toHaveBeenCalledWith(
+      'scroll',
+      expect.any(Function),
+    );
+  });
 });
