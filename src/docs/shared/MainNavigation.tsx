@@ -29,8 +29,8 @@ export default function MainNavigation({
         isHorizontal={isHorizontal}
         to={`${BASE_PATH}/`}
         label="Home"
-        icon={<Icon symbol="home" isFilled={current === BASE_PATH} />}
-        isActive={current === BASE_PATH}
+        icon={<Icon symbol="home" isFilled={current === `${BASE_PATH}/`} />}
+        isActive={current === `${BASE_PATH}/`}
       />
       <NavLink
         as={Link}

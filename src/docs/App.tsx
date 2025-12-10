@@ -1,20 +1,21 @@
 import { Content, useMediaQuery } from '../lib';
 import './App.css';
+import { Router } from './router';
+import { SettingsProvider } from './settings/provider';
+import DialogLicense from './shared/DialogLicense';
 import DocsNavBar from './shared/DocsNavBar';
 import PageFooter from './shared/PageFooter';
 import DocsNavRail from './shared/Rail';
-import DocsTopbar from './shared/Topbar';
-import { Router } from './router';
-import { SettingsProvider } from './settings/provider';
 import SettingsSidebar from './shared/SettingsSidebar';
-import DialogLicense from './shared/DialogLicense';
+import DocsTopbar from './shared/Topbar';
 
 export default function Docs() {
   const media = useMediaQuery();
 
   return (
     <SettingsProvider>
-      {media.isLessThanExpanded ? <DocsTopbar /> : <DocsNavRail />}
+      <DocsNavRail />
+      {media.isLessThanExpanded && <DocsTopbar />}
       <Content as="div" role="presentation" spacing={{ paddingInline: 'md' }}>
         {media.isGreaterThanMedium && <DocsTopbar />}
         <Content

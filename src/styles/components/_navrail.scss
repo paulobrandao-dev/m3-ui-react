@@ -29,6 +29,40 @@ nav.m3-navrail {
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-standard);
 
+  &[popover='manual'] {
+    display: none;
+    border: none;
+    background-color: var(--color-surface-container);
+    color: inherit;
+    border-radius: var(--shape-lg-end);
+    transform-origin: center right;
+    animation: translateHideRail var(--ease-accelerate-duration)
+      var(--ease-accelerate) forwards;
+    transition:
+      overlay 0.7s ease-out allow-discrete,
+      display 0.7s ease-out allow-discrete;
+
+    &::backdrop {
+      background-color: var(--color-scrim);
+      animation: hideBackdrop var(--ease-accelerate-duration)
+        var(--ease-accelerate) forwards;
+      transition:
+        overlay 0.7s ease-out allow-discrete,
+        display 0.7s ease-out allow-discrete;
+    }
+
+    &:popover-open {
+      display: flex;
+      animation: translateShowRail var(--ease-decelerate-duration)
+        var(--ease-decelerate) forwards;
+
+      &::backdrop {
+        animation: showBackdrop var(--ease-decelerate-duration)
+          var(--ease-decelerate) forwards;
+      }
+    }
+  }
+
   > header {
     @extend %toolbar-div;
   }
