@@ -45,4 +45,111 @@ describe('IconButton component', () => {
 
     expect(button.hasAttribute('disabled')).toBeTruthy();
   });
+
+  it('should render children content', () => {
+    const result = render(
+      <IconButton aria-label="with-children">
+        <span data-testid="child-span">icon</span>
+      </IconButton>,
+    );
+
+    expect(result.getByTestId('child-span').textContent).toBe('icon');
+  });
+
+  it('should apply size classes (default sm and custom)', () => {
+    const result = render(
+      <>
+        <IconButton aria-label="size-default">
+          <span className="pseudo-icon" />
+        </IconButton>
+        <IconButton aria-label="size-md" size="md">
+          <span className="pseudo-icon" />
+        </IconButton>
+      </>,
+    );
+
+    const sizeDefault = result.getByRole('button', { name: 'size-default' });
+    const sizeMd = result.getByRole('button', { name: 'size-md' });
+
+    expect(sizeDefault.classList.contains('size-sm')).toBeTruthy();
+    expect(sizeMd.classList.contains('size-md')).toBeTruthy();
+  });
+
+  it('should apply width modifiers when provided', () => {
+    const result = render(
+      <>
+        <IconButton aria-label="width-narrow" width="narrow">
+          <span className="pseudo-icon" />
+        </IconButton>
+        <IconButton aria-label="width-wide" width="wide">
+          <span className="pseudo-icon" />
+        </IconButton>
+      </>,
+    );
+
+    const narrow = result.getByRole('button', { name: 'width-narrow' });
+    const wide = result.getByRole('button', { name: 'width-wide' });
+
+    expect(narrow.classList.contains('is-narrow')).toBeTruthy();
+    expect(wide.classList.contains('is-wide')).toBeTruthy();
+  });
+
+  it('should set aria-pressed when toggleable', () => {
+    const active = render(
+      <IconButton aria-label="toggle-active" isToggleable isActive>
+        <span className="pseudo-icon" />
+      </IconButton>,
+    ).getByRole('button', { name: 'toggle-active' });
+
+    const inactive = render(
+      <IconButton aria-label="toggle-inactive" isToggleable>
+        <span className="pseudo-icon" />
+      </IconButton>,
+    ).getByRole('button', { name: 'toggle-inactive' });
+
+    expect(active.getAttribute('aria-pressed')).toBe('true');
+    expect(inactive.getAttribute('aria-pressed')).toBe('false');
+  });
+
+  it('should not set aria-pressed when not toggleable', () => {
+    const button = render(
+      <IconButton aria-label="non-toggle" isActive>
+        <span className="pseudo-icon" />
+      </IconButton>,
+    ).getByRole('button', { name: 'non-toggle' });
+
+    expect(button.getAttribute('aria-pressed')).toBeNull();
+  });
+
+  it('should add is-active class when active', () => {
+    const button = render(
+      <IconButton aria-label="active" isActive>
+        <span className="pseudo-icon" />
+      </IconButton>,
+    ).getByRole('button', { name: 'active' });
+
+    expect(button.classList.contains('is-active')).toBeTruthy();
+  });
+
+  it('should merge custom className', () => {
+    const button = render(
+      <IconButton aria-label="with-class" className="custom-class">
+        <span className="pseudo-icon" />
+      </IconButton>,
+    ).getByRole('button', { name: 'with-class' });
+
+    expect(button.classList.contains('custom-class')).toBeTruthy();
+  });
+
+  it('should forward ref to the button element', () => {
+    const ref = { current: null as HTMLButtonElement | null };
+    render(
+      <IconButton aria-label="with-ref" ref={ref}>
+        <span className="pseudo-icon" />
+      </IconButton>,
+    );
+
+    expect(ref.current).not.toBeNull();
+    expect(ref.current?.tagName).toBe('BUTTON');
+  });
 });

@@ -194,4 +194,77 @@ describe('Theme utils', () => {
     ).toEqual('Comic Sans MS');
     expect(onChange).toHaveBeenCalled();
   });
+
+  it('applyThemeColorScheme without onChange callback', () => {
+    applyTheme({
+      seedColor: 'orange',
+      colorScheme: 'light',
+      font: false,
+    });
+
+    applyThemeColorScheme('dark');
+
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--color-scheme',
+      ),
+    ).toEqual('dark');
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--color-seed',
+      ),
+    ).toEqual('orange');
+  });
+
+  it('toggleThemeColorScheme without onToggle callback', () => {
+    applyTheme({ colorScheme: 'light', seedColor: 'cyan', font: false });
+
+    toggleThemeColorScheme();
+
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--color-scheme',
+      ),
+    ).toEqual('dark');
+  });
+
+  it('toggleThemeColorScheme preserves font settings when enabled', () => {
+    applyTheme({
+      seedColor: 'magenta',
+      colorScheme: 'light',
+      font: {
+        title: 'Georgia',
+        content: 'Helvetica',
+        code: 'Monaco',
+      },
+    });
+
+    toggleThemeColorScheme();
+
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--color-scheme',
+      ),
+    ).toEqual('dark');
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--font-settings',
+      ),
+    ).toEqual('true');
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--font-title',
+      ),
+    ).toEqual('Georgia');
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--font-content',
+      ),
+    ).toEqual('Helvetica');
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--font-code',
+      ),
+    ).toEqual('Monaco');
+  });
 });

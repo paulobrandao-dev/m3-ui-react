@@ -62,4 +62,11 @@ describe('CanonicalLayout component', () => {
 
     expect(layout.classList.contains('gap-lg')).toBeTruthy();
   });
+
+  it('should render the default element', () => {
+    const result = render(<CanonicalLayout variant="feed" />);
+    const layout = result.container.firstElementChild;
+
+    expect(layout?.tagName).toBe('SECTION');
+  });
 });

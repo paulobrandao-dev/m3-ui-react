@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Input } from './Input';
 
@@ -59,6 +59,26 @@ describe('Input component', () => {
     expect(svg).toBeTruthy();
   });
 
+  it('suppresses the error icon when disableErrorIcon is true', () => {
+    const { container } = render(
+      <Input hasError disableErrorIcon data-testid="input-error-disabled" />,
+    );
+
+    expect(container.querySelector('.has-error-icon')).toBeNull();
+  });
+
+  it('renders a custom errorIcon when provided', () => {
+    const { getByTestId } = render(
+      <Input
+        hasError
+        data-testid="input-custom-error"
+        errorIcon={<span data-testid="custom-error-icon" />}
+      />,
+    );
+
+    expect(getByTestId('custom-error-icon')).toBeTruthy();
+  });
+
   it('forwards value and calls onChange for controlled input', () => {
     const onChange = vi.fn();
     const { container } = render(
@@ -86,5 +106,45 @@ describe('Input component', () => {
     // fieldset has disabled attribute when disabled prop passed
     expect(fieldset?.getAttribute('disabled')).not.toBeNull();
     expect(input.disabled).toBeTruthy();
+  });
+
+  it('applies full width class when fullWidth is true', () => {
+    const { container } = render(<Input fullWidth data-testid="input-full" />);
+    const fieldset = container.querySelector('fieldset');
+
+    expect(fieldset?.classList.contains('has-full-width')).toBeTruthy();
+  });
+
+  it('renders filled label with required marker and associates label to input', () => {
+    const { container } = render(
+      <Input
+        variant="filled"
+        label="Phone"
+        required
+        id="phone-id"
+        data-testid="input-filled-required"
+      />,
+    );
+    const label = container.querySelector('label');
+    const input = container.querySelector('input');
+
+    expect(label?.textContent).toBe('Phone*');
+    expect(label?.getAttribute('for')).toBe('phone-id');
+    expect(input?.id).toBe('phone-id');
+  });
+
+  it('sets is-active when value is present (hasValue state)', async () => {
+    const { container } = render(<Input variant="filled" label="Value" />);
+    const fieldset = container.querySelector('fieldset');
+    const input = container.querySelector('input') as HTMLInputElement;
+
+    expect(fieldset?.classList.contains('is-active')).toBeFalsy();
+
+    // Trigger MutationObserver by changing the value attribute
+    input.setAttribute('value', 'abc');
+
+    await waitFor(() => {
+      expect(fieldset?.classList.contains('is-active')).toBeTruthy();
+    });
   });
 });
