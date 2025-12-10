@@ -1,5 +1,70 @@
 # CHANGELOG
 
+## 🏷️ 1.1.1
+
+This patch release focuses on improving test coverage, enhancing documentation, and refining navigation components with better responsiveness and animations.
+
+### 🧪 Testing Enhancements
+
+- **Comprehensive Test Coverage:** Added extensive unit tests across multiple components and hooks:
+  - **IconButton:** 107+ new test cases covering all variants, sizes, widths, toggle states, and accessibility features
+  - **Input:** Enhanced test suite with 62+ additional tests for variant behavior, error states, fullWidth, and active state validation
+  - **CanonicalLayout:** New tests for element rendering via `as` prop
+  - **CardMedia:** Added tests for default rendering and aspect ratio classes
+  - **useMediaQuery:** Extended coverage with tests for large (1200-1399px) and extra-large (≥1400px) screen sizes, plus medium portrait orientation
+  - **useScrollBehavior:** Added test for fallback to `document.body` when element selector returns null
+  - **Theme utilities:** Comprehensive tests for `applyThemeColorScheme` and `toggleThemeColorScheme` with and without callbacks, plus font preservation
+
+### ✨ Component Enhancements
+
+- **NavRail:** Added `variant` prop with 'standard' and 'modal' options
+  - Modal variant displays as a popover with `popover="manual"`
+  - Automatic expansion when variant is 'modal'
+  - Enhanced JSDoc documentation
+  - Complete test coverage for variant behaviors
+
+- **SideSheet:** Improved styling with better layout and presentation
+  - Removed unused `ref` prop from internal Content component
+  - Enhanced animations and transitions
+
+### 📚 Documentation Improvements
+
+- **Release Notes Page:** Enhanced with responsive SideSheet for better note handling
+- **Navigation:** Added Changelog link to main navigation and rail
+- **Code Examples:** Replaced traditional code blocks with Snippet component in Home and Theming articles for improved readability
+- **Component Visibility:** Improved toggles for navigation components
+
+### 🎨 Styling Refinements
+
+- **NavRail:** Enhanced styles with improved responsiveness and animations
+  - New keyframe animations for smooth transitions
+  - Better mobile and desktop layout support
+- **NavLink:** Minor styling improvements
+- **SideSheet:** Adjusted styles for better presentation
+
+### 🔧 Infrastructure & Configuration
+
+- **Node.js:** Updated to version 20.x in CI/CD workflow
+- **NPM:** Added registry authentication for publishing
+- **Package:** Updated homepage URL for correct documentation link
+- **Dependencies:** General dependency updates
+
+### 📊 Code Changes Summary
+
+- 34 files modified
+- ~941 insertions
+- ~226 deletions
+- Significantly improved test coverage across components and hooks
+- Enhanced component prop typing and documentation
+
+### 🐛 Bug Fixes
+
+- Fixed homepage URL in package.json to point to correct documentation
+- Removed unused ref prop from Content component
+- Corrected styling issues in navigation components
+
+This release strengthens the library's quality through comprehensive testing while adding valuable enhancements to navigation components. The improvements ensure better reliability and developer experience.
+
 ## 🏷️ 1.1.0
 
 This release introduces significant enhancements to the M3 UI React library, including new components, improved documentation, enhanced hooks, and refined styling. The version marks a major update focused on developer experience and component completeness.
