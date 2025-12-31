@@ -1,3 +1,4 @@
+import '../styles/index.scss';
 // hooks
 export * from './hooks/useDialogControl';
 export * from './hooks/useMediaQuery';
