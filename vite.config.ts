@@ -31,6 +31,7 @@ export default defineConfig({
       },
       fileName: (format, entryName) =>
         `m3-ui${entryName !== 'index' ? `.${entryName}` : ''}.${format === 'cjs' ? 'cjs' : 'js'}`,
+      cssFileName: 'm3-ui',
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
