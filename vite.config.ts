@@ -14,7 +14,7 @@ export default defineConfig({
     loadVersion(),
     preserveDirectives(),
     dts({
-      rollupTypes: true,
+      bundleTypes: true,
       tsconfigPath: resolve(__dirname, 'tsconfig.app.json'),
     }),
   ],

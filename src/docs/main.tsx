@@ -1,9 +1,9 @@
+import { applyTheme } from '@/lib/theme';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './docs/App';
-import settings from './docs/settings/model';
-import { applyTheme } from './lib/theme';
-import './styles/index.scss';
+import App from './App';
+import settings from './settings/model';
+import '@/styles/index.scss';
 
 applyTheme({
   seedColor: '#58c4dc',
