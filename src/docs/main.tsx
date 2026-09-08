@@ -2,7 +2,7 @@ import { applyTheme } from '@/lib/theme'
 import '@/styles/m3-ui.scss'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App'
+import App from './app'
 import settings from './settings/model'
 
 applyTheme({
