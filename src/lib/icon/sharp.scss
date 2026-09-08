@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'Material Symbols Rounded';
+  font-family: 'Material Symbols Sharp';
   font-style: normal;
   font-weight: 100 700;
   font-display: block;
-  src: url('../../../node_modules/material-symbols/material-symbols-rounded.woff2')
+  src: url('../../../node_modules/material-symbols/material-symbols-sharp.woff2')
     format('woff2');
 }
 
-.m3-icon {
-  font-family: 'Material Symbols Rounded';
+[data-icon-sharp] {
+  font-family: 'Material Symbols Sharp';
   font-weight: normal;
   font-style: normal;
   font-size: 24px;

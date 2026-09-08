@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'Material Symbols Sharp';
+  font-family: 'Material Symbols Outlined';
   font-style: normal;
   font-weight: 100 700;
   font-display: block;
-  src: url('../../../node_modules/material-symbols/material-symbols-sharp.woff2')
+  src: url('../../../node_modules/material-symbols/material-symbols-outlined.woff2')
     format('woff2');
 }
 
-.m3-icon {
-  font-family: 'Material Symbols Sharp';
+[data-icon-outlined] {
+  font-family: 'Material Symbols Outlined';
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
