@@ -44,6 +44,10 @@
       "types": "./dist/icon/sharp.d.ts",
       "import": "./dist/icon-sharp.js"
     },
+    "./font": {
+      "types": "./dist/components/font.d.ts",
+      "import": "./dist/font.js"
+    },
     "./dist/m3-ui.css": {
       "import": "./dist/m3-ui.css"
     },

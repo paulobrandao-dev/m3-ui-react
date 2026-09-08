@@ -13,6 +13,7 @@ const libEntries: Record<string, string> = {
   'icon-rounded': resolve(__dirname, 'src', 'lib', 'icon', 'rounded.tsx'),
   'icon-sharp': resolve(__dirname, 'src', 'lib', 'icon', 'sharp.tsx'),
   'icon-outlined': resolve(__dirname, 'src', 'lib', 'icon', 'outlined.tsx'),
+  font: resolve(__dirname, 'src', 'lib', 'components', 'font.tsx'),
 }
 
 // https://vitejs.dev/config/
@@ -24,6 +25,7 @@ export default defineConfig({
     dts({
       bundleTypes: true,
       tsconfigPath: resolve(__dirname, 'tsconfig.app.json'),
+      include: ['src/lib'],
       exclude: [
         'src/docs',
         'node_modules',
