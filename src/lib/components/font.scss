@@ -1,0 +1,63 @@
+@mixin font-variant($variant) {
+  &[data-variant='#{$variant}-large'] {
+    font: var(--text-#{$variant}-large);
+  }
+  &[data-variant='#{$variant}-medium'] {
+    font: var(--text-#{$variant}-medium);
+  }
+  &[data-variant='#{$variant}-small'] {
+    font: var(--text-#{$variant}-small);
+  }
+}
+
+[data-font] {
+  font: inherit;
+
+  @include font-variant('display');
+  @include font-variant('headline');
+  @include font-variant('title');
+  @include font-variant('body');
+  @include font-variant('label');
+  &[data-variant='code'] {
+    font: var(--text-code);
+  }
+
+  &[data-transform='capitalize'] {
+    text-transform: capitalize;
+  }
+  &[data-transform='lowercase'] {
+    text-transform: lowercase;
+  }
+  &[data-transform='uppercase'] {
+    text-transform: uppercase;
+  }
+
+  &[data-align='center'] {
+    text-align: center;
+  }
+  &[data-align='justify'] {
+    text-align: justify;
+  }
+  &[data-align='left'] {
+    text-align: left;
+  }
+  &[data-align='right'] {
+    text-align: right;
+  }
+
+  &[data-color='primary'] {
+    color: var(--color-primary);
+  }
+  &[data-color='secondary'] {
+    color: var(--color-secondary);
+  }
+  &[data-color='tertiary'] {
+    color: var(--color-tertiary);
+  }
+  &[data-color='reverse'] {
+    color: var(--color-on-inverse-surface);
+  }
+  &[data-color='error'] {
+    color: var(--color-error);
+  }
+}
