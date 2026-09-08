@@ -1,6 +1,6 @@
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
-import { IconRounded as Icon } from './rounded'
+import { Icon } from './rounded'
 
 describe('Icon component', () => {
   afterEach(cleanup)
@@ -25,19 +25,19 @@ describe('Icon component', () => {
     const icon_40 = result.getByTestId('icon_40')
     const icon_48 = result.getByTestId('icon_48')
 
-    expect(icon_20.className).toEqual('m3-icon')
+    expect(icon_20.hasAttribute('data-icon-rounded')).toBeTruthy()
     expect(icon_20.style.fontVariationSettings).toEqual(
       "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20",
     )
-    expect(icon_24.className).toEqual('m3-icon')
+    expect(icon_24.hasAttribute('data-icon-rounded')).toBeTruthy()
     expect(icon_24.style.fontVariationSettings).toEqual(
       "'FILL' 0, 'wght' 300, 'GRAD' -25, 'opsz' 24",
     )
-    expect(icon_40.className).toEqual('m3-icon')
+    expect(icon_40.hasAttribute('data-icon-rounded')).toBeTruthy()
     expect(icon_40.style.fontVariationSettings).toEqual(
       "'FILL' 0, 'wght' 400, 'GRAD' 200, 'opsz' 40",
     )
-    expect(icon_48.className).toEqual('m3-icon')
+    expect(icon_48.hasAttribute('data-icon-rounded')).toBeTruthy()
     expect(icon_48.style.fontVariationSettings).toEqual(
       "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48",
     )

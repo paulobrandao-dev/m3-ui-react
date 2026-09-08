@@ -1,16 +1,16 @@
 'use client'
 
 import { useMemo } from 'react'
-import './rounded.scss'
 import { IconProps } from './icon'
+import './rounded.scss'
 
 /**
- * The `Icon` component displays an icon from the Material Symbols Outlined set.
+ * The `Icon` component displays an icon from the Material Symbols Rounded set.
  * It allows for customization of weight, size, fill, and emphasis.
  *
  * @example
  * ```tsx
- * import { Icon } from 'm3-ui-react/icon';
+ * import { Icon } from 'm3-ui-react/icon/rounded';
  *
  * export default function MyIcon() {
  *   return <Icon symbol="settings" />;
@@ -20,7 +20,7 @@ import { IconProps } from './icon'
  * @param {IconProps} props - The props for the `Icon` component.
  * @returns {React.ReactElement} The rendered `Icon` component.
  */
-export function IconRounded({
+export function Icon({
   symbol,
   ref,
   weight = 400,

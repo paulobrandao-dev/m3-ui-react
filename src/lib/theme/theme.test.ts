@@ -1,10 +1,10 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest'
 import {
   applyTheme,
-  applyThemeOnHtmlStyleTag,
+  createThemVars,
   toggleThemeColorScheme,
   applyThemeColorScheme,
-} from './';
+} from './'
 
 vi.mock('@material/material-color-utilities', () => {
   const mockTheme = {
@@ -35,7 +35,7 @@ vi.mock('@material/material-color-utilities', () => {
     inversePrimary: 'inverse-primary',
     outline: 'outline',
     outlineVariant: 'outline-variant',
-  };
+  }
 
   return {
     argbFromHex: () => 12345678,
@@ -57,48 +57,45 @@ vi.mock('@material/material-color-utilities', () => {
         },
       },
     }),
-  };
-});
+  }
+})
 
 describe('Theme utils', () => {
-  describe('applyThemeOnHtmlStyleTag', () => {
-    it('should return the minimal variables', () => {
-      const result = applyThemeOnHtmlStyleTag({
+  describe('createThemVars', () => {
+    it('should return a CSS string containing the theme variables', () => {
+      const result = createThemVars({
         colorScheme: 'dark',
         seedColor: 'red',
-      });
-      expect(result).toHaveProperty('--color-seed', 'red');
-      expect(result).toHaveProperty('--color-scheme', 'dark');
-      expect(result).toHaveProperty('--color-primary', 'primary');
-      expect(result).toHaveProperty(
-        '--elevation-1',
-        '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
-      );
-      expect(result).toHaveProperty('--font-title', 'sans-serif');
-      expect(result).toHaveProperty('--font-content', 'sans-serif');
-      expect(result).toHaveProperty('--font-code', 'monospace');
-    });
+      })
+      expect(typeof result).toBe('string')
+      expect(result).toContain('--color-seed: red')
+      expect(result).toContain('--color-scheme: dark')
+      expect(result).toContain('--color-primary: primary')
+      expect(result).toContain('--elevation-1:')
+      expect(result).toContain('--font-title: sans-serif')
+      expect(result).toContain('--font-content: sans-serif')
+      expect(result).toContain('--font-code: monospace')
+      expect(result).toContain(':root')
+    })
 
     it('should disable font variables settings', () => {
-      const result = applyThemeOnHtmlStyleTag({
+      const result = createThemVars({
         colorScheme: 'light',
         seedColor: 'green',
         font: false,
-      });
-      expect(result).toHaveProperty('--color-seed', 'green');
-      expect(result).toHaveProperty('--color-scheme', 'light');
-      expect(result).toHaveProperty('--color-primary', 'primary');
-      expect(result).toHaveProperty(
-        '--elevation-1',
-        '0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3)',
-      );
-      expect(result).not.toHaveProperty('--font-title');
-      expect(result).not.toHaveProperty('--font-content');
-      expect(result).not.toHaveProperty('--font-code');
-    });
+      })
+      expect(result).toContain('--color-seed: green')
+      expect(result).toContain('--color-scheme: light')
+      expect(result).toContain('--color-primary: primary')
+      expect(result).toContain('--elevation-1:')
+      expect(result).toContain('--font-settings: false')
+      expect(result).not.toContain('--font-title')
+      expect(result).not.toContain('--font-content')
+      expect(result).not.toContain('--font-code')
+    })
 
     it('should apply the fonts settings', () => {
-      const result = applyThemeOnHtmlStyleTag({
+      const result = createThemVars({
         colorScheme: 'dark',
         seedColor: 'blue',
         font: {
@@ -106,62 +103,57 @@ describe('Theme utils', () => {
           content: 'Arial',
           code: 'Verdana',
         },
-      });
-      expect(result).toHaveProperty('--color-seed', 'blue');
-      expect(result).toHaveProperty('--color-scheme', 'dark');
-      expect(result).toHaveProperty('--font-title', 'Times New Roman');
-      expect(result).toHaveProperty('--font-content', 'Arial');
-      expect(result).toHaveProperty('--font-code', 'Verdana');
-    });
-  });
+      })
+      expect(result).toContain('--color-seed: blue')
+      expect(result).toContain('--color-scheme: dark')
+      expect(result).toContain('--font-settings: true')
+      expect(result).toContain('--font-title: Times New Roman')
+      expect(result).toContain('--font-content: Arial')
+      expect(result).toContain('--font-code: Verdana')
+    })
+  })
 
-  it('applyTheme', () => {
-    applyTheme({ colorScheme: 'light', seedColor: 'white', font: false });
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('light');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-seed',
-      ),
-    ).toEqual('white');
-  });
+  it('applyTheme should inject a style element into the document head', () => {
+    applyTheme({ colorScheme: 'light', seedColor: 'white', font: false })
+
+    const styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl).not.toBeNull()
+    expect(styleEl.textContent).toContain('--color-scheme: light')
+    expect(styleEl.textContent).toContain('--color-seed: white')
+  })
+
+  it('applyTheme should replace an existing theme style element', () => {
+    applyTheme({ colorScheme: 'light', seedColor: 'white', font: false })
+    applyTheme({ colorScheme: 'dark', seedColor: 'black', font: false })
+
+    const styleElements = document.querySelectorAll('[data-theme]')
+    expect(styleElements.length).toBe(1)
+    const styleEl = styleElements[0] as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: dark')
+    expect(styleEl.textContent).toContain('--color-seed: black')
+  })
 
   it('toggleThemeColorScheme', () => {
-    applyTheme({ colorScheme: 'light', seedColor: 'blue', font: false });
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('light');
-    let current = 'light';
-    toggleThemeColorScheme(newScheme => (current = newScheme));
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('dark');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--font-settings',
-      ),
-    ).toEqual('false');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--font-title',
-      ),
-    ).toEqual('');
-    expect(current).toEqual('dark');
-    toggleThemeColorScheme(newScheme => (current = newScheme));
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('light');
-    expect(current).toEqual('light');
-  });
+    applyTheme({ colorScheme: 'light', seedColor: 'blue', font: false })
+
+    let styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: light')
+
+    let current = 'light'
+    toggleThemeColorScheme(newScheme => (current = newScheme))
+
+    styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: dark')
+    expect(styleEl.textContent).toContain('--font-settings: false')
+    expect(styleEl.textContent).not.toContain('--font-title')
+    expect(current).toEqual('dark')
+
+    toggleThemeColorScheme(newScheme => (current = newScheme))
+
+    styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: light')
+    expect(current).toEqual('light')
+  })
 
   it('applyThemeColorScheme', () => {
     applyTheme({
@@ -172,61 +164,40 @@ describe('Theme utils', () => {
         content: 'Papyrus',
         code: 'Courier New',
       },
-    });
+    })
 
-    const onChange = vi.fn();
-    applyThemeColorScheme('dark', onChange);
+    const onChange = vi.fn()
+    applyThemeColorScheme('dark', onChange)
 
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('dark');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-seed',
-      ),
-    ).toEqual('purple');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--font-title',
-      ),
-    ).toEqual('Comic Sans MS');
-    expect(onChange).toHaveBeenCalled();
-  });
+    const styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: dark')
+    expect(styleEl.textContent).toContain('--color-seed: purple')
+    expect(styleEl.textContent).toContain('--font-title: Comic Sans MS')
+    expect(onChange).toHaveBeenCalled()
+  })
 
   it('applyThemeColorScheme without onChange callback', () => {
     applyTheme({
       seedColor: 'orange',
       colorScheme: 'light',
       font: false,
-    });
+    })
 
-    applyThemeColorScheme('dark');
+    applyThemeColorScheme('dark')
 
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('dark');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-seed',
-      ),
-    ).toEqual('orange');
-  });
+    const styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: dark')
+    expect(styleEl.textContent).toContain('--color-seed: orange')
+  })
 
   it('toggleThemeColorScheme without onToggle callback', () => {
-    applyTheme({ colorScheme: 'light', seedColor: 'cyan', font: false });
+    applyTheme({ colorScheme: 'light', seedColor: 'cyan', font: false })
 
-    toggleThemeColorScheme();
+    toggleThemeColorScheme()
 
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('dark');
-  });
+    const styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: dark')
+  })
 
   it('toggleThemeColorScheme preserves font settings when enabled', () => {
     applyTheme({
@@ -237,34 +208,15 @@ describe('Theme utils', () => {
         content: 'Helvetica',
         code: 'Monaco',
       },
-    });
+    })
 
-    toggleThemeColorScheme();
+    toggleThemeColorScheme()
 
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-scheme',
-      ),
-    ).toEqual('dark');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--font-settings',
-      ),
-    ).toEqual('true');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--font-title',
-      ),
-    ).toEqual('Georgia');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--font-content',
-      ),
-    ).toEqual('Helvetica');
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--font-code',
-      ),
-    ).toEqual('Monaco');
-  });
-});
+    const styleEl = document.querySelector('[data-theme]') as HTMLStyleElement
+    expect(styleEl.textContent).toContain('--color-scheme: dark')
+    expect(styleEl.textContent).toContain('--font-settings: true')
+    expect(styleEl.textContent).toContain('--font-title: Georgia')
+    expect(styleEl.textContent).toContain('--font-content: Helvetica')
+    expect(styleEl.textContent).toContain('--font-code: Monaco')
+  })
+})

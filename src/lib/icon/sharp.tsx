@@ -1,16 +1,16 @@
 'use client'
 
 import { useMemo } from 'react'
-import './sharp.scss'
 import { IconProps } from './icon'
+import './sharp.scss'
 
 /**
- * The `Icon` component displays an icon from the Material Symbols Outlined set.
+ * The `Icon` component displays an icon from the Material Symbols Sharp set.
  * It allows for customization of weight, size, fill, and emphasis.
  *
  * @example
  * ```tsx
- * import { Icon } from 'm3-ui-react/icon';
+ * import { Icon } from 'm3-ui-react/icon/sharp';
  *
  * export default function MyIcon() {
  *   return <Icon symbol="settings" />;
@@ -20,7 +20,7 @@ import { IconProps } from './icon'
  * @param {IconProps} props - The props for the `Icon` component.
  * @returns {React.ReactElement} The rendered `Icon` component.
  */
-export function IconSharp({
+export function Icon({
   symbol,
   ref,
   weight = 400,

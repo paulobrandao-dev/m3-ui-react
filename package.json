@@ -20,50 +20,47 @@
     "dist",
     "badges.svg"
   ],
-  "main": "./dist/m3-ui.cjs",
+  "main": "./dist/m3-ui.js",
   "module": "./dist/m3-ui.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/m3-ui.js",
-      "require": "./dist/m3-ui.cjs"
+      "import": "./dist/m3-ui.js"
     },
     "./theme": {
-      "types": "./dist/theme.d.ts",
-      "import": "./dist/m3-ui.theme.js",
-      "require": "./dist/m3-ui.theme.cjs"
+      "types": "./dist/theme/index.d.ts",
+      "import": "./dist/theme.js"
     },
-    "./icon": {
-      "types": "./dist/icon.d.ts",
-      "import": "./dist/m3-ui.icon.js",
-      "require": "./dist/m3-ui.icon.cjs"
+    "./icon/outlined": {
+      "types": "./dist/icon/outlined.d.ts",
+      "import": "./dist/icon-outlined.js"
+    },
+    "./icon/rounded": {
+      "types": "./dist/icon/rounded.d.ts",
+      "import": "./dist/icon-rounded.js"
+    },
+    "./icon/sharp": {
+      "types": "./dist/icon/sharp.d.ts",
+      "import": "./dist/icon-sharp.js"
     },
     "./dist/m3-ui.css": {
-      "import": "./dist/m3-ui.css",
-      "require": "./dist/m3-ui.css"
+      "import": "./dist/m3-ui.css"
     },
-    "./dist/m3-ui.icon-outlined.css": {
-      "import": "./dist/m3-ui.icon-outlined.css",
-      "require": "./dist/m3-ui.icon-outlined.css"
+    "./dist/icon-outlined.css": {
+      "import": "./dist/icon-outlined.css"
     },
-    "./dist/m3-ui.icon-rounded.css": {
-      "import": "./dist/m3-ui.icon-rounded.css",
-      "require": "./dist/m3-ui.icon-rounded.css"
+    "./dist/icon-rounded.css": {
+      "import": "./dist/icon-rounded.css"
     },
-    "./dist/m3-ui.icon-sharp.css": {
-      "import": "./dist/m3-ui.icon-sharp.css",
-      "require": "./dist/m3-ui.icon-sharp.css"
+    "./dist/icon-sharp.css": {
+      "import": "./dist/icon-sharp.css"
     }
   },
   "scripts": {
     "dev": "vite --host",
     "build:docs": "tsc -b && vite build -c configs/vite.config.docs.ts",
-    "build:outlined": "tsc -b && vite build -c configs/vite.config.icon-outlined.ts",
-    "build:rounded": "tsc -b && vite build -c configs/vite.config.icon-rounded.ts",
-    "build:sharp": "tsc -b && vite build -c configs/vite.config.icon-sharp.ts",
-    "build:icons": "npm run build:outlined && npm run build:rounded && npm run build:sharp",
-    "build": "tsc -b && vite build && npm run build:icons",
+    "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --coverage.enabled=true --ui",

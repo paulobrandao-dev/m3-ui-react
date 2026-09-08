@@ -1,8 +1,8 @@
 'use client'
 
 import { useMemo } from 'react'
-import './outlined.scss'
 import { IconProps } from './icon'
+import './outlined.scss'
 
 /**
  * The `Icon` component displays an icon from the Material Symbols Outlined set.
@@ -10,7 +10,7 @@ import { IconProps } from './icon'
  *
  * @example
  * ```tsx
- * import { Icon } from 'm3-ui-react/icon';
+ * import { Icon } from 'm3-ui-react/icon/outlined';
  *
  * export default function MyIcon() {
  *   return <Icon symbol="settings" />;
@@ -20,7 +20,7 @@ import { IconProps } from './icon'
  * @param {IconProps} props - The props for the `Icon` component.
  * @returns {React.ReactElement} The rendered `Icon` component.
  */
-export function IconOutlined({
+export function Icon({
   symbol,
   ref,
   weight = 400,

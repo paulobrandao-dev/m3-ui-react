@@ -8,7 +8,7 @@ import dts from 'vite-plugin-dts'
 import loadVersion from 'vite-plugin-package-version'
 
 const libEntries: Record<string, string> = {
-  index: resolve(__dirname, 'src', 'lib', 'index.ts'),
+  'm3-ui': resolve(__dirname, 'src', 'lib', 'index.ts'),
   theme: resolve(__dirname, 'src', 'lib', 'theme', 'index.ts'),
   'icon-rounded': resolve(__dirname, 'src', 'lib', 'icon', 'rounded.tsx'),
   'icon-sharp': resolve(__dirname, 'src', 'lib', 'icon', 'sharp.tsx'),
@@ -24,6 +24,12 @@ export default defineConfig({
     dts({
       bundleTypes: true,
       tsconfigPath: resolve(__dirname, 'tsconfig.app.json'),
+      exclude: [
+        'src/docs',
+        'node_modules',
+        '**/*.{test,spec}.@(ts|tsx)',
+        'src/vite-env.d.ts',
+      ],
     }),
   ],
   resolve: {
@@ -36,8 +42,7 @@ export default defineConfig({
     lib: {
       entry: libEntries,
       formats: ['es'],
-      fileName: (_format, entryName) =>
-        `m3-ui${entryName !== 'index' ? `.${entryName}` : ''}.js`,
+      fileName: (_, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
