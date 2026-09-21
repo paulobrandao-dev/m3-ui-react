@@ -17,17 +17,9 @@
     "url": "https://github.com/paulobrandao-dev/m3-ui-react/issues"
   },
   "files": [
-    "dist",
-    "badges.svg"
+    "dist"
   ],
-  "main": "./dist/m3-ui.js",
-  "module": "./dist/m3-ui.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/m3-ui.js"
-    },
     "./theme": {
       "types": "./dist/theme/index.d.ts",
       "import": "./dist/theme.js"
@@ -44,6 +36,10 @@
       "types": "./dist/icon/sharp.d.ts",
       "import": "./dist/icon-sharp.js"
     },
+    "./appbar": {
+      "types": "./dist/components/appbar.d.ts",
+      "import": "./dist/appbar.js"
+    },
     "./font": {
       "types": "./dist/components/font.d.ts",
       "import": "./dist/font.js"
@@ -59,6 +55,12 @@
     },
     "./dist/icon-sharp.css": {
       "import": "./dist/icon-sharp.css"
+    },
+    "./dist/appbar.css": {
+      "import": "./dist/appbar.css"
+    },
+    "./dist/font.css": {
+      "import": "./dist/font.css"
     }
   },
   "scripts": {
@@ -69,7 +71,6 @@
     "test": "vitest",
     "test:ui": "vitest --coverage.enabled=true --ui",
     "coverage": "vitest run --coverage",
-    "make-badges": "coverage-badges --output ./badges.svg",
     "lint-staged": "lint-staged",
     "prepare": "husky"
   },
@@ -101,7 +102,6 @@
     "@vitejs/plugin-react": "^6.1.1",
     "@vitest/coverage-istanbul": "^5.0.0",
     "@vitest/ui": "^5.0.0",
-    "coverage-badges-cli": "^2.2.0",
     "eslint": "^10.10.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.6",
