@@ -44,6 +44,10 @@
       "types": "./dist/components/appbar.d.ts",
       "import": "./dist/appbar.js"
     },
+    "./button": {
+      "types": "./dist/components/button.d.ts",
+      "import": "./dist/button.js"
+    },
     "./font": {
       "types": "./dist/components/font.d.ts",
       "import": "./dist/font.js"
@@ -59,18 +63,12 @@
     },
     "./dist/icon-sharp.css": {
       "import": "./dist/icon-sharp.css"
-    },
-    "./dist/appbar.css": {
-      "import": "./dist/appbar.css"
-    },
-    "./dist/font.css": {
-      "import": "./dist/font.css"
     }
   },
   "scripts": {
     "dev": "vite --host",
     "build:docs": "tsc -b && vite build -c configs/vite.config.docs.ts",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build -c configs/vite.config.icons.ts",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --coverage.enabled=true --ui",

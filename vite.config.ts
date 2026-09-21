@@ -11,11 +11,9 @@ import mdx from '@mdx-js/rollup'
 const libEntries: Record<string, string> = {
   'theme-client': resolve(__dirname, 'src', 'lib', 'theme', 'client.ts'),
   'theme-server': resolve(__dirname, 'src', 'lib', 'theme', 'server.ts'),
-  'icon-rounded': resolve(__dirname, 'src', 'lib', 'icon', 'rounded.tsx'),
-  'icon-sharp': resolve(__dirname, 'src', 'lib', 'icon', 'sharp.tsx'),
-  'icon-outlined': resolve(__dirname, 'src', 'lib', 'icon', 'outlined.tsx'),
   font: resolve(__dirname, 'src', 'lib', 'components', 'font.tsx'),
   appbar: resolve(__dirname, 'src', 'lib', 'components', 'appbar.tsx'),
+  button: resolve(__dirname, 'src', 'lib', 'components', 'button.tsx'),
 }
 
 // https://vitejs.dev/config/
@@ -43,7 +41,7 @@ export default defineConfig({
     },
   },
   build: {
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     lib: {
       entry: libEntries,
       formats: ['es'],

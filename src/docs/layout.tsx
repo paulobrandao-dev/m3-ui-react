@@ -1,4 +1,3 @@
-import { Icon } from '@/lib/icon/rounded'
 import {
   Appbar,
   AppbarContent,
@@ -7,6 +6,7 @@ import {
   AppbarSubtitle,
   AppbarTitle,
 } from '@/lib/components/appbar'
+import { Icon } from '@/lib/icon/rounded'
 import { useSettings } from './settings/hook'
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -23,10 +23,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 {navAction === 'back' && <Icon symbol='arrow_back' />}
               </AppbarContent>
             )}
-            <AppbarContent variant='end'>
-              <Icon symbol='search' />
-              <Icon symbol='more_vert' />
-            </AppbarContent>
           </AppbarRow>
           {(title || subtitle) && (
             <AppbarRow>
