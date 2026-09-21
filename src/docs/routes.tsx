@@ -32,6 +32,6 @@ export default function routes(path: string) {
     case `${BASE_PATH}/`:
       return <Home components={components} />
     default:
-      return <NotFound />
+      return <NotFound components={components} />
   }
 }

@@ -2,7 +2,7 @@ import { type ReactNode, useEffect } from 'react'
 import { useSettings } from '../settings/hook'
 import { type NavAction } from '../settings/context'
 
-export const ApplyTitle = ({
+export const PageHeader = ({
   title,
   subtitle,
   navAction,
