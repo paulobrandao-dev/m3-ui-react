@@ -7,7 +7,7 @@ import {
   themeFromSourceColor,
 } from '@material/material-color-utilities'
 
-type ThemeProps = {
+export type ThemeProps = {
   seedColor: string
   colorScheme: 'light' | 'dark'
   font?:
@@ -19,7 +19,7 @@ type ThemeProps = {
     | false
 }
 
-export function createThemVars({ seedColor, colorScheme, font }: ThemeProps) {
+export function createThemeVars({ seedColor, colorScheme, font }: ThemeProps) {
   const theme = themeFromSourceColor(argbFromHex(seedColor))
   const scheme = theme.schemes[colorScheme]
   const fonts =
@@ -60,7 +60,6 @@ export function createThemVars({ seedColor, colorScheme, font }: ThemeProps) {
   const outlineDisabledColor = `rgb(${redFromArgb(scheme.outline)} ${greenFromArgb(scheme.outline)} ${blueFromArgb(scheme.outline)} / 12%)`
 
   return `
-  :root {
     ${fonts}
     ${elevation}
     --color-seed: ${seedColor};
@@ -95,85 +94,5 @@ export function createThemVars({ seedColor, colorScheme, font }: ThemeProps) {
     --color-outline-disabled: ${outlineDisabledColor};
     --color-outline-variant: ${hexFromArgb(scheme.outlineVariant)};
     ${surfaceContainer}
-  }`
-}
-
-export function applyTheme(props: ThemeProps) {
-  const styleElement = document.createElement('style')
-  styleElement.dataset.theme = ''
-  styleElement.textContent = createThemVars(props)
-  const currentThemeElement = document.querySelector('[data-theme]')
-  if (currentThemeElement) currentThemeElement.remove()
-  document.head.appendChild(styleElement)
-}
-
-export function applyThemeColorScheme(
-  colorScheme: 'light' | 'dark',
-  onChange?: () => void,
-) {
-  const seedColor = getComputedStyle(document.documentElement).getPropertyValue(
-    '--color-seed',
-  )
-  const fontSettings = getComputedStyle(
-    document.documentElement,
-  ).getPropertyValue('--font-settings')
-  const fontTitle = getComputedStyle(document.documentElement).getPropertyValue(
-    '--font-title',
-  )
-  const fontContent = getComputedStyle(
-    document.documentElement,
-  ).getPropertyValue('--font-content')
-  const fontCode = getComputedStyle(document.documentElement).getPropertyValue(
-    '--font-code',
-  )
-  applyTheme({
-    seedColor,
-    colorScheme,
-    font:
-      fontSettings === 'true'
-        ? {
-            title: fontTitle,
-            content: fontContent,
-            code: fontCode,
-          }
-        : false,
-  })
-  if (onChange !== undefined) onChange()
-}
-
-export function toggleThemeColorScheme(
-  onToggle?: (colorScheme: string) => void,
-) {
-  const scheme = getComputedStyle(document.documentElement).getPropertyValue(
-    '--color-scheme',
-  )
-  const seedColor = getComputedStyle(document.documentElement).getPropertyValue(
-    '--color-seed',
-  )
-  const fontSettings = getComputedStyle(
-    document.documentElement,
-  ).getPropertyValue('--font-settings')
-  const fontTitle = getComputedStyle(document.documentElement).getPropertyValue(
-    '--font-title',
-  )
-  const fontContent = getComputedStyle(
-    document.documentElement,
-  ).getPropertyValue('--font-content')
-  const fontCode = getComputedStyle(document.documentElement).getPropertyValue(
-    '--font-code',
-  )
-  const colorScheme = scheme === 'light' ? 'dark' : 'light'
-  applyTheme({
-    seedColor,
-    colorScheme,
-    font:
-      fontSettings === 'true'
-        ? {
-            title: fontTitle,
-            content: fontContent,
-            code: fontCode,
-          }
-        : false,
-  })
-  if (onToggle !== undefined) onToggle(colorScheme)
+  `
 }

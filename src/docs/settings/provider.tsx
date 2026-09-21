@@ -1,4 +1,4 @@
-import { applyThemeColorScheme } from '@/lib/theme'
+import { applyThemeColorScheme } from '@/lib/theme/client'
 import { useCallback, useState } from 'react'
 import { NavAction, SettingsContext } from './context'
 import settings from './model'

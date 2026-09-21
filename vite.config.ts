@@ -9,7 +9,8 @@ import loadVersion from 'vite-plugin-package-version'
 import mdx from '@mdx-js/rollup'
 
 const libEntries: Record<string, string> = {
-  theme: resolve(__dirname, 'src', 'lib', 'theme', 'index.ts'),
+  'theme-client': resolve(__dirname, 'src', 'lib', 'theme', 'client.ts'),
+  'theme-server': resolve(__dirname, 'src', 'lib', 'theme', 'server.ts'),
   'icon-rounded': resolve(__dirname, 'src', 'lib', 'icon', 'rounded.tsx'),
   'icon-sharp': resolve(__dirname, 'src', 'lib', 'icon', 'sharp.tsx'),
   'icon-outlined': resolve(__dirname, 'src', 'lib', 'icon', 'outlined.tsx'),

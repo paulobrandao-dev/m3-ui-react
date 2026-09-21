@@ -20,9 +20,13 @@
     "dist"
   ],
   "exports": {
-    "./theme": {
-      "types": "./dist/theme/index.d.ts",
-      "import": "./dist/theme.js"
+    "./theme/client": {
+      "types": "./dist/theme/client.d.ts",
+      "import": "./dist/theme-client.js"
+    },
+    "./theme/server": {
+      "types": "./dist/theme/server.d.ts",
+      "import": "./dist/theme-server.js"
     },
     "./icon/outlined": {
       "types": "./dist/icon/outlined.d.ts",

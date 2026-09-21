@@ -1,4 +1,4 @@
-import { applyTheme } from '@/lib/theme'
+import { applyTheme } from '@/lib/theme/client'
 import '@/styles/m3-ui.scss'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'

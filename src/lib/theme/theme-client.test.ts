@@ -1,10 +1,10 @@
 import { describe, expect, it, vi } from 'vitest'
 import {
   applyTheme,
-  createThemVars,
   toggleThemeColorScheme,
   applyThemeColorScheme,
-} from './'
+} from './client'
+import { createThemeVars } from './common'
 
 vi.mock('@material/material-color-utilities', () => {
   const mockTheme = {
@@ -61,9 +61,9 @@ vi.mock('@material/material-color-utilities', () => {
 })
 
 describe('Theme utils', () => {
-  describe('createThemVars', () => {
+  describe('createThemeVars', () => {
     it('should return a CSS string containing the theme variables', () => {
-      const result = createThemVars({
+      const result = createThemeVars({
         colorScheme: 'dark',
         seedColor: 'red',
       })
@@ -79,7 +79,7 @@ describe('Theme utils', () => {
     })
 
     it('should disable font variables settings', () => {
-      const result = createThemVars({
+      const result = createThemeVars({
         colorScheme: 'light',
         seedColor: 'green',
         font: false,
@@ -95,7 +95,7 @@ describe('Theme utils', () => {
     })
 
     it('should apply the fonts settings', () => {
-      const result = createThemVars({
+      const result = createThemeVars({
         colorScheme: 'dark',
         seedColor: 'blue',
         font: {
