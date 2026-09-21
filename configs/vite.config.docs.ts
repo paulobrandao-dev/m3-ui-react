@@ -1,13 +1,14 @@
 /// <reference types="vitest/config" />
 
-import react from '@vitejs/plugin-react';
-import { resolve } from 'node:path';
-import { defineConfig } from 'vite';
-import loadVersion from 'vite-plugin-package-version';
+import react from '@vitejs/plugin-react'
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+import loadVersion from 'vite-plugin-package-version'
+import mdx from '@mdx-js/rollup'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), loadVersion()],
+  plugins: [mdx(), react(), loadVersion()],
   build: { outDir: 'build' },
   base: '/m3-ui-react',
   resolve: {
@@ -15,4 +16,4 @@ export default defineConfig({
       '@': resolve(__dirname, '..', 'src'),
     },
   },
-});
+})

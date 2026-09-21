@@ -6,19 +6,21 @@ import preserveDirectives from 'rollup-preserve-directives'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import loadVersion from 'vite-plugin-package-version'
+import mdx from '@mdx-js/rollup'
 
 const libEntries: Record<string, string> = {
-  'm3-ui': resolve(__dirname, 'src', 'lib', 'index.ts'),
   theme: resolve(__dirname, 'src', 'lib', 'theme', 'index.ts'),
   'icon-rounded': resolve(__dirname, 'src', 'lib', 'icon', 'rounded.tsx'),
   'icon-sharp': resolve(__dirname, 'src', 'lib', 'icon', 'sharp.tsx'),
   'icon-outlined': resolve(__dirname, 'src', 'lib', 'icon', 'outlined.tsx'),
   font: resolve(__dirname, 'src', 'lib', 'components', 'font.tsx'),
+  appbar: resolve(__dirname, 'src', 'lib', 'components', 'appbar.tsx'),
 }
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    mdx(),
     react(),
     loadVersion(),
     preserveDirectives(),

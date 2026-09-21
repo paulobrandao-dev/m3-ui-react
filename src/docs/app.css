@@ -5,19 +5,12 @@ body,
   height: 100%;
 }
 
-html,
-body {
-  overflow: hidden;
-}
-
 #root {
-  overflow-x: hidden;
-  overflow-y: auto;
   display: flex;
 }
 
 #root > [role='presentation'] {
-  height: fit-content;
+  flex: auto;
 }
 
 @media screen and (max-width: 839px) {
