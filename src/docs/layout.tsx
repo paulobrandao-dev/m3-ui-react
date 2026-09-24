@@ -6,11 +6,14 @@ import {
   AppbarSubtitle,
   AppbarTitle,
 } from '@/lib/components/appbar'
+import { IconButton } from '@/lib/components/icon-button'
 import { Icon } from '@/lib/icon/rounded'
 import { useSettings } from './settings/hook'
+import { useState } from 'react'
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const { title, subtitle, navAction } = useSettings()
+  const [settingsIsOpen, toggleSettings] = useState(false)
 
   return (
     <>
@@ -19,10 +22,31 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <AppbarRow>
             {navAction !== undefined && (
               <AppbarContent variant='start'>
-                {navAction === 'menu' && <Icon symbol='menu' />}
-                {navAction === 'back' && <Icon symbol='arrow_back' />}
+                {navAction === 'menu' && (
+                  <IconButton>
+                    <Icon symbol='menu' />
+                  </IconButton>
+                )}
+                {navAction === 'back' && (
+                  <IconButton>
+                    <Icon symbol='arrow_back' />
+                  </IconButton>
+                )}
               </AppbarContent>
             )}
+            <AppbarContent variant='end'>
+              <IconButton>
+                <Icon symbol='search' />
+              </IconButton>
+              <IconButton
+                variant='filled'
+                onClick={() => toggleSettings(current => !current)}
+                isTogglable
+                isSelected={settingsIsOpen}
+              >
+                <Icon symbol='settings' />
+              </IconButton>
+            </AppbarContent>
           </AppbarRow>
           {(title || subtitle) && (
             <AppbarRow>

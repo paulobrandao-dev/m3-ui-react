@@ -1,0 +1,58 @@
+%button-reset {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%button-disabled-surface {
+  color: rgb(from var(--color-on-surface) r g b / 0.38);
+  background-color: rgb(from var(--color-on-surface) r g b / 0.1);
+}
+
+%state-layer {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: 0;
+    background-color: currentColor;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: var(--ease-duration);
+    transition-timing-function: var(--ease-standard);
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: var(--opacity-hover);
+  }
+
+  &:focus::before {
+    opacity: var(--opacity-focus);
+  }
+}
+
+%transition-standard {
+  transition-duration: var(--ease-duration);
+  transition-timing-function: var(--ease-standard);
+}
+
+%transition-accelerate {
+  transition-duration: var(--ease-accelerate-duration);
+  transition-timing-function: var(--ease-accelerate);
+}
+
+%transition-decelerate {
+  transition-duration: var(--ease-decelerate-duration);
+  transition-timing-function: var(--ease-decelerate);
+}

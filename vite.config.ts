@@ -14,6 +14,13 @@ const libEntries: Record<string, string> = {
   font: resolve(__dirname, 'src', 'lib', 'components', 'font.tsx'),
   appbar: resolve(__dirname, 'src', 'lib', 'components', 'appbar.tsx'),
   button: resolve(__dirname, 'src', 'lib', 'components', 'button.tsx'),
+  'icon-button': resolve(
+    __dirname,
+    'src',
+    'lib',
+    'components',
+    'icon-button.tsx',
+  ),
 }
 
 // https://vitejs.dev/config/

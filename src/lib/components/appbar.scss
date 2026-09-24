@@ -1,13 +1,14 @@
+@use '../../styles/extendable.scss';
+
 [data-appbar] {
+  @extend %transition-standard;
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 4rem;
   background-color: var(--color-surface);
   color: var(--color-on-surface);
-  transition:
-    background-color var(--ease-duration) var(--ease-standard),
-    box-shadow var(--ease-duration) var(--ease-standard);
+  transition-property: background-color, box-shadow;
   will-change: background-color, box-shadow;
 
   &[data-scrolled] {
@@ -19,6 +20,7 @@
     display: flex;
     align-items: center;
     padding: 0.25rem 0.5rem;
+    min-height: 4rem;
 
     > [data-appbar-content] {
       display: inline-flex;

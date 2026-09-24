@@ -1,36 +1,17 @@
-@use '../../styles/mixin' as *;
+@use '../../styles/extendable.scss';
 
 [data-button] {
-  background-color: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  @extend %button-reset;
+  @extend %state-layer;
+  @extend %transition-standard;
   transition-property: box-shadow, border-radius;
-  transition-duration: var(--ease-duration);
-  transition-timing-function: var(--ease-standard);
-  @include state-layer;
-
-  &:hover {
-    @include state-layer-hover;
-  }
-
-  &:focus {
-    @include state-layer-focus;
-  }
+  will-change: box-shadow, border-radius;
 
   &:disabled,
   &[data-disabled] {
-    color: rgb(from var(--color-on-surface) r g b / 0.38);
-    background-color: rgb(from var(--color-on-surface) r g b / 0.1);
+    @extend %button-disabled-surface;
     box-shadow: none;
     pointer-events: none;
-
-    > * {
-      opacity: 0.38;
-    }
   }
 
   &[data-size='xs'] {
