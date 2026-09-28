@@ -1,5 +1,6 @@
 import { applyTheme } from '@/lib/theme/client'
 import '@/styles/m3-ui.scss'
+import 'highlight.js/styles/github-dark.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './app'

@@ -1,12 +1,14 @@
 /// <reference types="vitest/config" />
 
+import mdx from '@mdx-js/rollup'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
+import rehypeHighlight from 'rehype-highlight'
+import remarkGfm from 'remark-gfm'
 import preserveDirectives from 'rollup-preserve-directives'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import loadVersion from 'vite-plugin-package-version'
-import mdx from '@mdx-js/rollup'
 
 const libEntries: Record<string, string> = {
   'theme-client': resolve(__dirname, 'src', 'lib', 'theme', 'client.ts'),
@@ -27,7 +29,10 @@ const libEntries: Record<string, string> = {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    mdx(),
+    {
+      enforce: 'pre',
+      ...mdx({ remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHighlight] }),
+    },
     react(),
     loadVersion(),
     preserveDirectives(),
