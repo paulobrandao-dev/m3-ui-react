@@ -21,6 +21,7 @@ const libEntries: Record<string, string> = {
     'components',
     'icon-button.tsx',
   ),
+  'nav-rail': resolve(__dirname, 'src', 'lib', 'components', 'nav-rail.tsx'),
 }
 
 // https://vitejs.dev/config/

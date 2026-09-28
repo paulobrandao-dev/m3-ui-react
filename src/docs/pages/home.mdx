@@ -1,10 +1,6 @@
 import { PageHeader } from '../shared/page-header'
 
-<PageHeader
-  title='M3 UI React'
-  subtitle='Material 3 design system for React'
-  navAction='menu'
-/>
+<PageHeader title='M3 UI React' subtitle='Material 3 design system for React' />
 
 M3 UI React is a component library that implements the [Material Design 3](https://m3.material.io/) design system for React applications. It provides themeable, accessible, and polymorphic components that integrate seamlessly with both client-side apps and server-side rendering frameworks such as **Next.js**, **Remix**, and **Astro**.
 
@@ -36,11 +32,11 @@ import 'm3-ui-react/dist/m3-ui.css'
 
 Icons are shipped as separate CSS files because each family embeds its font as Base64. Pick **one** family and import its stylesheet alongside the base styles.
 
-| Family | Import |
-|---|---|
-| Rounded (recommended) | `import 'm3-ui-react/dist/icon-rounded.css'` |
-| Outlined | `import 'm3-ui-react/dist/icon-outlined.css'` |
-| Sharp | `import 'm3-ui-react/dist/icon-sharp.css'` |
+| Family                | Import                                        |
+| --------------------- | --------------------------------------------- |
+| Rounded (recommended) | `import 'm3-ui-react/dist/icon-rounded.css'`  |
+| Outlined              | `import 'm3-ui-react/dist/icon-outlined.css'` |
+| Sharp                 | `import 'm3-ui-react/dist/icon-sharp.css'`    |
 
 ### 3. Apply a theme
 
@@ -64,11 +60,15 @@ import 'm3-ui-react/dist/m3-ui.css'
 import 'm3-ui-react/dist/icon-rounded.css'
 import { applyTheme } from 'm3-ui-react/theme/server'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const themeVars = applyTheme({ seedColor: '#6750A4', colorScheme: 'light' })
 
   return (
-    <html lang="en" style={themeVars}>
+    <html lang='en' style={themeVars}>
       <body>{children}</body>
     </html>
   )
@@ -96,8 +96,8 @@ export default function MyPage() {
     <>
       <Appbar>
         <AppbarRow>
-          <AppbarContent variant="start">
-            <Icon symbol="menu" />
+          <AppbarContent variant='start'>
+            <Icon symbol='menu' />
           </AppbarContent>
           <AppbarHeading>
             <AppbarTitle>My App</AppbarTitle>
@@ -106,10 +106,10 @@ export default function MyPage() {
       </Appbar>
 
       <main>
-        <Font as="h2" variant="headline-medium">
+        <Font as='h2' variant='headline-medium'>
           Welcome
         </Font>
-        <Button variant="filled" size="md">
+        <Button variant='filled' size='md'>
           Get started
         </Button>
       </main>

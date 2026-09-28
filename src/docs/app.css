@@ -5,12 +5,19 @@ body,
   height: 100%;
 }
 
+html,
+body {
+  overflow: hidden;
+}
+
 #root {
   display: flex;
+  overflow: hidden auto;
 }
 
 #root > [role='presentation'] {
   flex: auto;
+  margin-inline-start: 5.625rem;
 }
 
 @media screen and (max-width: 839px) {

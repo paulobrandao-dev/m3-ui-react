@@ -1,5 +1,8 @@
 import { Font } from '@/lib/components/font'
+import { Icon } from '@/lib/icon/sharp'
 import { BASE_PATH } from './constants'
+import Appbar from './pages/appbar.mdx'
+import Components from './pages/components.mdx'
 import Home from './pages/home.mdx'
 import NotFound from './pages/not-found.mdx'
 
@@ -27,11 +30,39 @@ const components = {
   },
 }
 
-export default function routes(path: string) {
-  switch (path) {
-    case `${BASE_PATH}/`:
-      return <Home components={components} />
-    default:
-      return <NotFound components={components} />
-  }
+type Route = {
+  label: string
+  icon: React.ReactNode
+  path: string
+  render: React.ReactNode
+  isGroupRoot?: boolean
+  intoGroup?: boolean
+}
+
+export const routes: Route[] = [
+  {
+    label: 'Home',
+    icon: <Icon symbol='home' />,
+    path: `${BASE_PATH}/`,
+    render: <Home components={components} />,
+  },
+  {
+    label: 'Components',
+    icon: <Icon symbol='extension' />,
+    path: `${BASE_PATH}/components`,
+    render: <Components components={components} />,
+    isGroupRoot: true,
+  },
+  {
+    label: 'Appbar',
+    icon: <Icon symbol='toolbar' />,
+    path: `${BASE_PATH}/components/appbar`,
+    render: <Appbar components={components} />,
+    intoGroup: true,
+  },
+]
+
+export function currentRoute(path: string) {
+  const found = routes.find(route => route.path === path)
+  return found ? found.render : <NotFound components={components} />
 }

@@ -56,6 +56,10 @@
       "types": "./dist/components/icon-button.d.ts",
       "import": "./dist/icon-button.js"
     },
+    "./nav-rail": {
+      "types": "./dist/components/nav-rail.d.ts",
+      "import": "./dist/nav-rail.js"
+    },
     "./dist/m3-ui.css": {
       "import": "./dist/m3-ui.css"
     },

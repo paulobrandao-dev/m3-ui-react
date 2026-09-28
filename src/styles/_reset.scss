@@ -12,6 +12,7 @@ html,
 body {
   width: 100%;
   transition-property: background-color, color;
+  will-change: background-color, color;
   transition-duration: var(--ease-duration);
   transition-timing-function: var(--ease-standard);
   background-color: var(--color-background);
