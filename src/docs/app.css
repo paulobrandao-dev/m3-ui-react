@@ -17,7 +17,6 @@ body {
 
 #root > [role='presentation'] {
   flex: auto;
-  margin-inline-start: 5.625rem;
 }
 
 @media screen and (max-width: 839px) {

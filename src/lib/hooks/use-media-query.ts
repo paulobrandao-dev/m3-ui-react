@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 /**
  * A set of media queries that can be used to create responsive layouts.
@@ -24,24 +24,24 @@ import { useEffect, useState } from 'react';
  * @property {boolean} isLandscape - `true` if the viewport width is greater than the height.
  */
 export type MediaQueries = {
-  width: number;
-  height: number;
-  isCompact: boolean;
-  isGreaterThanCompact: boolean;
-  isMedium: boolean;
-  isLessThanMedium: boolean;
-  isGreaterThanMedium: boolean;
-  isExpanded: boolean;
-  isLessThanExpanded: boolean;
-  isGreaterThanExpanded: boolean;
-  isLarge: boolean;
-  isLessThanLarge: boolean;
-  isGreaterThanLarge: boolean;
-  isExtraLarge: boolean;
-  isLessThanExtraLarge: boolean;
-  isPortrait: boolean;
-  isLandscape: boolean;
-};
+  width: number
+  height: number
+  isCompact: boolean
+  isGreaterThanCompact: boolean
+  isMedium: boolean
+  isLessThanMedium: boolean
+  isGreaterThanMedium: boolean
+  isExpanded: boolean
+  isLessThanExpanded: boolean
+  isGreaterThanExpanded: boolean
+  isLarge: boolean
+  isLessThanLarge: boolean
+  isGreaterThanLarge: boolean
+  isExtraLarge: boolean
+  isLessThanExtraLarge: boolean
+  isPortrait: boolean
+  isLandscape: boolean
+}
 
 /**
  * A hook that provides a set of media queries to create responsive layouts.
@@ -84,12 +84,12 @@ export function useMediaQuery(): MediaQueries {
     isLessThanExtraLarge: false,
     isLandscape: false,
     isPortrait: false,
-  });
+  })
 
   useEffect(() => {
     const checkMedia = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const width = window.innerWidth
+      const height = window.innerHeight
       setQueries({
         width,
         height,
@@ -108,14 +108,14 @@ export function useMediaQuery(): MediaQueries {
         isLessThanExtraLarge: width < 1400,
         isLandscape: width > height,
         isPortrait: width < height,
-      });
-    };
-    checkMedia();
-    window.addEventListener('resize', checkMedia);
+      })
+    }
+    checkMedia()
+    window.addEventListener('resize', checkMedia)
     return () => {
-      window.removeEventListener('resize', checkMedia);
-    };
-  }, []);
+      window.removeEventListener('resize', checkMedia)
+    }
+  }, [])
 
-  return queries;
+  return queries
 }

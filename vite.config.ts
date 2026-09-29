@@ -13,6 +13,7 @@ import loadVersion from 'vite-plugin-package-version'
 const libEntries: Record<string, string> = {
   'theme-client': resolve(__dirname, 'src', 'lib', 'theme', 'client.ts'),
   'theme-server': resolve(__dirname, 'src', 'lib', 'theme', 'server.ts'),
+  hooks: resolve(__dirname, 'src', 'lib', 'hooks', 'index.ts'),
   font: resolve(__dirname, 'src', 'lib', 'components', 'font.tsx'),
   appbar: resolve(__dirname, 'src', 'lib', 'components', 'appbar.tsx'),
   button: resolve(__dirname, 'src', 'lib', 'components', 'button.tsx'),
@@ -24,6 +25,7 @@ const libEntries: Record<string, string> = {
     'icon-button.tsx',
   ),
   'nav-rail': resolve(__dirname, 'src', 'lib', 'components', 'nav-rail.tsx'),
+  content: resolve(__dirname, 'src', 'lib', 'components', 'content.tsx'),
 }
 
 // https://vitejs.dev/config/

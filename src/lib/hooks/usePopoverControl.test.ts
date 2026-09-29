@@ -1,26 +1,26 @@
-import { renderHook } from '@testing-library/react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
-import { usePopoverControl } from './usePopoverControl';
-import * as useMediaQuery from './useMediaQuery';
+import { renderHook } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { usePopoverControl } from './usePopoverControl'
+import * as useMediaQuery from './use-media-query'
 
-const spyShow = vi.fn();
-const spyHide = vi.fn();
-const spyToggle = vi.fn();
+const spyShow = vi.fn()
+const spyHide = vi.fn()
+const spyToggle = vi.fn()
 
 const spyGetElementById = vi
   .spyOn(document, 'getElementById')
   .mockImplementation(elementId => {
     if (elementId.startsWith('non-existent')) {
-      return null;
+      return null
     }
-    const element = document.createElement('div');
-    element.setAttribute('id', elementId);
-    element.setAttribute('popover', '');
-    element.showPopover = spyShow;
-    element.hidePopover = spyHide;
-    element.togglePopover = spyToggle;
-    return element;
-  });
+    const element = document.createElement('div')
+    element.setAttribute('id', elementId)
+    element.setAttribute('popover', '')
+    element.showPopover = spyShow
+    element.hidePopover = spyHide
+    element.togglePopover = spyToggle
+    return element
+  })
 
 vi.spyOn(useMediaQuery, 'useMediaQuery').mockReturnValue({
   height: 1080,
@@ -40,71 +40,71 @@ vi.spyOn(useMediaQuery, 'useMediaQuery').mockReturnValue({
   isLessThanExtraLarge: false,
   isPortrait: false,
   isLandscape: true,
-});
+})
 
 const getAnchorElement = (rect: {
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
+  top: number
+  bottom: number
+  left: number
+  right: number
 }) => {
-  const anchor = document.createElement('div');
-  anchor.getBoundingClientRect = () => rect as DOMRect;
-  return anchor;
-};
+  const anchor = document.createElement('div')
+  anchor.getBoundingClientRect = () => rect as DOMRect
+  return anchor
+}
 
 describe('usePopoverControl hook', () => {
   afterEach(() => {
-    vi.clearAllMocks();
-  });
+    vi.clearAllMocks()
+  })
 
   it('should handle popover elements display by Popover API', () => {
-    const { result } = renderHook(() => usePopoverControl('test'));
-    result.current.showPopover();
-    expect(spyShow).toBeCalled();
-    result.current.hidePopover();
-    expect(spyHide).toBeCalled();
-    result.current.togglePopover();
-    expect(spyToggle).toBeCalled();
-  });
+    const { result } = renderHook(() => usePopoverControl('test'))
+    result.current.showPopover()
+    expect(spyShow).toBeCalled()
+    result.current.hidePopover()
+    expect(spyHide).toBeCalled()
+    result.current.togglePopover()
+    expect(spyToggle).toBeCalled()
+  })
 
   it('should do nothing if popover element does not exist', () => {
-    const { result } = renderHook(() => usePopoverControl('non-existent'));
-    result.current.showPopover();
-    expect(spyShow).not.toBeCalled();
-    result.current.hidePopover();
-    expect(spyHide).not.toBeCalled();
-    result.current.togglePopover();
-    expect(spyToggle).not.toBeCalled();
-  });
+    const { result } = renderHook(() => usePopoverControl('non-existent'))
+    result.current.showPopover()
+    expect(spyShow).not.toBeCalled()
+    result.current.hidePopover()
+    expect(spyHide).not.toBeCalled()
+    result.current.togglePopover()
+    expect(spyToggle).not.toBeCalled()
+  })
 
   it('should set popover position based on a top-left anchor', () => {
-    const { result } = renderHook(() => usePopoverControl('test-position'));
+    const { result } = renderHook(() => usePopoverControl('test-position'))
     const anchor = getAnchorElement({
       top: 100,
       bottom: 200,
       left: 300,
       right: 400,
-    });
-    result.current.showPopover(anchor);
-    const popover = spyGetElementById.mock.results[0].value;
-    expect(popover?.style.cssText).toContain('margin-block-start: 200px');
-    expect(popover?.style.cssText).toContain('margin-inline-start: 400px');
-    expect(popover?.style.cssText).toContain('transform-origin: top left');
-  });
+    })
+    result.current.showPopover(anchor)
+    const popover = spyGetElementById.mock.results[0].value
+    expect(popover?.style.cssText).toContain('margin-block-start: 200px')
+    expect(popover?.style.cssText).toContain('margin-inline-start: 400px')
+    expect(popover?.style.cssText).toContain('transform-origin: top left')
+  })
 
   it('should set popover position based on a bottom-right anchor', () => {
-    const { result } = renderHook(() => usePopoverControl('test-position'));
+    const { result } = renderHook(() => usePopoverControl('test-position'))
     const anchor = getAnchorElement({
       top: 900,
       bottom: 1000,
       left: 1300,
       right: 1400,
-    });
-    result.current.togglePopover(anchor);
-    const popover = spyGetElementById.mock.results[0].value;
-    expect(popover?.style.cssText).toContain('margin-block-end: 180px');
-    expect(popover?.style.cssText).toContain('margin-inline-end: 620px');
-    expect(popover?.style.cssText).toContain('transform-origin: bottom right');
-  });
-});
+    })
+    result.current.togglePopover(anchor)
+    const popover = spyGetElementById.mock.results[0].value
+    expect(popover?.style.cssText).toContain('margin-block-end: 180px')
+    expect(popover?.style.cssText).toContain('margin-inline-end: 620px')
+    expect(popover?.style.cssText).toContain('transform-origin: bottom right')
+  })
+})

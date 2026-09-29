@@ -40,6 +40,10 @@
       "types": "./dist/icon/sharp.d.ts",
       "import": "./dist/icon-sharp.js"
     },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks.js"
+    },
     "./appbar": {
       "types": "./dist/components/appbar.d.ts",
       "import": "./dist/appbar.js"
@@ -47,6 +51,10 @@
     "./button": {
       "types": "./dist/components/button.d.ts",
       "import": "./dist/button.js"
+    },
+    "./content": {
+      "types": "./dist/components/content.d.ts",
+      "import": "./dist/content.js"
     },
     "./font": {
       "types": "./dist/components/font.d.ts",

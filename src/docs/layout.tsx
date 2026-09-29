@@ -22,12 +22,14 @@ import { useEffect, useState } from 'react'
 import { Link } from './router'
 import { routes } from './routes'
 import { useSettings } from './settings/hook'
+import { useMediaQuery } from '@/lib/hooks'
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
+  const media = useMediaQuery()
   const { title, subtitle, navAction, toggleDarkMode, isDarkMode } =
     useSettings()
   const [settingsIsOpen, toggleSettings] = useState(false)
-  const [railIsOpen, toggleRail] = useState(false)
+  const [railIsOpen, toggleRail] = useState(media.isGreaterThanExpanded)
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavRail
-        variant='modal'
+        variant='standard'
         state={railIsOpen ? 'expanded' : 'collapsed'}
         onChangeState={state => toggleRail(state === 'expanded')}
       >
@@ -137,7 +139,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             </AppbarRow>
           )}
         </Appbar>
-        <main style={{ padding: '1.5rem 1rem' }}>{children}</main>
+        {children}
       </div>
     </>
   )
