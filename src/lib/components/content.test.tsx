@@ -150,6 +150,98 @@ describe('Content Components', () => {
       expect(element.getAttribute('data-rows')).toBe('3')
     })
 
+    it('applies the spacing prop', () => {
+      const { container } = render(
+        <ContentGridItem spacing='md'>Item</ContentGridItem>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-spacing')).toBe('md')
+    })
+
+    it('applies the spacingX prop', () => {
+      const { container } = render(
+        <ContentGridItem spacingX='lg'>Item</ContentGridItem>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-spacing-x')).toBe('lg')
+    })
+
+    it('applies the spacingY prop', () => {
+      const { container } = render(
+        <ContentGridItem spacingY='sm'>Item</ContentGridItem>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-spacing-y')).toBe('sm')
+    })
+
+    it('applies the gap prop', () => {
+      const { container } = render(
+        <ContentGridItem gap='xl'>Item</ContentGridItem>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-gap')).toBe('xl')
+    })
+
+    it('applies the gapX prop', () => {
+      const { container } = render(
+        <ContentGridItem gapX='xs'>Item</ContentGridItem>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-gap-x')).toBe('xs')
+    })
+
+    it('applies the gapY prop', () => {
+      const { container } = render(
+        <ContentGridItem gapY='md'>Item</ContentGridItem>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-gap-y')).toBe('md')
+    })
+
+    it('applies the fullwidth prop', () => {
+      const { container } = render(
+        <ContentGridItem fullwidth>Item</ContentGridItem>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-fullwidth')).toBe('true')
+    })
+
+    it('does not set data-fullwidth when fullwidth is omitted', () => {
+      const { container } = render(<ContentGridItem>Item</ContentGridItem>)
+      const element = container.firstChild as HTMLElement
+      expect(element.hasAttribute('data-fullwidth')).toBe(false)
+    })
+
+    it('applies the flexDirection prop', () => {
+      const { rerender, container } = render(
+        <ContentGridItem flexDirection='row'>Item</ContentGridItem>,
+      )
+      let element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('row')
+
+      rerender(<ContentGridItem flexDirection='column'>Item</ContentGridItem>)
+      element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('column')
+
+      rerender(
+        <ContentGridItem flexDirection='row-reverse'>Item</ContentGridItem>,
+      )
+      element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('row-reverse')
+
+      rerender(
+        <ContentGridItem flexDirection='column-reverse'>Item</ContentGridItem>,
+      )
+      element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('column-reverse')
+    })
+
+    it('does not set data-direction when flexDirection is omitted', () => {
+      const { container } = render(<ContentGridItem>Item</ContentGridItem>)
+      const element = container.firstChild as HTMLElement
+      expect(element.hasAttribute('data-direction')).toBe(false)
+    })
+
     it('passes additional props to the root element', () => {
       const { container } = render(
         <ContentGridItem className='grid-item' aria-label='Featured card'>
@@ -192,6 +284,84 @@ describe('Content Components', () => {
       rerender(<ContentPane variant='flexible'>Pane</ContentPane>)
       element = container.firstChild as HTMLElement
       expect(element.getAttribute('data-variant')).toBe('flexible')
+    })
+
+    it('applies the spacing prop', () => {
+      const { container } = render(<ContentPane spacing='md'>Pane</ContentPane>)
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-spacing')).toBe('md')
+    })
+
+    it('applies the spacingX prop', () => {
+      const { container } = render(
+        <ContentPane spacingX='lg'>Pane</ContentPane>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-spacing-x')).toBe('lg')
+    })
+
+    it('applies the spacingY prop', () => {
+      const { container } = render(
+        <ContentPane spacingY='sm'>Pane</ContentPane>,
+      )
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-spacing-y')).toBe('sm')
+    })
+
+    it('applies the gap prop', () => {
+      const { container } = render(<ContentPane gap='xl'>Pane</ContentPane>)
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-gap')).toBe('xl')
+    })
+
+    it('applies the gapX prop', () => {
+      const { container } = render(<ContentPane gapX='xs'>Pane</ContentPane>)
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-gap-x')).toBe('xs')
+    })
+
+    it('applies the gapY prop', () => {
+      const { container } = render(<ContentPane gapY='md'>Pane</ContentPane>)
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-gap-y')).toBe('md')
+    })
+
+    it('applies the fullwidth prop', () => {
+      const { container } = render(<ContentPane fullwidth>Pane</ContentPane>)
+      const element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-fullwidth')).toBe('true')
+    })
+
+    it('does not set data-fullwidth when fullwidth is omitted', () => {
+      const { container } = render(<ContentPane>Pane</ContentPane>)
+      const element = container.firstChild as HTMLElement
+      expect(element.hasAttribute('data-fullwidth')).toBe(false)
+    })
+
+    it('applies the flexDirection prop', () => {
+      const { rerender, container } = render(
+        <ContentPane flexDirection='row'>Pane</ContentPane>,
+      )
+      let element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('row')
+
+      rerender(<ContentPane flexDirection='column'>Pane</ContentPane>)
+      element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('column')
+
+      rerender(<ContentPane flexDirection='row-reverse'>Pane</ContentPane>)
+      element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('row-reverse')
+
+      rerender(<ContentPane flexDirection='column-reverse'>Pane</ContentPane>)
+      element = container.firstChild as HTMLElement
+      expect(element.getAttribute('data-direction')).toBe('column-reverse')
+    })
+
+    it('does not set data-direction when flexDirection is omitted', () => {
+      const { container } = render(<ContentPane>Pane</ContentPane>)
+      const element = container.firstChild as HTMLElement
+      expect(element.hasAttribute('data-direction')).toBe(false)
     })
 
     it('passes additional props to the root element', () => {

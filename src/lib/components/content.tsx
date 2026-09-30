@@ -19,7 +19,9 @@ type ContentCommons = {
   fullwidth?: boolean
 }
 
+/** Internal helper type that exposes the `flexDirection` CSS property as a prop. */
 type ContentDirections = {
+  /** The flex direction of the content container. Maps directly to the CSS `flex-direction` property. */
   flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
 }
 
