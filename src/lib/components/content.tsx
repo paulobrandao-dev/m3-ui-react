@@ -2,6 +2,27 @@
 
 import './content.scss'
 
+type ContentCommons = {
+  /** Uniform padding applied to all sides, using the design token spacing scale. */
+  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** Horizontal padding (`padding-inline`), using the design token spacing scale. */
+  spacingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** Vertical padding (`padding-block`), using the design token spacing scale. */
+  spacingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** Uniform gap between children, using the design token spacing scale. */
+  gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** Row gap between children, using the design token spacing scale. */
+  gapX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** Column gap between children, using the design token spacing scale. */
+  gapY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** When `true`, stretches the container to fill its parent's full width. */
+  fullwidth?: boolean
+}
+
+type ContentDirections = {
+  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+}
+
 /**
  * Props for the `Content` component.
  *
@@ -23,21 +44,7 @@ export type ContentProps<T extends React.ElementType = 'div'> = Omit<
    * Defaults to `panes`.
    */
   variant?: 'grid' | 'stack' | 'panes'
-  /** Uniform padding applied to all sides, using the design token spacing scale. */
-  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  /** Horizontal padding (`padding-inline`), using the design token spacing scale. */
-  spacingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  /** Vertical padding (`padding-block`), using the design token spacing scale. */
-  spacingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  /** Uniform gap between children, using the design token spacing scale. */
-  gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  /** Row gap between children, using the design token spacing scale. */
-  gapX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  /** Column gap between children, using the design token spacing scale. */
-  gapY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  /** When `true`, stretches the container to fill its parent's full width. */
-  fullwidth?: boolean
-}
+} & ContentCommons
 
 /**
  * The `Content` component is a versatile layout container that supports three
@@ -122,7 +129,8 @@ export type ContentGridItemProps<T extends React.ElementType = 'div'> = Omit<
    * on mobile viewports. Defaults to `1`.
    */
   rows?: 1 | 2 | 3 | 4
-}
+} & ContentCommons &
+  ContentDirections
 
 /**
  * The `ContentGridItem` component renders a child cell inside a `Content` with
@@ -146,6 +154,14 @@ export const ContentGridItem = <T extends React.ElementType = 'div'>({
   as,
   columns = 1,
   rows = 1,
+  spacing,
+  spacingX,
+  spacingY,
+  gap,
+  gapX,
+  gapY,
+  flexDirection,
+  fullwidth,
   ...props
 }: ContentGridItemProps<T>) => {
   const Component = as ?? 'div'
@@ -155,6 +171,14 @@ export const ContentGridItem = <T extends React.ElementType = 'div'>({
       data-content-grid-item
       data-columns={columns}
       data-rows={rows}
+      data-spacing={spacing}
+      data-spacing-x={spacingX}
+      data-spacing-y={spacingY}
+      data-gap={gap}
+      data-gap-x={gapX}
+      data-gap-y={gapY}
+      data-fullwidth={fullwidth}
+      data-direction={flexDirection}
       {...props}
     />
   )
@@ -180,7 +204,8 @@ export type ContentPaneProps<T extends React.ElementType = 'div'> = Omit<
    * Defaults to `flexible`.
    */
   variant?: 'fixed' | 'flexible'
-}
+} & ContentCommons &
+  ContentDirections
 
 /**
  * The `ContentPane` component renders a horizontal pane inside a `Content` with
@@ -207,9 +232,31 @@ export type ContentPaneProps<T extends React.ElementType = 'div'> = Omit<
 export const ContentPane = <T extends React.ElementType = 'div'>({
   as,
   variant = 'flexible',
+  spacing,
+  spacingX,
+  spacingY,
+  gap,
+  gapX,
+  gapY,
+  fullwidth,
+  flexDirection,
   ...props
 }: ContentPaneProps<T>) => {
   const Component = as ?? 'div'
 
-  return <Component data-content-pane data-variant={variant} {...props} />
+  return (
+    <Component
+      data-content-pane
+      data-variant={variant}
+      data-spacing={spacing}
+      data-spacing-x={spacingX}
+      data-spacing-y={spacingY}
+      data-gap={gap}
+      data-gap-x={gapX}
+      data-gap-y={gapY}
+      data-fullwidth={fullwidth}
+      data-direction={flexDirection}
+      {...props}
+    />
+  )
 }

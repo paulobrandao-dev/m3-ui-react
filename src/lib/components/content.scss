@@ -1,102 +1,8 @@
-[data-content] {
+%content-commons {
   display: flex;
 
   &[data-fullwidth] {
     width: 100%;
-  }
-
-  &[data-variant='grid'] {
-    display: grid;
-
-    @media screen and (max-width: 599px) {
-      grid-template-columns: 1fr;
-    }
-
-    @media screen and (min-width: 600px) and (max-width: 839px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media screen and (min-width: 840px) and (max-width: 1199px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (min-width: 1200px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    > [data-content-grid-item] {
-      grid-column: auto;
-      grid-row: auto;
-
-      &[data-columns='2'] {
-        grid-column: auto / span 2;
-
-        @media screen and (max-width: 599px) {
-          grid-column: auto;
-        }
-      }
-
-      &[data-columns='3'] {
-        grid-column: auto / span 3;
-
-        @media screen and (max-width: 599px) {
-          grid-column: auto;
-        }
-      }
-
-      &[data-columns='4'] {
-        grid-column: auto / span 4;
-
-        @media screen and (max-width: 1199px) {
-          grid-column: auto / span 3;
-        }
-
-        @media screen and (max-width: 599px) {
-          grid-column: auto;
-        }
-      }
-
-      &[data-rows='2'] {
-        grid-row: auto / span 2;
-
-        @media screen and (max-width: 599px) {
-          grid-row: auto;
-        }
-      }
-
-      &[data-rows='3'] {
-        grid-row: auto / span 3;
-
-        @media screen and (max-width: 599px) {
-          grid-row: auto;
-        }
-      }
-
-      &[data-rows='4'] {
-        grid-row: auto / span 4;
-
-        @media screen and (max-width: 599px) {
-          grid-row: auto;
-        }
-      }
-    }
-  }
-
-  &[data-variant='stack'] {
-    flex-direction: column;
-  }
-
-  &[data-variant='panes'] {
-    flex-direction: row;
-
-    > [data-content-pane] {
-      flex: 1;
-
-      &[data-variant='fixed'] {
-        min-width: 22.5rem;
-        max-width: 25.75rem;
-      }
-    }
   }
 
   &[data-spacing='xs'] {
@@ -193,5 +99,122 @@
   }
   &[data-gap-y='xl'] {
     column-gap: var(--spacing-xl);
+  }
+}
+
+%content-directions {
+  &[data-direction='row'] {
+    flex-direction: row;
+  }
+  &[data-direction='column'] {
+    flex-direction: column;
+  }
+  &[data-direction='row-reverse'] {
+    flex-direction: row-reverse;
+  }
+  &[data-direction='column-reverse'] {
+    flex-direction: column-reverse;
+  }
+}
+
+[data-content] {
+  @extend %content-commons;
+
+  &[data-variant='grid'] {
+    display: grid;
+
+    @media screen and (max-width: 599px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media screen and (min-width: 600px) and (max-width: 839px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 840px) and (max-width: 1199px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    > [data-content-grid-item] {
+      grid-column: auto;
+      grid-row: auto;
+      @extend %content-commons;
+      @extend %content-directions;
+
+      &[data-columns='2'] {
+        grid-column: auto / span 2;
+
+        @media screen and (max-width: 599px) {
+          grid-column: auto;
+        }
+      }
+
+      &[data-columns='3'] {
+        grid-column: auto / span 3;
+
+        @media screen and (max-width: 599px) {
+          grid-column: auto;
+        }
+      }
+
+      &[data-columns='4'] {
+        grid-column: auto / span 4;
+
+        @media screen and (max-width: 1199px) {
+          grid-column: auto / span 3;
+        }
+
+        @media screen and (max-width: 599px) {
+          grid-column: auto;
+        }
+      }
+
+      &[data-rows='2'] {
+        grid-row: auto / span 2;
+
+        @media screen and (max-width: 599px) {
+          grid-row: auto;
+        }
+      }
+
+      &[data-rows='3'] {
+        grid-row: auto / span 3;
+
+        @media screen and (max-width: 599px) {
+          grid-row: auto;
+        }
+      }
+
+      &[data-rows='4'] {
+        grid-row: auto / span 4;
+
+        @media screen and (max-width: 599px) {
+          grid-row: auto;
+        }
+      }
+    }
+  }
+
+  &[data-variant='stack'] {
+    flex-direction: column;
+  }
+
+  &[data-variant='panes'] {
+    flex-direction: row;
+
+    > [data-content-pane] {
+      flex: 1;
+      @extend %content-commons;
+      @extend %content-directions;
+
+      &[data-variant='fixed'] {
+        min-width: 22.5rem;
+        max-width: 25.75rem;
+      }
+    }
   }
 }

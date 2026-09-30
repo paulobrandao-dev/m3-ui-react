@@ -4,125 +4,122 @@ import { Content, ContentPane } from '@/lib/components/content'
 <PageHeader title='M3 UI React' subtitle='Material 3 design system for React' />
 
 <Content as='main' variant='panes' spacingY='xl' spacingX='lg' gap='xl'>
-  <ContentPane role='presentation'>
-    <Content as='article' variant='stack' fullwidth gap='lg'>
-      M3 UI React is a component library that implements the [Material Design 3](https://m3.material.io/) design system for React applications. It provides themeable, accessible, and polymorphic components that integrate seamlessly with both client-side apps and server-side rendering frameworks such as **Next.js**, **Remix**, and **Astro**.
+  <ContentPane as='article' flexDirection='column' gap='lg'>
+    M3 UI React is a component library that implements the [Material Design 3](https://m3.material.io/) design system for React applications. It provides themeable, accessible, and polymorphic components that integrate seamlessly with both client-side apps and server-side rendering frameworks such as **Next.js**, **Remix**, and **Astro**.
 
-      ## Installation
+    ## Installation
 
-      ```bash
-      npm i m3-ui-react
-      ```
+    ```bash
+    npm i m3-ui-react
+    ```
 
-      ## Setup
+    ## Setup
 
-      The library ships its styles as separate CSS files to keep your bundle lean. You only import what you use.
+    The library ships its styles as separate CSS files to keep your bundle lean. You only import what you use.
 
-      ### 1. Base styles
+    ### 1. Base styles
 
-      Import the base stylesheet once at the root of your application. It includes the design tokens (spacing, shape, motion, typography scale) and the CSS reset used by all components.
+    Import the base stylesheet once at the root of your application. It includes the design tokens (spacing, shape, motion, typography scale) and the CSS reset used by all components.
 
-      ```tsx
-      // React (Vite/CRA) — main.tsx
-      import 'm3-ui-react/dist/m3-ui.css'
-      ```
+    ```tsx
+    // React (Vite/CRA) — main.tsx
+    import 'm3-ui-react/dist/m3-ui.css'
+    ```
 
-      ```tsx
-      // Next.js App Router — app/layout.tsx
-      import 'm3-ui-react/dist/m3-ui.css'
-      ```
+    ```tsx
+    // Next.js App Router — app/layout.tsx
+    import 'm3-ui-react/dist/m3-ui.css'
+    ```
 
-      ### 2. Icon style (choose one)
+    ### 2. Icon style (choose one)
 
-      Icons are shipped as separate CSS files because each family embeds its font as Base64. Pick **one** family and import its stylesheet alongside the base styles.
+    Icons are shipped as separate CSS files because each family embeds its font as Base64. Pick **one** family and import its stylesheet alongside the base styles.
 
-      | Family                | Import                                        |
-      | --------------------- | --------------------------------------------- |
-      | Rounded (recommended) | `import 'm3-ui-react/dist/icon-rounded.css'`  |
-      | Outlined              | `import 'm3-ui-react/dist/icon-outlined.css'` |
-      | Sharp                 | `import 'm3-ui-react/dist/icon-sharp.css'`    |
+    | Family                | Import                                        |
+    | :-------------------- | :--------------------------------------------- |
+    | Rounded (recommended) | `import 'm3-ui-react/dist/icon-rounded.css'`  |
+    | Outlined              | `import 'm3-ui-react/dist/icon-outlined.css'` |
+    | Sharp                 | `import 'm3-ui-react/dist/icon-sharp.css'`    |
 
-      ### 3. Apply a theme
+    ### 3. Apply a theme
 
-      Use `applyTheme` from the appropriate entry point to generate and inject the Material color scheme CSS variables.
+    Use `applyTheme` from the appropriate entry point to generate and inject the Material color scheme CSS variables.
 
-      **Client-side** (Vite, CRA, or inside a `'use client'` component in Next.js):
+    **Client-side** (Vite, CRA, or inside a `'use client'` component in Next.js):
 
-      ```tsx
-      import { applyTheme } from 'm3-ui-react/theme/client'
+    ```tsx
+    import { applyTheme } from 'm3-ui-react/theme/client'
 
-      applyTheme({ seedColor: '#6750A4', colorScheme: 'light' })
-      ```
+    applyTheme({ seedColor: '#6750A4', colorScheme: 'light' })
+    ```
 
-      **Server-side** (Next.js App Router `layout.tsx`):
+    **Server-side** (Next.js App Router `layout.tsx`):
 
-      The server variant returns a `React.CSSProperties` object, so you can pass it directly to the `style` prop of any HTML element. This ensures CSS variables are rendered inline on the server without any hydration flash.
+    The server variant returns a `React.CSSProperties` object, so you can pass it directly to the `style` prop of any HTML element. This ensures CSS variables are rendered inline on the server without any hydration flash.
 
-      ```tsx
-      // app/layout.tsx
-      import 'm3-ui-react/dist/m3-ui.css'
-      import 'm3-ui-react/dist/icon-rounded.css'
-      import { applyTheme } from 'm3-ui-react/theme/server'
+    ```tsx
+    // app/layout.tsx
+    import 'm3-ui-react/dist/m3-ui.css'
+    import 'm3-ui-react/dist/icon-rounded.css'
+    import { applyTheme } from 'm3-ui-react/theme/server'
 
-      export default function RootLayout({
-        children,
-      }: {
-        children: React.ReactNode
-      }) {
-        const themeVars = applyTheme({ seedColor: '#6750A4', colorScheme: 'light' })
+    export default function RootLayout({
+      children,
+    }: {
+      children: React.ReactNode
+    }) {
+      const themeVars = applyTheme({ seedColor: '#6750A4', colorScheme: 'light' })
 
-        return (
-          <html lang='en' style={themeVars}>
-            <body>{children}</body>
-          </html>
-        )
-      }
-      ```
+      return (
+        <html lang='en' style={themeVars}>
+          <body>{children}</body>
+        </html>
+      )
+    }
+    ```
 
-      ## Usage
+    ## Usage
 
-      Import components individually from their respective entry points.
+    Import components individually from their respective entry points.
 
-      ```tsx
-      import { Button } from 'm3-ui-react/button'
-      import { Font } from 'm3-ui-react/font'
-      import { Icon } from 'm3-ui-react/icon/rounded'
-      import {
-        Appbar,
-        AppbarRow,
-        AppbarContent,
-        AppbarHeading,
-        AppbarTitle,
-      } from 'm3-ui-react/appbar'
+    ```tsx
+    import { Button } from 'm3-ui-react/button'
+    import { Font } from 'm3-ui-react/font'
+    import { Icon } from 'm3-ui-react/icon/rounded'
+    import {
+      Appbar,
+      AppbarRow,
+      AppbarContent,
+      AppbarHeading,
+      AppbarTitle,
+    } from 'm3-ui-react/appbar'
 
-      export default function MyPage() {
-        return (
-          <>
-            <Appbar>
-              <AppbarRow>
-                <AppbarContent variant='start'>
-                  <Icon symbol='menu' />
-                </AppbarContent>
-                <AppbarHeading>
-                  <AppbarTitle>My App</AppbarTitle>
-                </AppbarHeading>
-              </AppbarRow>
-            </Appbar>
+    export default function MyPage() {
+      return (
+        <>
+          <Appbar>
+            <AppbarRow>
+              <AppbarContent variant='start'>
+                <Icon symbol='menu' />
+              </AppbarContent>
+              <AppbarHeading>
+                <AppbarTitle>My App</AppbarTitle>
+              </AppbarHeading>
+            </AppbarRow>
+          </Appbar>
 
-            <main>
-              <Font as='h2' variant='headline-medium'>
-                Welcome
-              </Font>
-              <Button variant='filled' size='md'>
-                Get started
-              </Button>
-            </main>
-          </>
-        )
-      }
-      ```
-
-    </Content>
+          <main>
+            <Font as='h2' variant='headline-medium'>
+              Welcome
+            </Font>
+            <Button variant='filled' size='md'>
+              Get started
+            </Button>
+          </main>
+        </>
+      )
+    }
+    ```
 
   </ContentPane>
   <ContentPane variant='fixed'>
